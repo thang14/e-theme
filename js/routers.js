@@ -11,6 +11,6 @@ onhanhApp.config(['$routeProvider',
         controller: 'ProductDetailController'
       }).
       otherwise({
-        redirectTo: '/products'
+        redirectTo: '/'
       });
   }]);
