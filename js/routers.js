@@ -4,13 +4,13 @@ onhanhApp.config(['$routeProvider',
     $routeProvider.
       when('/products/', {
         templateUrl: 'web/partials/product-list.html',
-        controller: 'PhoneListCtrl'
+        controller: 'ProductListController'
       }).
-      when('/products/:phoneId', {
+      when('/products/:productId', {
         templateUrl: 'web/partials/product-detail.html',
-        controller: 'PhoneDetailCtrl'
+        controller: 'ProductDetailController'
       }).
       otherwise({
-        redirectTo: '/phones'
+        redirectTo: '/products'
       });
   }]);
