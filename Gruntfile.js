@@ -16,8 +16,11 @@ module.exports = function(grunt) {
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
+  
+  grunt.registerTask('js', ['uglify']);
+  grunt.registerTask('css', ['cssmin']);
+  
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['js', 'css']);
 
 };
