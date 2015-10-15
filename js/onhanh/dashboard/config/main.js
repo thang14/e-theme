@@ -9,8 +9,8 @@ define(['app'], function(app) {
     app.config(['$stateProvider', function($stateProvider) {
         $stateProvider
             .state("home", {
-                url: "/:name",
-                templateUrl: '/layout/dashboard',
+                url: "/:name/home",
+                templateUrl: '/web/dashboard/dashboard',
                 controller: 'DashboardController'
             });
     }]);
