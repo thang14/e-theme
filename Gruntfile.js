@@ -7,9 +7,10 @@ module.exports = function(grunt) {
       scriptCore: {
         files: [
           'dist/js/core.js' => [
-            'bower_components/jquery/jquery',
-            'bower_components/angular/angular',
-            'bower_components/angular-route/angular-route',
+            'bower_components/jquery/jquery.min',
+            'bower_components/angular/angular.min',
+            'bower_components/angular-route/angular-route.min',
+            'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min',
           ]
         ]
       },
