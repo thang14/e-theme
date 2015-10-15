@@ -5,6 +5,7 @@
  * @description     App
  */
 angular.module('app', [
+    'app.auth',
     'app.environment',
     'app.product',
     'app.shop',
