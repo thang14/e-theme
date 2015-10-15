@@ -10,9 +10,11 @@ require.config({
     paths: {
         'jquery': '../bower_components/jquery/jquery.min',
         'angular': '../bower_components/angular/angular',
+        'angular-route': '../bower_components/angular-route/angular-route',
     },
     // Add angular modules that does not support AMD out of the box, put it in a shim
     shim: {
+        'angular-route': ['angular'],
         'angular': {
             'exports': 'angular',
             deps: ['jquery']
