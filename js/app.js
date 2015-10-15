@@ -7,7 +7,7 @@
 
 define([
         'angular',
-        'jQuery',
+        'jquery',
     ],
     function(angular) {
         'use strict';
