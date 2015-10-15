@@ -3,6 +3,47 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    
+    jshint: {
+      options: {
+        jshintrc: true,
+      },
+      kernel: {
+        files:{
+          src: { src: 'js/kernel/**/*.js' },
+        }
+      },
+      dashboard: {
+        files:{
+          src: { src: 'js/dashboard/**/*.js' },
+        }
+      },
+      product: {
+        files:{
+          src: { src: 'js/product/**/*.js' },
+        }
+      },
+      orders: {
+        files:{
+          src: { src: 'js/orders/**/*.js' },
+        }
+      },
+      shop: {
+        files:{
+          src: { src: 'js/shop/**/*.js' },
+        }
+      },
+      settings: {
+        files:{
+          src: { src: 'js/settings/**/*.js' },
+        }
+      },
+      auth: {
+        files:{
+          src: { src: 'js/auth/**/*.js' },
+        }
+      },
+    },
     uglify: {
       scriptCore: {
         files: {
