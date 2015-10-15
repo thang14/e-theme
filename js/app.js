@@ -13,5 +13,6 @@ angular.module('app', [
     'app.kernel',
     'app.settings',
     'app.variant',
-    'app.order'
+    'app.order',
+    'app.dashboard'
 ]);
