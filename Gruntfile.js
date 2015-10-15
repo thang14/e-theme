@@ -10,6 +10,7 @@ module.exports = function(grunt) {
             'bower_components/jquery/jquery.min',
             'bower_components/angular/angular.min',
             'bower_components/angular-route/angular-route.min',
+            'bower_components/angular-route/angular-ui-router.min',
             'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min',
           ]
         ]
