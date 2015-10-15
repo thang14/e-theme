@@ -11,5 +11,7 @@ angular.module('app', [
     'app.section',
     'app.reports',
     'app.kernel',
-    'app.settings'
+    'app.settings',
+    'app.variant',
+    'app.order'
 ]);
