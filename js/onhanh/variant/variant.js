@@ -12,5 +12,5 @@ define(['app',
     './controllers/detail',
     './services/variant',
 ], function(app) {
-    console.log('Order variant loaded ...');
+    console.log('Module variant loaded ...');
 });
