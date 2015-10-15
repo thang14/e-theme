@@ -10,6 +10,7 @@ define(['app',
     './controllers/list',
     './controllers/add',
     './controllers/detail',
+    './services/section',
 ], function(app) {
     console.log('Section module loaded ...');
 });
