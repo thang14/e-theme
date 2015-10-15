@@ -3,32 +3,55 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    uglify: {
-      scriptCore: {
-        files: {
-          'dist/js/core.js': [
-            'bower_components/jquery/dist/jquery.min.js',
-            'bower_components/angular/angular.min.js',
-            'bower_components/angular-route/angular-route.min.js',
-            'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-            'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js'
-          ]
-        }
+    
+    
+    build: {
+      core: {
+        dest: 'dist/js/core.js',
+        src: [
+          'bower_components/jquery/dist/jquery.min.js',
+          'bower_components/angular/angular.min.js',
+          'bower_components/angular-route/angular-route.min.js',
+          'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+          'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js'
+        ]
       },
-      scriptApp: {
-        files: {
-          'dist/js/app.js': [
-            
-            //core
-            'js/app.js',
-            'js/bootstrap.js',
-            'js/environment.js',
-            
-            // Kernel Module
-            
-          ]
-        }
-      }
+      kernel: {
+        dest: 'dist/js/kernel.js',
+        src: util.wrap(files['modules']['kernel'], 'module')
+      },
+      product: {
+        dest: 'dist/js/product.js',
+        src: util.wrap(files['modules']['product'], 'module')
+      },
+      auth: {
+        dest: 'dist/js/auth.js',
+        src: util.wrap(files['modules']['auth'], 'module')
+      },
+      section: {
+        dest: 'dist/js/section.js',
+        src: util.wrap(files['modules']['section'], 'module')
+      },
+      order: {
+        dest: 'dist/js/order.js',
+        src: util.wrap(files['modules']['order'], 'module')
+      },
+      shop: {
+        dest: 'dist/js/shop.js',
+        src: util.wrap(files['modules']['shop'], 'module')
+      },
+      variant: {
+        dest: 'dist/js/variant.js',
+        src: util.wrap(files['modules']['variant'], 'module')
+      },
+      reports: {
+        dest: 'dist/js/reports.js',
+        src: util.wrap(files['modules']['reports'], 'module')
+      },
+      reports: {
+        dest: 'dist/js/dashboard.js',
+        src: util.wrap(files['modules']['dashboard'], 'module')
+      },
     },
     ngtemplates:  {
       web:{
@@ -43,12 +66,12 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      fontsBootstrap: {
+      bootstrap: {
         expand: true,
         src: 'bower_components/bootstrap-sass/assets/fonts/*',
         dest: 'dist/'
       },
-      fontsAwesome: {
+      awesome: {
         expand: true,
         src: 'bower_components/font-awesome-sass/assets/fonts/*',
         dest: 'dist/'
