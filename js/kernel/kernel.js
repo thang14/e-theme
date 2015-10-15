@@ -2,6 +2,8 @@
 
 /**
  * @name            OnhanhKernel
- * @description     Dashboard
+ * @description     KernelModule
  */
-angular.module("app.kernel", []);
+ 
+var kernelModule = angular.module('app.kernel', []);
+
