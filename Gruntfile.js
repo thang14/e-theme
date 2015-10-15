@@ -48,10 +48,22 @@ module.exports = function(grunt) {
         dest: 'dist/js/reports.js',
         src: util.wrap(files['modules']['reports'], 'module')
       },
-      reports: {
-        dest: 'dist/js/dashboard.js',
-        src: util.wrap(files['modules']['dashboard'], 'module')
-      },
+      all: {
+        dest: 'dist/js/app.js',
+        src: [
+          'js/app.js',
+          'js/bootstrap',
+          'js/environment',
+          'dist/js/kernel',
+          'dist/js/product',
+          'dist/js/auth',
+          'dist/js/section',
+          'dist/js/order',
+          'dist/js/shop',
+          'dist/js/variant',
+          'dist/js/reports',
+        ],
+      }
     },
     ngtemplates:  {
       web:{
