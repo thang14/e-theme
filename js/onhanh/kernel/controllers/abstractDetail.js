@@ -6,8 +6,8 @@
  */
 
 angular.module('app.kernel')
-.controller('abstractDetailController', ['$controller', '$scope', 'itemService', '$stateParams', '$state'
-    function($controller, $scope, itemService, $stateParams, $state) {
+.controller('abstractDetailController', ['$controller', '$scope', 'itemService', '$stateParams', '$state', 'notify'
+    function($controller, $scope, itemService, $stateParams, $state, notify) {
         
         $scope.detail = {
             id: $stateParams.id,
@@ -15,6 +15,27 @@ angular.module('app.kernel')
         }
         
         $scope.item = {};
+        
+        var errorNotify = function (data) {
+            // If basic message
+            //if (angular.isUndefined(data.error.message) === false) {
+            //    notify('Response:' + data.error.code + ' Message:' + data.error.message);
+            //}
+
+            if (angular.isUndefined(data.message) === false) {
+                notify('Response:' + data.code + ' Message:' + data.message);
+            }
+
+            // If multiple errors
+            if (angular.isUndefined(data.errors) === false) {
+                angular.forEach(data.errors, function (errorMessage, key) {
+                    notify(
+                        'Response: ' + data.code + ' ' +
+                        '"' + key + '": ' + errorMessage
+                    );
+                });
+            }
+        };
         
         /**
          * GET
