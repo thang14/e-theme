@@ -6,16 +6,16 @@
  */
 
 angular.module('app.kernel')
-.controller('abstractDetailController', ['$controller', '$scope', 'itemService', '$stateParams', '$state', 'notify'
+.controller('abstractDetailController', ['$controller', '$scope', 'itemService', '$stateParams', '$state', 'notify',
     function($controller, $scope, itemService, $stateParams, $state, notify) {
-        
+
         $scope.detail = {
             id: $stateParams.id,
             name: $stateParams.name
         }
-        
+
         $scope.item = {};
-        
+
         var errorNotify = function (data) {
             // If basic message
             //if (angular.isUndefined(data.error.message) === false) {
@@ -36,7 +36,7 @@ angular.module('app.kernel')
                 });
             }
         };
-        
+
         /**
          * GET
          */
@@ -55,7 +55,7 @@ angular.module('app.kernel')
                     }
                 });
         }
-        
+
         /**
          * SAVE
          */
@@ -89,7 +89,7 @@ angular.module('app.kernel')
 
             if (callback) callback();
         }
-        
+
         /**
          * SAVE & EXIT
          */
@@ -105,7 +105,7 @@ angular.module('app.kernel')
                     errorNotify(data);
                 });
         };
-        
+
          /**
          * CANCEL
          */
@@ -114,7 +114,7 @@ angular.module('app.kernel')
                 $scope.route.collection
             );
         };
-        
+
         /**
          * DELETE
          */
