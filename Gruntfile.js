@@ -4,7 +4,16 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
-      target: {
+      scriptCore: {
+        files: [
+          'dist/js/core.js' => [
+            'bower_components/jquery/jquery',
+            'bower_components/angular/angular',
+            'bower_components/angular-route/angular-route',
+          ]
+        ]
+      },
+      scriptApp: {
         files: [
           'dist/js/app.js' => ['js/**/*.js']
         ]
