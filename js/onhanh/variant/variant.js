@@ -10,6 +10,7 @@ define(['app',
     './controllers/list',
     './controllers/add',
     './controllers/detail',
+    './services/variant',
 ], function(app) {
     console.log('Order variant loaded ...');
 });
