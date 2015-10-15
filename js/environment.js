@@ -9,7 +9,7 @@ define(['angular'],
     function(angular) {
         'use strict';
         console.log('Environment loaded ...');
-        angular.module('environment', [])
+        angular.module('app.environment', [])
             .service('Environment', function() {
                 var api_domain = document.domain.replace("admin", "api");
 
