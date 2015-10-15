@@ -33,6 +33,18 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      fontsBootstrap: {
+        expand: true,
+        src: 'bower_components/bootstrap-sass/assets/fonts/*',
+        dest: 'dist/'
+      },
+      fontsAwesome: {
+        expand: true,
+        src: 'bower_components/font-awesome-sass/assets/fonts/*',
+        dest: 'dist/'
+      },
+    },
     watch: {
       scripts: {
         files: ['js/**/*.js'],
@@ -54,12 +66,13 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   
   grunt.registerTask('js', ['uglify']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);
   
   // Default task(s).
-  grunt.registerTask('default', ['js', 'css']);
+  grunt.registerTask('default', ['js', 'css', 'copy', 'temp']);
 
 };
