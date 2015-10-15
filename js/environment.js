@@ -17,7 +17,7 @@ define(['angular'],
                     settings: {
                         api: 'http://' + api_domain + '/backend/api',
                         domain: 'http://' + api_domain,
-                        pageTitle: 'Aisel - open source project | Admin',
+                        pageTitle: 'Onhanh - open source project | Admin',
                         locale: {
                             "primary": 'en',
                             "available": ['ru', 'es', 'en']
