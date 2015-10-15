@@ -1,4 +1,4 @@
-var files = require('adminFiles').files;
+var files = require('./adminFiles').files;
 var util = require('./lib/grunt/utils.js');
 
 module.exports = function(grunt) {
