@@ -24,7 +24,7 @@ angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
             },
             
             save: function(data) {
-                var url = Environment.settings.api+'/'+this.resource+'/'+$id;
+                var url = Environment.settings.api+'/'+this.resource+'/'+data.id;
                 return $http({
                     method: 'PUT',
                     url: url,
@@ -33,7 +33,7 @@ angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
             },
             
             create: function(data) {
-                var url = Environment.settings.api+'/'+this.resource+'/'+$id;
+                var url = Environment.settings.api+'/'+this.resource;
                 return $http({
                     method: 'POST',
                     url: url,
@@ -42,5 +42,7 @@ angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
             },
             
         }
+        
+        return resourceService;
     }
 ]);
