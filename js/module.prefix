@@ -1,6 +1,5 @@
 /**
- * @license AngularJS v"NG_VERSION_FULL"
- * (c) 2010-2015 Google, Inc. http://angularjs.org
+ * @license Onhanh dashboard
  * License: MIT
  */
 (function(window, angular, undefined) {
