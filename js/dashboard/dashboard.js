@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @name            OnhanhAuth
+ * @name            OnhanhDashboard
  * @description     DashboardModule
  */
  
