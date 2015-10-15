@@ -30,6 +30,8 @@ require.config({
         './onhanh/reports/reports',
         './onhanh/order/order',
         './onhanh/section/section',
+        './onhanh/shop/shop',
+        './onhanh/auth/auth',
         './onhanh/settings/settings',
         'bootstrap',
     ],
