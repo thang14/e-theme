@@ -1,8 +1,8 @@
 'use strict';
 
 /**
- * @name            OnhanhProduct
- * @description     Product module
+ * @name            OnhanhOrder
+ * @description     Order module
  */
 
 define(['app',
