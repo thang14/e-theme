@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     },
     ngtemplates:  {
       web:{
-        src:'web/**/*.html',
+        src:'web/**.html',
         dest:'dist/js/templates.js',
         options:{
           htmlmin:{
@@ -36,6 +36,13 @@ module.exports = function(grunt) {
       scripts: {
         files: ['js/**/*.js'],
         tasks: ['js'],
+        options: {
+          spawn: false,
+        },
+      },
+      templates: {
+        files: ['web/**.html'],
+        tasks: ['temp'],
         options: {
           spawn: false,
         },
