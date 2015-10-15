@@ -6,18 +6,9 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-
-
-    build: {
-      core: {
-        dest: 'dist/js/core.js',
-        src: [
-          'bower_components/jquery/dist/jquery.min.js',
-          'bower_components/angular/angular.min.js',
-          'bower_components/angular-route/angular-route.min.js',
-          'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-          'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js'
-        ]
+    concat: {
+      options: {
+        separator: ';',
       },
       kernel: {
         dest: 'dist/js/kernel.js',
@@ -49,25 +40,40 @@ module.exports = function(grunt) {
       },
       reports: {
         dest: 'dist/js/reports.js',
-        src: util.wrap([files['modules']['reports']], 'module')
-      },
-      all: {
-        dest: 'dist/js/app.js',
-        src: [
-          'js/app.js',
-          'js/bootstrap',
-          'js/environment',
-          'dist/js/kernel',
-          'dist/js/product',
-          'dist/js/auth',
-          'dist/js/section',
-          'dist/js/order',
-          'dist/js/shop',
-          'dist/js/variant',
-          'dist/js/reports',
-        ],
+        src: util.wrap([files['modules']['reports']], 'module'),
       }
     },
+    uglify: {
+        core: {
+            files:{
+                "dist/js/core.js":[
+                    'bower_components/jquery/dist/jquery.min.js',
+                    'bower_components/angular/angular.min.js',
+                    'bower_components/angular-route/angular-route.min.js',
+                    'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+                    'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js'
+               ],
+           }
+       },
+        dist: {
+            files:{
+                "dist/js/app.js":[
+                  'js/app.js',
+                  'js/bootstrap.js',
+                  'js/environment.js',
+                  'dist/js/kernel.js',
+                  'dist/js/product.js',
+                  'dist/js/auth.js',
+                  'dist/js/section.js',
+                  'dist/js/order.js',
+                  'dist/js/shop.js',
+                  'dist/js/variant.js',
+                  'dist/js/reports.js',
+               ],
+           }
+        }
+
+  },
     ngtemplates:  {
       web:{
         src:'web/**.html',
@@ -114,11 +120,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerMultiTask('build', 'build JS files', function(){
-    util.build.call(util, this.data, this.async());
-  });
-  grunt.registerTask('js', ['build']);
+  grunt.registerTask('js', ['concat', 'uglify']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);
 

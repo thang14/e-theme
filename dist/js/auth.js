@@ -1,1 +1,12 @@
-"use strict";console.log(1);var authModule=angular.module("app.auth",[]);
+
+(function(window, angular, undefined) {
+;'use strict';
+
+/**
+ * @name            OnhanhAuth
+ * @description     AuthModule
+ */
+ 
+var authModule = angular.module('app.auth', []);
+;
+})(window, window.angular);

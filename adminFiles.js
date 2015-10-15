@@ -23,6 +23,9 @@ var angularFiles = {
     'order': [
       'js/order/order.js'
     ],
+    'reports': [
+      'js/order/reports.js'
+    ],
     'settings': [
       'js/settings/settings.js'
     ],
