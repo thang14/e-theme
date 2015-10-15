@@ -22,8 +22,12 @@ module.exports = function(grunt) {
     ngtemplates:  {
       web:{
         src:'web/**/*.html',
+        dest:'dist/js/templates.js',
         options:{
-          usemin: 'dist/js/templates.js' // <~~ This came from the <!-- build:js --> block
+          htmlmin:{
+            collapseWhitespace: true, 
+            collapseBooleanAttributes: true 
+          }
         }
       }
     }
