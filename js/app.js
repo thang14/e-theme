@@ -4,17 +4,12 @@
  * @name            Onhanh
  * @description     App
  */
-
-define([
-        'angular',
-        'jquery',
-    ],
-    function(angular) {
-        'use strict';
-
-        var app = angular.module('app', [
-            'environment'
-        ]);
-        
-        return app;
-    });
+angular.module('app', [
+    'app.environment',
+    'app.product',
+    'app.shop',
+    'app.section',
+    'app.reports',
+    'app.kernel',
+    'app.settings'
+]);
