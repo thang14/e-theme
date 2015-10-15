@@ -5,4 +5,4 @@
  * @description     AuthModule
  */
  
-var authModule = angular.module('app.auth', []).
+var authModule = angular.module('app.auth', []);
