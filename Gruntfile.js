@@ -18,6 +18,14 @@ module.exports = function(grunt) {
           'dist/js/app.js' => ['js/**/*.js']
         ]
       }
+    },
+    ngtemplates:  {
+      web:{
+        src:'web/**/*.html',
+        options:{
+          usemin: 'dist/js/templates.js' // <~~ This came from the <!-- build:js --> block
+        }
+      }
     }
   });
 
@@ -26,6 +34,7 @@ module.exports = function(grunt) {
   
   grunt.registerTask('js', ['uglify']);
   grunt.registerTask('css', ['cssmin']);
+  grunt.registerTask('temp', ['ngtemplates']);
   
   // Default task(s).
   grunt.registerTask('default', ['js', 'css']);
