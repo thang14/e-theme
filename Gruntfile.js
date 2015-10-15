@@ -1,3 +1,6 @@
+var files = require('adminFiles').files;
+var util = require('./lib/grunt/utils.js');
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -5,7 +8,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     
     
-    build: {
+    uglify: {
       core: {
         dest: 'dist/js/core.js',
         src: [
