@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       },
       scriptApp: {
         files: [
-          'dist/js/app.js' => ['js/**/*.js']
+          'dist/js/app.js' => ['js/**.js']
         ]
       }
     },
