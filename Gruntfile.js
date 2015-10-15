@@ -31,11 +31,21 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    watch: {
+      scripts: {
+        files: ['js/**/*.js'],
+        tasks: ['js'],
+        options: {
+          spawn: false,
+        },
+      },
     }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   
   grunt.registerTask('js', ['uglify']);
   grunt.registerTask('css', ['cssmin']);
