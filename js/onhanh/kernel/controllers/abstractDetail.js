@@ -6,8 +6,8 @@
  */
 
 angular.module('app.kernel')
-.controller('abstractDetailController', ['$controller', '$scope', 'itemService', '$stateParams'
-    function($controller, $scope, itemService, $stateParams) {
+.controller('abstractDetailController', ['$controller', '$scope', 'itemService', '$stateParams', '$state'
+    function($controller, $scope, itemService, $stateParams, $state) {
         
         $scope.detail = {
             id: $stateParams.id,
@@ -50,7 +50,64 @@ angular.module('app.kernel')
                         errorNotify(data);
                     });
             }
+            // New item
+            if ($scope.details.id === undefined) {
+                itemService.create($scope.item).success(
+                    function (data, status) {
+                        notify($scope.route.name + ' was added');
+                        $state.transitionTo(
+                            $scope.route.edit, {
+                                id: data.id
+                            }
+                        );
+                    }
+                ).error(function (data, status) {
+                        errorNotify(data);
+                    });
+            }
+
+            if (callback) callback();
         }
         
+        /**
+         * SAVE & EXIT
+         */
+        $scope.editSaveAndExit = function () {
+            itemService.save($scope.item).success(
+                function (data, status) {
+                    notify($scope.route.name + ' has been saved');
+                    $state.transitionTo(
+                        $scope.route.collection
+                    );
+                }
+            ).error(function (data, status) {
+                    errorNotify(data);
+                });
+        };
+        
+         /**
+         * CANCEL
+         */
+        $scope.editCancel = function () {
+            $state.transitionTo(
+                $scope.route.collection
+            );
+        };
+        
+        /**
+         * DELETE
+         */
+        $scope.editDelete = function () {
+            itemService.remove($scope.detail.id).success(
+                function (data, status) {
+                    notify($scope.route.name + ' has been deleted');
+                    $state.transitionTo(
+                        $scope.route.collection
+                    );
+                }
+            ).error(function (data, status) {
+                    errorNotify(data);
+                });
+        };
     }
 ]);
