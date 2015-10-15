@@ -1,0 +1,1 @@
+"use strict";console.log(1);var productModule=angular.module("app.product",[]);

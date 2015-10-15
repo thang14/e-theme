@@ -6,9 +6,9 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    
-    
-    uglify: {
+
+
+    build: {
       core: {
         dest: 'dist/js/core.js',
         src: [
@@ -21,35 +21,35 @@ module.exports = function(grunt) {
       },
       kernel: {
         dest: 'dist/js/kernel.js',
-        src: util.wrap(files['modules']['kernel'], 'module')
+        src: util.wrap([files['modules']['kernel']], 'module')
       },
       product: {
         dest: 'dist/js/product.js',
-        src: util.wrap(files['modules']['product'], 'module')
+        src: util.wrap([files['modules']['product']], 'module')
       },
       auth: {
         dest: 'dist/js/auth.js',
-        src: util.wrap(files['modules']['auth'], 'module')
+        src: util.wrap([files['modules']['auth']], 'module')
       },
       section: {
         dest: 'dist/js/section.js',
-        src: util.wrap(files['modules']['section'], 'module')
+        src: util.wrap([files['modules']['section']], 'module')
       },
       order: {
         dest: 'dist/js/order.js',
-        src: util.wrap(files['modules']['order'], 'module')
+        src: util.wrap([files['modules']['order']], 'module')
       },
       shop: {
         dest: 'dist/js/shop.js',
-        src: util.wrap(files['modules']['shop'], 'module')
+        src: util.wrap([files['modules']['shop']], 'module')
       },
       variant: {
         dest: 'dist/js/variant.js',
-        src: util.wrap(files['modules']['variant'], 'module')
+        src: util.wrap([files['modules']['variant']], 'module')
       },
       reports: {
         dest: 'dist/js/reports.js',
-        src: util.wrap(files['modules']['reports'], 'module')
+        src: util.wrap([files['modules']['reports']], 'module')
       },
       all: {
         dest: 'dist/js/app.js',
@@ -115,7 +115,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('js', ['uglify']);
+  grunt.registerMultiTask('build', 'build JS files', function(){
+    util.build.call(util, this.data, this.async());
+  });
+  grunt.registerTask('js', ['build']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);
 

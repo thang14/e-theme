@@ -1,5 +1,2 @@
-/**
- * @license Onhanh dashboard
- * License: MIT
- */
+
 (function(window, angular, undefined) {

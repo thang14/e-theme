@@ -1,0 +1,1 @@
+"use strict";console.log(1);var shopService=angular.module("app.shop",[]);
