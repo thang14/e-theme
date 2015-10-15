@@ -1,0 +1,7 @@
+'use strict';
+
+/**
+ * @name            OnhanhKernel
+ * @description     Order module
+ */
+angular.module("app.order", []);

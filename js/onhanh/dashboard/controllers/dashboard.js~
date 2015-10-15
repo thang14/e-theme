@@ -11,4 +11,4 @@
 	.controller('DashboardController', ['$location', '$scope', '$routeParams', '$rootScope',
 	    function($location, $scope, $routeParams, $rootScope) {}
 	]);
-})();
+});

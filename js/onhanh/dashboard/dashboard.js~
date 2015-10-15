@@ -1,0 +1,7 @@
+'use strict';
+
+/**
+ * @name            OnhanhKernel
+ * @description     Auth
+ */
+angular.module("app.auth", []);
