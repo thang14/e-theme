@@ -5,7 +5,7 @@
  * @description     OrderController
  */
 orderModule
-    .controller('orderController', [ '$scope'
+    .controller('orderController', [ '$scope',
         function($scope) {
             
         }
