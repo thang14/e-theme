@@ -87,6 +87,7 @@ module.exports = function(grunt) {
         src:'web/**/*.html',
         dest:'dist/js/templates.js',
         options:{
+          module: "app.kernel",
           htmlmin:{
             collapseWhitespace: true,
             collapseBooleanAttributes: true

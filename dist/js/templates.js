@@ -1,4 +1,4 @@
-angular.module('web').run(['$templateCache', function($templateCache) {
+angular.module('app.kernel').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('web/auth/login.html',
