@@ -67,7 +67,7 @@ var adminFiles = {
     //Components
     'breadcrumb' => [
       'js/breadcrumb/breadcrumb.js',
-      'js/breadcrumb/config/**.js'
+      'js/breadcrumb/config/main.js'
     ]
   },
 };
