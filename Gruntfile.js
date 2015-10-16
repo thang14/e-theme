@@ -6,10 +6,15 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    concat: {
+    jshint: {
       options: {
-        separator: ';',
+        jshintrc: true,
       },
+      node: {
+        files: { src: ['*.js', 'lib/**/*.js'] },
+      }
+    },
+    concat: {
       kernel: {
         dest: 'dist/js/kernel.js',
         src: util.wrap([files['modules']['kernel']], 'module')
