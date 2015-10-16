@@ -3,34 +3,34 @@
 var angularFiles = {
   'modules': {
     'kernel': [
-      'js/kernel/kernel.js',
+      'js/kernel/**/*.js'
     ],
     'product': [
-      'js/product/product.js',
+      'js/product/**/*.js'
     ],
     'auth': [
-      'js/auth/auth.js',
+      'js/auth/**/*.js'
     ],
     'variant': [
-      'js/variant/variant.js'
+      'js/variant/**/*.js'
     ],
     'shop': [
-      'js/shop/shop.js'
+      'js/shop/**/*.js'
     ],
     'section': [
-      'js/shop/section.js'
+      'js/shop/**/*.js'
     ],
     'order': [
-      'js/order/order.js'
+      'js/order/**/*.js'
     ],
     'reports': [
-      'js/order/reports.js'
+      'js/order/**/*.js'
     ],
     'settings': [
-      'js/settings/settings.js'
+      'js/settings/**/*.js'
     ],
     'dashboard': [
-      'src/dashboard/dashboard.js'
+      'src/dashboard/**/*.js'
     ]
   },
 };
