@@ -17,7 +17,10 @@ window.angular.module('app', [
     'app.dashboard',
     'app.product',
     'app.section',
-    'app.order'
+    'app.order',
+    'app.shop',
+    'app.reports',
+    'app.settings'
 ]).run(['$rootScope', '$state', '$stateParams',
     function ($rootScope,   $state,   $stateParams) {
 
