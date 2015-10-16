@@ -54,8 +54,12 @@ module.exports = function(grunt) {
                     'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js'
                ],
            }
-       },
+        },
         dist: {
+            options: {
+              sourceMap: true,
+              sourceMapName: 'path/to/sourcemap.map'
+            },
             files:{
                 "dist/js/app.js":[
                   'js/app.js',
