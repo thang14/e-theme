@@ -13,3 +13,5 @@ dashboardModule
                 controller: 'DashboardController'
             });
     }]);
+
+console.log(12121);

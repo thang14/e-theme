@@ -23,7 +23,8 @@ dashboardModule
                 controller: 'DashboardController'
             });
     }]);
-;'use strict';
+
+console.log(12121);;'use strict';
 
 /**
  * @name            OnhanhDashboard
