@@ -62,6 +62,11 @@ var adminFiles = {
       'js/dashboard/config/**/*.js',
       'js/dashboard/controllers/**/*.js',
       'js/dashboard/services/**/*.js',
+    ],
+    
+    //Components
+    'breadcrumb' => [
+      'js/breadcrumb/breadcrumb.js',
     ]
   },
 };
