@@ -4,4 +4,4 @@
  * @name            OnhanhShop
  * @description     ShopModule
  */
-var shopService = angular.module("app.shop", []);
+var shopModule = angular.module("app.shop", []);
