@@ -1,0 +1,8 @@
+{
+  "extends": "../../.jshintrc",
+  "browser": true,
+  "globals": {
+    "angular": false,
+    "shopModule": false
+  }
+}
