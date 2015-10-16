@@ -356,7 +356,7 @@ function BreadcrumbTextDirective($interpolate, $breadcrumb, $rootScope) {
 }
 BreadcrumbTextDirective.$inject = ['$interpolate', '$breadcrumb', '$rootScope'];
 
-angular.module('ncy-angular-breadcrumb', ['ui.router.state'])
+var breadcrumbModule =  angular.module('ncy-angular-breadcrumb', ['ui.router.state'])
     .provider('$breadcrumb', $Breadcrumb)
     .directive('ncyBreadcrumb', BreadcrumbDirective)
     .directive('ncyBreadcrumbLast', BreadcrumbLastDirective)
