@@ -9,6 +9,6 @@
     "grunt-contrib-copy":"0.8.x",
     "grunt-contrib-watch": "0.6.1",
     "grunt-contrib-concat":"0.5.x",
-    "grunt-angular-templates": "2.0.x"
+    "grunt-angular-templates": "0.5.x"
   }
 }

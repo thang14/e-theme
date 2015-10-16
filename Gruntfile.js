@@ -84,7 +84,7 @@ module.exports = function(grunt) {
   },
     ngtemplates:  {
       web:{
-        src:'web/**.html',
+        src:'web/**/*.html',
         dest:'dist/js/templates.js',
         options:{
           htmlmin:{
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
         },
       },
       templates: {
-        files: ['web/**.html'],
+        files: ['web/**/*.html'],
         tasks: ['temp'],
         options: {
           spawn: false,
@@ -129,7 +129,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
-
+  grunt.loadNpmTasks('grunt-angular-templates');
+  
   grunt.registerTask('js', ['concat', 'uglify:dist']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);

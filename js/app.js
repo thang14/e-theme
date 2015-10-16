@@ -13,5 +13,8 @@ window.angular.module('app', [
     'app.environment',
     'app.kernel',
     'app.auth',
-    'app.dashboard'
+    'app.dashboard',
+    
+    // Templates
+    'web'
 ]);
