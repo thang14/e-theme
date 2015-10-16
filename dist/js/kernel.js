@@ -1,6 +1,7 @@
 
 (function(window, angular, undefined) {
-;'use strict';
+
+'use strict';
 
 /**
  * @name            OnhanhKernel
@@ -9,7 +10,22 @@
  
 var kernelModule = angular.module('app.kernel', []);
 
-;;'use strict';
+
+'use strict';
+
+/**
+ * @name            OnhanhKernel
+ * @description     ...
+ */
+kernelModule.config(['$provide', '$urlRouterProvider',
+        function($provide, $urlRouterProvider) {
+            $urlRouterProvider.otherwise(function($injector, $location) {
+                var $state = $injector.get('$state');
+                $state.transitionTo('home');
+            });
+        }
+    ]);
+'use strict';
 
 /**
  * @name            OnhanhKernel
@@ -143,7 +159,9 @@ angular.module('app.kernel')
         };
     }
 ]);
-;;'use strict';
+
+
+'use strict';
 
 /**
  * @name            OnhanhKernel
@@ -191,5 +209,6 @@ angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
         return resourceService;
     }
 ]);
-;
+
+
 })(window, window.angular);

@@ -1,6 +1,7 @@
 
 (function(window, angular, undefined) {
-;'use strict';
+
+'use strict';
 
 /**
  * @name            OnhanhAuth
@@ -8,5 +9,9 @@
  */
  
 var authModule = angular.module('app.auth', []);
-;;;;
+
+
+
+
+
 })(window, window.angular);

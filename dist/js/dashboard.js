@@ -1,6 +1,7 @@
 
 (function(window, angular, undefined) {
-;'use strict';
+
+'use strict';
 
 /**
  * @name            OnhanhDashboard
@@ -8,29 +9,50 @@
  */
  
 var dashboardModule = angular.module('app.dashboard', []);
-;'use strict';
+
+'use strict';
 
 /**
  * @name            OnhanhDashboard
  * @description     ...
  */
 dashboardModule
-    .config(['$stateProvider', function($stateProvider) {
-        $stateProvider
+    .config(['$stateProvider', 
+        function($stateProvider) {
+         // Use $stateProvider to configure your states.
+          $stateProvider
+    
+            //////////
+            // Home //
+            //////////
+    
             .state("home", {
-                url: "/:name/home",
-                templateUrl: '/web/dashboard/dashboard',
-                controller: 'DashboardController'
+    
+              // Use a url of "/" to set a states as the "index".
+              url: "/home",
+    
+              // Example of an inline template string. By default, templates
+              // will populate the ui-view within the parent state's template.
+              // For top level states, like this one, the parent template is
+              // the index.html file. So this template will be inserted into the
+              // ui-view within index.html.
+              controller: 'dashboardController',
+              templateUrl: '/web/dashboard/dashboard.html',
             });
-    }]);
-;'use strict';
+        }
+    ]);
+
+'use strict';
 
 /**
  * @name            OnhanhDashboard
  * @description     ...
  */
 dashboardModule
-	.controller('DashboardController', ['$location', '$scope', '$routeParams', '$rootScope',
-	    function($location, $scope, $routeParams, $rootScope) {}
-	]);;
+	.controller('dashboardController', ['$location', '$scope', '$rootScope',
+	    function($location, $scope, $rootScope) {
+	    	
+	    }
+	]);
+
 })(window, window.angular);

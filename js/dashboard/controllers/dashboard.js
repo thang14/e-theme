@@ -5,6 +5,8 @@
  * @description     ...
  */
 dashboardModule
-	.controller('DashboardController', ['$location', '$scope', '$routeParams', '$rootScope',
-	    function($location, $scope, $routeParams, $rootScope) {}
+	.controller('dashboardController', ['$location', '$scope', '$rootScope',
+	    function($location, $scope, $rootScope) {
+	    	
+	    }
 	]);
