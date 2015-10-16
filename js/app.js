@@ -16,7 +16,8 @@ window.angular.module('app', [
     'app.auth',
     'app.dashboard',
     'app.product',
-    'app.section'
+    'app.section',
+    'app.order'
 ]).run(['$rootScope', '$state', '$stateParams',
     function ($rootScope,   $state,   $stateParams) {
 
