@@ -98,13 +98,19 @@ module.exports = function(grunt) {
     copy: {
       bootstrap: {
         expand: true,
-        src: 'bower_components/bootstrap-sass/assets/fonts/*',
-        dest: 'dist/'
+        cwd: 'bower_components/bootstrap-sass/assets/fonts/',
+        src: '**',
+        dest: 'dist/fonts/bootstrap',
+        flatten: true,
+        filter: 'isFile',
       },
       awesome: {
         expand: true,
-        src: 'bower_components/font-awesome-sass/assets/fonts/*',
-        dest: 'dist/'
+        cwd: 'bower_components/font-awesome-sass/assets/fonts/',
+        src: '**',
+        dest: 'dist/fonts/font-awesome',
+        flatten: true,
+        filter: 'isFile',
       },
     },
     watch: {
