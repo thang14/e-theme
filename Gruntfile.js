@@ -60,21 +60,24 @@ module.exports = function(grunt) {
            }
        },
        dist: {
+            options: {
+              sourceMap: true
+            },
             files:{
                 "dist/js/app.js":[
-                  'js/app.js',
-                  'js/environment.js',
-                  'dist/js/kernel.js',
-                  'dist/js/product.js',
-                  'dist/js/auth.js',
-                  'dist/js/section.js',
-                  'dist/js/order.js',
-                  'dist/js/shop.js',
-                  'dist/js/variant.js',
-                  'dist/js/reports.js',
-                  'dist/js/dashboard.js',
-                  'js/bootstrap.js',
-               ],
+                    'js/app.js',
+                    'js/environment.js',
+                    'dist/js/kernel.js',
+                    'dist/js/product.js',
+                    'dist/js/auth.js',
+                    'dist/js/section.js',
+                    'dist/js/order.js',
+                    'dist/js/shop.js',
+                    'dist/js/variant.js',
+                    'dist/js/reports.js',
+                    'dist/js/dashboard.js',
+                    'js/bootstrap.js',
+              ],
            }
         }
 
