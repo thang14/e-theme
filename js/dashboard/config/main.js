@@ -26,6 +26,9 @@ dashboardModule
               // ui-view within index.html.
               controller: 'dashboardController',
               templateUrl: '/web/dashboard/dashboard.html',
+              ncyBreadcrumb: {
+                  label: 'Dashboard'
+              },
             });
         }
     ]);
