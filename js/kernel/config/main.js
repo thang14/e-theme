@@ -5,7 +5,7 @@
  * @description     ...
  */
  
-app.config(['$provide', '$urlRouterProvider',
+kernelModule.config(['$provide', '$urlRouterProvider',
   function($provide, $urlRouterProvider) {
       $urlRouterProvider.otherwise(function($injector, $location) {
           $state.transitionTo('home');
