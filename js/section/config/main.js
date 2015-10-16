@@ -4,7 +4,7 @@
  * @name            OnhanhSection
  * @description     SectionConfig
  */
-orderModule
+sectionModule
     .config(['$stateProvider',
         function($stateProvider) {
          // Use $stateProvider to configure your states.
