@@ -7,13 +7,15 @@
    <meta name="description" content="{{app.description}}">
    <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
    <title data-ng-bind="::pageTitle()">Onhanh Admin Template</title>
+   
    <!-- Bootstrap styles-->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900">
    <link rel="stylesheet" href="../dist/css/core.css">
    <link rel="stylesheet" href="../dist/css/app.css">
 </head>
 
 <body>
-   <div ng-include="/web/layouts/main.html"></div>
+   <div ng-include="'/web/layouts/main.html'"></div>
    <script src="../dist/js/core.js"></script>
    <script src="../dist/js/app.js"></script>
    <script src="../dist/js/templates.js"></script>
