@@ -5,10 +5,11 @@
  */
 
 window.angular.module('app', [
-    
+
     //Core module
     'ui.router',
-    
+
+
     //App module
     'app.environment',
     'app.kernel',

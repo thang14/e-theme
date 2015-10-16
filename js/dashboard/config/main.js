@@ -5,20 +5,20 @@
  * @description     ...
  */
 dashboardModule
-    .config(['$stateProvider', 
+    .config(['$stateProvider',
         function($stateProvider) {
          // Use $stateProvider to configure your states.
           $stateProvider
-    
+
             //////////
             // Home //
             //////////
-    
+
             .state("home", {
-    
+              title: "Dashboard",
               // Use a url of "/" to set a states as the "index".
               url: "/",
-    
+
               // Example of an inline template string. By default, templates
               // will populate the ui-view within the parent state's template.
               // For top level states, like this one, the parent template is
@@ -27,8 +27,8 @@ dashboardModule
               controller: 'dashboardController',
               templateUrl: '/web/dashboard/dashboard.html',
               ncyBreadcrumb: {
-                  label: 'Dashboard'
-              },
+                  label: 'Home'
+              }
             });
         }
     ]);

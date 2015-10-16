@@ -7,7 +7,7 @@ var adminFiles = {
       'js/kernel/config/**/*.js',
       'js/kernel/controllers/**/*.js',
       'js/kernel/services/**/*.js',
-      
+
     ],
     'product': [
       'js/product/product.js',
@@ -63,12 +63,6 @@ var adminFiles = {
       'js/dashboard/controllers/**/*.js',
       'js/dashboard/services/**/*.js',
     ],
-    
-    //Components
-    'breadcrumb': [
-      'js/breadcrumb/breadcrumb.js',
-      'js/breadcrumb/config/main.js'
-    ]
   },
 };
 

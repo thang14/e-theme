@@ -11,8 +11,8 @@ module.exports = function(grunt) {
         jshintrc: true,
       },
       node: {
-        files: { 
-          src: ['*.js', 'lib/**/*.js', 'js/**/*.js'] 
+        files: {
+          src: ['*.js', 'lib/**/*.js', 'js/**/*.js']
         },
       }
     },
@@ -52,10 +52,6 @@ module.exports = function(grunt) {
       reports: {
         dest: 'dist/js/dashboard.js',
         src: util.wrap([files['modules']['dashboard']], 'module'),
-      },
-      breadcrumb: {
-        dest: 'dist/js/breadcrumb.js',
-        src: util.wrap([files['modules']['breadcrumb']], 'module'),
       }
     },
     uglify: {
@@ -149,7 +145,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-angular-templates');
-  
+
   grunt.registerTask('js', ['concat', 'uglify:dist']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);

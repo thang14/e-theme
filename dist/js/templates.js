@@ -22,7 +22,7 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/web/layouts/main.html',
-    "<header class=\"navbar navbar-inverse navbar-fixed-top\" ng-include=\"'/web/layouts/header.html'\"></header><!--header--><div class=\"page-container\" style=\"min-height:1000px\"><div class=\"page-content\"><div class=\"sidebar sidebar-main\" ng-include=\"'/web/layouts/sidebar.html'\"></div><div class=\"content-wrapper\"><div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4><i class=\"icon-arrow-left52 position-left\"></i> <span class=\"text-semibold\">Home</span> - Create product</h4></div></div><!--.page-header-content--><div class=\"breadcrumb-line\"><ul class=\"breadcrumb\"><li><a href=\"/\"><i class=\"fa fa-home\"></i> Home</a></li><li class=\"active\">Create product</li></ul><!--.breadcrumb--></div><!--.breadcrumb-line--></div><!--.page-header--><div class=\"content\" ui-view></div><!--.content--></div><!--.content-wrappe--></div><!--.page-content--></div><!--.page-container--><footer ng-include=\"'/web/layouts/footer.html'\"></footer><!--header-->"
+    "<header class=\"navbar navbar-inverse navbar-fixed-top\" ng-include=\"'/web/layouts/header.html'\"></header><!--header--><div class=\"page-container\" style=\"min-height:1000px\"><div class=\"page-content\"><div class=\"sidebar sidebar-main\" ng-include=\"'/web/layouts/sidebar.html'\"></div><div class=\"content-wrapper\"><div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4>{{$state.current.title}}</h4></div></div><!--.page-header-content--></div><!--.page-header--><div class=\"content\" ui-view></div><!--.content--></div><!--.content-wrappe--></div><!--.page-content--></div><!--.page-container--><footer ng-include=\"'/web/layouts/footer.html'\"></footer><!--header-->"
   );
 
 
@@ -42,7 +42,7 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/web/product/list.html',
-    "List Product <a ui-sref=\"productNew\">+Add Product</a>"
+    "List Product <a ui-sref=\"product.new\">+Add Product</a>"
   );
 
 
