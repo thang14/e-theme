@@ -26,14 +26,17 @@ productModule
               // ui-view within index.html.
               controller: 'productController',
               templateUrl: '/web/product/list.html',
+              ncyBreadcrumb: {
+                  label: 'Product'
+              },
             })
             
             
             
-            .state("productNew", {
+            .state("product.new", {
     
               // Use a url of "/" to set a states as the "index".
-              url: "/product/new",
+              url: "/new",
     
               // Example of an inline template string. By default, templates
               // will populate the ui-view within the parent state's template.
@@ -42,6 +45,10 @@ productModule
               // ui-view within index.html.
               controller: 'productAddController',
               templateUrl: '/web/product/add.html',
+              
+              ncyBreadcrumb: {
+                  label: 'new'
+              }
             });
         }
     ]);
