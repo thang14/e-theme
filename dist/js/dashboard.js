@@ -29,7 +29,7 @@ dashboardModule
             .state("home", {
     
               // Use a url of "/" to set a states as the "index".
-              url: "/home",
+              url: "/",
     
               // Example of an inline template string. By default, templates
               // will populate the ui-view within the parent state's template.
