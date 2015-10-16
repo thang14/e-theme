@@ -7,5 +7,5 @@
  * @description     OrderModule
  */
 var orderModule = angular.module("app.order", []);
-;
+;;;;;;
 })(window, window.angular);

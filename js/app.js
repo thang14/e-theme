@@ -4,16 +4,14 @@
  * @description     App
  */
 
-angular.module('app', [
-    'app.auth',
+window.angular.module('app', [
+    
+    //Core module
+    'ui.router',
+    
+    //App module
     'app.environment',
-    'app.product',
-    'app.shop',
-    'app.section',
-    'app.reports',
     'app.kernel',
-    'app.settings',
-    'app.variant',
-    'app.order',
+    'app.auth',
     'app.dashboard'
 ]);

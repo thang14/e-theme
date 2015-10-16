@@ -41,6 +41,10 @@ module.exports = function(grunt) {
       reports: {
         dest: 'dist/js/reports.js',
         src: util.wrap([files['modules']['reports']], 'module'),
+      },
+      reports: {
+        dest: 'dist/js/dashboard.js',
+        src: util.wrap([files['modules']['dashboard']], 'module'),
       }
     },
     uglify: {
@@ -55,11 +59,10 @@ module.exports = function(grunt) {
                ],
            }
        },
-        dist: {
+       dist: {
             files:{
                 "dist/js/app.js":[
                   'js/app.js',
-                  'js/bootstrap.js',
                   'js/environment.js',
                   'dist/js/kernel.js',
                   'dist/js/product.js',
@@ -69,6 +72,8 @@ module.exports = function(grunt) {
                   'dist/js/shop.js',
                   'dist/js/variant.js',
                   'dist/js/reports.js',
+                  'dist/js/dashboard.js',
+                  'js/bootstrap.js',
                ],
            }
         }
@@ -122,7 +127,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerTask('js', ['concat', 'uglify']);
+  grunt.registerTask('js', ['concat', 'uglify:dist']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);
 

@@ -8,5 +8,5 @@
  */
  
 var authModule = angular.module('app.auth', []);
-;
+;;;;
 })(window, window.angular);

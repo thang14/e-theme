@@ -7,5 +7,5 @@
  * @description     ProductModule
  */
 var productModule = angular.module("app.product", []);
-;
+;;;;;;
 })(window, window.angular);
