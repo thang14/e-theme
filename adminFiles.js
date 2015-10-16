@@ -1,6 +1,6 @@
 'use strict';
 
-var angularFiles = {
+var adminFiles = {
   'modules': {
     'kernel': [
       'js/kernel/**/*.js'
@@ -36,16 +36,16 @@ var angularFiles = {
 };
 
 if (exports) {
-  exports.files = angularFiles;
+  exports.files = adminFiles;
   exports.mergeFilesFor = function() {
     var files = [];
 
     Array.prototype.slice.call(arguments, 0).forEach(function(filegroup) {
-      angularFiles[filegroup].forEach(function(file) {
+      adminFiles[filegroup].forEach(function(file) {
         // replace @ref
         var match = file.match(/^\@(.*)/);
         if (match) {
-          files = files.concat(angularFiles[match[1]]);
+          files = files.concat(adminFiles[match[1]]);
         } else {
           files.push(file);
         }
