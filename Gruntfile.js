@@ -49,9 +49,9 @@ module.exports = function(grunt) {
         dest: 'dist/js/reports.js',
         src: util.wrap([files['modules']['reports']], 'module'),
       },
-      reports: {
+      settings: {
         dest: 'dist/js/dashboard.js',
-        src: util.wrap([files['modules']['dashboard']], 'module'),
+        src: util.wrap([files['modules']['settings']], 'module'),
       }
     },
     uglify: {
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
                     'dist/js/variant.js',
                     'dist/js/reports.js',
                     'dist/js/dashboard.js',
-                    'dist/js/breadcrumb.js',
+                    'dist/js/settings.js',
                     'js/bootstrap.js',
               ],
            }
