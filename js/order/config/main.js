@@ -4,7 +4,7 @@
  * @name            OnhanhOrder
  * @description     OrderConfig
  */
-productModule
+orderModule
     .config(['$stateProvider',
         function($stateProvider) {
          // Use $stateProvider to configure your states.
