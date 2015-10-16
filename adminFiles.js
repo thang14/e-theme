@@ -3,34 +3,65 @@
 var adminFiles = {
   'modules': {
     'kernel': [
-      'js/kernel/**/*.js'
+      'js/kernel/kernel.js',
+      'js/kernel/config/**/*.js'
+      'js/kernel/controllers/**/*.js',
+      'js/kernel/services/**/*.js',
+      
     ],
     'product': [
-      'js/product/**/*.js'
+      'js/product/product.js',
+      'js/product/config/**/*.js'
+      'js/product/controllers/**/*.js',
+      'js/product/services/**/*.js',
     ],
     'auth': [
-      'js/auth/**/*.js'
+      'js/auth/auth.js',
+      'js/auth/config/**/*.js'
+      'js/auth/controllers/**/*.js',
+      'js/auth/services/**/*.js',
     ],
     'variant': [
-      'js/variant/**/*.js'
+      'js/variant/variant.js',
+      'js/variant/config/**/*.js'
+      'js/variant/controllers/**/*.js',
+      'js/variant/services/**/*.js',
     ],
     'shop': [
-      'js/shop/**/*.js'
+      'js/shop/shop.js',
+      'js/shop/config/**/*.js'
+      'js/shop/controllers/**/*.js',
+      'js/shop/services/**/*.js',
     ],
     'section': [
-      'js/shop/**/*.js'
+      'js/section/section.js',
+      'js/section/config/**/*.js'
+      'js/section/controllers/**/*.js',
+      'js/section/services/**/*.js',
     ],
     'order': [
-      'js/order/**/*.js'
+      'js/order/order.js',
+      'js/order/config/**/*.js'
+      'js/order/controllers/**/*.js',
+      'js/order/services/**/*.js',
     ],
     'reports': [
-      'js/order/**/*.js'
+      'js/reports/reports.js',
+      'js/reports/config/**/*.js'
+      'js/reports/controllers/**/*.js',
+      'js/reports/services/**/*.js',
     ],
     'settings': [
-      'js/settings/**/*.js'
+      'js/settings/settings.js',
+      'js/settings/config/**/*.js'
+      'js/settings/controllers/**/*.js',
+      'js/settings/services/**/*.js',
     ],
     'dashboard': [
-      'src/dashboard/**/*.js'
+      'js/dashboard/dashboard.js',
+      'js/dashboard/config/**/*.js'
+      'js/dashboard/controllers/**/*.js',
+      'js/dashboard/services/**/*.js',
     ]
   },
 };
