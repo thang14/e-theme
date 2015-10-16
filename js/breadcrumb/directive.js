@@ -4,7 +4,7 @@
  * @name            OnhanhBreadcrumb
  * @description     BreadcrumbModule
  */
-breadcrumbModule.directive('breadcrumbs', ['$state'
+breadcrumbModule.directive('breadcrumb-view', ['$state'
     function($state) {
         return {
             templateUrl:"/web/breadcrumb/breadcrumb.html"
