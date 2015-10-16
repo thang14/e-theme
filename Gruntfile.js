@@ -57,8 +57,7 @@ module.exports = function(grunt) {
         },
         dist: {
             options: {
-              sourceMap: true,
-              sourceMapName: 'path/to/sourcemap.map'
+              sourceMap: true
             },
             files:{
                 "dist/js/app.js":[
