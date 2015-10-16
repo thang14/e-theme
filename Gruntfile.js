@@ -11,7 +11,9 @@ module.exports = function(grunt) {
         jshintrc: true,
       },
       node: {
-        files: { src: ['*.js', 'lib/**/*.js'] },
+        files: { 
+          src: ['*.js', 'lib/**/*.js', 'js/**/*.js'] 
+        },
       }
     },
     concat: {
