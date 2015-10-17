@@ -7,7 +7,12 @@
 @import "onhanh/variables";
 @import "onhanh/mixins";
 
+//Compass mixins
+@import "compass/css3";
+@import "compass/utilities";
+
 // Core CSS
+
 @import "onhanh/base";
 @import "onhanh/forms";
 @import "onhanh/navbar";
