@@ -98,7 +98,7 @@ productModule
             .state("product.detail.variant.detail", {
               title: "Variant list",
               // Use a url of "/" to set a states as the "index".
-              url: "/variant/:variantId",
+              url: "/:variantId",
 
               views: {
                   "@" : {
