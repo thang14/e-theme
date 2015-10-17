@@ -12567,4 +12567,216 @@ button.close {
   content: "";
 }
 
+/* line 1, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input {
+  display: block;
+}
+
+/* line 4, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input *, tags-input *:before, tags-input *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 9, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .host {
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 100%;
+}
+
+/* line 15, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .host:active {
+  outline: none;
+}
+
+/* line 19, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  padding: 1px;
+  overflow: hidden;
+  word-wrap: break-word;
+  cursor: text;
+  background-color: #fff;
+  border: 1px solid darkgray;
+  box-shadow: 1px 1px 1px 0 lightgray inset;
+  height: 100%;
+}
+
+/* line 31, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags.focused {
+  outline: none;
+  -webkit-box-shadow: 0 0 3px 1px rgba(5, 139, 242, 0.6);
+  -moz-box-shadow: 0 0 3px 1px rgba(5, 139, 242, 0.6);
+  box-shadow: 0 0 3px 1px rgba(5, 139, 242, 0.6);
+}
+
+/* line 37, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags .tag-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* line 42, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags .tag-item {
+  margin: 2px;
+  padding: 0 5px;
+  display: inline-block;
+  float: left;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 26px;
+  line-height: 25px;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+  background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+}
+
+/* line 55, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags .tag-item.selected {
+  background: -webkit-linear-gradient(top, #febbbb 0%, #fe9090 45%, #ff5c5c 100%);
+  background: linear-gradient(to bottom, #febbbb 0%, #fe9090 45%, #ff5c5c 100%);
+}
+
+/* line 59, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags .tag-item .remove-button {
+  margin: 0 0 0 5px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  vertical-align: middle;
+  font: bold 16px Arial, sans-serif;
+  color: #585858;
+}
+
+/* line 69, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags .tag-item .remove-button:active {
+  color: #ff0000;
+}
+
+/* line 72, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags .input {
+  border: 0;
+  outline: none;
+  margin: 2px;
+  padding: 0;
+  padding-left: 5px;
+  float: left;
+  height: 26px;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 82, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags .input.invalid-tag {
+  color: #ff0000;
+}
+
+/* line 85, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .tags .input::-ms-clear {
+  display: none;
+}
+
+/* line 88, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input.ng-invalid .tags {
+  -webkit-box-shadow: 0 0 3px 1px rgba(255, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 3px 1px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 3px 1px rgba(255, 0, 0, 0.6);
+}
+
+/* line 93, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input[disabled] .host:focus {
+  outline: none;
+}
+
+/* line 96, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input[disabled] .tags {
+  background-color: #eee;
+  cursor: default;
+}
+
+/* line 100, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input[disabled] .tags .tag-item {
+  opacity: 0.65;
+  background: -webkit-linear-gradient(top, #f0f9ff 0%, rgba(203, 235, 255, 0.75) 47%, rgba(161, 219, 255, 0.62) 100%);
+  background: linear-gradient(to bottom, #f0f9ff 0%, rgba(203, 235, 255, 0.75) 47%, rgba(161, 219, 255, 0.62) 100%);
+}
+
+/* line 105, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input[disabled] .tags .tag-item .remove-button {
+  cursor: default;
+}
+
+/* line 108, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input[disabled] .tags .tag-item .remove-button:active {
+  color: #585858;
+}
+
+/* line 111, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input[disabled] .tags .input {
+  background-color: #eee;
+  cursor: default;
+}
+
+/* line 116, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .autocomplete {
+  margin-top: 5px;
+  position: absolute;
+  padding: 5px 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* line 128, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .autocomplete .suggestion-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  max-height: 280px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* line 136, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .autocomplete .suggestion-item {
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  background-color: #fff;
+}
+
+/* line 146, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .autocomplete .suggestion-item.selected {
+  color: #fff;
+  background-color: #0097cf;
+}
+
+/* line 150, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .autocomplete .suggestion-item.selected em {
+  color: #fff;
+  background-color: #0097cf;
+}
+
+/* line 154, ../../bower_components/ng-tags-input/_ng-tags-input.bootstrap.scss */
+tags-input .autocomplete .suggestion-item em {
+  font: normal bold 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  background-color: #fff;
+}
+
+/*# sourceMappingURL=ng-tags-input.css.map */
+
 /*# sourceMappingURL=core.css.map */
