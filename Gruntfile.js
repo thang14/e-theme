@@ -62,7 +62,8 @@ module.exports = function(grunt) {
                     'bower_components/angular/angular.min.js',
                     'bower_components/angular-ui-router/release/angular-ui-router.min.js',
                     'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-                    'bower_components/ng-file-upload/dist/ng-file-upload-all.min.js',
+                    'bower_components/ng-file-upload/ng-file-upload-all.min.js',
+                    'bower_components/angular-input-masks/angular-input-masks-standalone.min.js',
                ],
            }
        },

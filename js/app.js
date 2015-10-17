@@ -8,9 +8,10 @@ window.angular.module('app', [
 
     //Core module
     'ui.router',
-
-
-    //App module
+    'ui.utils.masks',
+    'ngFileUpload',
+    
+    //App modules
     'app.environment',
     'app.kernel',
     'app.auth',
