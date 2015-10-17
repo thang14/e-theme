@@ -1,0 +1,24 @@
+//=== Inverted navbar
+// Reset inverted navbar basics
+$navbar-inverse-bg:                         #37474f !default;
+$navbar-inverse-border:                         #37474f !default;
+$navbar-inverse-link-color:                         #fff !default; 
+
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+$navbar-height:                         40px !default;
+
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit !default;
+$headings-font-weight:    400 !default;
+$headings-line-height:    1.5 !default;
+$headings-color:          inherit !default;
+
+
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         20px !default;
