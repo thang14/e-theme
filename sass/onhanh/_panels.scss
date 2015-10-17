@@ -1,0 +1,23 @@
+.panel {
+    margin-bottom: 20px;
+    border-color: #ddd;
+    color: #333;
+}
+
+.panel-heading {
+    position: relative;
+}
+
+.panel-flat {
+    &>.panel-heading {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #fff;
+        
+        h4 {
+            margin:0px 0px;
+            display:inline-block;
+        }
+    }
+    
+}
