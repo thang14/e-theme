@@ -10,6 +10,7 @@ window.angular.module('app', [
     'ui.router',
     'ui.utils.masks',
     'ngFileUpload',
+    'ngTagsInput',
     
     //App modules
     'app.environment',
