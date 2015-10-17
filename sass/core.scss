@@ -24,7 +24,14 @@ $headings-color:          inherit !default;
 $grid-gutter-width:         20px !default;
 
 
-@import "../vendor/bower/bootstrap-sass/assets/stylesheets/bootstrap-compass";
-@import "../vendor/bower/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "../vendor/bower/bootstrap-sass/assets/stylesheets/bootstrap/theme";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-compass";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/theme";
+
+
+
+// Font anwesom
+// --------------------------------------------------
+$fa-font-path: "../fonts/font-awesome";
+@import "../vendor/bower/font-awesome/scss/font-awesome";
 
