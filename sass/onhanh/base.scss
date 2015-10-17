@@ -1,0 +1,62 @@
+body {
+    font-family: "Roboto",Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    line-height: 1.5384616;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.media-heading {
+    margin-bottom: 2px;
+    display: block;
+}
+
+.text-semibold {
+    font-weight: 500;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.text-size-mini {
+    font-size: 11px;
+}
+.text-muted {
+    color: #999;
+}
+
+.sidebar:not(.sidebar-default) {
+    .media .text-muted,
+    .sidebar:not(.sidebar-default),
+    .media .media-annotation {
+        color: rgba(255,255,255,0.8);
+    }
+    
+}
+
+.icons-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 1;
+    
+    >li {
+        >a {
+            color: inherit;
+            display: block;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            
+            >i {
+                font-size:16px;
+            }
+        }
+    }
+    
+}
