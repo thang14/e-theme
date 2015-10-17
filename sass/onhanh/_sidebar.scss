@@ -1,0 +1,27 @@
+// Sidebar
+// --------------------------------------------------
+
+.sidebar-main {
+    z-index: 99;
+}
+
+
+.sidebar {
+    background-color: #263238;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    display: none;
+    
+    @media (min-width: $screen-sm) {
+        display: table-cell;
+        vertical-align: top;
+        width: 260px;
+    }
+}
+
+
+.category-content {
+    position: relative;
+    padding: 20px;
+}
