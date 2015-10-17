@@ -1,0 +1,12 @@
+//
+// Variables
+// --------------------------------------------------
+
+.img-circle {
+    @include border-radius(50%);
+}
+
+.img-sm {
+    width: 36px;
+    height: 36px;
+}
