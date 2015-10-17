@@ -22,3 +22,8 @@ $headings-color:          inherit !default;
 
 //** Padding between columns. Gets divided in half for the left and right.
 $grid-gutter-width:         20px !default;
+
+
+@import "../../../vendor/bower/bootstrap-sass/assets/stylesheets/bootstrap-compass";
+@import "../../../vendor/bower/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../../vendor/bower/bootstrap-sass/assets/stylesheets/bootstrap/theme";
