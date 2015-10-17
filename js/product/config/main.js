@@ -48,7 +48,7 @@ productModule
                       templateUrl: '/web/product/add.html',
                   }
               },
-            });
+            })
             
             //////////////////
             // Product Detail //
