@@ -64,6 +64,7 @@ module.exports = function(grunt) {
                     'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
                     'bower_components/ng-file-upload/ng-file-upload-all.min.js',
                     'bower_components/angular-input-masks/angular-input-masks-standalone.min.js',
+                    'bower_components/ng-tags-input/ng-tags-input.min.js'
                ],
            }
        },
