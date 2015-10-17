@@ -23,7 +23,6 @@ $headings-color:          inherit !default;
 //** Padding between columns. Gets divided in half for the left and right.
 $grid-gutter-width:         20px !default;
 
-
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-compass";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/theme";
@@ -32,6 +31,6 @@ $grid-gutter-width:         20px !default;
 
 // Font anwesom
 // --------------------------------------------------
-$fa-font-path: "../fonts/font-awesome";
-@import "../vendor/bower/font-awesome/scss/font-awesome";
+$fa-font-path: "../fonts/font-awesome/";
+@import "../bower_components/font-awesome-sass/assets/stylesheets/font-awesome";
 

@@ -7,7 +7,7 @@
  * @name            OnhanhProduct
  * @description     ProductModule
  */
-var productModule = angular.module("app.product", []);
+var productModule = angular.module("app.product", ['app.variant']);
 
 'use strict';
 
@@ -67,7 +67,7 @@ productModule
             .state("product.detail", {
               title: "Product detail",
               // Use a url of "/" to set a states as the "index".
-              url: ":id",
+              url: "/:productId",
 
               views: {
                   "@" : {
@@ -80,6 +80,69 @@ productModule
                       templateUrl: '/web/product/detail.html',
                   }
               },
+            })
+            
+            //////////////////
+            // Product Variant //
+            ////////////////
+            .state("product.detail.variant", {
+              title: "Variant list",
+              // Use a url of "/" to set a states as the "index".
+              url: "/variant",
+
+              views: {
+                  "@" : {
+                      // Example of an inline template string. By default, templates
+                      // will populate the ui-view within the parent state's template.
+                      // For top level states, like this one, the parent template is
+                      // the index.html file. So this template will be inserted into the
+                      // ui-view within index.html.
+                      controller: 'variantController',
+                      templateUrl: '/web/variant/list.html',
+                  }
+              },
+            })
+	    
+            //////////////////
+            // Product Variant detail //
+            ////////////////
+            .state("product.detail.variant.new", {
+              title: "Variant new",
+              // Use a url of "/" to set a states as the "index".
+              url: "/new",
+
+              views: {
+                  "@" : {
+                      // Example of an inline template string. By default, templates
+                      // will populate the ui-view within the parent state's template.
+                      // For top level states, like this one, the parent template is
+                      // the index.html file. So this template will be inserted into the
+                      // ui-view within index.html.
+                      controller: 'variantAddController',
+                      templateUrl: '/web/variant/add.html',
+                  }
+              },
+            })
+            
+            //////////////////
+            // Product Variant detail //
+            ////////////////
+            .state("product.detail.variant.detail", {
+              title: "Variant detail",
+              // Use a url of "/" to set a states as the "index".
+              url: "/:variantId",
+
+              views: {
+                  "@" : {
+                      // Example of an inline template string. By default, templates
+                      // will populate the ui-view within the parent state's template.
+                      // For top level states, like this one, the parent template is
+                      // the index.html file. So this template will be inserted into the
+                      // ui-view within index.html.
+                      controller: 'variantController',
+                      templateUrl: '/web/variant/detail.html',
+                  }
+              },
             });
         }
     ]);
@@ -87,8 +150,8 @@ productModule
 'use strict';
 
 /**
- * @name            OnhanhDashboard
- * @description     ...
+ * @name            OnhanhProduct
+ * @description     ProductAddController
  */
 productModule
 	.controller('productAddController', ['$location', '$scope', '$rootScope',
@@ -100,8 +163,21 @@ productModule
 'use strict';
 
 /**
- * @name            OnhanhDashboard
- * @description     ...
+ * @name            OnhanhProduct
+ * @description     ProductDetailController
+ */
+productModule
+	.controller('productDetailController', ['$location', '$scope', '$rootScope',
+	    function($location, $scope, $rootScope) {
+	    	
+	    }
+	]);
+
+'use strict';
+
+/**
+ * @name            OnhanhProduct
+ * @description     ProductController
  */
 productModule
 	.controller('productController', ['$location', '$scope', '$rootScope',
@@ -109,6 +185,7 @@ productModule
 	    	
 	    }
 	]);
+
 
 
 })(window, window.angular);

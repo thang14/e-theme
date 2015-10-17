@@ -40,7 +40,7 @@ sectionModule
                     templateUrl: '/web/section/add.html',
                 }  
               }
-            });
+            })
 
             .state("section.detail", {
               title: "Section detail",
