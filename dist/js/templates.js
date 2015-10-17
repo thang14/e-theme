@@ -47,7 +47,7 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/web/product/list.html',
-    "<table class=\"table\"><caption>Product list.</caption><thead><tr><th>Actions</th><th>Photo</th><th>Price</th><th>Sale</th><th>Quantity</th><th>Status</th></tr></thead><tbody><tr><td><a href=\"#\">action</a></td><td>Mark</td><td>100.000đ</td><td>70.000đ</td><td>10</td><td>active</td></tr></tbody></table>"
+    "<form class=\"form-inline\"><div class=\"form-group\"><input type=\"text\" class=\"form-control\" id=\"exampleInputName2\" placeholder=\"Search product\"> <button type=\"submit\" class=\"btn btn-default\">Search</button></div><div class=\"form-group pull-right\"><a ui-sref=\"product.new\" class=\"btn btn-default\">Add product</a></div></form><table class=\"table table-striped\"><thead><tr><th style=\"width:70px\">Photo</th><th>Name</th><th style=\"width:80px\">Price</th><th style=\"width:80px\">Sale</th><th style=\"width:80px\">Quantity</th><th style=\"width:60px\">Status</th><th style=\"width:80px; text-align:right\">&nbsp;</th></tr></thead><tbody><tr ng-if=\"products.length > 0\" ng-repeat=\"product in products\"><td><i class=\"fa fa-picture-o fa-1\"></i></td><td>{{product.name}}</td><td class=\"text-semibold\" style=\"color:red\">100.000đ</td><td class=\"text-semibold\" style=\"color:red\">70.000đ</td><td>10</td><td>active</td><td style=\"text-align:right\"><a href=\"#\" ui-sref=\"product.detail({productId:1})\"><i class=\"fa fa-pencil\"></i></a> &nbsp; &nbsp; <a href=\"#\"><i class=\"fa fa-trash-o\"></i></a></td></tr><tr ng-if=\"products.length == 0\"><td colspan=\"8\">Không tìm thấy sản phẩm/td></td></tr></tbody></table>"
   );
 
 

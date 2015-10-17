@@ -229,6 +229,11 @@ label {
   font-size: 4em;
 }
 
+/* line 20, ../../sass/onhanh/_icons.scss */
+.fa-1 {
+  font-size: 2em;
+}
+
 /* line 4, ../../sass/onhanh/_dropdown.scss */
 .dropdown-menu > li > a > i, .dropdown-menu > li > a > img {
   margin-right: 10px;
