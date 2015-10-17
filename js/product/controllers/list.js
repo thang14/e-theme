@@ -1,8 +1,8 @@
 'use strict';
 
 /**
- * @name            OnhanhDashboard
- * @description     ...
+ * @name            OnhanhProduct
+ * @description     ProductController
  */
 productModule
 	.controller('productController', ['$location', '$scope', '$rootScope',
