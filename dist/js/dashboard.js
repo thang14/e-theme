@@ -37,10 +37,7 @@ dashboardModule
               // the index.html file. So this template will be inserted into the
               // ui-view within index.html.
               controller: 'dashboardController',
-              templateUrl: '/web/dashboard/dashboard.html',
-              ncyBreadcrumb: {
-                  label: 'Home'
-              }
+              templateUrl: '/web/dashboard/dashboard.html'
             });
         }
     ]);
