@@ -1,0 +1,14 @@
+
+// Breadcrumbs
+// --------------------------------------------------
+.breadcrumb {
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    padding: 8px 0;
+    &>li {
+        &>a {
+            color:#333;
+        }
+    }
+}
