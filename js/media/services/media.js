@@ -13,7 +13,10 @@ mediaModule.service('mediaService', [ 'Upload', 'collectionService'
             
             upload: function($file, callback) {
                 var api = this.getCollection().api;
-                return Upload.upload(api).success(callback);
+                return Upload.upload({
+                    url: api,
+                    file: $file,
+                }).success(callback);
             },
             
             uploadAll: function($files, callback) {
@@ -24,7 +27,7 @@ mediaModule.service('mediaService', [ 'Upload', 'collectionService'
             
             remove: function($id) {
                 return this.getCollection()
-                            .remove($id);
+                            .remove({id:$id});
             }
         }
     }
