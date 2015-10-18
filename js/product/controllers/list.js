@@ -5,9 +5,8 @@
  * @description     ProductController
  */
 productModule
-	.controller('productController', ['$location', '$scope', '$rootScope', 'collectionService', 'gridService'
+	.controller('productController', ['$location', '$scope', '$rootScope', 'productService', 'gridService'
 	    function($location, $scope, $rootScope, collectionService) {
-	    	var collection = collectionService.getCollection('product');
 	    	$scope.columns = [{
                 price: 'id',
                 enableColumnMenu: false,
@@ -40,7 +39,7 @@ productModule
 	    	
 	    	// === Load collection from remote ===
 	    	$scope.load = function() {
-	    		gridService.load($scope, collection);
+	    		gridService.load($scope, productService);
 	    	}
 	    	$scope.load();
 	    	
