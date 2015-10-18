@@ -11,7 +11,7 @@ angular.module('app.environment', [])
 
         return {
             settings: {
-                api: 'http://' + api_domain + '/backend/api',
+                api: 'http://' + api_domain + '/admin-theme/examples/data',
                 domain: 'http://' + api_domain,
                 pageTitle: 'Onhanh - open source project | Admin',
                 locale: {
