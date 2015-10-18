@@ -18,7 +18,7 @@ productModule
                 enableFiltering: false,
                 enableColumnMenu: false,
                 width: '75',
-                cellTemplate: '<img src="row.entity.photo"/>'
+                cellTemplate: '<img ng-src="getPhotoDefault(row.entity.photos)"/>'
 	    	}, {
 	    		name:"name",
 	    		enableColumnMenu: false,
@@ -43,5 +43,11 @@ productModule
 	    		gridService.load($scope, collection);
 	    	}
 	    	$scope.load();
+	    	
+	    	
+	    	$scope.getPhotoDefault = function(photos) {
+	    		return photos[0].url;
+	    	}
+	    	
 	    }
 	]);
