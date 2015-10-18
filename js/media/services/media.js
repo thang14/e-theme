@@ -27,7 +27,7 @@ mediaModule.service('mediaService', [ 'Upload', 'collectionService'
             
             remove: function($id) {
                 return this.getCollection()
-                            .remove({id:$id});
+                            .remove($id);
             }
         }
     }
