@@ -4,13 +4,9 @@
  * @name            OnhanhMedia
  * @description     MediaService
  */
-mediaModule.service('mediaService', [ 'Upload', 'collectionService'
+mediaModule.service('mediaService', [ 'Upload', 'baseService'
     function(Upload, collectionService) {
-        return {
-            getCollection: function() {
-                return collectionService.getCollection('media');
-            },
-            
+        return angular.extend(baseService, {
             upload: function($file, callback) {
                 var api = this.getCollection().api;
                 return Upload.upload({
@@ -18,17 +14,11 @@ mediaModule.service('mediaService', [ 'Upload', 'collectionService'
                     file: $file,
                 }).success(callback);
             },
-            
             uploadAll: function($files, callback) {
                 $files.forEach(function(file) {
                     this.upload(file, callback);
                 }, this);
-            },
-            
-            remove: function($id) {
-                return this.getCollection()
-                            .remove($id);
             }
-        }
+        });
     }
 ]);
