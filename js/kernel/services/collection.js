@@ -5,9 +5,9 @@
  * @description     collectionService
  */
 
-kernelModule.service('collectionService', [ '$scope'
+kernelModule.service('collectionService', [ '$scope', 'resourceService'
     
-    function($scope, service) {
+    function($scope, resourceService) {
         return {
             collections: {};
             getCollection: function($name) {
