@@ -53,6 +53,10 @@ module.exports = function(grunt) {
         dest: 'dist/js/settings.js',
         src: util.wrap([files['modules']['settings']], 'module'),
       },
+      media: {
+        dest: 'dist/js/media.js',
+        src: util.wrap([files['modules']['media']], 'module'),
+      }
     },
     uglify: {
         core: {
@@ -87,6 +91,7 @@ module.exports = function(grunt) {
                     'dist/js/reports.js',
                     'dist/js/dashboard.js',
                     'dist/js/settings.js',
+                    'dist/js/media.js',
                     'js/bootstrap.js',
               ],
            }
