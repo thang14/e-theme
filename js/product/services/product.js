@@ -6,7 +6,7 @@
  */
 productModule.service('productService', ['baseService', 'collectionService'
     function(service, collectionService) {
-        return agular.extend(baseService, {
+        return angular.extend(baseService, {
             collectionName: "product"
         });
     }
