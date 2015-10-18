@@ -12,7 +12,7 @@ productModule
 	    	
 	    	// === Load collection from remote ===
 	    	$scope.load = function() {
-				gridService.load($scope, collection);		
+	    		gridService.load($scope, collection);
 	    	}
 	    	$scope.load();
 	    }
