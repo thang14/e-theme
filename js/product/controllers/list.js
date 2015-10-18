@@ -26,4 +26,3 @@ productModule
 	    	$scope.load();
 	    }
 	]);
-
