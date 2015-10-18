@@ -9,22 +9,21 @@ angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
         
         var resourceService = function(name) {
             this.resource = name;
+            this.api = Environment.settings.api + '/' + name;
         }
         
         resourceService.prototype = {
         
-            getCollection: function($scope, pageNumber) {
-                var url = Environment.settings.api + '/' + this.resource + '/?limit=' + $scope.pageLimit + '&current=' + pageNumber + '&filter=' + $scope.filter;
-                return $http.get(url);
+            find: function(params) {
+                return $http.get(this.api, params);
             }, 
             
             remove: function($id) {
-                var url = Environment.settings.api+'/'+this.resource+'/'+$id;
-                return $http.delete(url);
+                return $http.delete(this.api+'/'+$id);
             },
             
             save: function(data) {
-                var url = Environment.settings.api+'/'+this.resource+'/'+data.id;
+                var url = this.api+'/'+data.id;
                 return $http({
                     method: 'PUT',
                     url: url,
@@ -33,7 +32,7 @@ angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
             },
             
             create: function(data) {
-                var url = Environment.settings.api+'/'+this.resource;
+                var url = this.api;
                 return $http({
                     method: 'POST',
                     url: url,
