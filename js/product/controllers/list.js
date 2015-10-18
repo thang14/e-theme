@@ -9,13 +9,32 @@ productModule
 	    function($location, $scope, $rootScope, collectionService) {
 	    	var collection = collectionService.getCollection('product');
 	    	$scope.columns = [{
+                price: 'id',
+                enableColumnMenu: false,
+                width: '100'
+            }, {
 	    		name: "photo",
 	    		enableSorting: false,
                 enableFiltering: false,
                 enableColumnMenu: false,
                 width: '75',
                 cellTemplate: '<img src="row.entity.photo"/>'
-	    	}];
+	    	}, {
+	    		name:"name",
+	    		enableColumnMenu: false,
+	    		cellTemplate: '<a href="row.entity.url">row.entity.name</a>'
+	    	}, {
+                price: 'price',
+                enableColumnMenu: false,
+                width: '100'
+            }, {
+                name: 'action',
+                enableSorting: false,
+                enableFiltering: false,
+                enableColumnMenu: false,
+                width: '100',
+                cellTemplate: gridService.actionTemplate()
+            }];
 	    	
 	    	$scope.gripOptions = gridService.gripOptions();
 	    	
