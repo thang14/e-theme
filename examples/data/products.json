@@ -1,0 +1,25 @@
+[{
+  "id": "ON00001",
+  "photo": "images/product-example-1.jpg",
+  "name": "Chén sứ bát tràng",
+  "price": 100000,
+  "price_sale": 90000,
+  "quantity": 10
+  "status":"public",
+},{
+  "id": "ON00002",
+  "photo": "images/product-example-2.jpg",
+  "name": "Tranh sứ bát tràng",
+  "price": 200000,
+  "price_sale": 190000,
+  "quantity": 10
+  "status":"public",
+},{
+  "id": "ON00003",
+  "photo": "images/product-example-3.jpg",
+  "name": "Gạch sứ bát tràng",
+  "price": 200000,
+  "price_sale": 190000,
+  "quantity": 10
+  "status":"public",
+}]
