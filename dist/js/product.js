@@ -182,10 +182,15 @@ productModule
 productModule
 	.controller('productController', ['$location', '$scope', '$rootScope',
 	    function($location, $scope, $rootScope) {
-			$scope.products = [];
+			$scope.gridOptions = {
+				data: []
+			};
 			for(var i = 0; i < 10; i++) {
-				$scope.products.push({
-					name: "Ấm chén tử sa "+i
+				$scope.gridOptions.data.push({
+					name: "Ấm chén tử sa "+i,
+					price: "150000",
+					sale: "150000",
+					quantity: 11,
 				});
 			}
 	    }
