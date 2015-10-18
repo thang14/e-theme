@@ -52,7 +52,7 @@ module.exports = function(grunt) {
       settings: {
         dest: 'dist/js/settings.js',
         src: util.wrap([files['modules']['settings']], 'module'),
-      }
+      },
     },
     uglify: {
         core: {
