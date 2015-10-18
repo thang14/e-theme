@@ -4,4 +4,4 @@
  * @name            OnhanhMedia
  * @description     MediaModule
  */
-var mediaModule = angular.module("app.media", ['app.media']);
+var mediaModule = angular.module("app.media", []);
