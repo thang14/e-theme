@@ -18,6 +18,19 @@ kernelModule.service('gridService', [
             }
           );
           
+        },
+        
+        gridOptions: function($scope) {
+          return {
+            selectionRowHeaderWidth: 35,
+            rowHeight: $scope.rowHeight || 35,
+            showGridFooter: true,
+            enableFiltering: true,
+            enableSorting: false,
+            useExternalFiltering: true,
+            columnDefs: $scope.columns,
+          };
+          
         }
         
       }
