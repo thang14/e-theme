@@ -63,6 +63,12 @@ var adminFiles = {
       'js/dashboard/controllers/**/*.js',
       'js/dashboard/services/**/*.js',
     ],
+    'media': [
+      'js/media/media.js',
+      'js/media/config/**/*.js',
+      'js/media/controllers/**/*.js',
+      'js/media/services/**/*.js',
+    ],
   },
 };
 
