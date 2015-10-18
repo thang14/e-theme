@@ -6,7 +6,7 @@
  */
 productModule
 	.controller('productController', ['$location', '$scope', '$rootScope', 'productService', 'gridService'
-	    function($location, $scope, $rootScope, collectionService) {
+	    function($location, $scope, $rootScope, productService, gridService) {
 	    	$scope.columns = [{
                 price: 'id',
                 enableColumnMenu: false,
