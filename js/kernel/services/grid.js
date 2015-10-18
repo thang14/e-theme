@@ -31,7 +31,11 @@ kernelModule.service('gridService', [
             columnDefs: $scope.columns,
           };
           
-        }
+        },
+        
+        actionTemplate: function () {
+            return '<ng-include src="\'/web/collection/action.html\'"></ng-include>';
+        },
         
       }
     }
