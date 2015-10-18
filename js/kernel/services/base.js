@@ -23,6 +23,14 @@ kernelModule.service('baseService', ['collectionService'
       
       remove: function($id) {
         this.getCollection().remove($id);
+      },
+      
+      save: function($data) {
+        this.getCollection().$data($data);
+      },
+      
+      create: function($data) {
+        this.getCollection().create($data);
       }
     }
   }
