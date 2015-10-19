@@ -23,6 +23,7 @@ productModule
           },{
             name: "name",
             enableColumnMenu: false,
+            cellTemplate: '<a ng-click="viewDetail(row.entity.id)" href="javascript:void(0)">{{row.entity.name}}</a>'
           },{
             name: "price",
             enableColumnMenu: false,
