@@ -34,6 +34,10 @@ productModule
             name: "sale_price",
             enableColumnMenu: false,
             width: '100',
+          },{
+            name: "status",
+            enableColumnMenu: false,
+            width: '50',
           }];  
           
           $scope.gridOptions = gridService.gridOptions();
