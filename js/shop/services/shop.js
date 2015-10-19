@@ -5,7 +5,7 @@
  * @description     ShopService
  */
 shopModule
-    .service('settingsService', [ 'baseService',
+    .service('shopService', [ 'baseService',
         function(baseService) {
           return angular.extend(baseService, {
             collectionName: "shop"
