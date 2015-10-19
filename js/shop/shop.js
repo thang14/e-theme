@@ -6,7 +6,7 @@
  */
 var shopModule = angular.module("app.shop", [])
 .run(['$http', '$state', '$rootScope', 'shopService', 'Environment',
-  function($http, $state, $rootScope, authService, Environment) {
+  function($http, $state, $rootScope, shopService, Environment) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       if ($rootScope.shop === undefined) {
         shopService
