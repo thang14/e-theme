@@ -24,7 +24,7 @@ productModule
             name: "name",
             enableCellEdit: true,
             enableColumnMenu: false,
-            cellTemplate: '/web/ui-grid/column-link.html',
+            cellTemplate: '<div class="ngCellText"><a target="_blank" ng-href="{{row.entity.url}}">{{col.field}}</a></div>'
           },{
             name: "price",
             enableColumnMenu: false,
