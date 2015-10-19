@@ -5,7 +5,7 @@
  * @description     SettingsService
  */
 settingsModule
-    .controller('settingsService', [ 'baseService',
+    .service('settingsService', [ 'baseService',
         function(baseService) {
           return angular.extend(baseService, {
             collectionName: "settings"
