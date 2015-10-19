@@ -38,7 +38,7 @@ productModule
             width: '100',
             editableCellTemplate: '<input ui-number-mask="0" type="text" ng-model="row.entity.sale_price"/>',
           },{
-            name: "status",
+            name: "onsite",
             type: 'boolean',
             enableColumnMenu: false,
             enableCellEdit: true,
