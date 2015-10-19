@@ -9,7 +9,7 @@ dashboardModule
         function($http, Environment) {
           return {
               getRole: function() {
-                  var url = Environment.settings.api + '/role;
+                  var url = Environment.settings.api + '/role';
                   return $http.get(url);
               }
           }
