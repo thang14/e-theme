@@ -21,6 +21,7 @@ window.angular.module('app', [
     'app.environment',
     'app.kernel',
     'app.auth',
+    'app.media',
     'app.dashboard',
     'app.product',
     'app.section',
