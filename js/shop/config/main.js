@@ -10,10 +10,10 @@ shopModule
          // Use $stateProvider to configure your states.
           $stateProvider
 
-            .state("shop", {
+            .state("info", {
               title: "Shop",
               // Use a url of "/" to set a states as the "index".
-              url: "/shop",
+              url: "/info",
 
               // Example of an inline template string. By default, templates
               // will populate the ui-view within the parent state's template.
