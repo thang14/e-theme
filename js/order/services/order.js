@@ -5,7 +5,7 @@
  * @description     OrderServiceController
  */
 orderModule
-    .controller('orderService', [ 'baseService'
+    .service('orderService', [ 'baseService'
         function(baseService) {
           return angular.extend(baseService, {
             collectionName: "order"
