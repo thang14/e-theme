@@ -39,16 +39,11 @@ productModule
             editableCellTemplate: '<input ui-number-mask="0" type="text" ng-model="row.entity.sale_price"/>',
           },{
             name: "status",
+            type: 'boolean',
             enableColumnMenu: false,
             enableCellEdit: true,
             width: '50',
-            editDropdownOptionsArray: [{
-              id: 0,
-              status: 'Private'
-            },{
-              id: 1,
-              status: 'Active'
-            }]
+            
           }];  
           
           $scope.onSaveRow = function(rowEntity) {
