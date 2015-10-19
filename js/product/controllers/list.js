@@ -5,8 +5,8 @@
  * @description     ProductController
  */
 productModule
-    .controller('productController', [ '$scope','productService', 'gridService'
-        function($scope, productService, gridService) {
+    .controller('productController', [ '$scope','productService', 'gridService', '$state'
+        function($scope, productService, gridService, $state) {
           $scope.columns = [{
             name: "id",
             enableColumnMenu: false,
@@ -46,5 +46,11 @@ productModule
             gridService.load($scope, productService);
           }
           $scope.load();
+          
+          $scope.viewDetail = function(id) {
+            $state.transitionTo('product.detail',{
+              id:id
+            })
+          }
         }
     ]);
