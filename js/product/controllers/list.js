@@ -30,6 +30,7 @@ productModule
             name: "price",
             enableColumnMenu: false,
             width: '100',
+            editableCellTemplate: '',
           },{
             name: "sale_price",
             enableColumnMenu: false,
