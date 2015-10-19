@@ -10,7 +10,7 @@ var shopModule = angular.module("app.shop", [])
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       if ($rootScope.shop === undefined) {
         shopService
-        .get({})
+        .getInfomation()
         .success(function(data, status) {
           if(data.name) {
             $rootScope.shop = data;
