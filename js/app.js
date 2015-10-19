@@ -15,6 +15,7 @@ window.angular.module('app', [
     'ui.grid.edit',
     'ngFileUpload',
     'ngTagsInput',
+    'angular-loading-bar',
 
     //App modules
     'app.environment',
@@ -39,4 +40,7 @@ window.angular.module('app', [
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
     }
-  ]);
+  ])
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+  }]);
