@@ -8,6 +8,12 @@ productModule
 	.controller('productController', ['$location', '$scope', '$rootScope', 'productService', 'gridService'
 	    function($location, $scope, $rootScope, productService, gridService) {
 	    	$scope.columns = [{
+	    		name: "id",
+	    		enableColumnMenu: false,
+	    		width: '100'
+	    	}];
+	    	
+	    	$scope.columns = [{
                 name: 'id',
                 enableColumnMenu: false,
                 width: '100'
