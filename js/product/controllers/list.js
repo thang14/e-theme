@@ -19,24 +19,24 @@ productModule
             enableSorting: false,
             enableFiltering: false,
             width: '75',
-            cellTemplate: '<img ng-src="row.entity.photos"/>'
+            cellTemplate: '/web/ui-grid/image-view.html',
           },{
             name: "name",
             enableCellEdit: true,
             enableColumnMenu: false,
-            cellTemplate: '<a ng-click="viewDetail(row.entity.id)" href="javascript:void(0)">{{row.entity.name}}</a>',
+            cellTemplate: '/web/ui-grid/column-link.html',
           },{
             name: "price",
             enableColumnMenu: false,
             width: '100',
             enableCellEdit: true,
-            editableCellTemplate: '<input ui-number-mask="0" type="text" ng-model="row.entity.price"/>',
+            editableCellTemplate: '/web/ui-grid/form-price.html',
           },{
             name: "sale_price",
             enableColumnMenu: false,
             enableCellEdit: true,
             width: '100',
-            editableCellTemplate: '<input ui-number-mask="0" type="text" ng-model="row.entity.sale_price"/>',
+            editableCellTemplate: '/web/ui-grid/form-price.html',
           },{
             name: "onsite",
             type: 'boolean',
