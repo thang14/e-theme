@@ -12,6 +12,7 @@ productModule
             enableColumnMenu: false,
             enableSorting: false,
             enableFiltering: false,
+            cellEditableCondition: false,
             width: '75',
           },{
             name: "photo",
@@ -19,6 +20,7 @@ productModule
             enableSorting: false,
             enableFiltering: false,
             width: '75',
+            cellEditableCondition: false,
             cellTemplate: '<img ng-src="row.entity.photos"/>'
           },{
             name: "name",
@@ -32,13 +34,6 @@ productModule
             name: "sale_price",
             enableColumnMenu: false,
             width: '100',
-          },{
-            name: "action",
-            enableColumnMenu: false,
-            enableSorting: false,
-            enableFiltering: false,
-            width: '75',
-            cellTemplate: gridService.actionTemplate()
           }];  
           
           $scope.gridOptions = gridService.gridOptions();
