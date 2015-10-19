@@ -37,7 +37,14 @@ productModule
             enableSorting: false,
             enableFiltering: false,
             width: '75',
-            cellTemplate: gridService.gridOptions()
+            cellTemplate: gridService.actionTemplate()
           }];  
+          
+          $scope.gridOptions = gridService.gridOptions();
+          //load collection from remote
+          $scope.load = function() {
+            gridService.load($scope, productService);
+          }
+          $scope.load();
         }
     ]);
