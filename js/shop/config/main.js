@@ -11,7 +11,7 @@ shopModule
           $stateProvider
 
             .state("info", {
-              title: "Shop",
+              title: "Shop Info",
               // Use a url of "/" to set a states as the "index".
               url: "/info",
 
