@@ -5,10 +5,13 @@
  * @description     ...
  */
 dashboardModule
-    .service('dashboardService',['baseService',
-        function(baseService) {
-          return angular.extend(baseService, {
-            collectionName: "dashboard"
-          });
+    .service('dashboardService',["$http", "Environment"
+        function($http, Environment) {
+          return {
+              getRole: function() {
+                  var url = Environment.settings.api + '/role;
+                  return $http.get(url);
+              }
+          }
         }
     ]);
