@@ -4,7 +4,7 @@
  * @name            OnhanhReports
  * @description     ReportsServiceController
  */
-orderModule
+reportsModule
     .service('reportsService', [ 'baseService'
         function(baseService) {
           return angular.extend(baseService, {
