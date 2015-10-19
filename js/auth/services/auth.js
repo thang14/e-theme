@@ -10,12 +10,12 @@ authModule.service('authService', ['$http', 'Environment'
     return {
     
       logout: function() {
-        var url = Environment.settings.api + '/user/logout';
+        var url = Environment.settings.domain + '/user/logout';
         return $http.get(url);
       },
       
       login: function(username, password) {
-        var url = Environment.settings.api + '/user/login';
+        var url = Environment.settings.domain + '/user/login';
         return $http.post(url, {
           username: username,
           password: password,
@@ -23,7 +23,7 @@ authModule.service('authService', ['$http', 'Environment'
       },
       
       getUserInfomation: function() {
-        var url = Environment.settings.api + '/user/infomation';
+        var url = Environment.settings.domain + '/user/infomation';
         return $http.get(url);
       }
       
