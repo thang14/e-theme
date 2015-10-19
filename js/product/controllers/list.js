@@ -12,7 +12,6 @@ productModule
             enableColumnMenu: false,
             enableSorting: false,
             enableFiltering: false,
-            cellEditableCondition: false,
             width: '75',
           },{
             name: "photo",
@@ -20,24 +19,27 @@ productModule
             enableSorting: false,
             enableFiltering: false,
             width: '75',
-            cellEditableCondition: false,
             cellTemplate: '<img ng-src="row.entity.photos"/>'
           },{
             name: "name",
+            enableCellEdit: true,
             enableColumnMenu: false,
             cellTemplate: '<a ng-click="viewDetail(row.entity.id)" href="javascript:void(0)">{{row.entity.name}}</a>'
           },{
             name: "price",
             enableColumnMenu: false,
             width: '100',
+            enableCellEdit: true,
             editableCellTemplate: '',
           },{
             name: "sale_price",
             enableColumnMenu: false,
+            enableCellEdit: true,
             width: '100',
           },{
             name: "status",
             enableColumnMenu: false,
+            enableCellEdit: true,
             width: '50',
           }];  
           
