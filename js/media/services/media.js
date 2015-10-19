@@ -12,7 +12,9 @@ mediaModule.service('mediaService', [ 'Upload', 'baseService'
                 var api = this.getCollection().api;
                 return Upload.upload({
                     url: api,
-                    file: $file,
+                    data: {
+                        file: $file,
+                    },
                 }).success(callback);
             },
             uploadAll: function($files, callback) {
