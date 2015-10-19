@@ -2,7 +2,7 @@
 
 /**
  * @name            OnhanhSection
- * @description     SectionServiceController
+ * @description     SectionService
  */
 sectionModule
     .service('sectionService', [ 'baseService'
