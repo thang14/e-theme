@@ -27,9 +27,11 @@ window.angular.module('app', [
     'app.shop',
     'app.reports',
     'app.settings'
-]).run(['$rootScope', '$state', '$stateParams',
-    function ($rootScope,   $state,   $stateParams) {
-
+]).run(['$rootScope', '$state', '$stateParams', 'initService',
+    function ($rootScope,   $state,   $stateParams, initService) {
+        
+        initService.launch();
+        
         // It's very handy to add references to $state and $stateParams to the $rootScope
         // so that you can access them from any scope within your applications.For example,
         // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
