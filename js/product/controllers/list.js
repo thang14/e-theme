@@ -43,7 +43,13 @@ productModule
             width: '50',
           }];  
           
+          $scope.onSaveRow = function(rowEntity) {
+            productService.save(rowEntity);  
+          }
+          
           $scope.gridOptions = gridService.gridOptions();
+          
+          
           //load collection from remote
           $scope.load = function() {
             gridService.load($scope, productService);
