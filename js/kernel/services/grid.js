@@ -29,6 +29,12 @@ kernelModule.service('gridService', [
             enableSorting: false,
             useExternalFiltering: true,
             columnDefs: $scope.columns,
+            onRegisteApi: function(gridApi) {
+              //register save row
+              gridApi.rowEdit.on.saveRow($scope,function(rowEntity){
+                $scope.onSaveRow(rowEntity);
+              });
+            }
           };
           
         },
