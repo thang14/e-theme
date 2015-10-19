@@ -5,8 +5,8 @@
  * @description     ReportsController
  */
 reportsModule
-    .controller('reportsController', [ '$scope',
-        function($scope) {
+    .controller('reportsController', [ '$scope', 'reportsService'
+        function($scope, reportsService) {
             
         }
     ]);
