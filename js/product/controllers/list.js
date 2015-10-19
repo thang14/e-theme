@@ -42,6 +42,13 @@ productModule
             enableColumnMenu: false,
             enableCellEdit: true,
             width: '50',
+            editDropdownOptionsArray: [{
+              id: 0,
+              status: 'Private'
+            },{
+              id: 1,
+              status: 'Active'
+            }]
           }];  
           
           $scope.onSaveRow = function(rowEntity) {
