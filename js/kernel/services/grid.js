@@ -31,7 +31,7 @@ kernelModule.service('gridService', [
             columnDefs: $scope.columns,
             onRegisteApi: function(gridApi) {
               //register save row
-              gridApi.rowEdit.on.saveRow($scope,function(rowEntity){
+              gridApi.rowEdit.on.afterCellEdit($scope,function(rowEntity, colDef, newValue, oldValue){
                 $scope.onSaveRow(rowEntity);
               });
             }
