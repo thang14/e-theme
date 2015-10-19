@@ -9,7 +9,7 @@ angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
         
         var resourceService = function(name) {
             this.resource = name;
-            this.api = Environment.settings.api + '/' + name+'.json';
+            this.api = Environment.settings.api + '/' + name+Environment.settings.prefix;
         }
         
         resourceService.prototype = {
