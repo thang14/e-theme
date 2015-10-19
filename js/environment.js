@@ -11,10 +11,14 @@ angular.module('app.environment', [])
 
         return {
             settings: {
-                api: 'http://' + api_domain + '/admin-theme/examples/data',
+                api: 'http://' + api_domain + '/'+this.currentShop()+'/examples/data',
                 prefix: ".json",
                 domain: 'http://' + api_domain,
                 pageTitle: 'Onhanh - open source project | Admin'
+            },
+            
+            currentShop: function() {
+                return window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
             }
         }
     });
