@@ -30,13 +30,13 @@ productModule
             enableColumnMenu: false,
             width: '100',
             enableCellEdit: true,
-            editableCellTemplate: '/web/ui-grid/form-price.html',
+            editableCellTemplate: '/web/ui-grid/editor-price.html',
           },{
             name: "sale_price",
             enableColumnMenu: false,
             enableCellEdit: true,
             width: '100',
-            editableCellTemplate: '/web/ui-grid/form-price.html',
+            editableCellTemplate: '/web/ui-grid/editor-price.html',
           },{
             name: "onsite",
             type: 'boolean',
