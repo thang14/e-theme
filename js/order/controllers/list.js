@@ -32,6 +32,12 @@ orderModule
                 enableFiltering: false,
                 width: '200',
             },{
+                name: "created_at",
+                enableColumnMenu: false,
+                enableSorting: false,
+                enableFiltering: false,
+                width: '80',
+            },{
                 name: "status",
                 enableColumnMenu: false,
                 enableSorting: false,
