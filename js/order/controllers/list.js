@@ -15,7 +15,13 @@ orderModule
                 enableFiltering: false,
                 width: '75',
             },{
-                name: "email",
+                name:"fullname",
+                enableColumnMenu: false,
+                enableSorting: false,
+                enableFiltering: false,
+                width: '200',
+            },{
+                name:"phone",
                 enableColumnMenu: false,
                 enableSorting: false,
                 enableFiltering: false,
