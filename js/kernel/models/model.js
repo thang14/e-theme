@@ -23,15 +23,15 @@
     }
     
     BaseModel.prototype.save = function() {
-      
+      return this.getCollection.save(this);
     }
     
     BaseModel.prototype.create = function() {
-      
+      return this.getCollection.create(this);
     }
     
     BaseModel.prototype.remove = function() {
-      
+      return this.getCollection.remove(this.id);
     }
     
     BaseModel.instance = function(data) {
