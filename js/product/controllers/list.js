@@ -58,10 +58,16 @@ productModule
             gridService.load($scope, productService);
           }
           $scope.load();
+          
+          
           $scope.viewDetail = function(id) {
             $state.transitionTo('product.detail',{
               id:id
             })
+          }
+          
+          $scope.newProduct = function(id) {
+            $state.transitionTo('product.new');
           }
         }
     ]);
