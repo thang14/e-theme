@@ -8,7 +8,10 @@ shopModule
     .service('shopService', [ 'baseService',
         function(baseService) {
           return angular.extend(baseService, {
-            collectionName: "shop",
+            collectionName: "infomation",
+            getInfomation: function() {
+                return this.get({});
+            }
           });  
         }
     ]);
