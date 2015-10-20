@@ -26,6 +26,12 @@ orderModule
                 enableFiltering: false,
                 width: '200',
             },{
+                name: "payments",
+                enableColumnMenu: false,
+                enableSorting: false,
+                enableFiltering: false,
+                width: '200',
+            },{
                 name: "status",
                 enableColumnMenu: false,
                 enableSorting: false,
