@@ -20,13 +20,13 @@ window.angular.module('app', [
     //App modules
     'app.environment',
     'app.kernel',
-    'app.auth',
+    //'app.auth',
+    //'app.shop',
     'app.media',
     'app.dashboard',
     'app.product',
     'app.section',
     'app.order',
-    'app.shop',
     'app.reports',
     'app.settings'
 ]).run(['$rootScope', '$state', '$stateParams', 'initService',
