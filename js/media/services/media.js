@@ -4,12 +4,11 @@
  * @name            OnhanhMedia
  * @description     MediaService
  */
-mediaModule.service('mediaService', [ 'Upload', 'baseService'
-    function(Upload, collectionService) {
-        return angular.extend(baseService, {
-            collectionName: "media",
+mediaModule.service('mediaService', [ 'Upload', 'Environment'
+    function(Upload, Environment) {
+        return {
             upload: function($file, callback) {
-                var api = this.getCollection().api;
+                var api = Environment.settings.domain+'/media';
                 return Upload.upload({
                     url: api,
                     data: {
@@ -17,11 +16,7 @@ mediaModule.service('mediaService', [ 'Upload', 'baseService'
                     },
                 }).success(callback);
             },
-            uploadAll: function($files, callback) {
-                $files.forEach(function(file) {
-                    this.upload(file, callback);
-                }, this);
-            }
-        });
+            
+        }
     }
 ]);
