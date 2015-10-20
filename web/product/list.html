@@ -31,7 +31,7 @@
     <!-- Pagination & collection details -->
     <div class="row">
         <div class="col-md-8">
-            <pagination ng-if="gridOptions.totalItems > 0" on-select-page="loadCollection(page)"
+            <pagination ng-if="gridOptions.totalItems > 0" on-select-page="load(page)"
                         items-per-page="{{pageLimit}}"
                         total-items="gridOptions.totalItems" page="pageNumber"></pagination>
         </div>
