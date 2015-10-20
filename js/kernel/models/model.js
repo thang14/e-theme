@@ -36,7 +36,7 @@
     
     BaseModel.instance = function(data) {
       if(data) {
-        this.data = new this(data);
+        return new this(data);
       }
     }
     
