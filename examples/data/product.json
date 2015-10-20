@@ -1,9 +1,6 @@
 [{
   "id": "ON00001",
-  "photos": [{
-    "id": "photo3",
-    "url": "/images/product-example-3.jpg",
-  }],
+  "photo": "/images/product-example-3.jpg",
   "section": {
     "id": "section1",
     "name": "Gốm sứ gia đình",
@@ -16,10 +13,7 @@
   "status":"public",
 },{
   "id": "ON00002",
-  "photos": [{
-    "id": "photo2",
-    "url": "/images/product-example-2.jpg",
-  }],
+  "photo": "/images/product-example-2.jpg",
   "section": {
     "id": "section3",
     "name": "Tranh",
@@ -32,10 +26,7 @@
   "status":"public",
 },{
   "id": "ON00003",
-  "photos": [{
-    "id": "photo1",
-    "url": "/images/product-example-1.jpg",
-  }],
+  "photo": "/images/product-example-1.jpg",
   "section": {
     "id": "section2",
     "name": "Gốm sứ xây dựng",
