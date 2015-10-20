@@ -4,8 +4,8 @@
  * @name            OnhanhMedia
  * @description     MediaService
  */
-mediaModule.service('mediaService', [ 'Upload', 'Environment'
-    function(Upload, Environment) {
+mediaModule.service('mediaService', [ 'Upload', 'Environment', '$http'
+    function(Upload, Environment, $http) {
         return {
             upload: function($file, callback) {
                 var api = Environment.settings.domain+'/media';
@@ -17,6 +17,12 @@ mediaModule.service('mediaService', [ 'Upload', 'Environment'
                 }).success(callback);
             },
             
+            remove: function($id) {
+                var api = Environment.settings.domain+'/media';
+                $http.delete($id,{
+                    id: $id
+                });
+            },
         }
     }
 ]);
