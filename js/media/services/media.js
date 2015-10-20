@@ -19,7 +19,7 @@ mediaModule.service('mediaService', [ 'Upload', 'Environment', '$http'
             
             remove: function($id) {
                 var api = Environment.settings.domain+'/media';
-                $http.delete($id,{
+                $http.delete(api,{
                     id: $id
                 });
             },
