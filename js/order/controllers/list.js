@@ -9,6 +9,7 @@ orderModule
         function($scope, orderService) {
             $scope.columns = [{
                 name: "id",
+                displayName: "Order code",
                 enableColumnMenu: false,
                 enableSorting: false,
                 enableFiltering: false,
