@@ -6,14 +6,7 @@
  * @description     Module config
  */
  
-authModule.
-'use strict';
-
-/**
- * @name            OnhanhOrder
- * @description     OrderConfig
- */
-orderModule
+authModule
     .config(['$stateProvider',
         function($stateProvider) {
          // Use $stateProvider to configure your states.
