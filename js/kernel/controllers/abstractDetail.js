@@ -61,7 +61,7 @@ angular.module('app.kernel')
          */
         $scope.editSave = function (callback) {
             // Existent item
-            if ($scope.details.id !== undefined) {
+            if ($scope.detail.id !== undefined) {
                 itemService.save($scope.item).success(
                     function (data, status) {
                         notify($scope.route.name + ' has been saved');
@@ -72,7 +72,7 @@ angular.module('app.kernel')
                     });
             }
             // New item
-            if ($scope.details.id === undefined) {
+            if ($scope.detail.id === undefined) {
                 itemService.create($scope.item).success(
                     function (data, status) {
                         notify($scope.route.name + ' was added');

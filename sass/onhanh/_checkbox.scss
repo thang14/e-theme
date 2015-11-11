@@ -6,7 +6,8 @@
 $font-family-icon: 'FontAwesome' !default;
 $fa-var-check: "\f00c" !default;
 $check-icon: $fa-var-check !default;
-
+$input-border: 1px !default;
+$input-color: "#ddd" !default;
 @mixin checkbox-variant($parent, $color) {
   #{$parent} input[type="checkbox"]:checked + label,
   #{$parent} input[type="radio"]:checked + label {

@@ -4,8 +4,8 @@
  * @name            OnhanhProduct
  * @description     ProductService
  */
-productModule.service('productService', ['baseService'
-    function(service, collectionService) {
+productModule.service('productService', ['baseService',
+    function(baseService) {
         return angular.extend(baseService, {
             collectionName: "product"
         });

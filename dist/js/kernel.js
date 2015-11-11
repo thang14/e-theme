@@ -85,7 +85,7 @@ angular.module('app.kernel')
          */
         $scope.editSave = function (callback) {
             // Existent item
-            if ($scope.details.id !== undefined) {
+            if ($scope.detail.id !== undefined) {
                 itemService.save($scope.item).success(
                     function (data, status) {
                         notify($scope.route.name + ' has been saved');
@@ -96,7 +96,7 @@ angular.module('app.kernel')
                     });
             }
             // New item
-            if ($scope.details.id === undefined) {
+            if ($scope.detail.id === undefined) {
                 itemService.create($scope.item).success(
                     function (data, status) {
                         notify($scope.route.name + ' was added');
@@ -158,6 +158,140 @@ angular.module('app.kernel')
 ]);
 
 
+
+'use strict';
+
+/**
+ * @name            OnhanhProduct
+ * @description     BaseService
+ */
+kernelModule.service('baseService', ['collectionService',
+    function(collectionService) {
+        return {
+
+            collectionName: undefined,
+
+            getCollection: function() {
+                return collectionService
+                .getCollection(this.collectionName);
+            },
+
+            find: function(params) {
+                return this.getCollection()
+                .find(params);
+            },
+
+            get: function($id) {
+                this.getCollection()
+                .get($id);
+            },
+
+            remove: function($id) {
+                this.getCollection()
+                .remove($id);
+            },
+
+            save: function($data) {
+                this.getCollection()
+                .save($data);
+            },
+
+            create: function($data) {
+                this.getCollection()
+                .create($data);
+            }
+        }
+    }
+]);
+
+'use strict';
+
+/**
+ * @name            OnhanhKernel
+ * @description     collectionService
+ */
+
+kernelModule.service('collectionService', ['resourceService',
+
+    function(resourceService) {
+        return {
+            collections: {},
+            getCollection: function($name) {
+                if(!this.collections[$name]) {
+                    return this.collections[$name] = new resourceService($name);
+                }
+                return this.collections[$name];
+            }
+        }
+    }
+]);
+
+
+'use strict';
+
+/**
+ * @name            OnhanhProduct
+ * @description     ProductController
+ */
+kernelModule.service('gridService', [
+    function() {
+        return {
+            load: function($scope, service) {
+                return service
+                .find()
+                .success(function(data, status) {
+                    $scope.gridOptions.data = data.data;
+                    $scope.gridOptions.totalItems = data.total;
+                }).error(function(err) {
+                    console.log(121); return;
+                });
+            },
+
+            gridOptions: function($scope) {
+                return {
+                    selectionRowHeaderWidth: 35,
+                    rowHeight: $scope.rowHeight || 35,
+                    showGridFooter: true,
+                    enableFiltering: true,
+                    enableSorting: false,
+                    useExternalFiltering: true,
+                    columnDefs: $scope.columns,
+                    onRegisteApi: function(gridApi) {
+                        //register save row
+                        gridApi.rowEdit.on.afterCellEdit($scope,function(rowEntity, colDef, newValue, oldValue){
+                            $scope.onSaveRow(rowEntity);
+                        });
+                    }
+                };
+
+            },
+
+            actionTemplate: function () {
+                return '<ng-include src="\'/web/collection/action.html\'"></ng-include>';
+            },
+
+        }
+    }
+]);
+
+'use strict';
+
+/**
+ * @name            OnhanhKernel
+ * @description     Most important data are loaded here
+ */
+
+kernelModule
+  .service('initService', ['$http', '$rootScope', 'Environment',
+      function ($http, $rootScope, Environment) {
+          return {
+              launch: function () {
+                  $rootScope.domain = Environment.settings.domain;
+              }
+          }
+      }
+  ]);
+
 'use strict';
 
 /**
@@ -166,43 +300,42 @@ angular.module('app.kernel')
  */
 angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
     function($http, Environment) {
-        
+
         var resourceService = function(name) {
             this.resource = name;
+            this.api = Environment.settings.api + '/' + name + Environment.settings.prefix;
         }
-        
+
         resourceService.prototype = {
-        
-            getCollection: function($scope, pageNumber) {
-                var url = Environment.settings.api + '/' + this.resource + '/?limit=' + $scope.pageLimit + '&current=' + pageNumber + '&filter=' + $scope.filter;
-                return $http.get(url);
-            }, 
-            
-            remove: function($id) {
-                var url = Environment.settings.api+'/'+this.resource+'/'+$id;
-                return $http.delete(url);
+
+            find: function(params) {
+                return $http.get(this.api, params);
             },
-            
+
+            remove: function($id) {
+                return $http.delete(this.api+'/'+$id);
+            },
+
             save: function(data) {
-                var url = Environment.settings.api+'/'+this.resource+'/'+data.id;
+                var url = this.api+'/'+data.id;
                 return $http({
                     method: 'PUT',
                     url: url,
                     data: data
                 });
             },
-            
+
             create: function(data) {
-                var url = Environment.settings.api+'/'+this.resource;
+                var url = this.api;
                 return $http({
                     method: 'POST',
                     url: url,
                     data: data
                 });
             },
-            
+
         }
-        
+
         return resourceService;
     }
 ]);

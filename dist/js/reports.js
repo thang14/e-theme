@@ -48,12 +48,26 @@ reportsModule
  * @description     ReportsController
  */
 reportsModule
-    .controller('reportsController', [ '$scope',
-        function($scope) {
-            
+    .controller('reportsController', [ '$scope', 'reportsService',
+        function($scope, reportsService) {
+
         }
     ]);
 
+'use strict';
+
+/**
+ * @name            OnhanhReports
+ * @description     ReportsServiceController
+ */
+reportsModule
+    .service('reportsService', [ 'baseService',
+        function(baseService) {
+          return angular.extend(baseService, {
+            collectionName: "reports"
+          });
+        }
+    ]);
 
 
 })(window, window.angular);

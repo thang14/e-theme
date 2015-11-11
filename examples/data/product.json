@@ -1,40 +1,69 @@
-[{
-  "id": "ON00001",
-  "photo": "/images/product-example-3.jpg",
-  "section": {
-    "id": "section1",
-    "name": "Gốm sứ gia đình",
-    "url": "/gomsubattrang/gomsugiadinh"
-  },
-  "name": "Chén sứ bát tràng",
-  "price": 100000,
-  "price_sale": 90000,
-  "quantity": 10,
-  "status":"public",
-},{
-  "id": "ON00002",
-  "photo": "/images/product-example-2.jpg",
-  "section": {
-    "id": "section3",
-    "name": "Tranh",
-    "url": "/gomsubattrang/tranh"
-  },
-  "name": "Tranh sứ bát tràng",
-  "price": 200000,
-  "price_sale": 190000,
-  "quantity": 10,
-  "status":"public",
-},{
-  "id": "ON00003",
-  "photo": "/images/product-example-1.jpg",
-  "section": {
-    "id": "section2",
-    "name": "Gốm sứ xây dựng",
-    "url": "/gomsubattrang/gomsuxaydung"
-  },
-  "name": "Gạch sứ bát tràng",
-  "price": 200000,
-  "price_sale": 190000,
-  "quantity": 10,
-  "status":"public",
-}]
+{
+    "data": [{
+        "id": "ON00001",
+        "photo": "/admin-theme/examples/images/1.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Chén sứ bát tràng",
+        "price": 100000,
+        "sale_price": 90000,
+        "quantity": 10,
+        "status":"public"
+    },{
+        "id": "ON00002",
+        "photo": "/admin-theme/examples/images/2.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Chén sứ bát tràng",
+        "price": 100000,
+        "sale_price": 90000,
+        "quantity": 10,
+        "status":"public"
+    },{
+        "id": "ON00003",
+        "photo": "/admin-theme/examples/images/4.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Chén sứ bát tràng",
+        "price": 100000,
+        "sale_price": 90000,
+        "quantity": 10,
+        "status":"public"
+    },{
+        "id": "ON00004",
+        "photo": "/admin-theme/examples/images/3.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Chén sứ bát tràng",
+        "price": 100000,
+        "sale_price": 90000,
+        "quantity": 10,
+        "status":"public"
+    },{
+        "id": "ON00005",
+        "photo": "/admin-theme/examples/images/2.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Chén sứ bát tràng",
+        "price": 100000,
+        "sale_price": 90000,
+        "quantity": 10,
+        "status":"public"
+    }],
+    "total": 50
+}

@@ -5,11 +5,11 @@
  * @description     collectionService
  */
 
-kernelModule.service('collectionService', [ '$scope', 'resourceService'
-    
-    function($scope, resourceService) {
+kernelModule.service('collectionService', ['resourceService',
+
+    function(resourceService) {
         return {
-            collections: {};
+            collections: {},
             getCollection: function($name) {
                 if(!this.collections[$name]) {
                     return this.collections[$name] = new resourceService($name);

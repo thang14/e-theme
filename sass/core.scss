@@ -2,7 +2,7 @@
 // Reset inverted navbar basics
 $navbar-inverse-bg:                         #37474f !default;
 $navbar-inverse-border:                         #37474f !default;
-$navbar-inverse-link-color:                         #fff !default; 
+$navbar-inverse-link-color:                         #fff !default;
 
 
 //== Navbar
@@ -41,3 +41,7 @@ $fa-font-path: "../fonts/font-awesome/";
 
 //UI.Grid
 @import "onhanh/ui-grid";
+@import "onhanh/loading-bar";
+@import "onhanh/angular-notify";
+
+//@import "onhanh/checkbox";

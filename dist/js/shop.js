@@ -7,7 +7,30 @@
  * @name            OnhanhShop
  * @description     ShopModule
  */
-var shopModule = angular.module("app.shop", []);
+var shopModule = angular.module("app.shop", [])
+.run(['$http', '$state', '$rootScope', 'shopService', 'Environment',
+  function($http, $state, $rootScope, shopService, Environment) {
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      if ($rootScope.shop === undefined) {
+        shopService
+        .getInfomation()
+        .success(function(data, status) {
+          if(data.name) {
+            $rootScope.shop = data;
+          } else {
+            $rootScope.shop = false;
+            event.preventDefault();
+            $state.transitionTo('404');
+          }
+        });
+      } else if($rootScope.shop == false) {
+        event.preventDefault();
+        $state.transitionTo('404');
+      }
+    })
+ 
+  }
+]);
 
 'use strict';
 
@@ -21,10 +44,10 @@ shopModule
          // Use $stateProvider to configure your states.
           $stateProvider
 
-            .state("shop", {
-              title: "Shop",
+            .state("info", {
+              title: "Shop Info",
               // Use a url of "/" to set a states as the "index".
-              url: "/shop",
+              url: "/info",
 
               // Example of an inline template string. By default, templates
               // will populate the ui-view within the parent state's template.
@@ -54,6 +77,23 @@ shopModule
         }
     ]);
 
+'use strict';
+
+/**
+ * @name            OnhanhShop
+ * @description     ShopService
+ */
+shopModule
+    .service('shopService', [ 'baseService',
+        function(baseService) {
+          return angular.extend(baseService, {
+            collectionName: "infomation",
+            getInfomation: function() {
+                return this.get({});
+            }
+          });  
+        }
+    ]);
 
 
 })(window, window.angular);

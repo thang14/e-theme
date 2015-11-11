@@ -69,8 +69,9 @@ module.exports = function(grunt) {
                     'bower_components/ng-file-upload/ng-file-upload-all.min.js',
                     'bower_components/angular-input-masks/angular-input-masks-standalone.min.js',
                     'bower_components/ng-tags-input/ng-tags-input.min.js',
-		    'bower_components/angular-ui-grid/ui-grid.js',
-		    'bower_components/angular-loading-bar/build/loading-bar.min.js',
+        		    'bower_components/angular-ui-grid/ui-grid.js',
+        		    'bower_components/angular-loading-bar/build/loading-bar.min.js',
+                    'bower_components/angular-notify/dist/angular-notify.min.js',
                ],
            }
        },
@@ -81,6 +82,7 @@ module.exports = function(grunt) {
             files:{
                 "dist/js/app.js":[
                     'js/app.js',
+                    'js/constant',
                     'js/environment.js',
                     'dist/js/kernel.js',
                     'dist/js/product.js',

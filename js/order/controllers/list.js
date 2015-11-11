@@ -5,7 +5,7 @@
  * @description     OrderController
  */
 orderModule
-    .controller('orderController', [ '$scope', 'orderService'
+    .controller('orderController', [ '$scope', 'orderService',
         function($scope, orderService) {
             $scope.columns = [{
                 name: "id",

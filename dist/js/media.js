@@ -1,3 +1,14 @@
+
+(function(window, angular, undefined) {
+
+'use strict';
+
+/**
+ * @name            OnhanhMedia
+ * @description     MediaModule
+ */
+var mediaModule = angular.module("app.media", []);
+
 'use strict';
 
 /**
@@ -26,3 +37,6 @@ mediaModule.service('mediaService', [ 'Upload', 'Environment', '$http',
         }
     }
 ]);
+
+
+})(window, window.angular);

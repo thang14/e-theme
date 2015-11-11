@@ -14,6 +14,18 @@ var variantModule = angular.module("app.variant", []);
 
 /**
  * @name            OnhanhVariant
+ * @description     VariantConfig
+ */
+variantModule
+    .config(['$stateProvider',
+        function($stateProvider) {
+        }
+    ]);
+
+'use strict';
+
+/**
+ * @name            OnhanhVariant
  * @description     VariantAddController
  */
 variantModule
@@ -30,9 +42,23 @@ variantModule
  * @description     VariantDetailController
  */
 variantModule
-	.controller('variantDetailController', ['$location', '$scope', '$rootScope',
-	    function($location, $scope, $rootScope) {
-	    	
+	.controller('variantDetailController', ['$location', '$scope', '$rootScope', 'variantService', '$controller',
+	    function($location, $scope, $rootScope, variantService, $controller) {
+
+	    	$scope.route = {
+	    		name: "variant",
+	    		collection: variantService.collectionName
+	    	};
+
+	    	angular.extend(this, $controller('AbstractDetailsNodeCtrl', {
+	    		$scope: $scope,
+	    		itemService: variantService
+	    	}));
+
+	    	$scope.fileUploaded = function($message){
+	    		$scope.item.medias.push($message);
+	    		$scope.editSave();
+	    	}
 	    }
 	]);
 
@@ -49,6 +75,19 @@ variantModule
 	    }
 	]);
 
+'use strict';
+
+/**
+ * @name            OnhanhVariant
+ * @description     VariantService
+ */
+variantModule.service('variantService', ['baseService',
+    function(service, collectionService) {
+        return angular.extend(baseService, {
+            collectionName: "variant"
+        });
+    }
+]);
 
 
 })(window, window.angular);

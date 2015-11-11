@@ -5,8 +5,8 @@
  * @description     OrderAddController
  */
 orderModule
-    .controller('orderAddController', [ '$scope', 'orderService'
+    .controller('orderAddController', [ '$scope', 'orderService',
         function($scope, orderService) {
-            
+
         }
     ]);

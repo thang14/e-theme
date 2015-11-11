@@ -5,10 +5,10 @@
  * @description     SectionService
  */
 sectionModule
-    .service('sectionService', [ 'baseService'
+    .service('sectionService', [ 'baseService',
         function(baseService) {
           return angular.extend(baseService, {
             collectionName: "section"
-          });  
+          });
         }
     ]);

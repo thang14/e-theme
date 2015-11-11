@@ -49,7 +49,7 @@ productModule
                   }
               },
             })
-            
+
             //////////////////
             // Product Detail //
             ////////////////
@@ -70,7 +70,7 @@ productModule
                   }
               },
             })
-            
+
             //////////////////
             // Product Variant //
             ////////////////
@@ -91,7 +91,7 @@ productModule
                   }
               },
             })
-	    
+
             //////////////////
             // Product Variant detail //
             ////////////////
@@ -112,7 +112,7 @@ productModule
                   }
               },
             })
-            
+
             //////////////////
             // Product Variant detail //
             ////////////////
