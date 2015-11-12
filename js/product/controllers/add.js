@@ -18,18 +18,28 @@ productModule
                 $scope: $scope,
                 itemService: productService
             }));
+            
+            
+            $scope.variantOptions = [
+            	'color_name', 
+            	'size_name', 
+            	'style_name'
+            ],
 
 			$scope.item = {
+				
 				name: "San pham",
+				
+				//options
 				variant_options: [
 					['red', 'blue'],
 					[33, 34, 35, 36]
 				],
-
-				variant_option_value:{
-					0: 'Color',
-					1: 'Size'
-				},
+				
+				// option values
+				variant_option_values:['Color', 'Size'],
+				//option names
+				variant_option_names: ['color_name', 'size_name'],
 
 				variants: {
 					'0_3':{
