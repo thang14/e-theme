@@ -5,8 +5,22 @@
  * @description     ProductAddController
  */
 productModule
-	.controller('productAddController', ['$location', '$scope', '$rootScope', 'productService', 'mediaService', '$controller',
-	    function($location, $scope, $rootScope, productService, mediaService, $controller) {
+	.controller('productAddController', [
+		'$location', 
+		'$scope', 
+		'$rootScope', 
+		'productService', 
+		'mediaService', 
+		'$controller',
+		'variantOption'
+	    function(
+	    	$location, 
+	    	$scope, 
+	    	$rootScope, 
+	    	productService, 
+	    	mediaService, 
+	    	$controller,
+	    	variantOption) {
 
 			$scope.route = {
                 name: 'product',
@@ -20,36 +34,15 @@ productModule
             }));
             
             
-            $scope.variantOptions = [
-            	'color_name', 
-            	'size_name', 
-            	'style_name'
-            ],
+            $scope.variantOption = variantOption;
 
 			$scope.item = {
-				
-				name: "San pham",
-				
-				//options
-				variant_options: [
-					['red', 'blue'],
-					[33, 34, 35, 36]
-				],
-				
-				// option values
-				variant_option_values:['Color', 'Size'],
-				//option names
-				variant_option_names: ['color_name', 'size_name'],
-
-				variants: {
-					'0_3':{
-						id: 1,
-						price: 50000,
-						sale_price: 50000,
-						quantity: 5,
-						variants:"0_3"
-					}
-				}
+				name:'',
+				variant_options: []
+				variant_option_values:[],
+				variant_option_names: [],
+				current: {}
+				variants:[]
 			}
 
 			// delete file
