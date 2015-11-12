@@ -5,7 +5,7 @@
  */
 
 window.angular.module('app', [
-    //'ng-locale',
+    'ng-locale',
     
     //Core module
     'ui.router',
