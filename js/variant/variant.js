@@ -15,13 +15,16 @@ variantModule.factory('variantOption', [
       var variantOption = {
           options: [{
               name: 'color_name',
-              value: "Color"
+              value: "Color",
+              items: ['Red', 'Blur', 'While']
           },{
               name: 'size_name',
-              value: "Size"
+              value: "Size",
+              items: [33, 34, 35]
           },{
               name: 'style_name',
-              value: "Style"
+              value: "Style",
+              items: ['15 inch', '13.5 inch', '13 inch']
           }]
       }
       return variantOption;
