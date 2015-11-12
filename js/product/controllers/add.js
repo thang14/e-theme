@@ -38,12 +38,20 @@ productModule
 
 			$scope.item = {
 				name:'',
+				branh: "",
 				variant_options: []
 				variant_option_values:[],
 				variant_option_names: [],
-				current: {}
+				current: {
+					medias: [],
+					price: 0,
+					sale_price: 0,
+					sale_start: 0,
+					sale_end: 0,
+					quantity: 1,
+					sku: '',
+				}
 				variants:[],
-				medias: []
 			}
 
 			// delete file
