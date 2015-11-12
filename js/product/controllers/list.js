@@ -49,6 +49,12 @@ productModule
             enableCellEdit: true,
             width: '50',
 
+          },{
+            name: "action",
+            enableColumnMenu: false,
+            enableCellEdit: true,
+            width: '100',
+            editableCellTemplate: '/web/collection/action.html',
           }];
 
           $scope.onSaveRow = function(rowEntity) {
