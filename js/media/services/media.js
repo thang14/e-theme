@@ -7,6 +7,10 @@
 mediaModule.service('mediaService', [ 'Upload', 'Environment', '$http',
     function(Upload, Environment, $http) {
         return {
+            
+            /**
+             * Upload file
+             */
             upload: function($file, callback) {
                 var api = Environment.settings.domain+'/media';
                 return Upload.upload({
@@ -16,7 +20,8 @@ mediaModule.service('mediaService', [ 'Upload', 'Environment', '$http',
                     },
                 }).success(callback);
             },
-
+            
+            // Remove file
             remove: function($id) {
                 var api = Environment.settings.domain+'/media';
                 $http.delete(api,{
