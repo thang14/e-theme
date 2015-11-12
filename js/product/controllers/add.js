@@ -42,7 +42,8 @@ productModule
 				variant_option_values:[],
 				variant_option_names: [],
 				current: {}
-				variants:[]
+				variants:[],
+				medias: []
 			}
 
 			// delete file
