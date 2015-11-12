@@ -19,6 +19,7 @@
     "ng-tags-input": "3.0.x",
     "angular-loading-bar": "0.8.x",
     "angular-notify":"*",
+    "angular-ui-bootstrap": "0.14.3",
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-20140814.zip",
     "ng-closure-runner": "https://raw.github.com/angular/ng-closure-runner/v0.2.3/assets/ng-closure-runner.zip"
   }
