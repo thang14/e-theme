@@ -138,7 +138,7 @@ module.exports = function(grunt) {
       
       i18n: {
         files: [{ 
-            src: 'src/ngLocale/**', 
+            src: 'src/locale/**', 
             dest: 'dist/i18n/', 
             expand: true, 
             flatten: true 
