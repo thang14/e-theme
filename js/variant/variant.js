@@ -17,6 +17,11 @@ variantModule.factory('variantOption', [
               'color_name', 
               'size_name', 
               'style_name'
+          ],
+          options_values: [
+              'Color',
+              'Size',
+              'Style'
           ]
       }
       return variantOption;
