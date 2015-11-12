@@ -117,21 +117,34 @@ module.exports = function(grunt) {
     },
     copy: {
       bootstrap: {
-        expand: true,
-        cwd: 'bower_components/bootstrap-sass/assets/fonts/',
-        src: '**',
-        dest: 'dist/fonts/bootstrap',
-        flatten: true,
-        filter: 'isFile',
-      },
+        files: [{ 
+            src: 'bower_components/bootstrap-sass/assets/fonts/**', 
+            dest: 'dist/fonts/bootstrap/', 
+            expand: true, 
+            flatten: true 
+          
+        }]
+      }
+      
       awesome: {
-        expand: true,
-        cwd: 'bower_components/font-awesome-sass/assets/fonts/',
-        src: '**',
-        dest: 'dist/fonts/font-awesome',
-        flatten: true,
-        filter: 'isFile',
-      },
+        files: [{ 
+            src: 'bower_components/font-awesome-sass/assets/fonts/**', 
+            dest: 'dist/fonts/font-awesome/', 
+            expand: true, 
+            flatten: true 
+          
+        }]
+      }
+      
+      i18n: {
+        files: [{ 
+            src: 'src/ngLocale/**', 
+            dest: 'dist/i18n/', 
+            expand: true, 
+            flatten: true 
+          
+        }]
+      }
     },
     watch: {
       scripts: {
