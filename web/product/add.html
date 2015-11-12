@@ -34,11 +34,39 @@
         </div><!--.form-group-->
         
         <div class="form-group">
-             <label class="col-sm-2 control-label">&nbsp;</label>
-            <div class="col-sm-5">
+            <label class="col-sm-2 control-label">&nbsp;</label>
+            <div class="col-sm-7">
               <button type="button" class="btn btn-default" ng-click="addVariantOption()">Add variant</button>
+              
+              <div class="variant-list" ng-if="item.variants.length > 0">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>Action</th>
+                              <th>Variant</th>
+                              <th>Sku</th>
+                              <th>Barcode</th>
+                              <th>Price</th>
+                              <th>Sale price</th>
+                              <th>Quantity</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="variant in item.variants">
+                              <td><a href="removeVariant(variant)">Remove</a></td>
+                              <td>{{getVariantLabel(variant.variants)}}</td>
+                              <td>{{variant.sku}}</td>
+                              <td>{{variant.barcode}}</td>
+                              <td format-price="variant.price">Loading</td>
+                              <td>{{variant.sale_price}}</td>
+                              <td>>{{variant.quantity}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
             </div>
         </div><!--.form-group-->
+        
         
         <div ng-if="variant_options.length === 0">
             <div class="form-group">
