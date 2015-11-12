@@ -1,5 +1,5 @@
 'use strict';
-angular.module("ngLocale", [], ["$provide", 
+angular.module("app.locale", [], ["$provide", 
   function($provide) {
     $provide.value("$locale", {
       "PRODUCT": {
