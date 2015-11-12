@@ -7,7 +7,9 @@
 var variantModule = angular.module("app.variant", []);
 
 
-
+/**
+ * Variant Option
+ */
 variantModule.factory('variantOption', [
     function() {
       var variantOption = {
