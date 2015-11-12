@@ -13,16 +13,16 @@ var variantModule = angular.module("app.variant", []);
 variantModule.factory('variantOption', [
     function() {
       var variantOption = {
-          options: [
-              'color_name', 
-              'size_name', 
-              'style_name'
-          ],
-          options_values: [
-              'Color',
-              'Size',
-              'Style'
-          ]
+          options: [{
+              name: 'color_name',
+              value: "Color"
+          },{
+              name: 'size_name',
+              value: "Size"
+          },{
+              name: 'style_name',
+              value: "Style"
+          }]
       }
       return variantOption;
     }
