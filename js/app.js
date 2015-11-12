@@ -5,7 +5,8 @@
  */
 
 window.angular.module('app', [
-
+    'ng-locale',
+    
     //Core module
     'ui.router',
     'ui.utils.masks',
