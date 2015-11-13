@@ -57,25 +57,36 @@ productModule
                 itemService: productService
             }));
 			
-			$scope.variantOptionList = [{
-				name: 'color_name',
-				value: "Color",
-				disabled: false
-			},{
-				name: 'size_name',
-				value: "Size",
-				disabled: false
-			},{
-				name: 'size_name',
-				value: "Size",
-				disabled: false
-			}]
+			$scope.variantOptionTemplates = [
+				'Size',
+				'Color',
+				'Style',
+				'Color and Size',
+				'Color and Style',
+				'Color, Size, and Style',
+				'Size and Style'
+			];
 			
-			$scope.addVariantOption = function() {
-				$scope.item.variant_options.push({
-					name: "",
-					label: "",
-					items: [],
+			$scope.variantOptionTemplateData = [
+				['size_name'],
+				['color_name'],
+				['style_name'],
+				['color_name', 'size_name'],
+				['color_name', 'style_name'],
+				['color_name', 'size_name', 'style_name'],
+				['size_name', 'style_name'],
+			];
+			
+			$scope.variantOptionLabels = [
+				size_name: 'Size',
+				color_name: "Color",
+				style_name: "Style"
+			];
+			
+			$scope.generateVariantOptions = function() {
+				var data = $scope.variantOptionTemplateData[$scope.item.template];
+				data.forEach(function(value, index) {
+					$scope.item.variant_options.push('');
 				});
 			}
 			
