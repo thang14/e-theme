@@ -77,11 +77,11 @@ productModule
 				['size_name', 'style_name'],
 			];
 			
-			$scope.variantOptionLabels = [
+			$scope.variantOptionLabels = {
 				size_name: 'Size',
 				color_name: "Color",
 				style_name: "Style"
-			];
+			};
 			
 			$scope.generateVariantOptions = function() {
 				var data = $scope.variantOptionTemplateData[$scope.item.template];
