@@ -44,7 +44,7 @@
             <label for="productBranh" class="col-sm-2 control-label">Template</label>
             <div class="col-sm-2">
               <select
-                  ng-options="option.value for option in item.variant_options track by option.name"
+                  ng-options="option.value for option in variantOptionTemplates track by option.name"
                   ng-model="item.template" ng-change="generateVariantOption()"></select>
             </div>
         </div><!--.form-group-->
