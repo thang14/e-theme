@@ -65,7 +65,7 @@
             <div class="form-group">
             <label class="col-sm-2 control-label">&nbsp;</label>
             <div class="col-sm-6">
-                <div class="form-group" ng-repeat="(variantOptionName, index) in item.variant_option_names">
+                <div class="form-group" ng-repeat="(index, variantOptionName) in item.variant_option_names">
                     <label class="col-sm-2 control-label">{{variantOptionLabels[variantOptionName]}}</label>
                     <div class="col-sm-10">
                         <tags-input ng-model="item.variant_options_values[index]"></tags-input>
