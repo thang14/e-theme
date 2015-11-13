@@ -57,10 +57,24 @@ productModule
                 itemService: productService
             }));
 			
+			$scope.variantOptionList = [{
+				name: 'color_name',
+				value: "Color",
+				disabled: false
+			},{
+				name: 'size_name',
+				value: "Size",
+				disabled: false
+			},{
+				name: 'size_name',
+				value: "Size",
+				disabled: false
+			}]
 			
 			$scope.addVariantOption = function() {
 				$scope.item.variant_options.push({
-					name: '',
+					name: "",
+					label: "",
 					items: [],
 				});
 			}
