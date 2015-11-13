@@ -52,7 +52,7 @@ productModule
 					sale_end: 0,
 					quantity: 1,
 					sku: '',
-				}
+				},
 				variants:[],
 			}
 
