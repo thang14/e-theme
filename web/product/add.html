@@ -13,7 +13,7 @@
     </div><!--.page-header-->
 
     <div class="content">
-
+        <h3>Product info</h3>
         <div class="form-group">
             <label for="productName" class="col-sm-2 control-label">
                 Name <strong class="color-red">(*)</strong>
@@ -48,7 +48,19 @@
                   ng-model="item.template" ng-change="generateVariantOption()"></select>
             </div>
         </div><!--.form-group-->
-
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label">&nbsp;</label>
+            <div class="col-sm-6">
+                <div class="form-group" ng-repeat="(variantOptionName, index) in item.variant_option_names">
+                    <label class="col-sm-2 control-label">{{variantOptionLabels[variantOptionName]}}</label>
+                    <div class="col-sm-10">
+                        <tags-input ng-model="item.variant_options_values[index]"></tags-input>
+                    </div>
+                </div><!--.form-group-->
+            </div>
+        </div><!--.form-group-->
+        
         <div class="form-group"  ng-if="item.variants.length > 0">
             <label class="col-sm-2 control-label">&nbsp;</label>
             <div class="col-sm-10">
