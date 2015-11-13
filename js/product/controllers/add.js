@@ -41,7 +41,7 @@ productModule
 			$scope.item = {
 				name:'',
 				branh: "",
-				variant_options: []
+				variant_options: [],
 				variant_option_values:[],
 				variant_option_names: [],
 				current: {
