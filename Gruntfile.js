@@ -116,35 +116,35 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      bootstrap: {
-        files: [{ 
-            src: 'bower_components/bootstrap-sass/assets/fonts/**', 
-            dest: 'dist/fonts/bootstrap/', 
-            expand: true, 
-            flatten: true 
-          
-        }]
-      }
-      
-      awesome: {
-        files: [{ 
-            src: 'bower_components/font-awesome-sass/assets/fonts/**', 
-            dest: 'dist/fonts/font-awesome/', 
-            expand: true, 
-            flatten: true 
-          
-        }]
-      }
-      
-      i18n: {
-        files: [{ 
-            src: 'src/locale/**', 
-            dest: 'dist/i18n/', 
-            expand: true, 
-            flatten: true 
-          
-        }]
-      }
+        bootstrap: {
+            files: [{
+                src: 'bower_components/bootstrap-sass/assets/fonts/**',
+                dest: 'dist/fonts/bootstrap/',
+                expand: true,
+                flatten: true
+
+            }]
+        },
+
+        awesome: {
+            files: [{
+                src: 'bower_components/font-awesome-sass/assets/fonts/**',
+                dest: 'dist/fonts/font-awesome/',
+                expand: true,
+                flatten: true
+
+            }]
+        },
+
+        i18n: {
+            files: [{
+                src: 'src/locale/**',
+                dest: 'dist/i18n/',
+                expand: true,
+                flatten: true
+
+            }]
+        }
     },
     watch: {
       scripts: {

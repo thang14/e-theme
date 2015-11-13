@@ -5,7 +5,7 @@
  * @description     Environment vars
  */
 
-angular.module('app.environment', [])
+window.angular.module('app.environment', [])
     .service('Environment', function() {
         var api_domain = document.domain.replace("admin", "api");
 
@@ -16,7 +16,7 @@ angular.module('app.environment', [])
                 domain: 'http://' + api_domain,
                 pageTitle: 'Onhanh - open source project | Admin'
             },
-            
+
             currentShop: function() {
                 return window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
             }

@@ -6,20 +6,20 @@
  */
 productModule
 	.controller('productAddController', [
-		'$location', 
-		'$scope', 
-		'$rootScope', 
-		'productService', 
-		'mediaService', 
+		'$location',
+		'$scope',
+		'$rootScope',
+		'productService',
+		'mediaService',
 		'$controller',
 		'variantOption',
 		'Constants',
 	    function(
-	    	$location, 
-	    	$scope, 
-	    	$rootScope, 
-	    	productService, 
-	    	mediaService, 
+	    	$location,
+	    	$scope,
+	    	$rootScope,
+	    	productService,
+	    	mediaService,
 	    	$controller,
 	    	variantOption,
 	    	Constants) {
@@ -30,20 +30,15 @@ productModule
                 edit: 'product.edit'
             };
 
-            angular.extend(this, $controller('abstractDetailController', {
-                $scope: $scope,
-                itemService: productService
-            }));
-            
-            
             $scope.variantOption = variantOption;
 
 			$scope.item = {
-				name:'',
+				name:'fdsfdsfds',
 				branh: "",
 				variant_options: [],
 				variant_option_values:[],
 				variant_option_names: [],
+				description_list: [],
 				current: {
 					medias: [],
 					price: 0,
@@ -55,6 +50,13 @@ productModule
 				},
 				variants:[],
 			}
+
+			angular.extend(this, $controller('abstractDetailController', {
+                $scope: $scope,
+                itemService: productService
+            }));
+
+			console.log($scope.item);
 
 			// delete file
 			var deleteFile = function(id) {
@@ -84,4 +86,3 @@ productModule
             }
 	    }
 	]);
-

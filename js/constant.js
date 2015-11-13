@@ -5,7 +5,7 @@
  * @description     Environment vars
  */
 
-angular.module('app')
+window.angular.module('app')
 .constant('Constants', {
     ERROR: 0,
     SUCCESS: 1

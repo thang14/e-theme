@@ -38,7 +38,7 @@ angular.module('app.kernel')
             name: $stateParams.name
         }
 
-        $scope.item = {};
+        $scope.item = $scope.item || {};
 
         var errorNotify = function (data) {
             // If basic message

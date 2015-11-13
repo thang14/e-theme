@@ -11,33 +11,38 @@
             <button type="button" class="btn btn-default" ng-click="editSaveAndFinish()">Save and finish</button>
         </div>
     </div><!--.page-header-->
-    
+
     <div class="content">
-        
+
         <div class="form-group">
             <label for="productName" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="productName" placeholder="Name">
+              <input
+                type="text"
+                ng-model="item.name"
+                class="form-control"
+                id="productName"
+                placeholder="Name">
             </div>
         </div><!--.form-group-->
-        
+
         <div class="form-group">
             <label for="productBranh" class="col-sm-2 control-label">Branh</label>
             <div class="col-sm-3">
-              <input 
-                ng-model="item.branh" 
-                type="text" 
-                class="form-control" 
+              <input
+                ng-model="item.branh"
+                type="text"
+                class="form-control"
                 id="productBranh"
                 placeholder="Branh">
             </div>
         </div><!--.form-group-->
-        
+
         <div class="form-group">
             <label class="col-sm-2 control-label">&nbsp;</label>
             <div class="col-sm-7">
               <button type="button" class="btn btn-default" ng-click="addVariantOption()">Add variant</button>
-              
+
               <div class="variant-list" ng-if="item.variants.length > 0">
                   <table>
                       <thead>
@@ -56,33 +61,33 @@
                               <td width="80"><a href="removeVariant(variant)">Remove</a></td>
                               <td width="100">{{getVariantLabel(variant.variants)}}</td>
                               <td width="100">
-                                  <input 
-                                    class="form-control" 
-                                    type="text"  
+                                  <input
+                                    class="form-control"
+                                    type="text"
                                     ng-model="variant.sku">
                               </td>
                               <td width="100">
-                                  <input 
-                                    class="form-control" 
-                                    type="text"  
+                                  <input
+                                    class="form-control"
+                                    type="text"
                                     ng-model="variant.barcode">
                               </td>
                               <td width="100">
-                                  <input 
-                                    class="form-control" 
-                                    type="text"  
+                                  <input
+                                    class="form-control"
+                                    type="text"
                                     ng-model="variant.price">
                               </td>
                               <td width="100">
-                                  <input 
-                                    class="form-control" 
-                                    type="text"  
+                                  <input
+                                    class="form-control"
+                                    type="text"
                                     ng-model="variant.sale_price">
                               </td>
                               <td width="50">
-                                  <input 
-                                    class="form-control" 
-                                    type="text"  
+                                  <input
+                                    class="form-control"
+                                    type="text"
                                     ng-model="variant.quantity">
                               </td>
                           </tr>
@@ -91,8 +96,8 @@
               </div>
             </div>
         </div><!--.form-group-->
-        
-        
+
+
         <div ng-if="item.variant_options.length === 0">
             <div class="form-group">
                 <label for="productMedia" class="col-sm-2 control-label">Photo</label>
@@ -101,11 +106,11 @@
                       <li class="item" ng-repeat="media in item.current.medias">
                           <img ng-src="media.path"/>
                           <ul class="media-action">
-                              <li><a href="javascript:void(0)" ng-click="deleteFile(media)">Remove</a></li>
+                              <li><a href="javascript:void(0)" ng-click="fileDelete(media)">Remove</a></li>
                               <li><a href="javascript:void(0)" ng-click="setMediaDefault(media)">Đặt ảnh chính</a></li>
                           </ul>
                       </li>
-                      
+
                       <li class="file-upload">
                           <a href="javascript:void(0)">Upload File</a>
                       </li>
@@ -115,156 +120,156 @@
             <div class="form-group">
                 <label for="productSku" class="col-sm-2 control-label">Sku</label>
                 <div class="col-sm-3">
-                  <input 
-                    ng-model="item.current.sku" 
-                    type="text" 
-                    class="form-control" 
-                    id="productSku" 
+                  <input
+                    ng-model="item.current.sku"
+                    type="text"
+                    class="form-control"
+                    id="productSku"
                     placeholder="Sku">
                 </div>
             </div><!--.form-group-->
-            
+
             <div class="form-group">
                 <label for="productBarcode" class="col-sm-2 control-label">Barcode</label>
                 <div class="col-sm-3">
-                  <input 
-                    ng-model="item.current.barcode" 
-                    type="text" 
-                    class="form-control" 
-                    id="productBarcode" 
+                  <input
+                    ng-model="item.current.barcode"
+                    type="text"
+                    class="form-control"
+                    id="productBarcode"
                     placeholder="Barcode">
                 </div>
             </div><!--.form-group-->
-    
+
             <div class="form-group">
                 <label for="productPrice" class="col-sm-2 control-label">Price</label>
                 <div class="col-sm-3">
-                  <input 
-                    ng-model="item.current.price" 
-                    type="text" 
-                    class="form-control" 
+                  <input
+                    ng-model="item.current.price"
+                    type="text"
+                    class="form-control"
                     id="productPrice"
                     placeholder="Price">
                 </div>
             </div><!--.form-group-->
-            
+
             <div class="form-group">
                 <label for="productSalePrice" class="col-sm-2 control-label">Sale price</label>
                 <div class="col-sm-3">
-                  <input 
-                    ng-model="item.current.sale_price" 
-                    type="text" 
-                    class="form-control" 
-                    id="productSalePrice" 
+                  <input
+                    ng-model="item.current.sale_price"
+                    type="text"
+                    class="form-control"
+                    id="productSalePrice"
                     placeholder="Sale price">
                 </div>
             </div><!--.form-group-->
-            
+
             <div class="form-group">
                 <label for="productSalePrice" class="col-sm-2 control-label">Quantity</label>
                 <div class="col-sm-3">
-                  <input 
-                    ng-model="item.current.quantity" 
-                    type="text" 
-                    class="form-control" 
-                    id="productQuantity" 
+                  <input
+                    ng-model="item.current.quantity"
+                    type="text"
+                    class="form-control"
+                    id="productQuantity"
                     placeholder="Quantity">
                 </div>
             </div><!--.form-group-->
         </div>
-        
+
         <div class="form-group">
             <label class="col-sm-2 control-label">Attributes</label>
             <div class="col-sm-10">
                 <div class="row" ng-repeat="attr in item.attrs">
                     <div class="col-md-4">
-                        <input 
-                            type="text" 
-                            class="form-control" 
+                        <input
+                            type="text"
+                            class="form-control"
                             ng-model="attr.name">
                     </div>
                     <div class="col-md-5">
-                        <input 
-                            type="text" 
-                            class="form-control" 
+                        <input
+                            type="text"
+                            class="form-control"
                             ng-model="attr.value">
                     </div>
                 </div><!--.row-->
                 <button type="button" class="btn btn-default">Add Attribute</button>
-            </div>    
+            </div>
         </div><!--.form-group-->
-        
+
         <div class="form-group">
             <label for="productDescriptionList" class="col-sm-2 control-label">Description list</label>
             <div class="col-sm-3">
                 <div class="form-group">
                   <div class="col-md-12">
-                      <input 
-                        ng-model="item.description_list[]" 
-                        type="text" 
-                        class="form-control" 
-                        id="productDescriptionList" 
+                      <input
+                        ng-model="item.description_list[0]"
+                        type="text"
+                        class="form-control"
+                        id="productDescriptionList"
                         placeholder="Description list">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-md-12">
-                      <input 
-                        ng-model="item.description_list[]" 
-                        type="text" 
-                        class="form-control" 
-                        id="productDescriptionList" 
+                      <input
+                        ng-model="item.description_list[1]"
+                        type="text"
+                        class="form-control"
+                        id="productDescriptionList"
                         placeholder="Description list">
                   </div>
                 </div>
-                
+
                 <div class="form-group">
                   <div class="col-md-12">
-                      <input 
-                        ng-model="item.description_list[]" 
-                        type="text" 
-                        class="form-control" 
-                        id="productDescriptionList" 
+                      <input
+                        ng-model="item.description_list[2]"
+                        type="text"
+                        class="form-control"
+                        id="productDescriptionList"
                         placeholder="Description list">
                   </div>
                 </div>
-                
+
                 <div class="form-group">
                   <div class="col-md-12">
-                      <input 
-                        ng-model="item.description_list[]" 
-                        type="text" 
-                        class="form-control" 
-                        id="productDescriptionList" 
+                      <input
+                        ng-model="item.description_list[3]"
+                        type="text"
+                        class="form-control"
+                        id="productDescriptionList"
                         placeholder="Description list">
                   </div>
                 </div>
             </div>
         </div><!--.form-group-->
-        
+
         <div class="form-group">
             <label for="productDescription" class="col-sm-2 control-label">Description more</label>
             <div class="col-sm-3">
-                
-              <textarea 
-                ng-model="item.description" 
-                type="text" 
-                class="form-control" 
-                id="productDescription" 
+
+              <textarea
+                ng-model="item.description"
+                type="text"
+                class="form-control"
+                id="productDescription"
                 placeholder="Description"></textarea>
 
             </div>
         </div><!--.form-group-->
-        
+
         <div class="form-group">
             <label for="productKeywords" class="col-sm-2 control-label">Keywords</label>
             <div class="col-sm-3">
-                
-              <textarea 
-                ng-model="item.keywords" 
-                type="text" 
-                class="form-control" 
-                id="productKeywords" 
+
+              <textarea
+                ng-model="item.keywords"
+                type="text"
+                class="form-control"
+                id="productKeywords"
                 placeholder="Keywords"></textarea>
 
             </div>
