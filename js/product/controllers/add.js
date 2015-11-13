@@ -39,6 +39,7 @@ productModule
 				variant_option_values:[],
 				variant_option_names: [],
 				description_list: [],
+				attrs: [{}],
 				current: {
 					medias: [],
 					price: 0,
