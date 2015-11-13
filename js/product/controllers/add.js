@@ -56,9 +56,25 @@ productModule
                 $scope: $scope,
                 itemService: productService
             }));
-
-			console.log($scope.item);
-
+			
+			
+			$scope.addVariantOption = function() {
+				$scope.item.variant_options.push({
+					name: '',
+					items: [],
+				});
+			}
+			
+			$scope.removeVariantOption = function(option) {
+				var index = $scope.item.variant_options.indexOf(option);
+				$scope.item.variant_options.splice(index, 1);
+			}
+			
+			$scope.removeVariant = function(variant) {
+				var index = $scope.item.variants.indexOf(variant);
+				$scope.item.variants.splice(index, 1);
+			}
+			
 			// delete file
 			var deleteFile = function(id) {
 				mediaService.remove(id)
