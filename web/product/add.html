@@ -54,7 +54,7 @@
                   ng-change="generateVariantOption()">
                   
                   <option>--Không chọn--</option>
-                  <option ng-repeat="(value, index) in variantOptionTemplates" value="{{index}}">{{value}}</option>
+                  <option ng-repeat="(index, value) in variantOptionTemplates" value="{{index}}">{{value}}</option>
               </select>
             </div>
         </div><!--.form-group-->
