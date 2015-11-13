@@ -51,7 +51,7 @@
             <div class="col-sm-2">
               <select
                   ng-model="item.template" 
-                  ng-change="generateVariantOption()">
+                  ng-change="generateVariantOption(item.template)">
                   
                   <option>--Không chọn--</option>
                   <option ng-repeat="(index, value) in variantOptionTemplates" value="{{index}}">{{value}}</option>
