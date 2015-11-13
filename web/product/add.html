@@ -15,20 +15,22 @@
     <div class="content">
 
         <div class="form-group">
-            <label for="productName" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-5">
-              <input
-                type="text"
-                ng-model="item.name"
-                class="form-control"
-                id="productName"
-                placeholder="Name">
+            <label for="productName" class="col-sm-2 control-label">
+                Name <strong class="color-red">(*)</strong>
+            </label>
+            <div class="col-sm-7">
+                <input
+                    type="text"
+                    ng-model="item.name"
+                    class="form-control"
+                    id="productName"
+                    placeholder="Name">
             </div>
         </div><!--.form-group-->
 
         <div class="form-group">
             <label for="productBranh" class="col-sm-2 control-label">Branh</label>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <input
                 ng-model="item.branh"
                 type="text"
@@ -40,7 +42,7 @@
 
         <div class="form-group">
             <label class="col-sm-2 control-label">&nbsp;</label>
-            <div class="col-sm-7">
+            <div class="col-sm-10">
               <button type="button" class="btn btn-default" ng-click="addVariantOption()">Add variant</button>
 
               <div class="variant-list" ng-if="item.variants.length > 0">
@@ -101,7 +103,7 @@
         <div ng-if="item.variant_options.length === 0">
             <div class="form-group">
                 <label for="productMedia" class="col-sm-2 control-label">Photo</label>
-                <div class="col-sm-3">
+                <div class="col-sm-10">
                     <ul class="media-list">
                         <li class="item" ng-repeat="media in item.current.medias">
                           <img ng-src="media.path"/>
