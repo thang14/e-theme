@@ -13,7 +13,7 @@ productModule
 		'mediaService', 
 		'$controller',
 		'variantOption',
-		'Constants'
+		'Constants',
 	    function(
 	    	$location, 
 	    	$scope, 
