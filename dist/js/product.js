@@ -199,14 +199,14 @@ productModule
 					sku: '',
 				},
 				variants:[],
-				template: 0,
+				template: null,
 			}
 
 			angular.extend(this, $controller('abstractDetailController', {
                 $scope: $scope,
                 itemService: productService
             }));
-			
+
 			$scope.variantOptionTemplates = [
 				'Size',
 				'Color',
@@ -216,7 +216,8 @@ productModule
 				'Color, Size, and Style',
 				'Size and Style'
 			];
-			
+
+
 			$scope.variantOptionTemplateData = [
 				['size_name'],
 				['color_name'],
@@ -226,30 +227,34 @@ productModule
 				['color_name', 'size_name', 'style_name'],
 				['size_name', 'style_name'],
 			];
-			
+
 			$scope.variantOptionLabels = {
 				size_name: 'Size',
 				color_name: "Color",
 				style_name: "Style"
 			};
-			
-			$scope.generateVariantOptions = function() {
-				var data = $scope.variantOptionTemplateData[$scope.item.template];
+
+			$scope.generateVariantOptions = function(id) {
+				if(!$scope.variantOptionTemplateData[id]) {
+					$scope.item.template = null;
+					return;
+				}
+				var data = $scope.variantOptionTemplateData[id];
 				data.forEach(function(value, index) {
 					$scope.item.variant_options.push('');
 				});
 			}
-			
+
 			$scope.removeVariantOption = function(option) {
 				var index = $scope.item.variant_options.indexOf(option);
 				$scope.item.variant_options.splice(index, 1);
 			}
-			
+
 			$scope.removeVariant = function(variant) {
 				var index = $scope.item.variants.indexOf(variant);
 				$scope.item.variants.splice(index, 1);
 			}
-			
+
 			// delete file
 			var deleteFile = function(id) {
 				mediaService.remove(id)
