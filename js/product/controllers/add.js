@@ -94,10 +94,6 @@ productModule
 				$scope.item.variant_option_names = data;
 			}
 
-			$scope.removeVariantOption = function(option) {
-				var index = $scope.item.variant_options.indexOf(option);
-				$scope.item.variant_options.splice(index, 1);
-			}
 
 			$scope.removeVariant = function(variant) {
 				var index = $scope.item.variants.indexOf(variant);
