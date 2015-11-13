@@ -63,71 +63,80 @@
         <div ng-if="item.template != null">
             <h3>Biến thể</h3>
             <div class="form-group">
-            <label class="col-sm-2 control-label">&nbsp;</label>
-            <div class="col-sm-6">
-                <div class="form-group" ng-repeat="(index, variantOptionName) in item.variant_option_names">
-                    <label class="col-sm-2 control-label">{{variantOptionLabels[variantOptionName]}}</label>
-                    <tags-input ng-model="item.variant_options_values[index]"></tags-input>
-                </div><!--.form-group-->
-            </div>
-        </div><!--.form-group-->
+                <label class="col-sm-2 control-label">&nbsp;</label>
+                <div class="col-sm-6">
+                    <div class="form-group" ng-repeat="(index, variantOptionName) in item.variant_option_names">
+                        <label class="col-sm-2 control-label">{{variantOptionLabels[variantOptionName]}}</label>
+                        <tags-input ng-model="item.variant_options_values[index]"></tags-input>
+                    </div><!--.form-group-->
+                </div>
+            </div><!--.form-group-->
+            
+            <div class="form-group">
+                <label class="col-sm-2 control-label">&nbsp;</label>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-sm" ng-click="generateVariants()">
+                        Cập nhật biến thể
+                    </button>
+                </div>
+            </div><!--.form-group-->
 
-        <div class="form-group"  ng-if="item.variants.length > 0">
-            <label class="col-sm-2 control-label">&nbsp;</label>
-            <div class="col-sm-10">
-              <div class="variant-list">
-                  <table>
-                      <thead>
-                          <tr>
-                              <th>Action</th>
-                              <th>Variant</th>
-                              <th>Sku</th>
-                              <th>Barcode</th>
-                              <th>Price</th>
-                              <th>Sale price</th>
-                              <th>Quantity</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr ng-repeat="variant in item.variants">
-                              <td width="80"><a href="removeVariant(variant)">Remove</a></td>
-                              <td width="100">{{getVariantLabel(variant.variants)}}</td>
-                              <td width="100">
-                                  <input
-                                    class="form-control"
-                                    type="text"
-                                    ng-model="variant.sku">
-                              </td>
-                              <td width="100">
-                                  <input
-                                    class="form-control"
-                                    type="text"
-                                    ng-model="variant.barcode">
-                              </td>
-                              <td width="100">
-                                  <input
-                                    class="form-control"
-                                    type="text"
-                                    ng-model="variant.price">
-                              </td>
-                              <td width="100">
-                                  <input
-                                    class="form-control"
-                                    type="text"
-                                    ng-model="variant.sale_price">
-                              </td>
-                              <td width="50">
-                                  <input
-                                    class="form-control"
-                                    type="text"
-                                    ng-model="variant.quantity">
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-            </div>
-        </div><!--.form-group-->
+            <div class="form-group"  ng-if="item.variants.length > 0">
+                <label class="col-sm-2 control-label">&nbsp;</label>
+                <div class="col-sm-10">
+                  <div class="variant-list">
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th>Action</th>
+                                  <th>Variant</th>
+                                  <th>Sku</th>
+                                  <th>Barcode</th>
+                                  <th>Price</th>
+                                  <th>Sale price</th>
+                                  <th>Quantity</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr ng-repeat="variant in item.variants">
+                                  <td width="80"><a href="removeVariant(variant)">Remove</a></td>
+                                  <td width="100">{{getVariantLabel(variant.variants)}}</td>
+                                  <td width="100">
+                                      <input
+                                        class="form-control"
+                                        type="text"
+                                        ng-model="variant.sku">
+                                  </td>
+                                  <td width="100">
+                                      <input
+                                        class="form-control"
+                                        type="text"
+                                        ng-model="variant.barcode">
+                                  </td>
+                                  <td width="100">
+                                      <input
+                                        class="form-control"
+                                        type="text"
+                                        ng-model="variant.price">
+                                  </td>
+                                  <td width="100">
+                                      <input
+                                        class="form-control"
+                                        type="text"
+                                        ng-model="variant.sale_price">
+                                  </td>
+                                  <td width="50">
+                                      <input
+                                        class="form-control"
+                                        type="text"
+                                        ng-model="variant.quantity">
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+            </div><!--.form-group-->
         </div>
 
         <div ng-if="item.template == null">
