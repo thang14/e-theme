@@ -50,8 +50,12 @@
             <label for="productBranh" class="col-sm-2 control-label">Template</label>
             <div class="col-sm-2">
               <select
-                  ng-options="option in variantOptionTemplates track by $index"
-                  ng-model="item.template" ng-change="generateVariantOption()"></select>
+                  ng-model="item.template" 
+                  ng-change="generateVariantOption()">
+                  
+                  <option value="0" selected="selected">--Không chọn--</option>
+                  <option ng-repeat="(value, index) in variantOptionTemplates" value="{{index}}">{{value}}</option>
+              </select>
             </div>
         </div><!--.form-group-->
         
