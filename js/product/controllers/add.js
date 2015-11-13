@@ -50,6 +50,7 @@ productModule
 					sku: '',
 				},
 				variants:[],
+				template: 0,
 			}
 
 			angular.extend(this, $controller('abstractDetailController', {
