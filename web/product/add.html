@@ -53,7 +53,7 @@
                   ng-model="item.template" 
                   ng-change="generateVariantOption()">
                   
-                  <option value="0" selected="selected">--Không chọn--</option>
+                  <option value="0">--Không chọn--</option>
                   <option ng-repeat="(value, index) in variantOptionTemplates" value="{{index}}">{{value}}</option>
               </select>
             </div>
