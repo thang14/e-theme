@@ -53,13 +53,38 @@
                       </thead>
                       <tbody>
                           <tr ng-repeat="variant in item.variants">
-                              <td><a href="removeVariant(variant)">Remove</a></td>
-                              <td>{{getVariantLabel(variant.variants)}}</td>
-                              <td>{{variant.sku}}</td>
-                              <td>{{variant.barcode}}</td>
-                              <td format-price="variant.price">Loading</td>
-                              <td>{{variant.sale_price}}</td>
-                              <td>>{{variant.quantity}}</td>
+                              <td width="80"><a href="removeVariant(variant)">Remove</a></td>
+                              <td width="100">{{getVariantLabel(variant.variants)}}</td>
+                              <td width="100">
+                                  <input 
+                                    class="form-control" 
+                                    type="text"  
+                                    ng-model="variant.sku">
+                              </td>
+                              <td width="100">
+                                  <input 
+                                    class="form-control" 
+                                    type="text"  
+                                    ng-model="variant.barcode">
+                              </td>
+                              <td width="100">
+                                  <input 
+                                    class="form-control" 
+                                    type="text"  
+                                    ng-model="variant.price">
+                              </td>
+                              <td width="100">
+                                  <input 
+                                    class="form-control" 
+                                    type="text"  
+                                    ng-model="variant.sale_price">
+                              </td>
+                              <td width="50">
+                                  <input 
+                                    class="form-control" 
+                                    type="text"  
+                                    ng-model="variant.quantity">
+                              </td>
                           </tr>
                       </tbody>
                   </table>
