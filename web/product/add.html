@@ -39,13 +39,20 @@
                 placeholder="Branh">
             </div>
         </div><!--.form-group-->
-
+        
         <div class="form-group">
+            <label for="productBranh" class="col-sm-2 control-label">Template</label>
+            <div class="col-sm-2">
+              <select
+                  ng-options="option.value for option in item.variant_options track by option.name"
+                  ng-model="item.template" ng-change="generateVariantOption()"></select>
+            </div>
+        </div><!--.form-group-->
+
+        <div class="form-group"  ng-if="item.variants.length > 0">
             <label class="col-sm-2 control-label">&nbsp;</label>
             <div class="col-sm-10">
-              <button type="button" class="btn btn-default" ng-click="addVariantOption()">Add variant</button>
-
-              <div class="variant-list" ng-if="item.variants.length > 0">
+              <div class="variant-list">
                   <table>
                       <thead>
                           <tr>
