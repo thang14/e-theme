@@ -68,6 +68,7 @@ productModule
 				'Size and Style'
 			];
 			
+			
 			$scope.variantOptionTemplateData = [
 				['size_name'],
 				['color_name'],
@@ -84,8 +85,12 @@ productModule
 				style_name: "Style"
 			};
 			
-			$scope.generateVariantOptions = function() {
-				var data = $scope.variantOptionTemplateData[$scope.item.template];
+			$scope.generateVariantOptions = function(id) {
+				if(!$scope.variantOptionTemplateData[id]) {
+					$scope.item.template = null;
+					return;
+				}
+				var data = $scope.variantOptionTemplateData[id];
 				data.forEach(function(value, index) {
 					$scope.item.variant_options.push('');
 				});
