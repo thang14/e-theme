@@ -91,9 +91,7 @@ productModule
 					return;
 				}
 				var data = $scope.variantOptionTemplateData[id];
-				data.forEach(function(value, index) {
-					$scope.item.variant_options.push('');
-				});
+				$scope.item.variant_option_names = data;
 			}
 
 			$scope.removeVariantOption = function(option) {
