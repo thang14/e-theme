@@ -50,9 +50,10 @@
             <label for="productBranh" class="col-sm-2 control-label">Template</label>
             <div class="col-sm-2">
               <select
+                  class="form-control"
                   ng-model="item.template"
                   ng-change="generateVariantOptions(item.template)">
-                  class="form-control"
+                  
                   <option value="">--Không chọn--</option>
                   <option ng-repeat="(index, value) in variantOptionTemplates" value="{{index}}">{{value}}</option>
               </select>
@@ -229,7 +230,7 @@
             </ul>
 
             <!-- Tab panes -->
-            <div class="tab-content">
+            <div class="tab-content" style="padding:20px;">
 
                 <div role="tabpanel" class="tab-pane active" id="attributes">
                     <div class="form-group">
