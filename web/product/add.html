@@ -102,21 +102,22 @@
             <div class="form-group">
                 <label for="productMedia" class="col-sm-2 control-label">Photo</label>
                 <div class="col-sm-3">
-                  <ul class="media-list">
-                      <li class="item" ng-repeat="media in item.current.medias">
+                    <ul class="media-list">
+                        <li class="item" ng-repeat="media in item.current.medias">
                           <img ng-src="media.path"/>
-                          <ul class="media-action">
-                              <li><a href="javascript:void(0)" ng-click="fileDelete(media)">Remove</a></li>
-                              <li><a href="javascript:void(0)" ng-click="setMediaDefault(media)">Đặt ảnh chính</a></li>
-                          </ul>
-                      </li>
+                            <ul class="media-action">
+                                <li><a href="javascript:void(0)" ng-click="fileDelete(media)">Remove</a></li>
+                                <li><a href="javascript:void(0)" ng-click="setMediaDefault(media)">Đặt ảnh chính</a></li>
+                            </ul>
+                        </li>
 
-                      <li class="file-upload">
-                          <a href="javascript:void(0)">Upload File</a>
-                      </li>
-                  </ul>
+                        <li class="file-upload">
+                            <a href="javascript:void(0)">Upload File</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
+            </div><!--.form-group-->
+            
             <div class="form-group">
                 <label for="productSku" class="col-sm-2 control-label">Sku</label>
                 <div class="col-sm-3">
