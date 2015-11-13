@@ -13,7 +13,7 @@
     </div><!--.page-header-->
 
     <div class="content">
-        <h3>Product info</h3>
+        <h3>Quan trọng</h3>
         <div class="form-group">
             <label for="productName" class="col-sm-2 control-label">
                 Name <strong class="color-red">(*)</strong>
@@ -49,7 +49,9 @@
             </div>
         </div><!--.form-group-->
         
-        <div class="form-group">
+        <div ng-if="item.template != 0">
+            <h3>Biến thể</h3>
+            <div class="form-group">
             <label class="col-sm-2 control-label">&nbsp;</label>
             <div class="col-sm-6">
                 <div class="form-group" ng-repeat="(variantOptionName, index) in item.variant_option_names">
@@ -61,7 +63,7 @@
             </div>
         </div><!--.form-group-->
         
-        <div class="form-group"  ng-if="item.variants.length > 0">
+            <div class="form-group"  ng-if="item.variants.length > 0">
             <label class="col-sm-2 control-label">&nbsp;</label>
             <div class="col-sm-10">
               <div class="variant-list">
@@ -117,9 +119,10 @@
               </div>
             </div>
         </div><!--.form-group-->
+        </div>
 
-
-        <div ng-if="item.variant_options.length === 0">
+        <div ng-if="item.template === 0">
+            <h3>Product info</h3>
             <div class="form-group">
                 <label for="productMedia" class="col-sm-2 control-label">Photo</label>
                 <div class="col-sm-10">
@@ -199,102 +202,131 @@
                 </div>
             </div><!--.form-group-->
         </div>
+        
+        <div>
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Attributes</label>
-            <div class="col-sm-10">
-                <div class="row" ng-repeat="attr in item.attrs">
-                    <div class="col-md-4">
-                        <input
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" >
+                    <a href="#attributes" aria-controls="attributes" role="tab" data-toggle="tab">Thuộc tính</a>
+                </li>
+                <li role="presentation">
+                    <a href="#keywords" aria-controls="keywords" role="tab" data-toggle="tab">Từ khóa</a>
+                </li>
+                <li role="presentation" class="active">
+                    <a href="#description" aria-controls="keywords" role="tab" data-toggle="tab">Mô tả</a>
+                </li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+                
+                <div role="tabpanel" class="tab-pane active" id="attributes">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="row" ng-repeat="attr in item.attrs">
+                                <div class="col-md-4">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        ng-model="attr.name">
+                                </div>
+                                <div class="col-md-5">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        ng-model="attr.value">
+                                </div>
+                            </div><!--.row-->
+                            <button type="button" class="btn btn-default">Add Attribute</button>
+                        </div>
+                    </div><!--.form-group-->
+                </div><!--#attributes-->
+                
+                <div role="tabpanel" class="tab-pane" id="keywords">
+                    <div class="form-group">
+                        <label for="productKeywords" class="col-sm-2 control-label">Keywords</label>
+                        <div class="col-sm-3">
+            
+                          <textarea
+                            ng-model="item.keywords"
                             type="text"
                             class="form-control"
-                            ng-model="attr.name">
-                    </div>
-                    <div class="col-md-5">
-                        <input
+                            id="productKeywords"
+                            placeholder="Keywords"></textarea>
+            
+                        </div>
+                    </div><!--.form-group-->
+                </div><!--#keywords-->
+                
+                <div role="tabpanel" class="tab-pane" id="description">
+                    
+                    <div class="form-group">
+                        <label for="productDescriptionList" class="col-sm-2 control-label">Description list</label>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                  <input
+                                    ng-model="item.description_list[0]"
+                                    type="text"
+                                    class="form-control"
+                                    id="productDescriptionList"
+                                    placeholder="Description list">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                  <input
+                                    ng-model="item.description_list[1]"
+                                    type="text"
+                                    class="form-control"
+                                    id="productDescriptionList"
+                                    placeholder="Description list">
+                              </div>
+                            </div>
+            
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                  <input
+                                    ng-model="item.description_list[2]"
+                                    type="text"
+                                    class="form-control"
+                                    id="productDescriptionList"
+                                    placeholder="Description list">
+                              </div>
+                            </div>
+            
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                  <input
+                                    ng-model="item.description_list[3]"
+                                    type="text"
+                                    class="form-control"
+                                    id="productDescriptionList"
+                                    placeholder="Description list">
+                              </div>
+                            </div>
+                        </div>
+                    </div><!--.form-group-->
+                    
+                    <div class="form-group">
+                        <label for="productDescription" class="col-sm-2 control-label">Description more</label>
+                        <div class="col-sm-3">
+            
+                          <textarea
+                            ng-model="item.description"
                             type="text"
                             class="form-control"
-                            ng-model="attr.value">
-                    </div>
-                </div><!--.row-->
-                <button type="button" class="btn btn-default">Add Attribute</button>
+                            id="productDescription"
+                            placeholder="Description"></textarea>
+            
+                        </div>
+                    </div><!--.form-group-->
+                </div><!--#description-->
+                
+                
             </div>
-        </div><!--.form-group-->
-
-        <div class="form-group">
-            <label for="productDescriptionList" class="col-sm-2 control-label">Description list</label>
-            <div class="col-sm-3">
-                <div class="form-group">
-                  <div class="col-md-12">
-                      <input
-                        ng-model="item.description_list[0]"
-                        type="text"
-                        class="form-control"
-                        id="productDescriptionList"
-                        placeholder="Description list">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-md-12">
-                      <input
-                        ng-model="item.description_list[1]"
-                        type="text"
-                        class="form-control"
-                        id="productDescriptionList"
-                        placeholder="Description list">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="col-md-12">
-                      <input
-                        ng-model="item.description_list[2]"
-                        type="text"
-                        class="form-control"
-                        id="productDescriptionList"
-                        placeholder="Description list">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="col-md-12">
-                      <input
-                        ng-model="item.description_list[3]"
-                        type="text"
-                        class="form-control"
-                        id="productDescriptionList"
-                        placeholder="Description list">
-                  </div>
-                </div>
-            </div>
-        </div><!--.form-group-->
-
-        <div class="form-group">
-            <label for="productDescription" class="col-sm-2 control-label">Description more</label>
-            <div class="col-sm-3">
-
-              <textarea
-                ng-model="item.description"
-                type="text"
-                class="form-control"
-                id="productDescription"
-                placeholder="Description"></textarea>
-
-            </div>
-        </div><!--.form-group-->
-
-        <div class="form-group">
-            <label for="productKeywords" class="col-sm-2 control-label">Keywords</label>
-            <div class="col-sm-3">
-
-              <textarea
-                ng-model="item.keywords"
-                type="text"
-                class="form-control"
-                id="productKeywords"
-                placeholder="Keywords"></textarea>
-
-            </div>
-        </div><!--.form-group-->
+        
+        </div><!--Tab-->
     </div><!--.content-->
 </form>
