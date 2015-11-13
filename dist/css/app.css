@@ -317,20 +317,20 @@ label {
   color: #333;
 }
 
-/* line 4, ../../sass/onhanh/_wrapper.scss */
+/* line 7, ../../sass/onhanh/_wrapper.scss */
 .content-wrapper {
   padding-bottom: 20px;
   width: 100%;
 }
 @media (min-width: 768px) {
-  /* line 4, ../../sass/onhanh/_wrapper.scss */
+  /* line 7, ../../sass/onhanh/_wrapper.scss */
   .content-wrapper {
     display: table-cell;
     vertical-align: top;
   }
 }
 
-/* line 13, ../../sass/onhanh/_wrapper.scss */
+/* line 16, ../../sass/onhanh/_wrapper.scss */
 .page-header {
   margin: 0 0 20px 0;
   padding-bottom: 0;
@@ -338,58 +338,80 @@ label {
   border-bottom: 1px solid #ddd;
 }
 
-/* line 20, ../../sass/onhanh/_wrapper.scss */
+/* line 23, ../../sass/onhanh/_wrapper.scss */
 .page-header-content {
   position: relative;
   background-color: inherit;
   padding: 0 20px;
 }
-/* line 25, ../../sass/onhanh/_wrapper.scss */
+/* line 28, ../../sass/onhanh/_wrapper.scss */
 .page-header-content + .breadcrumb-line {
   border-bottom-width: 0;
   border-top: 1px solid #ddd;
 }
 
 /* line 34, ../../sass/onhanh/_wrapper.scss */
+.page-header-right {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+/* line 42, ../../sass/onhanh/_wrapper.scss */
 .page-title {
   padding: 10px 36px 10px 0;
   display: block;
   position: relative;
 }
 
-/* line 41, ../../sass/onhanh/_wrapper.scss */
+/* line 49, ../../sass/onhanh/_wrapper.scss */
 .breadcrumb-line {
   background-color: #fcfcfc;
   border-bottom: 1px solid #ddd;
   position: relative;
 }
-/* line 46, ../../sass/onhanh/_wrapper.scss */
+/* line 54, ../../sass/onhanh/_wrapper.scss */
 .breadcrumb-line:after {
   content: '';
   display: table;
   clear: both;
 }
-/* line 52, ../../sass/onhanh/_wrapper.scss */
+/* line 60, ../../sass/onhanh/_wrapper.scss */
 .breadcrumb-line .breadcrumb {
   margin-left: 20px;
   margin-right: 56px;
 }
 @media (min-width: 768px) {
-  /* line 52, ../../sass/onhanh/_wrapper.scss */
+  /* line 60, ../../sass/onhanh/_wrapper.scss */
   .breadcrumb-line .breadcrumb {
     float: left;
     margin-right: 0;
   }
 }
 
-/* line 63, ../../sass/onhanh/_wrapper.scss */
+/* line 71, ../../sass/onhanh/_wrapper.scss */
 .page-header + .content {
   padding-top: 0;
 }
 
-/* line 66, ../../sass/onhanh/_wrapper.scss */
+/* line 74, ../../sass/onhanh/_wrapper.scss */
 .content {
   padding: 20px 20px;
+}
+
+/* line 83, ../../sass/onhanh/_wrapper.scss */
+ul.media-list li a {
+  width: 150px;
+  height: 150px;
+  display: inline-table;
+  border: 1px solid #ccc;
+  background: #fff;
+  text-align: center;
+  line-height: 150px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=app.css.map */

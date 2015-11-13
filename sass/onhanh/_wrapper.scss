@@ -1,3 +1,6 @@
+@import "compass/css3";
+
+@import "compass/utilities";
 
 // Wrapper
 // --------------------------------------------------
@@ -21,13 +24,18 @@
     position: relative;
     background-color: inherit;
     padding: 0 20px;
-    
+
     &+.breadcrumb-line {
         border-bottom-width: 0;
         border-top: 1px solid #ddd;
     }
 }
 
+.page-header-right {
+    position: absolute;
+    right: 20px;
+    top:20px;
+}
 
 
 
@@ -42,19 +50,19 @@
     background-color: #fcfcfc;
     border-bottom: 1px solid #ddd;
     position: relative;
-    
+
     &:after {
         content: '';
         display: table;
         clear: both;
     }
-    
+
     .breadcrumb {
         @media (min-width: $screen-sm) {
             float: left;
             margin-right: 0;
         }
-        
+
         margin-left: 20px;
         margin-right: 56px;
     }
@@ -65,4 +73,22 @@
 }
 .content {
     padding: 20px 20px;
+}
+
+
+
+
+
+ul.media-list {
+    li a{
+        width: 150px;
+        height: 150px;
+        display: inline-table;
+        border: 1px solid #ccc;
+        background: #fff;
+        text-align: center;
+        line-height: 150px;
+        @include border-radius(3px);
+        overflow: hidden;
+    }
 }

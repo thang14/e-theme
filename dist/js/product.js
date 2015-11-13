@@ -188,6 +188,7 @@ productModule
 				variant_option_values:[],
 				variant_option_names: [],
 				description_list: [],
+				attrs: [{}],
 				current: {
 					medias: [],
 					price: 0,
@@ -198,15 +199,57 @@ productModule
 					sku: '',
 				},
 				variants:[],
+				template: 0,
 			}
 
 			angular.extend(this, $controller('abstractDetailController', {
                 $scope: $scope,
                 itemService: productService
             }));
-
-			console.log($scope.item);
-
+			
+			$scope.variantOptionTemplates = [
+				'Size',
+				'Color',
+				'Style',
+				'Color and Size',
+				'Color and Style',
+				'Color, Size, and Style',
+				'Size and Style'
+			];
+			
+			$scope.variantOptionTemplateData = [
+				['size_name'],
+				['color_name'],
+				['style_name'],
+				['color_name', 'size_name'],
+				['color_name', 'style_name'],
+				['color_name', 'size_name', 'style_name'],
+				['size_name', 'style_name'],
+			];
+			
+			$scope.variantOptionLabels = {
+				size_name: 'Size',
+				color_name: "Color",
+				style_name: "Style"
+			};
+			
+			$scope.generateVariantOptions = function() {
+				var data = $scope.variantOptionTemplateData[$scope.item.template];
+				data.forEach(function(value, index) {
+					$scope.item.variant_options.push('');
+				});
+			}
+			
+			$scope.removeVariantOption = function(option) {
+				var index = $scope.item.variant_options.indexOf(option);
+				$scope.item.variant_options.splice(index, 1);
+			}
+			
+			$scope.removeVariant = function(variant) {
+				var index = $scope.item.variants.indexOf(variant);
+				$scope.item.variants.splice(index, 1);
+			}
+			
 			// delete file
 			var deleteFile = function(id) {
 				mediaService.remove(id)
