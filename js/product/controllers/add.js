@@ -53,6 +53,15 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         $scope._onFileDelete(file);
     }
     
+    // upload
+    $scope.upload = function($files) {
+        if($files) {
+            $files.forEach(function(file) {
+                mediaService.upload(file).success($scope._onUploaded);
+            });
+        }
+    }
+    
     // on uploaded
     $scope._onUploaded = function(data) {
         $scope.item.current.medias.push(data.data);
