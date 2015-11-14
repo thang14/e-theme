@@ -52,10 +52,10 @@
               <select
                   class="form-control"
                   ng-model="item.template"
-                  ng-change="generateVariantOptions(item.template)">
+                  ng-change="selectTemplate(item.template)">
                   
                   <option value="">--Không chọn--</option>
-                  <option ng-repeat="(index, value) in variantOptionTemplates" value="{{index}}">{{value}}</option>
+                  <option ng-repeat="(index, value) in templateValues" value="{{index}}">{{value}}</option>
               </select>
             </div>
         </div><!--.form-group-->
@@ -65,9 +65,9 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">&nbsp;</label>
                 <div class="col-sm-6">
-                    <div class="form-group" ng-repeat="(index, variantOptionName) in item.variant_option_names">
-                        <label class="col-sm-2 control-label">{{variantOptionLabels[variantOptionName]}}</label>
-                        <tags-input ng-model="item.variant_options_values[index]"></tags-input>
+                    <div class="form-group" ng-repeat="option in item.variant_options">
+                        <label class="col-sm-2 control-label">{{option.label}}</label>
+                        <tags-input ng-model="option.items"></tags-input>
                     </div><!--.form-group-->
                 </div>
             </div><!--.form-group-->
@@ -100,7 +100,7 @@
                           <tbody>
                               <tr ng-repeat="variant in item.variants">
                                   <td width="80"><a href="removeVariant(variant)">Remove</a></td>
-                                  <td width="100">{{getVariantLabel(variant.variants)}}</td>
+                                  <td width="100">{{variant.options.join(">>")}}</td>
                                   <td width="100">
                                       <input
                                         class="form-control"
