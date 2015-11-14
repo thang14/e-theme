@@ -6,7 +6,7 @@
  */
 
 var ProductAttributes = {
-    name: "",
+    name: null,
     current: {
         price: 0,
         sale: 0,
@@ -19,7 +19,8 @@ var ProductAttributes = {
     shipping: {},
     variant_options: [],
     variants: [],
-    status: 'private'
+    status: 'private',
+    template: null,
 }
 
 var Controller = function($scope, $rootScope, productService, mediaService, 
