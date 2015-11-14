@@ -29,16 +29,10 @@ var Controller = function($scope, $rootScope, productService, mediaService,
     // product default attribute  
     $scope.item = ProductAttributes;
     
-    //extend abstractDetailController
-    agular.extend(this, $controller('abstractDetailController',{
-            $scope: $scope,
-            itemService: productService
-        })
-    });
     
     // delete file
     $scope.deleteFile = function(file) {
-        mediaService.delete(file.id);
+        mediaService.remove(file.id);
         $scope._onFileDelete(file);
     }
     
