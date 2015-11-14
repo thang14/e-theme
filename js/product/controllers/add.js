@@ -40,7 +40,13 @@ var templates = {
     ['size_name', 'style_name']
 }
 
-var variantOptionValues = [
+var variantOptionValues = {
+    color_name: "Color",
+    size_name: "Size",
+    style_name: "Style"
+}
+
+var templateValues = [
     'Color',
     'Size',
     'Color and Size',
@@ -55,7 +61,25 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     // product default attribute  
     $scope.item = angular.clone(ProductAttributes);
     
-    $scope.variantOptionValues = variantOptionValues;
+    $scope.templateValues = templateValues;
+    
+    $scope.selectTemplate = function(id) {
+        if(!templates[id]) {
+            $scope.item.template = null;
+            $scope.item.variant_options = [];
+            return;
+        }
+        $scope.item.variant_options = [];
+        var variantOptionNames = templates[id];
+        variantOptionNames.forEach(function(value, index) {
+            $scope.item.variant_options.push({
+                name: value,
+                value: variantOptionValues[value],
+                items: []
+            })
+        });
+        
+    }
     
     // save data
     $scope.save = function() {
