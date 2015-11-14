@@ -17,9 +17,10 @@ var ProductAddController = function($scope, $rootScope, productService, mediaSer
         description: [],
         keywords: [],
         attrs: [],
-        shipping: [],
+        shipping: {},
         variant_options: [],
-        variants: []
+        variants: [],
+        status: 'private'
     };
 }
 
