@@ -30,11 +30,32 @@ var ProductAttributes = {
     template: null,
 }
 
+// list template
+var templates = {
+    ['color_name'],
+    ['size_name'],
+    ['color_name', 'size_name'],
+    ['color_name', 'style_name'],
+    ['color_name', 'size_name', 'style_name'],
+    ['size_name', 'style_name']
+}
+
+var variantOptionValues = [
+    'Color',
+    'Size',
+    'Color and Size',
+    'Color and Style',
+    'Color, Size and Style',
+    'Size and Style'
+];
+
 var Controller = function($scope, $rootScope, $state, productService, mediaService, 
  $controller, variantOption, Constants) {
     
     // product default attribute  
     $scope.item = angular.clone(ProductAttributes);
+    
+    $scope.variantOptionValues = variantOptionValues;
     
     // save data
     $scope.save = function() {
