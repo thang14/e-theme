@@ -23,6 +23,15 @@ var ProductAttributes = {
 var Controller = function($scope, $rootScope, productService, mediaService, 
  $controller, variantOption, Constants) {
     $scope.item = ProductAttributes;
+    
+    agular.extend(
+        this,
+        $controller('abstractDetailController',{
+            $scope: $scope,
+            itemService: productService
+        }),
+    });
+    
 }
 
 Controller.$inject = [
@@ -33,7 +42,7 @@ Controller.$inject = [
     '$controller',
     'variantOption',
     'Constants'
-]
+];
 
 productModule
 .controller('productAddController', Controller);
