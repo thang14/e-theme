@@ -29,14 +29,20 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     // product default attribute  
     $scope.item = angular.clone(ProductAttributes);
     
+    // save data
     $scope.save = function() {
-        productService.insert($scope.item);
+        if($scope.item.id) {
+            return productService.update($scope.item);
+        }
+        return productService.insert($scope.item);
     }
     
+    // save and finish
     $scope.saveAndFinish = function() {
        $state.transitionTo('product');
     }
     
+    // cancel
     $scope.cancel = function() {
         $state.transitionTo('product');
     }
