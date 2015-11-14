@@ -11,8 +11,8 @@ var ProductAddController = function($scope, $rootScope, productService, mediaSer
     $scope.item = {
         name: "",
         price: 0,
-        sale: 50,
-        quantity: 0,
+        sale: 0,
+        quantity: 1,
         description_list: [],
         description: [],
         keywords: [],
