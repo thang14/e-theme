@@ -112,7 +112,7 @@ productModule
 	                    });
 	                    return;
 	                }
-	                $scope.generateVariant(key + 1, item);
+	                $scope.generateVariants(key + 1, item);
 	            }, this);
 			}
 
