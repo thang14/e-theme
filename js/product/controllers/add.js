@@ -6,7 +6,7 @@
  */
  
 
-var ProductAddController = function($scope, $rootScope, productService, mediaService, 
+var Controller = function($scope, $rootScope, productService, mediaService, 
  $controller, variantOption, Constants) {
     $scope.item = {
         name: "",
@@ -24,16 +24,15 @@ var ProductAddController = function($scope, $rootScope, productService, mediaSer
     };
 }
 
-
-
-productModule
-.controller('productAddController', [
+Controller.$inject = [
     '$scope',
     '$rootScope',
     'productService',
     'mediaService',
     '$controller',
     'variantOption',
-    'Constants',
-    ProductAddController,
-]);
+    'Constants'
+]
+
+productModule
+.controller('productAddController', Controller);
