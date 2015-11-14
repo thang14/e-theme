@@ -93,6 +93,28 @@ productModule
 				var data = $scope.variantOptionTemplateData[id];
 				$scope.item.variant_option_names = data;
 			}
+			
+			$scope.generateVariants = function(key, data) {
+				key = key || 0;
+				if(key === 0) {
+					$scope.item.variants = [];
+	            }
+	            data = data || [];
+	            
+	            $scope.item.variant_option_values.forEach(function(value, index) {
+	                var item = angular.copy(data);
+	                item.push(index);
+	                if(!$scope.item.variant_option_values[key + 1]) {
+	                    $scope.item.variants.push({
+	                    	price: 0,
+	                    	sale_price: 0,
+	                    	quantity: 0
+	                    });
+	                    return;
+	                }
+	                $scope.generateVariant(key + 1, item);
+	            }, this);
+			}
 
 
 			$scope.removeVariant = function(variant) {
