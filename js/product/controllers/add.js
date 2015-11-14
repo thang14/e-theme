@@ -22,14 +22,15 @@ var ProductAttributes = {
 
 var Controller = function($scope, $rootScope, productService, mediaService, 
  $controller, variantOption, Constants) {
+    
+    // product default attribute  
     $scope.item = ProductAttributes;
     
-    agular.extend(
-        this,
-        $controller('abstractDetailController',{
+    //extend abstractDetailController
+    agular.extend(this, $controller('abstractDetailController',{
             $scope: $scope,
             itemService: productService
-        }),
+        })
     });
     
 }
