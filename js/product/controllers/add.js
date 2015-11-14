@@ -7,9 +7,11 @@
 
 var ProductAttributes = {
     name: "",
-    price: 0,
-    sale: 0,
-    quantity: 1,
+    current: {
+        price: 0,
+        sale: 0,
+        quantity: 1,
+    },
     description_list: [],
     description: [],
     keywords: [],
@@ -32,6 +34,23 @@ var Controller = function($scope, $rootScope, productService, mediaService,
             itemService: productService
         })
     });
+    
+    // delete file
+    $scope.deleteFile = function(file) {
+        mediaService.delete(file.id);
+        $scope._onFileDelete(file);
+    }
+    
+    // on uploaded
+    $scope._onUploaded = function(data) {
+        $scope.item.current.medias.push(data.data);
+    }
+    
+    // on delete file
+    $scope._onFileDelete = function(file) {
+        var index = $scope.item.current.medias.indexOf(file);
+        $scope.item.current.medias.splice(index, 1);
+    }
     
 }
 
