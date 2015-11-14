@@ -14,12 +14,12 @@ var ProductController = function($scope, $rootScope, productService, mediaServic
 
 productModule
 .controller('productAddController', [
-	'$scope',
-	'$rootScope',
-	'productService',
-	'mediaService',
-	'$controller',
-	'variantOption',
-	'Constants',
-	ProductController,
+'$scope',
+'$rootScope',
+'productService',
+'mediaService',
+'$controller',
+'variantOption',
+'Constants',
+ProductController,
 ]);
