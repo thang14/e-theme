@@ -101,13 +101,6 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         });
     }
     
-    $scope.getVariantOptions = function(options) {
-        var label = null;
-        options.forEach(function(value, index) {
-            label += ''
-        });
-    }
-    
     // save data
     $scope.save = function() {
         if($scope.item.id) {
