@@ -23,12 +23,23 @@ var ProductAttributes = {
     template: null,
 }
 
-var Controller = function($scope, $rootScope, productService, mediaService, 
+var Controller = function($scope, $rootScope, $state, productService, mediaService, 
  $controller, variantOption, Constants) {
     
     // product default attribute  
-    $scope.item = ProductAttributes;
+    $scope.item = angular.clone(ProductAttributes);
     
+    $scope.save = function() {
+        productService.insert($scope.item);
+    }
+    
+    $scope.saveAndFinish = function() {
+       $state.transitionTo('product');
+    }
+    
+    $scope.cancel = function() {
+        $state.transitionTo('product');
+    }
     
     // delete file
     $scope.deleteFile = function(file) {
@@ -52,6 +63,7 @@ var Controller = function($scope, $rootScope, productService, mediaService,
 Controller.$inject = [
     '$scope',
     '$rootScope',
+    '$state',
     'productService',
     'mediaService',
     '$controller',
