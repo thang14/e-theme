@@ -31,20 +31,20 @@ var ProductAttributes = {
 }
 
 // list template
-var templates = {
+var templates = [
     ['color_name'],
     ['size_name'],
     ['color_name', 'size_name'],
     ['color_name', 'style_name'],
     ['color_name', 'size_name', 'style_name'],
     ['size_name', 'style_name']
-}
+];
 
 var variantOptionValues = {
     color_name: "Color",
     size_name: "Size",
     style_name: "Style"
-}
+};
 
 var templateValues = [
     'Color',
