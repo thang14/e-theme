@@ -59,7 +59,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
  $controller, variantOption, Constants) {
     
     // product default attribute  
-    $scope.item = angular.clone(ProductAttributes);
+    $scope.item = angular.copy(ProductAttributes);
     
     $scope.templateValues = templateValues;
     
