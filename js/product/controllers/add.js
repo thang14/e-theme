@@ -81,6 +81,26 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         
     }
     
+    $scope.generateVariants = function(key, data) {
+        key = key || 0;
+        if(key === 0) {
+            $scope.item.variants = [];
+        }
+        
+        var options = $scope.item.variant_options;
+        (options[key].items).forEach(function(value, index) {
+            var item = angular.copy(data);
+            item.push(index);
+            if(!options[key + 1]) {
+                $scope.item.variants.push({
+                    options: item
+                });
+                return;
+            }
+            $scope.generateVariants(key + 1, item);
+        });
+    }
+    
     // save data
     $scope.save = function() {
         if($scope.item.id) {
