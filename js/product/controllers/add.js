@@ -94,6 +94,15 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         });
     }
     
+    
+    $scope.getVariantOptionValues = function(options) {
+        var result = "";
+        options.forEach(function(value, index) {
+            result += $scope.item.variant_options[index].items[value];
+        });
+        return result;
+    }
+    
     // save data
     $scope.save = function() {
         if($scope.item.id) {
