@@ -21,56 +21,50 @@
 
     <div class="content">
         <h3>Quan trọng</h3>
-        <div class="form-group" style="max-width:440px">
-            <label for="productName">
-                Name <strong class="color-red">(*)</strong>
-            </label>
-            <input
-                type="text"
-                ng-model="item.name"
-                class="form-control"
-                id="productName"
-                placeholder="Name">
-        </div><!--.form-group-->
-
-        <div class="form-group">
-            <label for="productBranh" class="col-sm-2 control-label">Nhà cung cấp</label>
-            <div class="col-sm-2">
-              <input
-                ng-model="item.branh"
-                type="text"
-                class="form-control"
-                id="productBranh"
-                placeholder="Branh">
-            </div>
-        </div><!--.form-group-->
-
-        <div class="form-group">
-            <label for="productBranh" class="col-sm-2 control-label">Giao diện</label>
-            <div class="col-sm-2">
-              <select
-                  class="form-control"
-                  ng-model="item.template"
-                  ng-change="selectTemplate(item.template)">
-                  
-                  <option value="">--Không chọn--</option>
-                  <option ng-repeat="(index, value) in templateValues" value="{{index}}">{{value}}</option>
-              </select>
-            </div>
-        </div><!--.form-group-->
-
+        <div style="max-width:440px">
+            <div class="form-group">
+                <label for="productName">
+                    Name <strong class="color-red">(*)</strong>
+                </label>
+                <input
+                    type="text"
+                    ng-model="item.name"
+                    class="form-control"
+                    id="productName"
+                    placeholder="Name">
+            </div><!--.form-group-->
+    
+            <div class="form-group">
+                <label for="productBranh">Nhà cung cấp</label>
+                <input
+                    ng-model="item.branh"
+                    type="text"
+                    class="form-control"
+                    id="productBranh"
+                    placeholder="Branh">
+            </div><!--.form-group-->
+    
+            <div class="form-group">
+                <label for="productBranh">Giao diện</label>
+                <select
+                    class="form-control"
+                    ng-model="item.template"
+                    ng-change="selectTemplate(item.template)">
+                      
+                      <option value="">--Không chọn--</option>
+                      <option ng-repeat="(index, value) in templateValues" value="{{index}}">{{value}}</option>
+                 </select>
+            </div><!--.form-group-->
+        </div>
         <div ng-if="item.template != null">
             <h3>Biến thể</h3>
             <div class="form-group">
-                <label class="col-sm-2 control-label">&nbsp;</label>
-                <div class="col-sm-6">
                     <div class="form-group" ng-repeat="option in item.variant_options">
                         <label class="col-sm-2 control-label">{{option.label}}</label>
                         <tags-input 
                             min-length="1"
                             max-length="20"
                             ng-model="option.items"></tags-input>
-                    </div><!--.form-group-->
                 </div>
             </div><!--.form-group-->
             
