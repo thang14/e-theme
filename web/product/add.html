@@ -232,12 +232,14 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <input
+                                    placeholder="Tên"
                                     type="text"
                                     class="form-control"
                                     ng-model="attr.name">
                             </div>
                             <div class="col-md-7">
                                 <input
+                                    placeholder="Giá trị"
                                     type="text"
                                     class="form-control"
                                     ng-model="attr.value">
@@ -256,26 +258,21 @@
 
                 <div role="tabpanel" class="tab-pane" id="keywords">
                     <div class="form-group">
-                        <label for="productKeywords" class="col-sm-2 control-label">Từ khóa</label>
-                        <div class="col-sm-3">
-
-                          <textarea
+                        <label for="productKeywords">Từ khóa</label>
+                        <textarea
                             ng-model="item.keywords"
                             type="text"
                             class="form-control"
                             id="productKeywords"
                             placeholder="Keywords"></textarea>
-
-                        </div>
                     </div><!--.form-group-->
                 </div><!--#keywords-->
 
                 <div role="tabpanel" class="tab-pane" id="description">
 
                     <div class="form-group">
-                        <label for="productDescriptionList" class="col-sm-2 control-label">Danh sách mô tả</label>
-                        <div class="col-sm-3">
-                            <div class="form-group">
+                        <label for="productDescriptionList">Danh sách mô tả</label>
+                        <div class="form-group">
                               <div class="col-md-12">
                                   <input
                                     ng-model="item.description_list[0]"
@@ -285,53 +282,48 @@
                                     placeholder="Description list">
                               </div>
                             </div>
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                  <input
-                                    ng-model="item.description_list[1]"
-                                    type="text"
-                                    class="form-control"
-                                    id="productDescriptionList"
-                                    placeholder="Description list">
-                              </div>
-                            </div>
+                        <div class="form-group">
+                          <div class="col-md-12">
+                              <input
+                                ng-model="item.description_list[1]"
+                                type="text"
+                                class="form-control"
+                                id="productDescriptionList"
+                                placeholder="Description list">
+                          </div>
+                        </div>
 
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                  <input
-                                    ng-model="item.description_list[2]"
-                                    type="text"
-                                    class="form-control"
-                                    id="productDescriptionList"
-                                    placeholder="Description list">
-                              </div>
-                            </div>
+                        <div class="form-group">
+                          <div class="col-md-12">
+                              <input
+                                ng-model="item.description_list[2]"
+                                type="text"
+                                class="form-control"
+                                id="productDescriptionList"
+                                placeholder="Description list">
+                          </div>
+                        </div>
 
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                  <input
-                                    ng-model="item.description_list[3]"
-                                    type="text"
-                                    class="form-control"
-                                    id="productDescriptionList"
-                                    placeholder="Description list">
-                              </div>
-                            </div>
+                        <div class="form-group">
+                          <div class="col-md-12">
+                              <input
+                                ng-model="item.description_list[3]"
+                                type="text"
+                                class="form-control"
+                                id="productDescriptionList"
+                                placeholder="Description list">
+                          </div>
                         </div>
                     </div><!--.form-group-->
 
                     <div class="form-group">
-                        <label for="productDescription" class="col-sm-2 control-label">Mô tả thêm</label>
-                        <div class="col-sm-3">
-
-                          <textarea
+                        <label for="productDescription">Mô tả thêm</label>
+                        <textarea
                             ng-model="item.description"
                             type="text"
                             class="form-control"
                             id="productDescription"
                             placeholder="Description"></textarea>
-
-                        </div>
                     </div><!--.form-group-->
                 </div><!--#description-->
 
