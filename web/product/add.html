@@ -100,7 +100,7 @@
                           <tbody>
                               <tr ng-repeat="variant in item.variants">
                                   <td width="80"><a href="removeVariant(variant)">Remove</a></td>
-                                  <td width="100">{{variant.options.join(">>")}}</td>
+                                  <td width="100">{{getVariantOptionValues(variant.options)}}</td>
                                   <td width="100">
                                       <input
                                         class="form-control"
