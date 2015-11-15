@@ -16,15 +16,7 @@ var ProductAttributes = {
     description: [],
     keywords: null,
     attrs: [],
-    variant_options: [{
-        name: "color_name",
-        label: "Color",
-        items: []
-    }, {
-        name: "size_name",
-        label: "Size",
-        items: []
-    }],
+    variant_options: [],
     variants: [],
     status: 'private',
     template: null,
