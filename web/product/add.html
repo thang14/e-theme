@@ -135,89 +135,77 @@
             </div><!--.form-group-->
         </div>
 
-        <div ng-if="item.template == null">
+        <div ng-if="item.template == null" style="max-width:440px;">
             <h3>Thông tin sản phẩm</h3>
             <div class="form-group">
-                <label for="productMedia" class="col-sm-2 control-label">Ảnh</label>
-                <div class="col-sm-10">
-                    <ul class="media-list">
-                        <li class="item" ng-repeat="media in item.current.medias">
-                          <img ng-src="media.path"/>
-                            <ul class="media-action">
-                                <li><a href="javascript:void(0)" ng-click="fileDelete(media)">Remove</a></li>
-                                <li><a href="javascript:void(0)" ng-click="setMediaDefault(media)">Đặt ảnh chính</a></li>
-                            </ul>
-                        </li>
+                <label for="productMedia">Ảnh</label>
+                <ul class="media-list">
+                    <li class="item" ng-repeat="media in item.current.medias">
+                      <img ng-src="media.path"/>
+                        <ul class="media-action">
+                            <li><a href="javascript:void(0)" ng-click="fileDelete(media)">Remove</a></li>
+                            <li><a href="javascript:void(0)" ng-click="setMediaDefault(media)">Đặt ảnh chính</a></li>
+                        </ul>
+                    </li>
 
-                        <li class="file-upload">
-                            <a href="javascript:void(0)">Tải ảnh lên</a>
-                        </li>
-                    </ul>
-                </div>
+                    <li class="file-upload">
+                        <a href="javascript:void(0)">Tải ảnh lên</a>
+                    </li>
+                </ul>
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productSku" class="col-sm-2 control-label">Sku</label>
-                <div class="col-sm-3">
-                  <input
+                <label for="productSku">Sku</label>
+                <input
                     ng-model="item.current.sku"
                     type="text"
                     class="form-control"
                     id="productSku"
                     placeholder="Sku">
-                </div>
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productBarcode" class="col-sm-2 control-label">Barcode</label>
-                <div class="col-sm-3">
-                  <input
+                <label for="productBarcode">Barcode</label>
+                <input
                     ng-model="item.current.barcode"
                     type="text"
                     class="form-control"
                     id="productBarcode"
                     placeholder="Barcode">
-                </div>
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productPrice" class="col-sm-2 control-label">Giá tiền</label>
-                <div class="col-sm-3">
-                  <input
+                <label for="productPrice">Giá tiền</label>
+                <input
                     ng-model="item.current.price"
                     type="text"
                     class="form-control"
                     id="productPrice"
                     placeholder="Price">
-                </div>
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productSalePrice" class="col-sm-2 control-label">Giảm giá </label>
-                <div class="col-sm-3">
-                  <input
+                <label for="productSalePrice">Khuyến mãi </label>
+                <input
                     ng-model="item.current.sale"
                     type="text"
                     class="form-control"
                     id="productSalePrice"
                     placeholder="Sale price">
-                </div>
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productSalePrice" class="col-sm-2 control-label">Số lượng</label>
-                <div class="col-sm-3">
-                  <input
+                <label for="productSalePrice">Số lượng</label>
+                <input
                     ng-model="item.current.quantity"
                     type="text"
                     class="form-control"
                     id="productQuantity"
                     placeholder="Quantity">
-                </div>
             </div><!--.form-group-->
         </div>
 
-        <div>
+        <div style="max-width:600px">
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
