@@ -150,6 +150,10 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     $scope.editCancel = function() {
         $state.transitionTo('product');
     }
+    
+    $scope.reset = function() {
+        $scope.item = angular.copy(ProductAttributes);
+    }
 }
 
 Controller.$inject = [
