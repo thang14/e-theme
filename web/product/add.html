@@ -223,35 +223,35 @@
             <!-- Tab panes -->
             <div class="tab-content" style="padding:20px;">
 
-                <div role="tabpanel" class="tab-pane active" id="attributes" style="max-width:440px;">
-                    <div class="form-group">
-                        <div class="col-sm-12" ng-init="item.attrs = [{}]">
-                            <div class="form-group" ng-repeat="(index, attr) in item.attrs">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            ng-model="attr.name">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            ng-model="attr.value">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a href="javascript:void(0)" 
-                                            style="margin-top: 5px;display: block;font-size: 15px;color: #999;"
-                                            ng-click="item.attrs.splice(index, 1)"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                            </div><!--.row-->
-                            <div class="form-group">
-                                <button type="button" class="btn btn-primary btn-sm" ng-click="item.attrs.push({})">+ Thêm thuộc tính</button>
-                            </div><!--.row-->
+                <div role="tabpanel" class="tab-pane active" 
+                    ng-init="item.attrs = [{}]"
+                    id="attributes" 
+                    style="max-width:440px;">
+                    
+                    <div class="form-group" ng-repeat="(index, attr) in item.attrs">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    ng-model="attr.name">
+                            </div>
+                            <div class="col-md-7">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    ng-model="attr.value">
+                            </div>
+                            <div class="col-md-1">
+                                <a href="javascript:void(0)" 
+                                    style="margin-top: 5px;display: block;font-size: 15px;color: #999;"
+                                    ng-click="item.attrs.splice(index, 1)"><i class="fa fa-times"></i></a>
+                            </div>
                         </div>
-                    </div><!--.form-group-->
+                    </div><!--.row-->
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="item.attrs.push({})">+ Thêm thuộc tính</button>
+                    </div><!--.row-->
                 </div><!--#attributes-->
 
                 <div role="tabpanel" class="tab-pane" id="keywords">
