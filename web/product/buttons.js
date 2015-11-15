@@ -1,5 +1,8 @@
-<button type="button" class="btn btn-danger btn-sm text-semibold" ng-click="editCancel()">
+<button type="button" class="btn btn-danger btn-sm text-semibold" ng-click="cancel()">
     Hủy
+</button>
+<button type="button" class="btn btn-danger btn-sm text-semibold" ng-click="reset()">
+    Reset
 </button>
 <button type="button" class="btn btn-primary btn-sm text-semibold" ng-click="editSave()">
     <i class="fa fa-floppy-o"></i>  Lưu
