@@ -98,7 +98,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     $scope.getVariantOptionValues = function(options) {
         var result = [];
         options.forEach(function(value, index) {
-            result.push($scope.item.variant_options[index].items[value]);
+            result.push($scope.item.variant_options[index].items[value].text);
         });
         return result.join(">>");
     }
