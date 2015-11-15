@@ -96,11 +96,11 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     
     
     $scope.getVariantOptionValues = function(options) {
-        var result = "";
+        var result = [];
         options.forEach(function(value, index) {
-            result += $scope.item.variant_options[index].items[value];
+            result.push($scope.item.variant_options[index].items[value]);
         });
-        return result;
+        return result.join(">>");
     }
     
     // save data
