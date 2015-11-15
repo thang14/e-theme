@@ -2,18 +2,18 @@
     <div class="page-header">
         <div class="page-header-content">
             <div class="page-title">
-                <h4>Create New Product</h4>
+                <h4>Đăng sản phẩm mới</h4>
             </div>
         </div><!--.page-header-content-->
         <div class="page-header-right">
             <button type="button" class="btn btn-danger btn-sm" ng-click="editCancel()">
-                Cancel
+                Hủy
             </button>
             <button type="button" class="btn btn-primary btn-sm" ng-click="editSave()">
-                <i class="fa fa-floppy-o"></i>  Save
+                <i class="fa fa-floppy-o"></i>  Lưu
             </button>
             <button type="button" class="btn btn-primary btn-sm" ng-click="editSaveAndFinish()">
-                <i class="fa fa-floppy-o"></i>  Save and finish
+                <i class="fa fa-floppy-o"></i>  Lưu và kết thúc
             </button>
         </div>
     </div><!--.page-header-->
@@ -36,7 +36,7 @@
         </div><!--.form-group-->
 
         <div class="form-group">
-            <label for="productBranh" class="col-sm-2 control-label">Branh</label>
+            <label for="productBranh" class="col-sm-2 control-label">Nhà cung cấp</label>
             <div class="col-sm-2">
               <input
                 ng-model="item.branh"
@@ -48,7 +48,7 @@
         </div><!--.form-group-->
 
         <div class="form-group">
-            <label for="productBranh" class="col-sm-2 control-label">Template</label>
+            <label for="productBranh" class="col-sm-2 control-label">Giao diện</label>
             <div class="col-sm-2">
               <select
                   class="form-control"
@@ -92,18 +92,18 @@
                       <table>
                           <thead>
                               <tr>
-                                  <th>Action</th>
-                                  <th>Variant</th>
+                                  <th>Hành động</th>
+                                  <th>Biến thể</th>
                                   <th>Sku</th>
                                   <th>Barcode</th>
-                                  <th>Price</th>
-                                  <th>Sale price</th>
-                                  <th>Quantity</th>
+                                  <th>Giá tiền</th>
+                                  <th>Giảm giá</th>
+                                  <th>Số lượng</th>
                               </tr>
                           </thead>
                           <tbody>
                               <tr ng-repeat="variant in item.variants">
-                                  <td width="80"><a href="removeVariant(variant)">Remove</a></td>
+                                  <td width="80"><a href="removeVariant(variant)">Xóa</a></td>
                                   <td width="100">{{getVariantOptionValues(variant.options)}}</td>
                                   <td width="100">
                                       <input
@@ -144,9 +144,9 @@
         </div>
 
         <div ng-if="item.template == null">
-            <h3>Product info</h3>
+            <h3>Thông tin sản phẩm</h3>
             <div class="form-group">
-                <label for="productMedia" class="col-sm-2 control-label">Photo</label>
+                <label for="productMedia" class="col-sm-2 control-label">Ảnh</label>
                 <div class="col-sm-10">
                     <ul class="media-list">
                         <li class="item" ng-repeat="media in item.current.medias">
@@ -158,7 +158,7 @@
                         </li>
 
                         <li class="file-upload">
-                            <a href="javascript:void(0)">Upload File</a>
+                            <a href="javascript:void(0)">Tải ảnh lên</a>
                         </li>
                     </ul>
                 </div>
@@ -189,7 +189,7 @@
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productPrice" class="col-sm-2 control-label">Price</label>
+                <label for="productPrice" class="col-sm-2 control-label">Giá tiền</label>
                 <div class="col-sm-3">
                   <input
                     ng-model="item.current.price"
@@ -201,10 +201,10 @@
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productSalePrice" class="col-sm-2 control-label">Sale price</label>
+                <label for="productSalePrice" class="col-sm-2 control-label">Giảm giá </label>
                 <div class="col-sm-3">
                   <input
-                    ng-model="item.current.sale_price"
+                    ng-model="item.current.sale"
                     type="text"
                     class="form-control"
                     id="productSalePrice"
@@ -213,7 +213,7 @@
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productSalePrice" class="col-sm-2 control-label">Quantity</label>
+                <label for="productSalePrice" class="col-sm-2 control-label">Số lượng</label>
                 <div class="col-sm-3">
                   <input
                     ng-model="item.current.quantity"
@@ -267,7 +267,7 @@
 
                 <div role="tabpanel" class="tab-pane" id="keywords">
                     <div class="form-group">
-                        <label for="productKeywords" class="col-sm-2 control-label">Keywords</label>
+                        <label for="productKeywords" class="col-sm-2 control-label">Từ khóa</label>
                         <div class="col-sm-3">
 
                           <textarea
@@ -284,7 +284,7 @@
                 <div role="tabpanel" class="tab-pane" id="description">
 
                     <div class="form-group">
-                        <label for="productDescriptionList" class="col-sm-2 control-label">Description list</label>
+                        <label for="productDescriptionList" class="col-sm-2 control-label">Danh sách mô tả</label>
                         <div class="col-sm-3">
                             <div class="form-group">
                               <div class="col-md-12">
@@ -332,7 +332,7 @@
                     </div><!--.form-group-->
 
                     <div class="form-group">
-                        <label for="productDescription" class="col-sm-2 control-label">Description more</label>
+                        <label for="productDescription" class="col-sm-2 control-label">Mô tả thêm</label>
                         <div class="col-sm-3">
 
                           <textarea
