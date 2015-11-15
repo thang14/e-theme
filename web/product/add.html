@@ -21,18 +21,16 @@
 
     <div class="content">
         <h3>Quan trọng</h3>
-        <div class="form-group">
-            <label for="productName" class="col-sm-2 control-label">
+        <div class="form-group" style="max-width:440px">
+            <label for="productName">
                 Name <strong class="color-red">(*)</strong>
             </label>
-            <div class="col-sm-7">
-                <input
-                    type="text"
-                    ng-model="item.name"
-                    class="form-control"
-                    id="productName"
-                    placeholder="Name">
-            </div>
+            <input
+                type="text"
+                ng-model="item.name"
+                class="form-control"
+                id="productName"
+                placeholder="Name">
         </div><!--.form-group-->
 
         <div class="form-group">
