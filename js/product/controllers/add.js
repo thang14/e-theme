@@ -101,10 +101,6 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         });
     }
     
-    $scope.getVariantOptionValues = function(options) {
-        return options.join("");
-    }
-    
     // save data
     $scope.save = function() {
         if($scope.item.id) {
