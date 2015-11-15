@@ -147,6 +147,9 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         $scope.item.current.medias.splice(index, 1);
     }
     
+    $scope.editCancel = function() {
+        $state.transitionTo('product');
+    }
 }
 
 Controller.$inject = [
