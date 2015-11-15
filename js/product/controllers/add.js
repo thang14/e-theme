@@ -80,7 +80,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         }
         
         var options = $scope.item.variant_options;
-        data = data || {};
+        data = data || [];
         (options[key].items).forEach(function(value, index) {
             var item = angular.copy(data);
             item.push(index);
