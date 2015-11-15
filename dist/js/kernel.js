@@ -158,7 +158,6 @@ angular.module('app.kernel')
 ]);
 
 
-
 'use strict';
 
 /**

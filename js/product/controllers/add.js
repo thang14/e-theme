@@ -47,14 +47,14 @@ var templateValues = [
     'Size and Style'
 ];
 
-var Controller = function($scope, $rootScope, $state, productService, mediaService, 
+var Controller = function($scope, $rootScope, $state, productService, mediaService,
  $controller, variantOption, Constants) {
-    
-    // product default attribute  
+
+    // product default attribute
     $scope.item = angular.copy(ProductAttributes);
-    
+
     $scope.templateValues = templateValues;
-    
+
     $scope.selectTemplate = function(id) {
         if(!templates[id]) {
             $scope.item.template = null;
@@ -70,15 +70,15 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
                 items: []
             })
         });
-        
+
     }
-    
+
     $scope.generateVariants = function(key, data) {
         key = key || 0;
         if(key === 0) {
             $scope.item.variants = [];
         }
-        
+
         var options = $scope.item.variant_options;
         data = data || [];
         (options[key].items).forEach(function(value, index) {
@@ -93,8 +93,8 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
             $scope.generateVariants(key + 1, item);
         });
     }
-    
-    
+
+
     $scope.getVariantOptionValues = function(options) {
         var result = [];
         options.forEach(function(value, index) {
@@ -102,7 +102,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         });
         return result.join(">>");
     }
-    
+
     // save data
     $scope.save = function() {
         if($scope.item.id) {
@@ -110,23 +110,23 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         }
         return productService.insert($scope.item);
     }
-    
+
     // save and finish
     $scope.saveAndFinish = function() {
        $state.transitionTo('product');
     }
-    
+
     // cancel
     $scope.cancel = function() {
         $state.transitionTo('product');
     }
-    
+
     // delete file
     $scope.deleteFile = function(file) {
         mediaService.remove(file.id);
         $scope._onFileDelete(file);
     }
-    
+
     // upload
     $scope.upload = function($files) {
         if($files) {
@@ -135,22 +135,22 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
             });
         }
     }
-    
+
     // on uploaded
     $scope._onUploaded = function(data) {
         $scope.item.current.medias.push(data.data);
     }
-    
+
     // on delete file
     $scope._onFileDelete = function(file) {
         var index = $scope.item.current.medias.indexOf(file);
         $scope.item.current.medias.splice(index, 1);
     }
-    
+
     $scope.editCancel = function() {
         $state.transitionTo('product');
     }
-    
+
     $scope.reset = function() {
         $scope.item = angular.copy(ProductAttributes);
     }
