@@ -66,7 +66,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         variantOptionNames.forEach(function(value, index) {
             $scope.item.variant_options.push({
                 name: value,
-                value: variantOptionValues[value],
+                label: variantOptionValues[value],
                 items: []
             })
         });
