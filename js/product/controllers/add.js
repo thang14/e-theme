@@ -28,14 +28,25 @@ var ProductAttributes = {
 
 // list template
 var templates = [
+    
+    
     ['color_name'],
     ['size_name'],
-    ['style'],
-    ['configrure'],
+    ['style_name'],
+    ['configure_name'],
+    
+    
     ['color_name', 'size_name'],
-    ['color_name', 'style_name'],
+    ['color_name', 'stype_name'],
+    ['color_name', 'configure_name'],
     ['color_name', 'size_name', 'style_name'],
-    ['size_name', 'style_name']
+    
+    
+    ['size_name', 'style_name'],
+    ['size_name', 'configure_name'],
+    ['size_name', 'style_name', 'configure_name'],
+    
+    ['style_name', 'configure_name'],
 ];
 
 var variantOptionValues = {
