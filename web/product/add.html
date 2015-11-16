@@ -145,46 +145,56 @@
                 </ul>
             </div><!--.form-group-->
 
-            <div class="form-group">
-                <label for="productSku">Sku</label>
-                <input
-                    ng-model="item.current.sku"
-                    type="text"
-                    class="form-control"
-                    id="productSku"
-                    placeholder="Sku">
-            </div><!--.form-group-->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="productSku">Sku</label>
+                        <input
+                            ng-model="item.current.sku"
+                            type="text"
+                            class="form-control"
+                            id="productSku"
+                            placeholder="Sku">
+                    </div><!--.form-group-->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="productBarcode">Barcode</label>
+                        <input
+                            ng-model="item.current.barcode"
+                            type="text"
+                            class="form-control"
+                            id="productBarcode"
+                            placeholder="Barcode">
+                    </div><!--.form-group-->
+                </div>
+            </div>
 
-            <div class="form-group">
-                <label for="productBarcode">Barcode</label>
-                <input
-                    ng-model="item.current.barcode"
-                    type="text"
-                    class="form-control"
-                    id="productBarcode"
-                    placeholder="Barcode">
-            </div><!--.form-group-->
-
-            <div class="form-group">
-                <label for="productPrice">Giá tiền</label>
-                <input
-                    ng-model="item.current.price"
-                    type="text"
-                    class="form-control"
-                    id="productPrice"
-                    placeholder="Price">
-            </div><!--.form-group-->
-
-            <div class="form-group">
-                <label for="productSalePrice">Khuyến mãi </label>
-                <input
-                    ng-model="item.current.sale"
-                    type="text"
-                    class="form-control"
-                    id="productSalePrice"
-                    placeholder="Sale price">
-            </div><!--.form-group-->
-
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="productPrice">Giá tiền</label>
+                        <input
+                            ng-model="item.current.price"
+                            type="text"
+                            class="form-control"
+                            id="productPrice"
+                            placeholder="Price">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="productSalePrice">Khuyến mãi </label>
+                        <input
+                            ng-model="item.current.sale"
+                            type="text"
+                            class="form-control"
+                            id="productSalePrice"
+                            placeholder="Sale price">
+                    </div><!--.form-group-->
+                </div>
+            </div>>
+            
             <div class="form-group">
                 <label for="productSalePrice">Số lượng</label>
                 <input
