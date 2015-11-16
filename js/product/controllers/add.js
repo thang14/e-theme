@@ -13,6 +13,9 @@ var ProductAttributes = {
         sale: 0,
         quantity: 1,
     },
+    medias: [{
+        path:"/admin-theme/examples/images/1.jpg"
+    }],
     description_list: [],
     description: [],
     keywords: null,
