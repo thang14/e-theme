@@ -13,10 +13,15 @@ var ProductAttributes = {
         sale: 0,
         quantity: 1,
     },
+    
+    media_display: null,
+    
     medias: [{
-        path:"/admin-theme/examples/images/1.jpg"
+        path:"/admin-theme/examples/images/1.jpg",
+        display: true
     }, {
-        path:"/admin-theme/examples/images/2.jpg"
+        path:"/admin-theme/examples/images/2.jpg",
+        display: false
     }],
     description_list: [],
     description: [],
