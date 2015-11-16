@@ -14,7 +14,7 @@ var ProductAttributes = {
         quantity: 1,
     },
     
-    media_display: null,
+    media_display: 0,
     
     medias: [{
         path:"/admin-theme/examples/images/1.jpg",
