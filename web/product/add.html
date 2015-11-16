@@ -73,8 +73,8 @@
                               <tr>
                                   <th>Hành động</th>
                                   <th>Biến thể</th>
-                                  <th>Sku</th>
-                                  <th>Barcode</th>
+                                  <th>Mã Sku</th>
+                                  <th>Mã Barcode</th>
                                   <th>Giá tiền</th>
                                   <th>Giảm giá</th>
                                   <th>Số lượng</th>
@@ -86,6 +86,7 @@
                                   <td width="100">{{getVariantOptionValues(variant.options)}}</td>
                                   <td width="100" style="padding:5px">
                                       <input
+                                        placeholder="Mã Sku">
                                         class="form-control"
                                         type="text"
                                         ng-model="variant.sku">
@@ -94,6 +95,7 @@
                                       <input
                                         class="form-control"
                                         type="text"
+                                        placeholder="Mã Barcode">
                                         ng-model="variant.barcode">
                                   </td>
                                   <td width="100" style="padding:5px">
@@ -148,24 +150,24 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="productSku">Sku</label>
+                        <label for="productSku">Mã Sku</label>
                         <input
                             ng-model="item.current.sku"
                             type="text"
                             class="form-control"
                             id="productSku"
-                            placeholder="Sku">
+                            placeholder="Mã Sku">
                     </div><!--.form-group-->
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="productBarcode">Barcode</label>
+                        <label for="productBarcode">Mã Barcode</label>
                         <input
                             ng-model="item.current.barcode"
                             type="text"
                             class="form-control"
                             id="productBarcode"
-                            placeholder="Barcode">
+                            placeholder="Mã Barcode">
                     </div><!--.form-group-->
                 </div>
             </div>
@@ -179,31 +181,46 @@
                             type="text"
                             class="form-control"
                             id="productPrice"
-                            placeholder="Price">
+                            placeholder="Giá tiền">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="productSalePrice">Khuyến mãi </label>
+                        <label for="productSalePrice">Giá khuyến mãi </label>
                         <input
                             ng-model="item.current.sale"
                             type="text"
                             class="form-control"
                             id="productSalePrice"
-                            placeholder="Sale price">
+                            placeholder="Giá khuyến mãi">
                     </div><!--.form-group-->
                 </div>
-            </div>>
+            </div>
             
-            <div class="form-group">
-                <label for="productSalePrice">Số lượng</label>
-                <input
-                    ng-model="item.current.quantity"
-                    type="text"
-                    class="form-control"
-                    id="productQuantity"
-                    placeholder="Quantity">
-            </div><!--.form-group-->
+            <div class="row">
+                <div class="col-md-6">
+                    div class="form-group">
+                        <label for="productSalePrice">Đơn vị tính</label>
+                        <input
+                            ng-model="item.current.unit"
+                            type="text"
+                            class="form-control"
+                            id="productUnit"
+                            placeholder="Đơn vị tính">
+                    </div><!--.form-group-->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="productSalePrice">Số lượng</label>
+                        <input
+                            ng-model="item.current.quantity"
+                            type="text"
+                            class="form-control"
+                            id="productQuantity"
+                            placeholder="Số lượng">
+                    </div><!--.form-group-->
+                </div>
+            </div>
         </div>
 
         <div style="max-width:600px">
