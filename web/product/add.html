@@ -2,7 +2,7 @@
     <div class="page-header">
         <div class="page-header-content">
             <div class="page-title">
-                <h4>Đăng sản phẩm mới</h4>
+                <h4>Sản phẩm mới</h4>
             </div>
         </div><!--.page-header-content-->
         <div class="page-header-right">
@@ -12,7 +12,6 @@
 
 
     <div class="content">
-        <h4>Quan trọng</h4>
         <div style="max-width:440px">
             <div class="form-group">
                 <label for="productName">
@@ -49,7 +48,6 @@
             </div><!--.form-group-->
         </div>
         <div ng-if="item.template != null" >
-            <h4>Biến thể</h4>
             <div class="form-group" style="max-width:440px">
                     <div class="form-group" ng-repeat="option in item.variant_options">
                         <label>{{option.label}}</label>
@@ -124,7 +122,6 @@
         </div>
 
         <div ng-if="item.template == null" style="max-width:440px;">
-            <h4>Thông tin sản phẩm</h4>
             <div class="form-group">
                 <ul class="media-list">
                     <li class="item" ng-repeat="media in item.current.medias">
@@ -224,7 +221,6 @@
         </div>
     
         <div style="max-width:600px">
-            <h4>Thông tin khác</h4>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation"  class="active">
