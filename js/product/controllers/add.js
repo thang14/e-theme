@@ -50,9 +50,9 @@ var templates = [
 ];
 
 var variantOptionValues = {
-    color_name: "Color",
-    size_name: "Size",
-    style_name: "Style",
+    color_name: "Màu sắc",
+    size_name: "Kích thước",
+    style_name: "Kiểu dáng",
     configure: "Cấu hình"
 };
 
