@@ -5,7 +5,7 @@
  */
 
 window.angular.module('app', [
-    
+
     //Core module
     'ui.router',
     'ui.utils.masks',
@@ -19,7 +19,7 @@ window.angular.module('app', [
     'cgNotify',
 
     //App modules
-    'app.locale',
+    //'app.locale',
     'app.environment',
     'app.kernel',
     //'app.auth',
