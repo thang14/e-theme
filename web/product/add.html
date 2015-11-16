@@ -71,46 +71,46 @@
                       <table>
                           <thead>
                               <tr>
-                                  <th>Hành động</th>
+                                  <th width="80">Hành động</th>
                                   <th>Biến thể</th>
-                                  <th>Mã Sku</th>
-                                  <th>Mã Barcode</th>
-                                  <th>Giá tiền</th>
-                                  <th>Giảm giá</th>
-                                  <th>Số lượng</th>
+                                  <th width="100">Mã Sku</th>
+                                  <th width="100">Mã Barcode</th>
+                                  <th width="100">Giá tiền</th>
+                                  <th width="100">Giảm giá</th>
+                                  <th width="100">Số lượng</th>
                               </tr>
                           </thead>
                           <tbody>
                               <tr ng-repeat="variant in item.variants">
-                                  <td width="80"><a href="removeVariant(variant)">Xóa</a></td>
-                                  <td width="100">{{getVariantOptionValues(variant.options)}}</td>
-                                  <td width="100" style="padding:5px">
+                                  <td style="text-center"><a href="removeVariant(variant)">Xóa</a></td>
+                                  <td>{{getVariantOptionValues(variant.options)}}</td>
+                                  <td style="padding:5px">
                                       <input
                                         placeholder="Mã Sku"
                                         class="form-control"
                                         type="text"
                                         ng-model="variant.sku">
                                   </td>
-                                  <td width="100" style="padding:5px">
+                                  <td style="padding:5px">
                                       <input
                                         class="form-control"
                                         type="text"
                                         placeholder="Mã Barcode"
                                         ng-model="variant.barcode">
                                   </td>
-                                  <td width="100" style="padding:5px">
+                                  <td style="padding:5px">
                                       <input
                                         class="form-control"
                                         type="text"
                                         ng-model="variant.price">
                                   </td>
-                                  <td width="100" style="padding:5px">
+                                  <td style="padding:5px">
                                       <input
                                         class="form-control"
                                         type="text"
                                         ng-model="variant.sale">
                                   </td>
-                                  <td width="50" style="padding:5px">
+                                  <td style="padding:5px">
                                       <input
                                         class="form-control"
                                         type="text"
