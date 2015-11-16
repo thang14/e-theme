@@ -11,5 +11,6 @@ tags-input {
   
   .tags.focused {
     @include box-shadow(none);
+    border: 1px solid #66afe9;
   }
 }
