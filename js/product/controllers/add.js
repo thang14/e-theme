@@ -173,9 +173,10 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     }
 
     // delete file
-    $scope.deleteFile = function(file) {
-        mediaService.remove(file.id);
-        $scope._onFileDelete(file);
+    $scope.deleteFile = function(index) {
+        var media = $scope.item.medias[index];
+        mediaService.remove(media.id);
+        $scope._onFileDelete(index);
     }
 
     // upload
@@ -193,8 +194,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     }
 
     // on delete file
-    $scope._onFileDelete = function(file) {
-        var index = $scope.item.medias.indexOf(file);
+    $scope._onFileDelete = function(index) {
         $scope.item.medias.splice(index, 1);
     }
 
