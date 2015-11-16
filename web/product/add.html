@@ -143,7 +143,9 @@
                 <li class="item" ng-repeat="media in item.medias">
                     <div class="action">
                         <div class="dropdown">
-                            <span class="caret"></span>
+                            <a href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><a href="javascript:void(0)" g-click="fileDelete(media)">Xóa</a></li>
                                 <li><a href="javascript:void(0)" g-click="setMediaDefault(media)">Đặt ảnh hiển thị</a></li>
