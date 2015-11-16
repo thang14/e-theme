@@ -129,6 +129,7 @@
                                       <input
                                         class="form-control"
                                         type="number"
+                                        min="0" max="999"
                                         ng-model="variant.quantity">
                                   </td>
                               </tr>
@@ -252,6 +253,7 @@
                         <input
                             ng-model="item.current.quantity"
                             type="number"
+                            min="0" max="999"
                             class="form-control"
                             id="productQuantity"
                             placeholder="Số lượng">
