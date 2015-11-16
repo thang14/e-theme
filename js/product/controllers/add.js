@@ -83,11 +83,28 @@ var templateValues = [
     'Kiểu dáng, Cấu hình'
 ];
 
-var Controller = function($scope, $rootScope, $state, productService, mediaService,
+var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
  $controller, variantOption, Constants) {
+    
+    $scope.detail = {
+        id: $stateParams.id
+    }
 
-    // product default attribute
-    $scope.item = angular.copy(ProductAttributes);
+    /**
+     * GET
+     */
+    if($scope.detail.id !== undefined) {
+        productService.get($scope.detail.id).success(function (data, status) {
+            $scope.item = data.data;
+        }).error(function (data, status) {
+            if (data.error.code == 404) {
+                $state.transitionTo('home');
+            }
+        });
+    } else {
+        // product default attribute
+        $scope.item = angular.copy(ProductAttributes);
+    }
 
     $scope.templateValues = templateValues;
 
@@ -172,40 +189,33 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     // delete file
     $scope.deleteFile = function(index) {
         var media = $scope.item.medias[index];
-        $scope._onFileDelete(index);
+        $scope._handleFileDelete(index);
     }
 
     // upload
     $scope.upload = function($files) {
         if($files) {
             $files.forEach(function(file) {
-                mediaService.upload(file).success($scope._onUploaded);
+                mediaService.upload(file).success($scope._handleUploaded);
             });
         }
     }
 
     // on uploaded
-    $scope._onUploaded = function(data) {
+    $scope._handleUploaded = function(data) {
         $scope.item.medias.push(data.data);
     }
 
     // on delete file
-    $scope._onFileDelete = function(index) {
+    $scope._handleFileDelete = function(index) {
         $scope.item.medias.splice(index, 1);
-    }
-
-    $scope.editCancel = function() {
-        $state.transitionTo('product');
-    }
-
-    $scope.reset = function() {
-        $scope.item = angular.copy(ProductAttributes);
     }
 }
 
 Controller.$inject = [
     '$scope',
     '$rootScope',
+    '$stateParams',
     '$state',
     'productService',
     'mediaService',
