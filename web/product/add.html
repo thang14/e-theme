@@ -141,12 +141,17 @@
         <div ng-if="item.template == null" style="max-width:440px;">
             <div class="form-group">
                 <ul class="media-list">
-                    <li class="item" ng-repeat="media in item.current.medias">
-                      <img ng-src="media.path"/>
-                        <ul class="media-action">
-                            <li><a href="javascript:void(0)" ng-click="fileDelete(media)">Remove</a></li>
-                            <li><a href="javascript:void(0)" ng-click="setMediaDefault(media)">Đặt ảnh chính</a></li>
-                        </ul>
+                    <li class="item" ng-repeat="media in item.medias">
+                        <div class="action">
+                            <div class="dropdown">
+                                <span class="caret"></span>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)" g-click="fileDelete(media)">Xóa</a></li>
+                                    <li><a href="javascript:void(0)" g-click="setMediaDefault(media)">Đặt ảnh hiển thị</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <img ng-src="media.path"/>
                     </li>
                     <li class="file-upload">
                         <a
