@@ -30,6 +30,8 @@ var ProductAttributes = {
 var templates = [
     ['color_name'],
     ['size_name'],
+    ['style'],
+    ['configrure'],
     ['color_name', 'size_name'],
     ['color_name', 'style_name'],
     ['color_name', 'size_name', 'style_name'],
@@ -39,16 +41,28 @@ var templates = [
 var variantOptionValues = {
     color_name: "Color",
     size_name: "Size",
-    style_name: "Style"
+    style_name: "Style",
+    configure: "Cấu hình"
 };
 
 var templateValues = [
-    'Color',
-    'Size',
-    'Color and Size',
-    'Color and Style',
-    'Color, Size and Style',
-    'Size and Style'
+    'Màu sắc',
+    'Kích thước',
+    'Kiểu dáng',
+    'Cấu hình',
+    
+    'Màu sắc, Kích thước',
+    'Màu sắc, Kiểu dáng',
+    'Màu sắc, Cấu hình',
+    'Màu sắc, Kích thước, Kiểu dáng',
+    'Màu sắc, Kích thước, Cấu hình',
+    
+    
+    'Kích thước, Kiểu dáng',
+    'Kích thước, Cấu hình',
+    'Kích thước, Kiểu dáng, Cấu hình',
+    
+    'Kiểu dáng, Cấu hình'
 ];
 
 var Controller = function($scope, $rootScope, $state, productService, mediaService,
