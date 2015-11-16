@@ -225,4 +225,4 @@ Controller.$inject = [
 ];
 
 productModule
-.controller('productAddController', Controller);
+.controller('productDetailController', Controller);
