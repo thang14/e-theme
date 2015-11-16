@@ -153,9 +153,9 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     // save data
     $scope.save = function() {
         if($scope.item.id) {
-            return productService.update($scope.item);
+            return productService.save($scope.item);
         }
-        return productService.save($scope.item);
+        return productService.create($scope.item);
     }
 
     // save and finish
