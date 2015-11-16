@@ -304,7 +304,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         if($scope.item.id) {
             return productService.update($scope.item);
         }
-        return productService.insert($scope.item);
+        return productService.save($scope.item);
     }
 
     // save and finish
