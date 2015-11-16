@@ -15,6 +15,8 @@ var ProductAttributes = {
     },
     medias: [{
         path:"/admin-theme/examples/images/1.jpg"
+    }, {
+        path:"/admin-theme/examples/images/2.jpg"
     }],
     description_list: [],
     description: [],
