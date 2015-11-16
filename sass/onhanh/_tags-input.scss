@@ -8,4 +8,8 @@ tags-input {
     @include border-radius(4px);
     @include box-shadow(none);
   }
+  
+  .tags.focused {
+    @include box-shadow(none);
+  }
 }
