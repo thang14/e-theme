@@ -29,7 +29,7 @@ var ProductAttributes = {
     attrs: [{}],
     variant_options: [],
     variants: [],
-    status: 'private',
+    status: 0,
     template: null,
 }
 
