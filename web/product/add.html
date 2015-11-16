@@ -71,18 +71,18 @@
                       <table>
                           <thead>
                               <tr>
-                                  <th width="80">Hành động</th>
+                                  <th width="40">&nbsp;</th>
                                   <th>Biến thể</th>
-                                  <th width="120">Mã Sku</th>
-                                  <th width="120">Mã Barcode</th>
-                                  <th width="120">Giá tiền</th>
-                                  <th width="120">Giảm giá</th>
+                                  <th width="130">Mã Sku</th>
+                                  <th width="130">Mã Barcode</th>
+                                  <th width="130">Giá tiền</th>
+                                  <th width="130">Giảm giá</th>
                                   <th width="80">Số lượng</th>
                               </tr>
                           </thead>
                           <tbody>
                               <tr ng-repeat="variant in item.variants">
-                                  <td style="text-center"><a href="removeVariant(variant)">Xóa</a></td>
+                                  <td style="text-center"><a href="removeVariant(variant)"><i class="fa fa-times"></i></a></td>
                                   <td>{{getVariantOptionValues(variant.options)}}</td>
                                   <td style="padding:5px">
                                       <input
