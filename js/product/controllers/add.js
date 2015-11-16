@@ -40,7 +40,7 @@ var templates = [
     ['color_name', 'stype_name'],
     ['color_name', 'configure_name'],
     ['color_name', 'size_name', 'style_name'],
-    ['color_name', 'size_name', 'configure'],
+    ['color_name', 'size_name', 'configure_name'],
     
     ['size_name', 'style_name'],
     ['size_name', 'configure_name'],
@@ -53,7 +53,7 @@ var variantOptionValues = {
     color_name: "Màu sắc",
     size_name: "Kích thước",
     style_name: "Kiểu dáng",
-    configure: "Cấu hình"
+    configure_name: "Cấu hình"
 };
 
 var templateValues = [
