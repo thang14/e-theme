@@ -40,7 +40,7 @@ var templates = [
     ['color_name', 'stype_name'],
     ['color_name', 'configure_name'],
     ['color_name', 'size_name', 'style_name'],
-    
+    ['color_name', 'size_name', 'configure'],
     
     ['size_name', 'style_name'],
     ['size_name', 'configure_name'],
