@@ -404,14 +404,24 @@ ul.media-list li a {
   width: 150px;
   height: 150px;
   display: inline-table;
-  border: 1px solid #ccc;
+  border: 1px dashed #ccc;
   background: #fff;
   text-align: center;
-  line-height: 150px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   overflow: hidden;
+  color: #BFBDBD;
+}
+/* line 93, ../../sass/onhanh/_wrapper.scss */
+ul.media-list li a i {
+  padding-top: 25px;
+  color: #BFBDBD;
+}
+/* line 97, ../../sass/onhanh/_wrapper.scss */
+ul.media-list li a:hover, ul.media-list li a.dragover {
+  color: #666;
+  border-color: #666;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -154,6 +154,7 @@ productModule
  * @description     ProductAddController
  */
 
+
 var ProductAttributes = {
     name: null,
     current: {
@@ -235,7 +236,10 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
             item.push(index);
             if(!options[key + 1]) {
                 $scope.item.variants.push({
-                    options: item
+                    options: item,
+                    price: 0,
+                    sale: 0,
+                    quantity: 1,
                 });
                 return;
             }

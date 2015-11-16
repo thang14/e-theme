@@ -84,11 +84,20 @@ ul.media-list {
         width: 150px;
         height: 150px;
         display: inline-table;
-        border: 1px solid #ccc;
+        border: 1px dashed #ccc;
         background: #fff;
         text-align: center;
-        line-height: 150px;
         @include border-radius(3px);
         overflow: hidden;
+        color:#BFBDBD;
+        i {
+            padding-top: 25px;
+            color: #BFBDBD;
+        }
+        &:hover,
+        &.dragover {
+            color:#666;
+            border-color: #666;
+        }
     }
 }

@@ -25,7 +25,7 @@
                     id="productName"
                     placeholder="Name">
             </div><!--.form-group-->
-    
+
             <div class="form-group">
                 <label for="productBranh">Nhà cung cấp</label>
                 <input
@@ -35,14 +35,14 @@
                     id="productBranh"
                     placeholder="Branh">
             </div><!--.form-group-->
-    
+
             <div class="form-group">
                 <label for="productBranh">Giao diện</label>
                 <select
                     class="form-control"
                     ng-model="item.template"
                     ng-change="selectTemplate(item.template)">
-                      
+
                       <option value="">--Không chọn--</option>
                       <option ng-repeat="(index, value) in templateValues" value="{{index}}">{{value}}</option>
                  </select>
@@ -53,20 +53,20 @@
             <div class="form-group" style="max-width:440px">
                     <div class="form-group" ng-repeat="option in item.variant_options">
                         <label>{{option.label}}</label>
-                        <tags-input 
+                        <tags-input
                             min-length="1"
                             max-length="20"
                             ng-model="option.items"></tags-input>
                 </div>
             </div><!--.form-group-->
-            
+
             <div class="form-group">
                 <button type="button" class="btn btn-primary btn-sm" ng-click="generateVariants()">
                     Cập nhật biến thể
                 </button>
             </div><!--.form-group-->
 
-            <div class="form-group"  ng-if="item.variants.length > 0"  style="max-width:600px"> 
+            <div class="form-group"  ng-if="item.variants.length > 0"  style="max-width:600px">
                 <div class="variant-list">
                       <table>
                           <thead>
@@ -133,12 +133,13 @@
                         </ul>
                     </li>
                     <li class="file-upload">
-                        <a 
-                            ngf-multiple="true"  
+                        <a
+                            ngf-multiple="true"
                             accept="image/*"
-                            ngf-select="" 
+                            ngf-select=""
                             ngf-drop="" ng-model="files" href="javascript:void(0)">
                             <i class="fa fa-upload fa-4"></i>
+                            <div class="text-hint">Tải ảnh lên</div>
                         </a>
                     </li>
                 </ul>
@@ -213,11 +214,11 @@
             <!-- Tab panes -->
             <div class="tab-content" style="padding:20px;">
 
-                <div role="tabpanel" class="tab-pane active" 
+                <div role="tabpanel" class="tab-pane active"
                     ng-init="item.attrs = [{}]"
-                    id="attributes" 
+                    id="attributes"
                     style="max-width:440px;">
-                    
+
                     <div class="form-group" ng-repeat="(index, attr) in item.attrs">
                         <div class="row">
                             <div class="col-md-4">
@@ -235,7 +236,7 @@
                                     ng-model="attr.value">
                             </div>
                             <div class="col-md-1">
-                                <a href="javascript:void(0)" 
+                                <a href="javascript:void(0)"
                                     style="margin-top: 5px;display: block;font-size: 15px;color: #999;"
                                     ng-click="item.attrs.splice(index, 1)"><i class="fa fa-times"></i></a>
                             </div>
@@ -270,7 +271,7 @@
                                 class="form-control"
                                 placeholder="Mô tả số 1">
                         </div><!--.form-group-->
-                        
+
                         <div class="form-group">
                           <input
                                 ng-model="item.description_list[1]"
@@ -312,16 +313,16 @@
             </div>
 
         </div><!--Tab-->
-        
+
         <div class="checkbox">
             <label>
               <input ng-model="item.status" value="1" type="checkbox"> Cho phép tìm kiếm sản phẩm
             </label>
         </div>
-        
+
         <div style="padding-top:50px;">
             <div ng-include="'/web/product/buttons.html'"></div>
         </div>
-        
+
     </div><!--.content-->
 </form>
