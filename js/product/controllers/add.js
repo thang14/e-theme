@@ -16,7 +16,7 @@ var ProductAttributes = {
     description_list: [],
     description: [],
     keywords: null,
-    attrs: [],
+    attrs: [{}],
     variant_options: [],
     variants: [],
     status: 'private',
