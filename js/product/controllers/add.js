@@ -172,7 +172,6 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     // delete file
     $scope.deleteFile = function(index) {
         var media = $scope.item.medias[index];
-        mediaService.remove(media.id);
         $scope._onFileDelete(index);
     }
 
