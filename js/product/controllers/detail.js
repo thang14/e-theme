@@ -168,17 +168,25 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
     }
 
     // save data
-    $scope.save = function() {
+    $scope.save = function(callback) {
         if($scope.item.id) {
-            return productService.save($scope.item);
+            return productService.save($scope.item).success(function(res) {
+                //ok
+                callback ? callback(res): "";
+            });
         }
-        return productService.create($scope.item);
+        return productService.create($scope.item).success(function(res) {
+            $scope.item.id = res.data.id;
+            //ok
+            callback ? callback(res): "";
+        });
     }
 
     // save and finish
     $scope.saveAndFinish = function() {
-        $scope.save();
-        $state.transitionTo('product');
+        $scope.save(function(res) {
+            $state.transitionTo('product');
+        });
     }
 
     // cancel
