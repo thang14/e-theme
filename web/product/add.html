@@ -74,7 +74,7 @@
                                   <th width="130">Mã Sku</th>
                                   <th width="130">Mã Barcode</th>
                                   <th width="130">Giá tiền</th>
-                                  <th width="130">Giảm giá</th>
+                                  <th width="130">Khuyến mãi</th>
                                   <th width="80">Số lượng</th>
                               </tr>
                           </thead>
@@ -96,17 +96,32 @@
                                         placeholder="Mã Barcode"
                                         ng-model="variant.barcode">
                                   </td>
-                                  <td style="padding:5px">
-                                      <input
-                                        class="form-control"
-                                        type="text"
-                                        ng-model="variant.price">
+                                  <td style="padding:2px">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <input
+                                                    class="form-control"
+                                                    type="text"
+                                                    ng-model="variant.price">
+                                            </div> 
+                                            <div class="col-md-1">
+                                                đ
+                                            </div> 
+                                        </div>
+                                      
                                   </td>
                                   <td style="padding:2px">
-                                      <input
-                                        class="form-control"
-                                        type="text"
-                                        ng-model="variant.sale">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <input
+                                                    class="form-control"
+                                                    type="text"
+                                                    ng-model="variant.sale">
+                                            </div> 
+                                            <div class="col-md-1">
+                                                %
+                                            </div> 
+                                        </div>
                                   </td>
                                   <td style="padding:2px">
                                       <input
