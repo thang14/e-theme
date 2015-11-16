@@ -150,8 +150,9 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0)" ng-click="fileDelete(index)"><i class="fa fa-times"></i>Xóa</a></li>
-                                <li><a href="javascript:void(0)" ng-click="setMediaDefault(index)"><i class="fa fa-file-image-o"></i>Đặt ảnh hiển thị</a></li>
+                                <li><a href="javascript:void(0)" ng-click="deleteFile(index)"><i class="fa fa-times"></i>Xóa</a></li>
+                                <li ng-if="!media.display"><a  href="javascript:void(0)" ng-click="setMediaDefault(index)"><i class="fa fa-file-image-o"></i>Đặt ảnh hiển thị</a></li>
+                                <li ng-if="media.display== true"><a  href="javascript:void(0)" ng-click="removeMediaDefault(index)"><i class="fa fa-file-image-o"></i>Bỏ ảnh hiển thị</a></li>
                             </ul>
                         </div>
                     </div>
