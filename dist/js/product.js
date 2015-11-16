@@ -162,8 +162,15 @@ var ProductAttributes = {
         sale: 0,
         quantity: 1,
     },
+
+    media_display: 0,
+
     medias: [{
-        path:"/admin-theme/examples/images/1.jpg"
+        path:"/admin-theme/examples/images/1.jpg",
+        display: true
+    }, {
+        path:"/admin-theme/examples/images/2.jpg",
+        display: false
     }],
     description_list: [],
     description: [],
@@ -177,27 +184,52 @@ var ProductAttributes = {
 
 // list template
 var templates = [
+
+
     ['color_name'],
     ['size_name'],
+    ['style_name'],
+    ['configure_name'],
+
+
     ['color_name', 'size_name'],
-    ['color_name', 'style_name'],
+    ['color_name', 'stype_name'],
+    ['color_name', 'configure_name'],
     ['color_name', 'size_name', 'style_name'],
-    ['size_name', 'style_name']
+    ['color_name', 'size_name', 'configure_name'],
+
+    ['size_name', 'style_name'],
+    ['size_name', 'configure_name'],
+    ['size_name', 'style_name', 'configure_name'],
+
+    ['style_name', 'configure_name'],
 ];
 
 var variantOptionValues = {
-    color_name: "Color",
-    size_name: "Size",
-    style_name: "Style"
+    color_name: "Màu sắc",
+    size_name: "Kích thước",
+    style_name: "Kiểu dáng",
+    configure_name: "Cấu hình"
 };
 
 var templateValues = [
-    'Color',
-    'Size',
-    'Color and Size',
-    'Color and Style',
-    'Color, Size and Style',
-    'Size and Style'
+    'Màu sắc',
+    'Kích thước',
+    'Kiểu dáng',
+    'Cấu hình',
+
+    'Màu sắc, Kích thước',
+    'Màu sắc, Kiểu dáng',
+    'Màu sắc, Cấu hình',
+    'Màu sắc, Kích thước, Kiểu dáng',
+    'Màu sắc, Kích thước, Cấu hình',
+
+
+    'Kích thước, Kiểu dáng',
+    'Kích thước, Cấu hình',
+    'Kích thước, Kiểu dáng, Cấu hình',
+
+    'Kiểu dáng, Cấu hình'
 ];
 
 var Controller = function($scope, $rootScope, $state, productService, mediaService,
@@ -250,6 +282,14 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         });
     }
 
+    $scope.setMediaDefault = function(index) {
+        if($scope.item.media_display === index) {
+            return;
+        }
+        $scope.item.medias[$scope.item.media_display].display = false;
+        $scope.item.media_display = index;
+        $scope.item.medias[index].display = true;
+    }
 
     $scope.getVariantOptionValues = function(options) {
         var result = [];
@@ -269,7 +309,8 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
 
     // save and finish
     $scope.saveAndFinish = function() {
-       $state.transitionTo('product');
+        $scope.save();
+        $state.transitionTo('product');
     }
 
     // cancel
@@ -278,9 +319,10 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     }
 
     // delete file
-    $scope.deleteFile = function(file) {
-        mediaService.remove(file.id);
-        $scope._onFileDelete(file);
+    $scope.deleteFile = function(index) {
+        var media = $scope.item.medias[index];
+        mediaService.remove(media.id);
+        $scope._onFileDelete(index);
     }
 
     // upload
@@ -294,13 +336,12 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
 
     // on uploaded
     $scope._onUploaded = function(data) {
-        $scope.item.current.medias.push(data.data);
+        $scope.item.medias.push(data.data);
     }
 
     // on delete file
-    $scope._onFileDelete = function(file) {
-        var index = $scope.item.current.medias.indexOf(file);
-        $scope.item.current.medias.splice(index, 1);
+    $scope._onFileDelete = function(index) {
+        $scope.item.medias.splice(index, 1);
     }
 
     $scope.editCancel = function() {

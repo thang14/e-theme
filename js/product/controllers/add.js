@@ -13,9 +13,9 @@ var ProductAttributes = {
         sale: 0,
         quantity: 1,
     },
-    
+
     media_display: 0,
-    
+
     medias: [{
         path:"/admin-theme/examples/images/1.jpg",
         display: true
@@ -35,24 +35,24 @@ var ProductAttributes = {
 
 // list template
 var templates = [
-    
-    
+
+
     ['color_name'],
     ['size_name'],
     ['style_name'],
     ['configure_name'],
-    
-    
+
+
     ['color_name', 'size_name'],
     ['color_name', 'stype_name'],
     ['color_name', 'configure_name'],
     ['color_name', 'size_name', 'style_name'],
     ['color_name', 'size_name', 'configure_name'],
-    
+
     ['size_name', 'style_name'],
     ['size_name', 'configure_name'],
     ['size_name', 'style_name', 'configure_name'],
-    
+
     ['style_name', 'configure_name'],
 ];
 
@@ -68,18 +68,18 @@ var templateValues = [
     'Kích thước',
     'Kiểu dáng',
     'Cấu hình',
-    
+
     'Màu sắc, Kích thước',
     'Màu sắc, Kiểu dáng',
     'Màu sắc, Cấu hình',
     'Màu sắc, Kích thước, Kiểu dáng',
     'Màu sắc, Kích thước, Cấu hình',
-    
-    
+
+
     'Kích thước, Kiểu dáng',
     'Kích thước, Cấu hình',
     'Kích thước, Kiểu dáng, Cấu hình',
-    
+
     'Kiểu dáng, Cấu hình'
 ];
 
@@ -132,7 +132,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
             $scope.generateVariants(key + 1, item);
         });
     }
-    
+
     $scope.setMediaDefault = function(index) {
         if($scope.item.media_display === index) {
             return;
