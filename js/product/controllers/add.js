@@ -145,7 +145,8 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
 
     // save and finish
     $scope.saveAndFinish = function() {
-       $state.transitionTo('product');
+        $scope.save();
+        $state.transitionTo('product');
     }
 
     // cancel
@@ -170,13 +171,13 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
 
     // on uploaded
     $scope._onUploaded = function(data) {
-        $scope.item.current.medias.push(data.data);
+        $scope.item.medias.push(data.data);
     }
 
     // on delete file
     $scope._onFileDelete = function(file) {
-        var index = $scope.item.current.medias.indexOf(file);
-        $scope.item.current.medias.splice(index, 1);
+        var index = $scope.item.medias.indexOf(file);
+        $scope.item.medias.splice(index, 1);
     }
 
     $scope.editCancel = function() {
