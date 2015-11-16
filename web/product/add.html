@@ -137,35 +137,35 @@
                   </div>
             </div><!--.form-group-->
         </div>
-
-        <div ng-if="item.template == null" style="max-width:440px;">
-            <div class="form-group">
-                <ul class="media-list">
-                    <li class="item" ng-repeat="media in item.medias">
-                        <div class="action">
-                            <div class="dropdown">
-                                <span class="caret"></span>
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)" g-click="fileDelete(media)">Xóa</a></li>
-                                    <li><a href="javascript:void(0)" g-click="setMediaDefault(media)">Đặt ảnh hiển thị</a></li>
-                                </ul>
-                            </div>
+        
+        <div class="form-group">
+            <ul class="media-list">
+                <li class="item" ng-repeat="media in item.medias">
+                    <div class="action">
+                        <div class="dropdown">
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0)" g-click="fileDelete(media)">Xóa</a></li>
+                                <li><a href="javascript:void(0)" g-click="setMediaDefault(media)">Đặt ảnh hiển thị</a></li>
+                            </ul>
                         </div>
-                        <img ng-src="media.path"/>
-                    </li>
-                    <li class="file-upload">
-                        <a
-                            ngf-multiple="true"
-                            accept="image/*"
-                            ngf-select=""
-                            ngf-drop="" ng-model="files" href="javascript:void(0)">
-                            <i class="fa fa-upload fa-4"></i>
-                            <div class="text-hint">Tải ảnh lên</div>
-                        </a>
-                    </li>
-                </ul>
-            </div><!--.form-group-->
-
+                    </div>
+                    <img ng-src="{{media.path}}"/>
+                </li>
+                <li class="file-upload">
+                    <a
+                        ngf-multiple="true"
+                        accept="image/*"
+                        ngf-select=""
+                        ngf-drop="" ng-model="files" href="javascript:void(0)">
+                        <i class="fa fa-upload fa-4"></i>
+                        <div class="text-hint">Tải ảnh lên</div>
+                    </a>
+                </li>
+            </ul>
+        </div><!--.form-group-->
+        
+        <div ng-if="item.template == null" style="max-width:440px;">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
