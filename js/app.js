@@ -9,6 +9,9 @@ window.angular.module('app', [
     //Core module
     'ui.router',
     'ui.utils.masks',
+    
+    //Bootstrap
+    'ui.bootstrap'
 
     //UI.grid
     'ui.grid',
