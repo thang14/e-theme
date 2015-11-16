@@ -132,9 +132,12 @@
                             <li><a href="javascript:void(0)" ng-click="setMediaDefault(media)">Đặt ảnh chính</a></li>
                         </ul>
                     </li>
-
                     <li class="file-upload">
-                        <a href="javascript:void(0)">
+                        <a 
+                            ngf-multiple="true"  
+                            accept="image/*"
+                            ngf-select="" 
+                            ngf-drop="" ng-model="files" href="javascript:void(0)">
                             <i class="fa fa-upload fa-4"></i>
                         </a>
                     </li>
