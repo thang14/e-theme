@@ -15442,4 +15442,341 @@ select[multiple].ui-grid-pager-row-count-picker select {
   border: 0;
 }
 
+/* line 1, ../../sass/onhanh/_checkbox.scss */
+.checkbox {
+  padding-left: 20px;
+}
+
+/* line 3, ../../sass/onhanh/_checkbox.scss */
+.checkbox label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+
+/* line 8, ../../sass/onhanh/_checkbox.scss */
+.checkbox label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+/* line 22, ../../sass/onhanh/_checkbox.scss */
+.checkbox label::after {
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  top: 0;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 1px;
+  font-size: 11px;
+  color: #555555;
+}
+
+/* line 34, ../../sass/onhanh/_checkbox.scss */
+.checkbox input[type="checkbox"],
+.checkbox input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* line 38, ../../sass/onhanh/_checkbox.scss */
+.checkbox input[type="checkbox"]:focus + label::before,
+.checkbox input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* line 43, ../../sass/onhanh/_checkbox.scss */
+.checkbox input[type="checkbox"]:checked + label::after,
+.checkbox input[type="radio"]:checked + label::after {
+  font-family: "FontAwesome";
+  content: "\f00c";
+}
+
+/* line 47, ../../sass/onhanh/_checkbox.scss */
+.checkbox input[type="checkbox"]:disabled + label,
+.checkbox input[type="radio"]:disabled + label {
+  opacity: 0.65;
+}
+
+/* line 50, ../../sass/onhanh/_checkbox.scss */
+.checkbox input[type="checkbox"]:disabled + label::before,
+.checkbox input[type="radio"]:disabled + label::before {
+  background-color: #eeeeee;
+  cursor: not-allowed;
+}
+
+/* line 54, ../../sass/onhanh/_checkbox.scss */
+.checkbox.checkbox-circle label::before {
+  border-radius: 50%;
+}
+
+/* line 56, ../../sass/onhanh/_checkbox.scss */
+.checkbox.checkbox-inline {
+  margin-top: 0;
+}
+
+/* line 59, ../../sass/onhanh/_checkbox.scss */
+.checkbox-primary input[type="checkbox"]:checked + label::before,
+.checkbox-primary input[type="radio"]:checked + label::before {
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+
+/* line 63, ../../sass/onhanh/_checkbox.scss */
+.checkbox-primary input[type="checkbox"]:checked + label::after,
+.checkbox-primary input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+/* line 67, ../../sass/onhanh/_checkbox.scss */
+.checkbox-danger input[type="checkbox"]:checked + label::before,
+.checkbox-danger input[type="radio"]:checked + label::before {
+  background-color: #d9534f;
+  border-color: #d9534f;
+}
+
+/* line 71, ../../sass/onhanh/_checkbox.scss */
+.checkbox-danger input[type="checkbox"]:checked + label::after,
+.checkbox-danger input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+/* line 75, ../../sass/onhanh/_checkbox.scss */
+.checkbox-info input[type="checkbox"]:checked + label::before,
+.checkbox-info input[type="radio"]:checked + label::before {
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+
+/* line 79, ../../sass/onhanh/_checkbox.scss */
+.checkbox-info input[type="checkbox"]:checked + label::after,
+.checkbox-info input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+/* line 83, ../../sass/onhanh/_checkbox.scss */
+.checkbox-warning input[type="checkbox"]:checked + label::before,
+.checkbox-warning input[type="radio"]:checked + label::before {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+
+/* line 87, ../../sass/onhanh/_checkbox.scss */
+.checkbox-warning input[type="checkbox"]:checked + label::after,
+.checkbox-warning input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+/* line 91, ../../sass/onhanh/_checkbox.scss */
+.checkbox-success input[type="checkbox"]:checked + label::before,
+.checkbox-success input[type="radio"]:checked + label::before {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+
+/* line 95, ../../sass/onhanh/_checkbox.scss */
+.checkbox-success input[type="checkbox"]:checked + label::after,
+.checkbox-success input[type="radio"]:checked + label::after {
+  color: #fff;
+}
+
+/* line 99, ../../sass/onhanh/_checkbox.scss */
+.radio {
+  padding-left: 20px;
+}
+
+/* line 101, ../../sass/onhanh/_checkbox.scss */
+.radio label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+
+/* line 106, ../../sass/onhanh/_checkbox.scss */
+.radio label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
+}
+
+/* line 120, ../../sass/onhanh/_checkbox.scss */
+.radio label::after {
+  display: inline-block;
+  position: absolute;
+  content: " ";
+  width: 11px;
+  height: 11px;
+  left: 3px;
+  top: 3px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background-color: #555555;
+  -webkit-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+
+/* line 139, ../../sass/onhanh/_checkbox.scss */
+.radio input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* line 142, ../../sass/onhanh/_checkbox.scss */
+.radio input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* line 146, ../../sass/onhanh/_checkbox.scss */
+.radio input[type="radio"]:checked + label::after {
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+
+/* line 151, ../../sass/onhanh/_checkbox.scss */
+.radio input[type="radio"]:disabled + label {
+  opacity: 0.65;
+}
+
+/* line 153, ../../sass/onhanh/_checkbox.scss */
+.radio input[type="radio"]:disabled + label::before {
+  cursor: not-allowed;
+}
+
+/* line 155, ../../sass/onhanh/_checkbox.scss */
+.radio.radio-inline {
+  margin-top: 0;
+}
+
+/* line 158, ../../sass/onhanh/_checkbox.scss */
+.radio-primary input[type="radio"] + label::after {
+  background-color: #337ab7;
+}
+
+/* line 160, ../../sass/onhanh/_checkbox.scss */
+.radio-primary input[type="radio"]:checked + label::before {
+  border-color: #337ab7;
+}
+
+/* line 162, ../../sass/onhanh/_checkbox.scss */
+.radio-primary input[type="radio"]:checked + label::after {
+  background-color: #337ab7;
+}
+
+/* line 165, ../../sass/onhanh/_checkbox.scss */
+.radio-danger input[type="radio"] + label::after {
+  background-color: #d9534f;
+}
+
+/* line 167, ../../sass/onhanh/_checkbox.scss */
+.radio-danger input[type="radio"]:checked + label::before {
+  border-color: #d9534f;
+}
+
+/* line 169, ../../sass/onhanh/_checkbox.scss */
+.radio-danger input[type="radio"]:checked + label::after {
+  background-color: #d9534f;
+}
+
+/* line 172, ../../sass/onhanh/_checkbox.scss */
+.radio-info input[type="radio"] + label::after {
+  background-color: #5bc0de;
+}
+
+/* line 174, ../../sass/onhanh/_checkbox.scss */
+.radio-info input[type="radio"]:checked + label::before {
+  border-color: #5bc0de;
+}
+
+/* line 176, ../../sass/onhanh/_checkbox.scss */
+.radio-info input[type="radio"]:checked + label::after {
+  background-color: #5bc0de;
+}
+
+/* line 179, ../../sass/onhanh/_checkbox.scss */
+.radio-warning input[type="radio"] + label::after {
+  background-color: #f0ad4e;
+}
+
+/* line 181, ../../sass/onhanh/_checkbox.scss */
+.radio-warning input[type="radio"]:checked + label::before {
+  border-color: #f0ad4e;
+}
+
+/* line 183, ../../sass/onhanh/_checkbox.scss */
+.radio-warning input[type="radio"]:checked + label::after {
+  background-color: #f0ad4e;
+}
+
+/* line 186, ../../sass/onhanh/_checkbox.scss */
+.radio-success input[type="radio"] + label::after {
+  background-color: #5cb85c;
+}
+
+/* line 188, ../../sass/onhanh/_checkbox.scss */
+.radio-success input[type="radio"]:checked + label::before {
+  border-color: #5cb85c;
+}
+
+/* line 190, ../../sass/onhanh/_checkbox.scss */
+.radio-success input[type="radio"]:checked + label::after {
+  background-color: #5cb85c;
+}
+
+/* line 193, ../../sass/onhanh/_checkbox.scss */
+input[type="checkbox"].styled:checked + label:after,
+input[type="radio"].styled:checked + label:after {
+  font-family: 'FontAwesome';
+  content: "\f00c";
+}
+
+/* line 197, ../../sass/onhanh/_checkbox.scss */
+input[type="checkbox"] .styled:checked + label::before,
+input[type="radio"] .styled:checked + label::before {
+  color: #fff;
+}
+
+/* line 200, ../../sass/onhanh/_checkbox.scss */
+input[type="checkbox"] .styled:checked + label::after,
+input[type="radio"] .styled:checked + label::after {
+  color: #fff;
+}
+
 /*# sourceMappingURL=core.css.map */

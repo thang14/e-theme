@@ -41,39 +41,44 @@ a {
   color: #999;
 }
 
-/* line 38, ../../sass/onhanh/_base.scss */
+/* line 37, ../../sass/onhanh/_base.scss */
+.color-red {
+  color: red;
+}
+
+/* line 42, ../../sass/onhanh/_base.scss */
 .sidebar:not(.sidebar-default) .media .text-muted,
 .sidebar:not(.sidebar-default) .sidebar:not(.sidebar-default),
 .sidebar:not(.sidebar-default) .media .media-annotation {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* line 46, ../../sass/onhanh/_base.scss */
+/* line 50, ../../sass/onhanh/_base.scss */
 .icons-list {
   margin: 0;
   padding: 0;
   list-style: none;
   line-height: 1;
 }
-/* line 53, ../../sass/onhanh/_base.scss */
+/* line 57, ../../sass/onhanh/_base.scss */
 .icons-list > li > a {
   color: inherit;
   display: block;
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 59, ../../sass/onhanh/_base.scss */
+/* line 63, ../../sass/onhanh/_base.scss */
 .icons-list > li > a > i {
   font-size: 16px;
 }
 
-/* line 68, ../../sass/onhanh/_base.scss */
+/* line 72, ../../sass/onhanh/_base.scss */
 .page-container {
   position: relative;
   margin-top: 45px;
 }
 @media (min-width: 768px) {
-  /* line 68, ../../sass/onhanh/_base.scss */
+  /* line 72, ../../sass/onhanh/_base.scss */
   .page-container {
     width: 100%;
     display: table;
@@ -82,7 +87,7 @@ a {
 }
 
 @media (min-width: 768px) {
-  /* line 79, ../../sass/onhanh/_base.scss */
+  /* line 83, ../../sass/onhanh/_base.scss */
   .page-content {
     display: table-row;
   }
@@ -460,7 +465,7 @@ ul.media-list > li > a:hover, ul.media-list > li > a.dragover {
 /* line 134, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li .action {
   position: absolute;
-  top: 10px;
+  top: 5px;
   right: 10px;
 }
 /* line 139, ../../sass/onhanh/_wrapper.scss */
