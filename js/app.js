@@ -11,11 +11,13 @@ window.angular.module('app', [
     'ui.utils.masks',
     
     //Bootstrap
-    'ui.bootstrap'
+    'ui.bootstrap',
 
     //UI.grid
     'ui.grid',
     'ui.grid.edit',
+    
+    //Components
     'ngFileUpload',
     'ngTagsInput',
     'angular-loading-bar',
