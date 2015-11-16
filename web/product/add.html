@@ -103,7 +103,6 @@
                                                     ui-number-mask="0"
                                                     class="form-control text-right"
                                                     type="text"
-                                                    max="2"
                                                     ng-model="variant.price">
                                             </div>
                                             <div style="display:table-cell; padding-left:5px;">
@@ -118,6 +117,7 @@
                                                 <input
                                                     class="form-control"
                                                     type="number"
+                                                    max="100"
                                                     ng-model="variant.sale">
                                             </div>
                                             <div style="display:table-cell; padding-left:5px;">
@@ -214,7 +214,7 @@
                                 <input
                                     ng-model="item.current.sale"
                                     type="number"
-                                    max="2"
+                                    max="100"
                                     class="form-control"
                                     id="productSalePrice"
                                     placeholder="Giá khuyến mãi">
