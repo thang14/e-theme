@@ -79,17 +79,17 @@
                               </tr>
                           </thead>
                           <tbody>
-                              <tr ng-repeat="variant in item.variants">
-                                  <td style="text-center"><a href="removeVariant(variant)"><i class="fa fa-times"></i></a></td>
+                              <tr ng-repeat="(index, variant) in item.variants">
+                                  <td style="text-center"><a href="javascript:void(0)" ng-click="item.variants.splice(index, 1)"><i class="fa fa-times"></i></a></td>
                                   <td>{{getVariantOptionValues(variant.options)}}</td>
-                                  <td style="padding:5px">
+                                  <td style="padding:2px">
                                       <input
                                         placeholder="Mã Sku"
                                         class="form-control"
                                         type="text"
                                         ng-model="variant.sku">
                                   </td>
-                                  <td style="padding:5px">
+                                  <td style="padding:2px">
                                       <input
                                         class="form-control"
                                         type="text"
@@ -102,13 +102,13 @@
                                         type="text"
                                         ng-model="variant.price">
                                   </td>
-                                  <td style="padding:5px">
+                                  <td style="padding:2px">
                                       <input
                                         class="form-control"
                                         type="text"
                                         ng-model="variant.sale">
                                   </td>
-                                  <td style="padding:5px">
+                                  <td style="padding:2px">
                                       <input
                                         class="form-control"
                                         type="text"
