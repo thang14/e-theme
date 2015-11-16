@@ -137,10 +137,7 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
         if($scope.item.media_display === index) {
             return;
         }
-        
-        if($scope.item.media_display) {
-            $scope.item.medias[$scope.item.media_display].display = false;
-        }
+        $scope.item.medias[$scope.item.media_display].display = false;
         $scope.item.media_display = index;
         $scope.item.medias[index].display = true;
     }
