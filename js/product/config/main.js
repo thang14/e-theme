@@ -44,8 +44,8 @@ productModule
                       // For top level states, like this one, the parent template is
                       // the index.html file. So this template will be inserted into the
                       // ui-view within index.html.
-                      controller: 'productAddController',
-                      templateUrl: '/web/product/add.html',
+                      controller: 'productDetailController',
+                      templateUrl: '/web/product/detail.html',
                   }
               },
             })
