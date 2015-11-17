@@ -8,9 +8,9 @@
 kernelModule.service('gridService', [
     function() {
         return {
-            load: function($scope, params, service) {
+            load: function($scope, condition, service) {
                 return service
-                .find(params)
+                .find(condition)
                 .success(function(data, status) {
                     $scope.gridOptions.data = data.data;
                     $scope.gridOptions.totalItems = data.total;
