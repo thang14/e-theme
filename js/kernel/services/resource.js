@@ -5,8 +5,8 @@
  * @description     resourceService
  */
 angular.module('app.kernel')
-.factory('resourceService', ['$http', 'Environment', '$resource'
-    function($resource, Environment) {
+.factory('resourceService', ['$http', 'Environment', '$resource',
+    function($resource, Environment, $resource) {
 
         var resourceService = function(name) {
             this.resource = name;
