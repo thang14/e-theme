@@ -15,7 +15,7 @@ productModule
             ////////////
 
             .state("product", {
-              title: "Product",
+              title: "Danh sách sản phẩm",
               // Use a url of "/" to set a states as the "index".
               url: "/product",
 
@@ -33,7 +33,7 @@ productModule
             // Product New //
             ////////////////
             .state("product.new", {
-              title: "Product new",
+              title: "Sản phẩm mới",
               // Use a url of "/" to set a states as the "index".
               url: "/new",
 
@@ -54,7 +54,7 @@ productModule
             // Product Detail //
             ////////////////
             .state("product.detail", {
-              title: "Product detail",
+              title: "Chi tiết sản phẩm",
               // Use a url of "/" to set a states as the "index".
               url: "/:productId",
 
@@ -117,7 +117,7 @@ productModule
             // Product Variant detail //
             ////////////////
             .state("product.detail.variant.detail", {
-              title: "Variant detail",
+              title: "Chi tiết biến thể",
               // Use a url of "/" to set a states as the "index".
               url: "/:variantId",
 
