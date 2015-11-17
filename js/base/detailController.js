@@ -5,12 +5,7 @@
  * @description     BaseDetailController
  */
  
- var VariantDefault = {
-     price: 0,
-     sale: 0,
-     quantity: 0,
-     options: []
- }
+
  
 var Controller = function($scope, $state, $stateParams, service) {
     $scope.detail = {
@@ -22,7 +17,7 @@ var Controller = function($scope, $state, $stateParams, service) {
     if($scope.detail.id) {
         $scope.item = service.get($scope.detail.id);
     } else {
-        $scope.item = angular.copy(VariantDefault);
+        $scope.item = angular.copy($scope.itemDefault);
     }
     
     //Save
