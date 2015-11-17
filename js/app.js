@@ -25,6 +25,7 @@ window.angular.module('app', [
     'ngResource',
 
     //App modules
+    'app.base',
     //'app.locale',
     'app.environment',
     'app.kernel',
