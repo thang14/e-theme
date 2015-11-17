@@ -4,12 +4,9 @@
  * @name            OnhanhVariant
  * @description     VariantDetailController
  */
-
+ 
 var Controller = function(){
-	
+
 }
 
-
-
-
-variantModule.controller('variantDetailController',  && variant);
+variantModule.controller('variantDetailController', Controller);
