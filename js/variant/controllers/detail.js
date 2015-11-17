@@ -21,4 +21,9 @@ var Controller = function(variantService, $controller){
     }), this);
 }
 
+Controller.$inject = [
+    'variantService',
+    '$controller',
+];
+
 variantModule.controller('variantDetailController', Controller);
