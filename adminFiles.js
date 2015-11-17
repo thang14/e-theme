@@ -69,6 +69,11 @@ var adminFiles = {
       'js/media/controllers/**/*.js',
       'js/media/services/**/*.js',
     ],
+    
+    'media': [
+      'js/base/controller.js',
+      'js/media/detailController.js',
+    ],
   },
 };
 
