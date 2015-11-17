@@ -74,7 +74,7 @@ productModule
           $scope.viewDetail = function(row) {
             console.log(row);
             $state.transitionTo('product.detail',{
-              id:row.entity.id
+              productId:row.entity.id
             })
           }
 
