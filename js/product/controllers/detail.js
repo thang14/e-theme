@@ -96,7 +96,7 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
      */
     if($scope.detail.id !== undefined) {
         $scope.item = productService.get($scope.detail.id, function() {
-            $state.title = $scope.item.title;
+            $state.title = $scope.item.name;
         });
     } else {
         // product default attribute
