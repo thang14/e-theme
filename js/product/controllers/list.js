@@ -25,7 +25,7 @@ productModule
             enableCellEdit: true,
             enableColumnMenu: false,
             cellTemplate: '<div class="ngCellText ui-grid-cell-contents">'+
-                '<a href="javascript:void(0)"  ng-click="$event.stopPropagation(); viewDetail(row.entity.id)">{{MODEL_COL_FIELD}}</a></div>'
+                '<a href="javascript:void(0)"  ng-click="grid.appScope.viewDetail(row.entity.id)">{{MODEL_COL_FIELD}}</a></div>'
           },{
             name: "price",
             enableColumnMenu: false,
