@@ -87,7 +87,7 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
  $controller, variantOption, Constants) {
     
     $scope.detail = {
-        id: $stateParams.id
+        id: $stateParams.productId
     }
 
     /**
