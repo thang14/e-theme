@@ -22,18 +22,17 @@
 <div class="content">
     <div class="col-md-12">
         <div class="row">
-            <div 
-                id="content-grid" 
-                ng-style="{height:auto}"
-                ui-grid="gridOptions" 
-                class="content-grid"></div>
+            <div
+                class="grid"
+                ui-grid="gridOptions"
+                ></div>
         </div>
     </div>
 
     <!-- Pagination & collection details -->
     <div class="row">
         <div class="col-md-12">
-            <uib-pagination 
+            <uib-pagination
                 total-items="gridOptions.totalItems"
                 ng-model="currentPage"
                 ng-select="selectPage()"

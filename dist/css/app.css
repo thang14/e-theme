@@ -322,6 +322,24 @@ label {
   color: #333;
 }
 
+/* line 6, ../../sass/onhanh/_tags-input.scss */
+tags-input .tags {
+  border: 1px solid #ccc;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* line 12, ../../sass/onhanh/_tags-input.scss */
+tags-input .tags.focused {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #66afe9;
+}
+
 /* line 7, ../../sass/onhanh/_wrapper.scss */
 .content-wrapper {
   padding-bottom: 20px;
@@ -475,24 +493,6 @@ ul.media-list > li .action .caret {
 /* line 143, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li .action a {
   color: #666;
-}
-
-/* line 6, ../../sass/onhanh/_tags-input.scss */
-tags-input .tags {
-  border: 1px solid #ccc;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-/* line 12, ../../sass/onhanh/_tags-input.scss */
-tags-input .tags.focused {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: 1px solid #66afe9;
 }
 
 /*# sourceMappingURL=app.css.map */
