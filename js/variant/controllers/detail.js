@@ -6,7 +6,7 @@
  */
  
 var Controller = function(){
-
+    
 }
 
 variantModule.controller('variantDetailController', Controller);
