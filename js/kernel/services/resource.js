@@ -26,9 +26,9 @@ angular.module('app.kernel')
             /**
              * findOne 
              */
-            get: function($id) {
+            get: function($id, callback) {
                 var url = this.api+'/:id';
-                return $resource(url).get({id: $id});
+                return $resource(url).get({id: $id}, callback);
             },
 
 
