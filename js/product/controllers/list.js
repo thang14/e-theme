@@ -15,11 +15,6 @@ productModule
             $scope.setPage = function(page) {
                 $scope.currentPage = page;
             }
-
-            $scope.selectPage = function() {
-                $scope.load();
-            }
-
             //Columns
           $scope.columns = [{
             name: "id",
