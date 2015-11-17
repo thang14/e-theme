@@ -90,6 +90,8 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
         name: 'product'
     }
     
+    $scope.itemDefault = ProductAttributes;
+    
     // Extend baseDetailController
     angular.extend($controller('baseDetailController',{
         service: productService,
