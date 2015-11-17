@@ -28,14 +28,16 @@
 
     <!-- Pagination & collection details -->
     <div class="row">
-        <div class="col-md-8">
-            <pagination ng-if="gridOptions.totalItems > 0" on-select-page="load(page)"
-                        items-per-page="{{pageLimit}}"
-                        total-items="gridOptions.totalItems" page="pageNumber"></pagination>
-        </div>
-        <div class="col-md-4">
-            <p class="pagination-info pagination"><strong>Total in collection: {{gridOptions.totalItems}} Current:
-                {{pageNumber}}</strong></p>
+        <div class="col-md-12">
+            <uib-pagination 
+                total-items="gridOptions.totalItems" 
+                ng-model="currentPage" 
+                max-size="maxSize" 
+                class="pagination-sm" 
+                boundary-links="true" 
+                rotate="false" 
+                on-select-page="load(page)"
+                num-pages="numPages"></uib-pagination>
         </div>
     </div>
 </div><!--.content-->
