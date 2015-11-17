@@ -85,23 +85,16 @@ var templateValues = [
 
 var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
  $controller, variantOption, Constants) {
-
     
-    $scope.detail = {
-        id: $stateParams.productId
+    $scope.route = {
+        name: 'product'
     }
-
-    /**
-     * GET
-     */
-    if($scope.detail.id !== undefined) {
-        $scope.item = productService.get($scope.detail.id, function() {
-            $state.title = $scope.item.name;
-        });
-    } else {
-        // product default attribute
-        $scope.item = angular.copy(ProductAttributes);
-    }
+    
+    // Extend baseDetailController
+    angular.extend($controller('baseDetailController',{
+        service: productService,
+        $scope: $scope
+    }), this)
 
     $scope.templateValues = templateValues;
 
@@ -164,26 +157,8 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
         return result.join(">>");
     }
 
-    // save data
-    $scope.save = function(callback) {
-        if(!$scope.item.id) {
-            $scope.item = productService.create($scope.item);
-        }
-        $scope.item.$save();
-    }
 
-    // save and finish
-    $scope.saveAndFinish = function() {
-        $scope.save();
-        $state.transitionTo('product');
-    }
-
-    // cancel
-    $scope.cancel = function() {
-        $state.transitionTo('product');
-    }
-
-    // delete file
+    // File Medias
     $scope.deleteFile = function(index) {
         var media = $scope.item.medias[index];
         $scope._handleFileDelete(index);
