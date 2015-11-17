@@ -393,11 +393,6 @@ productModule
             $scope.setPage = function(page) {
                 $scope.currentPage = page;
             }
-
-            $scope.selectPage = function() {
-                $scope.load();
-            }
-
             //Columns
           $scope.columns = [{
             name: "id",
@@ -454,13 +449,14 @@ productModule
           }];
 
           $scope.onSaveRow = function(rowEntity) {
-            productService.save(rowEntity);
+            productService.update(rowEntity.id, rowEntity);
           }
 
           $scope.gridOptions = gridService.gridOptions($scope);
 
           //load collection from remote
           $scope.load = function() {
+            console.log(1);
             gridService.load($scope, productService, {
                 page: $scope.currentPage
             });

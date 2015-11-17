@@ -292,12 +292,33 @@ angular.module('app.kernel')
             });
         };
         
+        /**
+         * CREATE
+         */
         resourceService.prototype.create = function(data) {
             return new this.resource(data);
         }
         
+        /**
+         * GET
+         */
         resourceService.prototype.get = function(params, callback) {
-            return new this.resource.get(params, callback);
+            return this.resource.get(params, callback);
+        }
+        
+        /**
+         * UPDATE
+         */
+        resourceService.prototype.update = function($id, $data) {
+            return this.resource.update({id: $id}, $data);
+        }
+        
+        
+        /**
+         * Remove
+         */
+        resourceService.prototype.remove = function($id) {
+            return this.resource.remove({id: $id}).$remove();
         }
         
         return resourceService;
