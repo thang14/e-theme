@@ -7,38 +7,32 @@
 angular.module('app.kernel')
 .factory('resourceService', ['Environment', '$resource',
     function(Environment, $resource) {
-
+        
+        return $resource(':shop/card/:id',{
+            userId:123, 
+            cardId:'@id'
+        }, {
+          charge: {
+              method:'POST', 
+              params:{
+                  charge:true
+                  
+              }}
+        });
+        
         var resourceService = function(name) {
-            this.resource = name;
-            this.api = Environment.settings.api + '/' + name + Environment.settings.prefix;
-        }
-
-        resourceService.prototype = {
-            
-            /**
-             * findAll 
-             */
-            getCollection: function(conditions, callback) {
-                conditions = angular.extend({
-                    limit: 10,
-                    page: 1,
-                    text: ""
-                }, conditions);
-                var url = this.api+'?limit='+conditions.limit+'?page='+conditions.page+'?q='+conditions.text;
-                return $resource(url).get({}, callback);
-            },
-            
-            /**
-             * findOne 
-             */
-            get: function($id, callback) {
-                var url = this.api+'/:id';
-                return $resource(url).get({id: $id}, callback);
-            },
-
-
-        }
-
+            var api = Environment.settings.api + '/' + name + Environment.settings.prefix;
+            return $resource(api+'/:id',{
+                id:'@id'
+            }, {
+              charge: {
+                  method:'POST', 
+                  params:{
+                      charge:true
+                      
+                  }}
+            });
+        };
         return resourceService;
     }
 ]);
