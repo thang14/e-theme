@@ -17,11 +17,12 @@ window.angular.module('app', [
     'ui.grid',
     'ui.grid.edit',
     
-    //Components
+    //Angular Modules
     'ngFileUpload',
     'ngTagsInput',
     'angular-loading-bar',
     'cgNotify',
+    'ngResource',
 
     //App modules
     //'app.locale',
