@@ -76,7 +76,7 @@ productModule
           }];
 
           $scope.onSaveRow = function(rowEntity) {
-            productService.save(rowEntity);
+            productService.update(rowEntity.id, rowEntity);
           }
 
           $scope.gridOptions = gridService.gridOptions($scope);
