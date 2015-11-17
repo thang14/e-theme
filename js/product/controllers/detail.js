@@ -85,6 +85,7 @@ var templateValues = [
 
 var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
  $controller, variantOption, Constants) {
+
     
     $scope.detail = {
         id: $stateParams.productId
@@ -94,12 +95,8 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
      * GET
      */
     if($scope.detail.id !== undefined) {
-        productService.get($scope.detail.id).success(function (data, status) {
-            $scope.item = data.data;
-        }).error(function (data, status) {
-            if (data.error.code == 404) {
-                $state.transitionTo('home');
-            }
+        $scope.item = productService.get($scope.detail.id, function() {
+            $state.title = $scope.item.title;
         });
     } else {
         // product default attribute
