@@ -25,7 +25,7 @@ productModule
             enableCellEdit: true,
             enableColumnMenu: false,
             cellTemplate: '<div class="ngCellText ui-grid-cell-contents">'+
-                '<a href="javascript:void(0)"  ng-click="grid.appScope.viewDetail(row.entity.id)">{{MODEL_COL_FIELD}}</a></div>'
+                '<a href="javascript:void(0)"  ng-click="grid.appScope.viewDetail(row)">{{MODEL_COL_FIELD}}</a></div>'
           },{
             name: "price",
             enableColumnMenu: false,
@@ -71,9 +71,10 @@ productModule
           $scope.load();
 
 
-          $scope.viewDetail = function(id) {
+          $scope.viewDetail = function(row) {
+            console.log(row);
             $state.transitionTo('product.detail',{
-              id:id
+              id:row.entity.id
             })
           }
 
