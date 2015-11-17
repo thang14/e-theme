@@ -18,9 +18,14 @@ angular.module('app.kernel')
             /**
              * findAll 
              */
-            getCollection: function(conditions) {
+            getCollection: function(conditions, callback) {
+                conditions = angular.extend({
+                    limit: 10,
+                    page: 1,
+                    text: ""
+                }, conditions);
                 var url = this.api+'?limit='+conditions.limit+'?page='+conditions.page+'?q='+conditions.text;
-                return $resource(url).get();
+                return $resource(url).get({}, callback);
             },
             
             /**
