@@ -31,7 +31,8 @@
         <div class="col-md-12">
             <uib-pagination 
                 total-items="gridOptions.totalItems" 
-                ng-model="currentPage" 
+                ng-model="currentPage"
+                ng-select="selectPage()"
                 max-size="maxSize" 
                 class="pagination-sm" 
                 boundary-links="true" 
