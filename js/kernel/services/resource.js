@@ -4,8 +4,9 @@
  * @name            OnhanhKernel
  * @description     resourceService
  */
-angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
-    function($http, Environment) {
+angular.module('app.kernel')
+.factory('resourceService', ['$http', 'Environment', '$resource'
+    function($resource, Environment) {
 
         var resourceService = function(name) {
             this.resource = name;
@@ -13,32 +14,20 @@ angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
         }
 
         resourceService.prototype = {
-
-            find: function(params) {
-                return $http.get(this.api, params);
+            
+            /**
+             * findAll 
+             */
+            findAll: function(conditions) {
+                var url = this.api+'?limit='+conditions.limit+'?page='+conditions.page+'?q='+conditions.text;
+                return $resource(url).get();
+            },
+            
+            findOne: function($id) {
+                var url = this.api+'/:id';
+                return $resource(url).get({id: $id});
             },
 
-            remove: function($id) {
-                return $http.delete(this.api+'/'+$id);
-            },
-
-            save: function(data) {
-                var url = this.api+'/'+data.id;
-                return $http({
-                    method: 'PUT',
-                    url: url,
-                    data: data
-                });
-            },
-
-            create: function(data) {
-                var url = this.api;
-                return $http({
-                    method: 'POST',
-                    url: url,
-                    data: data
-                });
-            },
 
         }
 
