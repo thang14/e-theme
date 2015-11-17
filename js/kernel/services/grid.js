@@ -21,9 +21,11 @@ kernelModule.service('gridService', [
                     selectionRowHeaderWidth: 35,
                     rowHeight: $scope.rowHeight || 35,
                     showGridFooter: true,
-                    enableFiltering: true,
+                    enableFiltering: false,
                     enableSorting: false,
                     useExternalFiltering: true,
+                    enableHorizontalScrollbar: false, 
+                    enableVerticalScrollbar: false,
                     columnDefs: $scope.columns,
                     onRegisteApi: function(gridApi) {
                         //register save row
