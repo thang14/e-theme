@@ -12,7 +12,7 @@
      options: []
  }
  
-var Controller = function($scope, $state, $stateParam, service) {
+var Controller = function($scope, $state, $stateParams, service) {
     $scope.detail = {
         id: $stateParam.id,
         name: $stateParam.name
@@ -61,5 +61,13 @@ var Controller = function($scope, $state, $stateParam, service) {
     }
     
 }
+
+
+Controller.$inject = [
+    '$scope',
+    '$state',
+    '$stateParams',
+    'service'
+];
 
 baseModule.controller('baseDetailController', Controller);
