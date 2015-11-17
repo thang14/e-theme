@@ -167,37 +167,17 @@ angular.module('app.kernel')
 kernelModule.service('baseService', ['collectionService',
     function(collectionService) {
         return {
-
             collectionName: undefined,
-
             getCollection: function() {
-                return collectionService
-                .getCollection(this.collectionName);
+                return collectionService.getCollection(this.collectionName);
             },
-
-            find: function(params) {
-                return this.getCollection()
-                .find(params);
+            
+            get: function(conditions, callback) {
+                return this.getCollection().get(conditions, callback);
             },
-
-            get: function($id) {
-                return this.getCollection()
-                .get($id);
-            },
-
-            remove: function($id) {
-                return this.getCollection()
-                .remove($id);
-            },
-
-            save: function($data) {
-                return this.getCollection()
-                .save($data);
-            },
-
-            create: function($data) {
-                return this.getCollection()
-                .create($data);
+            
+            create: function($data, callback) {
+                return this.getCollection().create($data, callback);
             }
         }
     }
@@ -235,14 +215,11 @@ kernelModule.service('collectionService', ['resourceService',
 kernelModule.service('gridService', [
     function() {
         return {
-            load: function($scope, service) {
+            load: function($scope, service, conditions) {
                 return service
-                .find()
-                .success(function(data, status) {
+                .get(conditions, function(data) {
                     $scope.gridOptions.data = data.data;
                     $scope.gridOptions.totalItems = data.total;
-                }).error(function(err) {
-                    console.log(121); return;
                 });
             },
 
@@ -297,44 +274,31 @@ kernelModule
  * @name            OnhanhKernel
  * @description     resourceService
  */
-angular.module('app.kernel').factory('resourceService', ['$http', 'Environment',
-    function($http, Environment) {
-
+angular.module('app.kernel')
+.factory('resourceService', ['Environment', '$resource',
+    function(Environment, $resource) {
         var resourceService = function(name) {
-            this.resource = name;
-            this.api = Environment.settings.api + '/' + name + Environment.settings.prefix;
+            var api = this.api =  Environment.settings.api + '/' + name + Environment.settings.prefix;
+            this.resource = $resource(api+'/:id',{
+                id:'@id'
+            }, {
+              charge: {
+                  method:'POST', 
+                  params:{
+                      charge:true
+                      
+                  }}
+            });
+        };
+        
+        resourceService.prototype.create = function(data) {
+            return new this.resource(data);
         }
-
-        resourceService.prototype = {
-
-            find: function(params) {
-                return $http.get(this.api, params);
-            },
-
-            remove: function($id) {
-                return $http.delete(this.api+'/'+$id);
-            },
-
-            save: function(data) {
-                var url = this.api+'/'+data.id;
-                return $http({
-                    method: 'PUT',
-                    url: url,
-                    data: data
-                });
-            },
-
-            create: function(data) {
-                var url = this.api;
-                return $http({
-                    method: 'POST',
-                    url: url,
-                    data: data
-                });
-            },
-
+        
+        resourceService.prototype.get = function(params, callback) {
+            return new this.resource.get(params, callback);
         }
-
+        
         return resourceService;
     }
 ]);

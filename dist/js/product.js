@@ -26,7 +26,7 @@ productModule
             ////////////
 
             .state("product", {
-              title: "Product",
+              title: "Danh sách sản phẩm",
               // Use a url of "/" to set a states as the "index".
               url: "/product",
 
@@ -44,7 +44,7 @@ productModule
             // Product New //
             ////////////////
             .state("product.new", {
-              title: "Product new",
+              title: "Sản phẩm mới",
               // Use a url of "/" to set a states as the "index".
               url: "/new",
 
@@ -65,7 +65,7 @@ productModule
             // Product Detail //
             ////////////////
             .state("product.detail", {
-              title: "Product detail",
+              title: "Chi tiết sản phẩm",
               // Use a url of "/" to set a states as the "index".
               url: "/:productId",
 
@@ -128,7 +128,7 @@ productModule
             // Product Variant detail //
             ////////////////
             .state("product.detail.variant.detail", {
-              title: "Variant detail",
+              title: "Chi tiết biến thể",
               // Use a url of "/" to set a states as the "index".
               url: "/:variantId",
 
@@ -236,7 +236,7 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
  $controller, variantOption, Constants) {
     
     $scope.detail = {
-        id: $stateParams.id
+        id: $stateParams.productId
     }
 
     /**
@@ -393,6 +393,20 @@ productModule
 productModule
     .controller('productController', [ '$scope', 'productService', 'gridService', '$state',
         function($scope, productService, gridService, $state) {
+            
+            //Page Init
+            $scope.currentPage = 1;
+            $scope.maxSize = 5;
+            
+            $scope.setPage = function(page) {
+                $scope.currentPage = page;
+            }
+            
+            $scope.pageChanged = function() {
+                $scope.load();
+            }
+            
+            //Columns
           $scope.columns = [{
             name: "id",
             enableColumnMenu: false,
@@ -410,7 +424,8 @@ productModule
             name: "name",
             enableCellEdit: true,
             enableColumnMenu: false,
-            cellTemplate: '<div class="ngCellText ui-grid-cell-contents"><a href="javascript:void(0)"  ng-click="viewDetail(row.entity.id)">{{MODEL_COL_FIELD}}</a></div>'
+            cellTemplate: '<div class="ngCellText ui-grid-cell-contents">'+
+                '<a href="javascript:void(0)"  ng-click="grid.appScope.viewDetail(row)">{{MODEL_COL_FIELD}}</a></div>'
           },{
             name: "price",
             enableColumnMenu: false,
@@ -451,14 +466,16 @@ productModule
 
           //load collection from remote
           $scope.load = function() {
-            gridService.load($scope, productService);
+            gridService.load($scope, productService, {
+                page: $scope.currentPage
+            });
           }
           $scope.load();
 
 
-          $scope.viewDetail = function(id) {
+          $scope.viewDetail = function(row) {
             $state.transitionTo('product.detail',{
-              id:id
+              productId:row.entity.id
             })
           }
 
