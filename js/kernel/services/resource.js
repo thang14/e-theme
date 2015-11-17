@@ -18,7 +18,7 @@ angular.module('app.kernel')
             /**
              * findAll 
              */
-            findAll: function(conditions) {
+            getCollection: function(conditions) {
                 var url = this.api+'?limit='+conditions.limit+'?page='+conditions.page+'?q='+conditions.text;
                 return $resource(url).get();
             },
@@ -26,7 +26,7 @@ angular.module('app.kernel')
             /**
              * findOne 
              */
-            findOne: function($id) {
+            get: function($id) {
                 var url = this.api+'/:id';
                 return $resource(url).get({id: $id});
             },
