@@ -21,6 +21,8 @@ kernelModule.service('gridService', [
                     showGridFooter: false,
                     enableFiltering: false,
                     enableSorting: false,
+                    enableHorizontalScrollbar : false,
+                    enableVerticalScrollbar   : false
                     columnDefs: $scope.columns,
                     onRegisteApi: function(gridApi) {
                         //register save row
