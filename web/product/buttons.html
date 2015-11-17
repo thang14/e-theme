@@ -4,9 +4,16 @@
 <button type="reset" class="btn btn-danger btn-sm text-semibold">
     Thiết lập lại
 </button>
-<button type="button" class="btn btn-primary btn-sm text-semibold" ng-click="save()">
+<button type="button" 
+    class="btn btn-primary btn-sm text-semibold" 
+    ng-disabled="!productForm.$valid" 
+    ng-click="productForm.$valid && save()">
     <i class="fa fa-floppy-o"></i>  Lưu
 </button>
-<button type="button" class="btn btn-primary btn-sm text-semibold" ng-click="saveAndFinish()">
+<button 
+    type="button" 
+    class="btn btn-primary btn-sm text-semibold" 
+    ng-disabled="!productForm.$valid" 
+    ng-click="productForm.$valid && saveAndFinish()">
     <i class="fa fa-floppy-o"></i>  Lưu và kết thúc
 </button>
