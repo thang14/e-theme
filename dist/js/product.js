@@ -55,8 +55,8 @@ productModule
                       // For top level states, like this one, the parent template is
                       // the index.html file. So this template will be inserted into the
                       // ui-view within index.html.
-                      controller: 'productAddController',
-                      templateUrl: '/web/product/add.html',
+                      controller: 'productDetailController',
+                      templateUrl: '/web/product/detail.html',
                   }
               },
             })
@@ -178,7 +178,7 @@ var ProductAttributes = {
     attrs: [{}],
     variant_options: [],
     variants: [],
-    status: 'private',
+    status: 0,
     template: null,
 }
 
@@ -232,11 +232,28 @@ var templateValues = [
     'Kiểu dáng, Cấu hình'
 ];
 
-var Controller = function($scope, $rootScope, $state, productService, mediaService,
+var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
  $controller, variantOption, Constants) {
+    
+    $scope.detail = {
+        id: $stateParams.id
+    }
 
-    // product default attribute
-    $scope.item = angular.copy(ProductAttributes);
+    /**
+     * GET
+     */
+    if($scope.detail.id !== undefined) {
+        productService.get($scope.detail.id).success(function (data, status) {
+            $scope.item = data.data;
+        }).error(function (data, status) {
+            if (data.error.code == 404) {
+                $state.transitionTo('home');
+            }
+        });
+    } else {
+        // product default attribute
+        $scope.item = angular.copy(ProductAttributes);
+    }
 
     $scope.templateValues = templateValues;
 
@@ -300,17 +317,25 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     }
 
     // save data
-    $scope.save = function() {
+    $scope.save = function(callback) {
         if($scope.item.id) {
-            return productService.update($scope.item);
+            return productService.save($scope.item).success(function(res) {
+                //ok
+                callback ? callback(res): "";
+            });
         }
-        return productService.save($scope.item);
+        return productService.create($scope.item).success(function(res) {
+            $scope.item.id = res.data.id;
+            //ok
+            callback ? callback(res): "";
+        });
     }
 
     // save and finish
     $scope.saveAndFinish = function() {
-        $scope.save();
-        $state.transitionTo('product');
+        $scope.save(function(res) {
+            $state.transitionTo('product');
+        });
     }
 
     // cancel
@@ -321,41 +346,33 @@ var Controller = function($scope, $rootScope, $state, productService, mediaServi
     // delete file
     $scope.deleteFile = function(index) {
         var media = $scope.item.medias[index];
-        mediaService.remove(media.id);
-        $scope._onFileDelete(index);
+        $scope._handleFileDelete(index);
     }
 
     // upload
     $scope.upload = function($files) {
         if($files) {
             $files.forEach(function(file) {
-                mediaService.upload(file).success($scope._onUploaded);
+                mediaService.upload(file).success($scope._handleUploaded);
             });
         }
     }
 
     // on uploaded
-    $scope._onUploaded = function(data) {
+    $scope._handleUploaded = function(data) {
         $scope.item.medias.push(data.data);
     }
 
     // on delete file
-    $scope._onFileDelete = function(index) {
+    $scope._handleFileDelete = function(index) {
         $scope.item.medias.splice(index, 1);
-    }
-
-    $scope.editCancel = function() {
-        $state.transitionTo('product');
-    }
-
-    $scope.reset = function() {
-        $scope.item = angular.copy(ProductAttributes);
     }
 }
 
 Controller.$inject = [
     '$scope',
     '$rootScope',
+    '$stateParams',
     '$state',
     'productService',
     'mediaService',
@@ -365,80 +382,7 @@ Controller.$inject = [
 ];
 
 productModule
-.controller('productAddController', Controller);
-
-'use strict';
-
-/**
- * @name            OnhanhProduct
- * @description     ProductDetailController
- */
-productModule
-	.controller('productDetailController', ['$location', '$scope', '$rootScope',"productService", 'mediaService', '$controller',
-	    function($location, $scope, $rootScope, productService, mediaService, $controller) {
-	    	$scope.route = {
-                name: 'product',
-                collection: productService.collectioName,
-                edit: 'product.edit'
-            };
-
-            angular.extend(this, $controller('AbstractDetailController', {
-                $scope: $scope,
-                itemService: productService
-            }));
-
-            // Delete file
-            var deleteFile = function (id) {
-                mediaService
-				.remove(id)
-				.success(
-                    function (data, status) {
-                        notify('Attached media was removed');
-
-                        angular.forEach($scope.item.medias, function (image, key) {
-                            if (image.id === id) {
-                                $scope.item.medias.splice(
-                                    $scope.item.medias.indexOf(image), 1
-                                );
-                            }
-                        });
-                    }
-                ).error(
-                    function (data, status) {
-                        if (data.error.code == 404) {
-                            $state.transitionTo('home');
-                            notify('404 Noting found');
-                        } else {
-                            notify(data.error.message);
-                        }
-                    }
-                );
-            };
-
-			// Delete file
-            $scope.fileDelete = function (id) {
-                $scope.item.medias.splice(id, 1);
-                $scope.editSave(deleteFile(id));
-            };
-
-			// Upload file
-            $scope.fileUploaded = function (res) {
-				// error
-				if(res.status === 0){
-					notify(res.messages);
-					return;
-				}
-
-				//save iten
-                $scope.item.medias.push(res.data);
-                $scope.editSave();
-            };
-
-			$scope.newProduct = function(id) {
-              $state.transitionTo('product.new');
-            }
-	    }
-	]);
+.controller('productDetailController', Controller);
 
 'use strict';
 

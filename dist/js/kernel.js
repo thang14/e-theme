@@ -181,22 +181,22 @@ kernelModule.service('baseService', ['collectionService',
             },
 
             get: function($id) {
-                this.getCollection()
+                return this.getCollection()
                 .get($id);
             },
 
             remove: function($id) {
-                this.getCollection()
+                return this.getCollection()
                 .remove($id);
             },
 
             save: function($data) {
-                this.getCollection()
+                return this.getCollection()
                 .save($data);
             },
 
             create: function($data) {
-                this.getCollection()
+                return this.getCollection()
                 .create($data);
             }
         }

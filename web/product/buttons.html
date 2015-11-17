@@ -6,28 +6,28 @@
 </button>
 
 <button type="button"
-    class="btn btn-primary btn-sm text-semibold" 
-    ng-click="remove()"
+    class="btn btn-danger btn-sm text-semibold"
+    ng-click="remove()">
     <i class="fa fa-times"></i>  Xóa
 </button>
 
 <button type="button"
-    class="btn btn-primary btn-sm text-semibold" 
-    ng-click="clone()"
+    class="btn btn-primary btn-sm text-semibold"
+    ng-click="clone()">
     <i class="fa fa-clone"></i>  Nhân bản
 </button>
 
 
-<button type="button" 
-    class="btn btn-primary btn-sm text-semibold" 
-    ng-disabled="!productForm.$valid" 
+<button type="button"
+    class="btn btn-primary btn-sm text-semibold"
+    ng-disabled="!productForm.$valid"
     ng-click="productForm.$valid && save()">
     <i class="fa fa-floppy-o"></i>  Lưu
 </button>
-<button 
-    type="button" 
-    class="btn btn-primary btn-sm text-semibold" 
-    ng-disabled="!productForm.$valid" 
+<button
+    type="button"
+    class="btn btn-primary btn-sm text-semibold"
+    ng-disabled="!productForm.$valid"
     ng-click="productForm.$valid && saveAndFinish()">
     <i class="fa fa-floppy-o"></i>  Lưu và kết thúc
 </button>
