@@ -1,4 +1,4 @@
-<form name="productAdd">
+<form name="productForm">
     <div class="page-header">
         <div class="page-header-content">
             <div class="page-title">
@@ -18,20 +18,25 @@
                     Tên <strong class="color-red">*</strong>
                 </label>
                 <input
+                    name="name"
                     type="text"
                     ng-model="item.name"
                     class="form-control"
                     id="productName"
+                    required
+                    maxlength="255"
                     placeholder="Name">
             </div><!--.form-group-->
 
             <div class="form-group">
                 <label for="productBranh">Nhà cung cấp</label>
                 <input
+                    name="branh"
                     ng-model="item.branh"
                     type="text"
                     class="form-control"
                     id="productBranh"
+                    maxlength="255"
                     placeholder="Branh">
             </div><!--.form-group-->
 
