@@ -75,7 +75,7 @@
                       <table>
                           <thead>
                               <tr>
-                                  <th width="70">&nbsp;</th>
+                                  <th width="90">&nbsp;</th>
                                   <th>Biến thể</th>
                                   <th width="140">Mã Sku</th>
                                   <th width="140">Mã Barcode</th>
@@ -93,7 +93,7 @@
                                       </a>
                                   </td>
 
-                                  <td ng-if="item.id">
+                                  <td ng-if="!item.id">
                                     <div class="dropdown">
                                         <a href="javascript:void(0)"
                                             data-toggle="dropdown"
@@ -105,7 +105,7 @@
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <a href="javascript:void(0)" ng-click="listImage(variant)" >
-                                                    <i class="fa fa-file-image-o"></i> Hình ảnh
+                                                    <i class="fa fa-file-image-o"></i> Cập nhật hình ảnh
                                                 </a>
                                             </li>
                                             <li>
