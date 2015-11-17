@@ -75,7 +75,7 @@
                       <table>
                           <thead>
                               <tr>
-                                  <th width="20">&nbsp;</th>
+                                  <th width="70">&nbsp;</th>
                                   <th>Biến thể</th>
                                   <th width="140">Mã Sku</th>
                                   <th width="140">Mã Barcode</th>
@@ -86,7 +86,46 @@
                           </thead>
                           <tbody>
                               <tr ng-repeat="(index, variant) in item.variants">
-                                  <td style="text-center"><a href="javascript:void(0)" ng-click="item.variants.splice(index, 1)"><i class="fa fa-times"></i></a></td>
+                                  <td style="text-center" ng-if="item.id">
+                                      <a href="javascript:void(0)" ng-click="item.variants.splice(index, 1)">
+                                          <i class="fa fa-times"></i>
+                                          Hủy
+                                      </a>
+                                  </td>
+                                  
+                                  <td style="text-center" ng-if="item.id">
+                                      <a href="javascript:void(0)" ng-click="item.variants.splice(index, 1)">
+                                          <i class="fa fa-times"></i>
+                                          Hành động
+                                      </a>
+                                    <div class="dropdown">
+                                        <a href="javascript:void(0)" 
+                                            data-toggle="dropdown" 
+                                            aria-haspopup="true" 
+                                            aria-expanded="true"
+                                            <span class="caret"></span>
+                                            Hành động
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="javascript:void(0)" ng-click="listImage(variant)" >
+                                                    <i class="fa fa-file-image-o"></i> Hình ảnh
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" ng-click="changeVariant(variant)" >
+                                                    <i class="fa fa-pencil-square-o"></i> Chỉnh sửa
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" ng-click="removeVariant(variant)" >
+                                                    <i class="fa fa-times"></i> Xóa
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                  </td>
+                                  
                                   <td>{{getVariantOptionValues(variant.options)}}</td>
                                   <td style="padding:2px">
                                       <input
