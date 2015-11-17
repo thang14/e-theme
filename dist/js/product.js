@@ -385,69 +385,72 @@ productModule
 productModule
     .controller('productController', [ '$scope', 'productService', 'gridService', '$state',
         function($scope, productService, gridService, $state) {
-            
+
             //Page Init
             $scope.currentPage = 1;
             $scope.maxSize = 5;
-            
+
             $scope.setPage = function(page) {
                 $scope.currentPage = page;
             }
-            
+
             $scope.selectPage = function() {
                 $scope.load();
             }
-            
+
             //Columns
           $scope.columns = [{
             name: "id",
-            enableColumnMenu: false,
-            enableSorting: false,
-            enableFiltering: false,
             width: '75',
+            enableColumnMenu: false,
           },{
             name: "photo",
-            enableColumnMenu: false,
-            enableSorting: false,
-            enableFiltering: false,
+            displayName: "Ảnh",
             width: '75',
             cellTemplate: '/web/ui-grid/image-view.html',
-          },{
-            name: "name",
-            enableCellEdit: true,
             enableColumnMenu: false,
+          },{
+            enableColumnMenu: false,
+            name: "name",
+            displayName: "Tên",
+            enableCellEdit: true,
             cellTemplate: '<div class="ngCellText ui-grid-cell-contents">'+
                 '<a href="javascript:void(0)"  ng-click="grid.appScope.viewDetail(row)"><strong>{{MODEL_COL_FIELD}}</strong></a></div>'
           },{
+            enableColumnMenu: false,
             name: "price",
-            enableColumnMenu: false,
-            width: '100',
-            enableCellEdit: true,
-            editableCellTemplate: '/web/ui-grid/editor-price.html',
-          },{
-            name: "sale_price",
-            enableColumnMenu: false,
-            enableCellEdit: true,
+            displayName: "Giá",
             width: '100',
             editableCellTemplate: '/web/ui-grid/editor-price.html',
+            enableCellEdit: true,
+            cellTemplate: '<div class="ngCellText ui-grid-cell-contents"><strong>{{MODEL_COL_FIELD | currency:"":0}} đ</strong></div>'
           },{
+            enableColumnMenu: false,
+            name: "sale",
+            displayName: "Khuyến mãi",
+            width: '80',
+            enableCellEdit: true,
+            cellTemplate: '<div class="ngCellText ui-grid-cell-contents"><strong>{{MODEL_COL_FIELD}} %</strong></div>'
+          },{
+            enableColumnMenu: false,
+            displayName: "Số lượng",
             name: "quantity",
-            enableColumnMenu: false,
             enableCellEdit: true,
-            width: '70'
+            width: '70',
+            enableCellEdit: true,
           },{
+            enableColumnMenu: false,
+            displayName: "Trạng thái",
             name: "status",
             type: 'boolean',
-            enableColumnMenu: false,
-            enableCellEdit: true,
             width: '50',
 
           },{
-            name: "action",
             enableColumnMenu: false,
-            enableCellEdit: true,
+            name: "action",
+            displayName: "",
             width: '100',
-            editableCellTemplate: '/web/collection/action.html',
+            cellTemplate: '/web/collection/action.html',
           }];
 
           $scope.onSaveRow = function(rowEntity) {

@@ -9,7 +9,7 @@
         },
         "name": "Chén sứ bát tràng",
         "price": 100000,
-        "sale_price": 90000,
+        "sale": 5,
         "quantity": 10,
         "status":"public"
     },{
@@ -22,7 +22,7 @@
         },
         "name": "Chén sứ bát tràng",
         "price": 100000,
-        "sale_price": 90000,
+        "sale": 6,
         "quantity": 10,
         "status":"public"
     },{
@@ -35,7 +35,7 @@
         },
         "name": "Chén sứ bát tràng",
         "price": 100000,
-        "sale_price": 90000,
+        "sale": 7,
         "quantity": 10,
         "status":"public"
     },{
@@ -48,7 +48,7 @@
         },
         "name": "Chén sứ bát tràng",
         "price": 100000,
-        "sale_price": 90000,
+        "sale": 8,
         "quantity": 10,
         "status":"public"
     },{
@@ -61,7 +61,7 @@
         },
         "name": "Chén sứ bát tràng",
         "price": 100000,
-        "sale_price": 90000,
+        "sale": 9,
         "quantity": 10,
         "status":"public"
     }],

@@ -20,9 +20,11 @@ kernelModule.service('gridService', [
                 return {
                     showGridFooter: false,
                     enableFiltering: false,
-                    enableSorting: false,
-                    enableHorizontalScrollbar : false,
-                    enableVerticalScrollbar   : false,
+                    enableSorting: true,
+                    //Enables cell editing.
+                    enableCellEdit: false,
+                    enableHorizontalScrollbar : 0,
+                    enableVerticalScrollbar   : 0,
                     columnDefs: $scope.columns,
                     onRegisteApi: function(gridApi) {
                         //register save row

@@ -225,12 +225,13 @@ kernelModule.service('gridService', [
 
             gridOptions: function($scope) {
                 return {
-                    selectionRowHeaderWidth: 35,
-                    rowHeight: $scope.rowHeight || 35,
-                    showGridFooter: true,
-                    enableFiltering: true,
-                    enableSorting: false,
-                    useExternalFiltering: true,
+                    showGridFooter: false,
+                    enableFiltering: false,
+                    enableSorting: true,
+                    //Enables cell editing.
+                    enableCellEdit: false,
+                    enableHorizontalScrollbar : 0,
+                    enableVerticalScrollbar   : 0,
                     columnDefs: $scope.columns,
                     onRegisteApi: function(gridApi) {
                         //register save row
