@@ -6,12 +6,14 @@
 </button>
 
 <button type="button"
+    ng-if="item.id"
     class="btn btn-danger btn-sm text-semibold"
     ng-click="remove()">
     <i class="fa fa-times"></i>  Xóa
 </button>
 
-<button type="button"
+<button type="button" 
+    ng-if="item.id"
     class="btn btn-primary btn-sm text-semibold"
     ng-click="clone()">
     <i class="fa fa-clone"></i>  Nhân bản
