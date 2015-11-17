@@ -6,6 +6,11 @@
 </button>
 <button type="button" 
     class="btn btn-primary btn-sm text-semibold" 
+    ng-click="clone()"
+    <i class="fa fa-floppy-o"></i>  Nhân bản
+</button>
+<button type="button" 
+    class="btn btn-primary btn-sm text-semibold" 
     ng-disabled="!productForm.$valid" 
     ng-click="productForm.$valid && save()">
     <i class="fa fa-floppy-o"></i>  Lưu
