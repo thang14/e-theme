@@ -32,14 +32,14 @@ angular.module('app.kernel')
          * GET
          */
         resourceService.prototype.get = function(params, callback) {
-            return new this.resource.get(params, callback);
+            return this.resource.get(params, callback);
         }
         
         /**
          * UPDATE
          */
         resourceService.prototype.update = function($id, $data) {
-            return new this.resource.update({id: $id}, $data);
+            return this.resource.update({id: $id}, $data);
         }
         
         
@@ -47,7 +47,7 @@ angular.module('app.kernel')
          * Remove
          */
         resourceService.prototype.remove = function($id) {
-            return new this.resource.remove({id: $id}).$remove();
+            return this.resource.remove({id: $id}).$remove();
         }
         
         return resourceService;
