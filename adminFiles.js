@@ -72,6 +72,7 @@ var adminFiles = {
     ],
     
     'base': [
+      'js/base/base.js',
       'js/base/controller.js',
       'js/base/detailController.js',
     ],
