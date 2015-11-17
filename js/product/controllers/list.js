@@ -7,6 +7,16 @@
 productModule
     .controller('productController', [ '$scope', 'productService', 'gridService', '$state',
         function($scope, productService, gridService, $state) {
+            
+            //Page Init
+            $scope.currentPage = 1;
+            $scope.maxSize = 5;
+            
+            $scope.pageChanged = function() {
+                $scope.load();
+            }
+            
+            //Columns
           $scope.columns = [{
             name: "id",
             enableColumnMenu: false,
@@ -66,6 +76,7 @@ productModule
 
           //load collection from remote
           $scope.load = function() {
+            $scope.currentPage++;
             gridService.load($scope, productService);
           }
           $scope.load();
