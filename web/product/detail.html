@@ -437,5 +437,6 @@
 
     </div><!--.content-->
     
-    <div ng-if="variant" ng-include="/web/product/media-list"></div><!--.media-list-->
+    <div ng-if="canUploadMedia && variant" ng-include="/web/product/media-list"></div><!--.media-list-->
+    <div ng-if="canEditVariant && variant" ng-include="/web/variant/detail"></div><!--.media-list-->
 </form>
