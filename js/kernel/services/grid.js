@@ -18,16 +18,10 @@ kernelModule.service('gridService', [
 
             gridOptions: function($scope) {
                 return {
-                    selectionRowHeaderWidth: 35,
-                    rowHeight: $scope.rowHeight || 35,
                     showGridFooter: true,
                     enableFiltering: false,
                     enableSorting: false,
-                    useExternalFiltering: true,
-                    enableHorizontalScrollbar: false, 
-                    enableVerticalScrollbar: false,
                     columnDefs: $scope.columns,
-                    minRowsToShow: $scope.gridOptions.data.length;
                     onRegisteApi: function(gridApi) {
                         //register save row
                         gridApi.rowEdit.on.afterCellEdit($scope,function(rowEntity, colDef, newValue, oldValue){
