@@ -15,6 +15,10 @@ var VariantAttributes = {
 }
 var Controller = function(variantService, $controller){
     
+    $scope.route = {
+         name: "product.detail"
+    }
+    
     $scope.itemDefault = VariantAttributes;
     
     //Extend
