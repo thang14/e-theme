@@ -6,20 +6,24 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "jquery": "~2.1.1",
+    
     "angular": "1.4.x",
     "angular-mocks": "1.4.x",
-    "jquery": "~2.1.1",
     "angular-route": "1.4.x",
-    "bootstrap-sass": "3.3.x",
-    "font-awesome-sass": "4.4.x",
-    "angular-ui-router":"~0.2.x",
-    "ng-file-upload": "9.0.x",
+    "angular-resource": "1.4.x",
+    "angular-notify":"*",
+    "angular-loading-bar": "0.8.x",
     "angular-input-masks": "2.1.x",
     "angular-ui-grid":"3.0.x",
+    "angular-ui-router":"~0.2.x",
+    "ng-file-upload": "9.0.x",
     "ng-tags-input": "3.0.x",
-    "angular-loading-bar": "0.8.x",
-    "angular-notify":"*",
     "angular-bootstrap": "0.14.3",
+    
+    "bootstrap-sass": "3.3.x",
+    "font-awesome-sass": "4.4.x",
+    
     "closure-compiler": "https://dl.google.com/closure-compiler/compiler-20140814.zip",
     "ng-closure-runner": "https://raw.github.com/angular/ng-closure-runner/v0.2.3/assets/ng-closure-runner.zip"
   }
