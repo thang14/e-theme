@@ -5,6 +5,9 @@
  * @description     VariantDetailController
  */
 var VariantAttributes = {
+     product: {
+          
+     }
      price: 0,
      sale: 0,
      quantity: 0,
