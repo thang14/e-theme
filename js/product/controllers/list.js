@@ -12,6 +12,10 @@ productModule
             $scope.currentPage = 1;
             $scope.maxSize = 5;
             
+            $scope.setPage = function(page) {
+                $scope.currentPage = page;
+            }
+            
             $scope.pageChanged = function() {
                 $scope.load();
             }
@@ -76,14 +80,12 @@ productModule
 
           //load collection from remote
           $scope.load = function() {
-            $scope.currentPage++;
             gridService.load($scope, productService);
           }
           $scope.load();
 
 
           $scope.viewDetail = function(row) {
-            console.log(row);
             $state.transitionTo('product.detail',{
               productId:row.entity.id
             })
