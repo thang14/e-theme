@@ -8,7 +8,7 @@
 kernelModule.service('gridService', [
     function() {
         return {
-            load: function($scope, condition, service) {
+            load: function($scope, service, condition) {
                 return service
                 .find(condition)
                 .success(function(data, status) {
