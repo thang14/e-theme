@@ -27,6 +27,7 @@ kernelModule.service('gridService', [
                     enableHorizontalScrollbar: false, 
                     enableVerticalScrollbar: false,
                     columnDefs: $scope.columns,
+                    minRowsToShow: $scope.gridOptions.data.length;
                     onRegisteApi: function(gridApi) {
                         //register save row
                         gridApi.rowEdit.on.afterCellEdit($scope,function(rowEntity, colDef, newValue, oldValue){
