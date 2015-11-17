@@ -18,7 +18,7 @@ kernelModule.service('gridService', [
 
             gridOptions: function($scope) {
                 return {
-                    showGridFooter: true,
+                    showGridFooter: false,
                     enableFiltering: false,
                     enableSorting: false,
                     columnDefs: $scope.columns,
