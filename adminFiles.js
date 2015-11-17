@@ -2,6 +2,7 @@
 
 var adminFiles = {
   'modules': {
+    
     'kernel': [
       'js/kernel/kernel.js',
       'js/kernel/config/**/*.js',
@@ -70,9 +71,9 @@ var adminFiles = {
       'js/media/services/**/*.js',
     ],
     
-    'media': [
+    'base': [
       'js/base/controller.js',
-      'js/media/detailController.js',
+      'js/base/detailController.js',
     ],
   },
 };
