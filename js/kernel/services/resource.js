@@ -23,6 +23,9 @@ angular.module('app.kernel')
                 return $resource(url).get();
             },
             
+            /**
+             * findOne 
+             */
             findOne: function($id) {
                 var url = this.api+'/:id';
                 return $resource(url).get({id: $id});
