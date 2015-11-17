@@ -92,17 +92,13 @@
                                           Hủy
                                       </a>
                                   </td>
-                                  
-                                  <td style="text-center" ng-if="item.id">
-                                      <a href="javascript:void(0)" ng-click="item.variants.splice(index, 1)">
-                                          <i class="fa fa-times"></i>
-                                          Hành động
-                                      </a>
+
+                                  <td ng-if="item.id">
                                     <div class="dropdown">
-                                        <a href="javascript:void(0)" 
-                                            data-toggle="dropdown" 
-                                            aria-haspopup="true" 
-                                            aria-expanded="true"
+                                        <a href="javascript:void(0)"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="true">
                                             <span class="caret"></span>
                                             Hành động
                                         </a>
@@ -125,7 +121,7 @@
                                         </ul>
                                     </div>
                                   </td>
-                                  
+
                                   <td>{{getVariantOptionValues(variant.options)}}</td>
                                   <td style="padding:2px">
                                       <input
@@ -189,7 +185,7 @@
                 <li class="item" ng-repeat="(index, media) in item.medias">
                     <div class="action">
                         <div class="dropdown">
-                            <a href="javascript:void(0)" 
+                            <a href="javascript:void(0)"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 <span class="caret"></span>
                             </a>
@@ -206,8 +202,8 @@
                         ngf-multiple="true"
                         accept="image/*"
                         ngf-select="upload($files)"
-                        ngf-drop="upload($files)" 
-                        ng-model="files" 
+                        ngf-drop="upload($files)"
+                        ng-model="files"
                         href="javascript:void(0)">
                         <i class="fa fa-upload fa-4"></i>
                         <div class="text-hint">Tải ảnh lên</div>
