@@ -80,7 +80,9 @@ productModule
 
           //load collection from remote
           $scope.load = function() {
-            gridService.load($scope, productService);
+            gridService.load($scope, productService, {
+                page: $scope.currentPage
+            });
           }
           $scope.load();
 
