@@ -16,7 +16,7 @@ productModule
                 $scope.currentPage = page;
             }
             
-            $scope.pageChanged = function() {
+            $scope.selectPage = function() {
                 $scope.load();
             }
             
