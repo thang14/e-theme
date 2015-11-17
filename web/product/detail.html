@@ -86,14 +86,14 @@
                           </thead>
                           <tbody>
                               <tr ng-repeat="(index, variant) in item.variants">
-                                  <td style="text-center" ng-if="item.id">
+                                  <td style="text-center" ng-if="!item.id">
                                       <a href="javascript:void(0)" ng-click="item.variants.splice(index, 1)">
                                           <i class="fa fa-times"></i>
                                           Hủy
                                       </a>
                                   </td>
 
-                                  <td ng-if="!item.id">
+                                  <td ng-if="item.id">
                                     <div class="dropdown">
                                         <a href="javascript:void(0)"
                                             data-toggle="dropdown"
