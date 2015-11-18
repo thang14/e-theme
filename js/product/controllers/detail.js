@@ -64,10 +64,12 @@ var variantOptionValues = {
 };
 
 var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
- $controller, variantOption, Constants) {
+ $controller, variantOption, Constants, sectionService) {
     $scope.route = {
         name: 'product'
     }
+    
+    
     
     $scope.itemDefault = ProductAttributes;
     
@@ -76,6 +78,10 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
         service: productService,
         $scope: $scope
     }), this);
+    
+    
+     // Section
+    $scope.sections = sectionService.get();
     
     $rootScope.product = $scope.item;
     
@@ -184,7 +190,8 @@ Controller.$inject = [
     'mediaService',
     '$controller',
     'variantOption',
-    'Constants'
+    'Constants',
+    'sectionService'
 ];
 
 productModule
