@@ -60,10 +60,9 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
         options: $scope.item.options;
     });
     
-    $scope.item.variant_options = $scope.variant.options;
-    $scope.item.variants = $scope.variant.items;
-    $scope.item.template = $scope.variant.template;
-
+    
+    $scope.templateValues = variantModel.templateValues;
+    $scope.templateValues = variantModel.templateValues;
     
     // Media
     $scope.setMediaDefault = function(index) {
