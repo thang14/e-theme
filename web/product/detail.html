@@ -57,7 +57,7 @@
                 <select
                     class="form-control"
                     ng-model="item.template"
-                    ng-change="selectTemplate(item.template)">
+                    ng-change="variant.selectTemplate(item.template)">
 
                       <option value="">--Không chọn--</option>
                       <option ng-repeat="(index, value) in templateValues" value="{{index}}">{{value}}</option>
@@ -77,7 +77,7 @@
             </div><!--.form-group-->
 
             <div class="form-group">
-                <button type="button" class="btn btn-primary btn-sm" ng-click="generateVariants()">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="variant.generateVariants()">
                     Cập nhật biến thể
                 </button>
             </div><!--.form-group-->
