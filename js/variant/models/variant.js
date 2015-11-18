@@ -70,9 +70,6 @@ var Model = function(variantService){
 
     }
     
-    Variant.prototype.get = function(id) {
-        return variantService.get({product_id: id});
-    }
     
     Variant.prototype.generateVariants = function(key, data) {
         key = key || 0;
