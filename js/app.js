@@ -34,7 +34,7 @@ window.angular.module('app', [
     'app.media',
     'app.dashboard',
     'app.product',
-    //'app.section',
+    'app.section',
     //'app.order',
     //'app.reports',
     //'app.settings'
