@@ -28,7 +28,16 @@
                     maxlength="255"
                     placeholder="Name">
             </div><!--.form-group-->
-
+            
+            <div class="form-group">
+                <label for="productBranh">Thành phần</label>
+                <ui-select ng-model="item.section"
+                    theme="bootstrap"
+                    reset-search-input="false"
+                    ></ui-select>
+                    
+            </div><!--.form-group-->
+            
             <div class="form-group">
                 <label for="productBranh">Nhà cung cấp</label>
                 <input
