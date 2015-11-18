@@ -21,6 +21,8 @@
     "ng-tags-input": "3.0.x",
     "angular-bootstrap": "0.14.3",
     
+    "ui-select":"0.13.2",
+    
     "bootstrap-sass": "3.3.x",
     "font-awesome-sass": "4.4.x",
     
