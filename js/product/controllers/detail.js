@@ -33,36 +33,6 @@ var ProductAttributes = {
     template: null,
 }
 
-// list template
-var templates = [
-
-
-    ['color_name'],
-    ['size_name'],
-    ['style_name'],
-    ['configure_name'],
-
-
-    ['color_name', 'size_name'],
-    ['color_name', 'stype_name'],
-    ['color_name', 'configure_name'],
-    ['color_name', 'size_name', 'style_name'],
-    ['color_name', 'size_name', 'configure_name'],
-
-    ['size_name', 'style_name'],
-    ['size_name', 'configure_name'],
-    ['size_name', 'style_name', 'configure_name'],
-
-    ['style_name', 'configure_name'],
-];
-
-var variantOptionValues = {
-    color_name: "Màu sắc",
-    size_name: "Kích thước",
-    style_name: "Kiểu dáng",
-    configure_name: "Cấu hình"
-};
-
 var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
  $controller, variantOption, Constants, sectionService, variantModel) {
     $scope.route = {
@@ -87,64 +57,15 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
     $scope.variant = variantModel;
     if($scope.item.id) {
         $scope.variant.options = $scope.item.variant_options;
+        $scope.variant.template = $scope.item.template;
         $scope.variant.items = variantModel.get({product_id: $scope.item.id});
     }
     $scope.item.variant_options = $scope.variant.options;
     $scope.item.variants = $scope.variant.items;
+    $scope.item.template = $scope.variant.template;
+
     
-    //Template values
-    $scope.templateValues = [];
-    templates.forEach(function(values) {
-        var results = [];
-        values.forEach(function(value) {
-            results.push(variantOptionValues[value]);
-        });
-        $scope.templateValues.push(results.join(', '));
-    });
-    
-    // Select template
-    $scope.selectTemplate = function(id) {
-        if(!templates[id]) {
-            $scope.item.template = null;
-            $scope.item.variant_options = [];
-            return;
-        }
-        $scope.item.variant_options = [];
-        var variantOptionNames = templates[id];
-        variantOptionNames.forEach(function(value, index) {
-            $scope.item.variant_options.push({
-                name: value,
-                label: variantOptionValues[value],
-                items: []
-            })
-        });
-
-    }
-
-    $scope.generateVariants = function(key, data) {
-        key = key || 0;
-        if(key === 0) {
-            $scope.item.variants = [];
-        }
-
-        var options = $scope.item.variant_options;
-        data = data || [];
-        (options[key].items).forEach(function(value, index) {
-            var item = angular.copy(data);
-            item.push(index);
-            if(!options[key + 1]) {
-                $scope.item.variants.push({
-                    options: item,
-                    price: 0,
-                    sale: 0,
-                    quantity: 1,
-                });
-                return;
-            }
-            $scope.generateVariants(key + 1, item);
-        });
-    }
-
+    // Media
     $scope.setMediaDefault = function(index) {
         if($scope.item.media_display === index) {
             return;
