@@ -85,7 +85,6 @@ var templateValues = [
 
 var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
  $controller, variantOption, Constants) {
-    
     $scope.route = {
         name: 'product'
     }
@@ -96,7 +95,9 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
     angular.extend($controller('baseDetailController',{
         service: productService,
         $scope: $scope
-    }), this)
+    }), this);
+    
+    $rootScope.product = $scope.item;
 
     $scope.templateValues = templateValues;
 
