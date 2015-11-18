@@ -151,6 +151,16 @@ module.exports = function(grunt) {
                 flatten: true
 
             }]
+        },
+        
+        examples: {
+            files: [{
+                src: 'dist/**/*',
+                dest: 'examples/dist/',
+                expand: true,
+                flatten: true
+
+            }]
         }
     },
     watch: {
@@ -181,8 +191,8 @@ module.exports = function(grunt) {
   grunt.registerTask('js', ['concat', 'uglify:dist']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);
-
+  grunt.registerTask('examples', ['copy:examples']);
   // Default task(s).
-  grunt.registerTask('default', ['js', 'css', 'copy', 'temp']);
+  grunt.registerTask('default', ['js', 'css', 'copy', 'temp', 'examples']);
 
 };
