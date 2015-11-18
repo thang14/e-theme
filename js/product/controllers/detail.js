@@ -63,26 +63,6 @@ var variantOptionValues = {
     configure_name: "Cấu hình"
 };
 
-var templateValues = [
-    'Màu sắc',
-    'Kích thước',
-    'Kiểu dáng',
-    'Cấu hình',
-
-    'Màu sắc, Kích thước',
-    'Màu sắc, Kiểu dáng',
-    'Màu sắc, Cấu hình',
-    'Màu sắc, Kích thước, Kiểu dáng',
-    'Màu sắc, Kích thước, Cấu hình',
-
-
-    'Kích thước, Kiểu dáng',
-    'Kích thước, Cấu hình',
-    'Kích thước, Kiểu dáng, Cấu hình',
-
-    'Kiểu dáng, Cấu hình'
-];
-
 var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
  $controller, variantOption, Constants) {
     $scope.route = {
