@@ -54,12 +54,12 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
     $scope.sections = sectionService.get();
     
     // Variant Model
-    $scope.variant = variantModel;
-    if($scope.item.id) {
-        $scope.variant.options = $scope.item.variant_options;
-        $scope.variant.template = $scope.item.template;
-        $scope.variant.items = variantModel.get({product_id: $scope.item.id});
-    }
+    $scope.variant = new variantModel({
+        items: $scope.item.variants,
+        template: $scope.item.template,
+        options: $scope.item.options;
+    });
+    
     $scope.item.variant_options = $scope.variant.options;
     $scope.item.variants = $scope.variant.items;
     $scope.item.template = $scope.variant.template;
