@@ -64,7 +64,7 @@ var variantOptionValues = {
 };
 
 var Controller = function($scope, $rootScope, $stateParams, $state, productService, mediaService,
- $controller, variantOption, Constants, sectionService) {
+ $controller, variantOption, Constants, sectionService, variantModel) {
     $scope.route = {
         name: 'product'
     }
@@ -83,8 +83,14 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
      // Section
     $scope.sections = sectionService.get();
     
-    // Current Product
-    $rootScope.currentProduct = $scope.item;
+    // Variant Model
+    $scope.variant = variantModel;
+    if($scope.item.id) {
+        $scope.variant.options = $scope.item.variant_options;
+        $scope.variant.items = variantModel.get({product_id: $scope.item.id});
+    }
+    $scope.item.variant_options = $scope.variant.options;
+    $scope.item.variants = $scope.variant.items;
     
     //Template values
     $scope.templateValues = [];
@@ -193,7 +199,8 @@ Controller.$inject = [
     '$controller',
     'variantOption',
     'Constants',
-    'sectionService'
+    'sectionService',
+    'variantModel'
 ];
 
 productModule
