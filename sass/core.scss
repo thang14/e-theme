@@ -40,7 +40,7 @@ $fa-font-path: "../fonts/font-awesome/";
 
 
 //UI.Grid
-@import "onhanh/ui-grid";
-@import "onhanh/loading-bar";
-@import "onhanh/angular-notify";
-@import "onhanh/checkbox";
+@import "lib/ui-grid";
+@import "lib/loading-bar";
+@import "lib/angular-notify";
+@import "lib/checkbox";
