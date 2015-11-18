@@ -98,9 +98,17 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
     }), this);
     
     $rootScope.product = $scope.item;
-
-    $scope.templateValues = templateValues;
-
+    
+    //Template values
+    $scope.templateValues = [];
+    templates.forEach(function(values) {
+        var results = [];
+        values.forEach(function(value) {
+            results.push(variantOptionValues[value]);
+        });
+        $scope.templateValues.push(results.join(', '));
+    });
+    
     $scope.selectTemplate = function(id) {
         if(!templates[id]) {
             $scope.item.template = null;
