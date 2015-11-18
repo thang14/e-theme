@@ -14,24 +14,27 @@ var Controller = function($scope, $state, $stateParams, service) {
     }
     
     // Load Detail 
-    if($scope.detail.id) {
+    if($scope.detail.id != undefined) {
         $scope.item = service.get($scope.detail.id);
     } else {
         $scope.item = angular.copy($scope.itemDefault);
     }
     
     //Save
-    $scope.save = function() {
-        if(!$scope.detail.id) {
-            $scope.item = service.create($scope.item);
+    $scope.save = function(callback) {
+        if($scope.item.id == undefined) {
+            $scope.item = service.create($scope.item, callback);
+        } else {
+            $scope.item.$save(callback);
         }
-        $scope.item.$save();
+        
     }
     
     //Save and finish
     $scope.saveAndFinish = function() {
-        $scope.save();
-        $state.transitionTo($scope.route.name);
+        $scope.save(function() {
+            $state.transitionTo($scope.route.name);
+        });
     }
     
     //Cancel
