@@ -8,6 +8,7 @@
 
  
 var Controller = function($scope, $state, $stateParams, service) {
+    
     $scope.detail = {
         id: $stateParam.id,
         name: $stateParam.name
