@@ -8,9 +8,9 @@
 var Model = function(variantService){
     
     var Variant = function(data) {
-        this.template = null;
-        this.items = [];
-        this.options = [];
+        this.template = data.template || [];
+        this.items = data.items || [];
+        this.options = data.options || [];
     }
     
     Variant.optionValues = {
