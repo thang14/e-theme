@@ -83,6 +83,7 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
      // Section
     $scope.sections = sectionService.get();
     
+    // Current Product
     $rootScope.currentProduct = $scope.item;
     
     //Template values
@@ -95,6 +96,7 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
         $scope.templateValues.push(results.join(', '));
     });
     
+    // Select template
     $scope.selectTemplate = function(id) {
         if(!templates[id]) {
             $scope.item.template = null;
