@@ -11,7 +11,7 @@ sectionModule
           $stateProvider
 
             .state("section", {
-              title: "Section",
+              title: "Mục",
               // Use a url of "/" to set a states as the "index".
               url: "/section",
 
@@ -25,7 +25,7 @@ sectionModule
             })
 
             .state("section.new", {
-              title: "Section",
+              title: "Thêm mục mới",
               // Use a url of "/" to set a states as the "index".
               url: "/new",
 
@@ -36,16 +36,16 @@ sectionModule
                     // For top level states, like this one, the parent template is
                     // the index.html file. So this template will be inserted into the
                     // ui-view within index.html.
-                    controller: 'sectionAddController',
-                    templateUrl: '/web/section/add.html',
+                    controller: 'sectionDetailController',
+                    templateUrl: '/web/section/detail.html',
                 }  
               }
             })
 
             .state("section.detail", {
-              title: "Section detail",
+              title: "Chi tiết mục",
               // Use a url of "/" to set a states as the "index".
-              url: "/:sectionId",
+              url: "/:id",
 
               views: {
                 '@': {
