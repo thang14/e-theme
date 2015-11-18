@@ -31,11 +31,13 @@
             
             <div class="form-group">
                 <label for="productBranh">Thành phần</label>
-                <ui-select ng-model="item.section"
-                    theme="bootstrap"
-                    reset-search-input="false"
-                    ></ui-select>
-                    
+                <ui-select ng-model="section.selected" theme="bootstrap">
+                    <ui-select-match placeholder="Chọn hoặc tìm kiếm">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="section in sections | filter: $select.search">
+                    <div ng-bind-html="section.name | highlight: $select.search"></div>
+                    <small ng-bind-html="section.email | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
             </div><!--.form-group-->
             
             <div class="form-group">
