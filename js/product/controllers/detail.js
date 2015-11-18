@@ -83,7 +83,7 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
      // Section
     $scope.sections = sectionService.get();
     
-    $rootScope.product = $scope.item;
+    $rootScope.currentProduct = $scope.item;
     
     //Template values
     $scope.templateValues = [];
