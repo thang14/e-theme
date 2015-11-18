@@ -56,7 +56,7 @@ productModule
             .state("product.detail", {
               title: "Chi tiết sản phẩm",
               // Use a url of "/" to set a states as the "index".
-              url: "/:productId",
+              url: "/:id",
 
               views: {
                   "@" : {
