@@ -15,25 +15,13 @@ var ProductDetailController = function($scope, ProductModel, $stateParams) {
         ProductModel.get($stateParams.id);
     }
     
-    $scope.deleteFile = function(index) {
-        ProductModel.deleteFile(index);
-    }
-    
-    $scope.upload = function($file) {
-        ProductModel.upload($file);
-    }
-    
-    $scope.selectMedia = function(index) {
-        ProductModel.selectMedia(index);
-    }
-    
-    $scope.remove = function(index) {
-        $scope.resource.$remove();
-    }
-    
-    $scope.save = function(index) {
-        $scope.resource.$save();
-    }
+    [
+        'deleteFile',
+        'upload',
+        'selectMedia',
+    ].forEach(function(value) {
+        $scope[value] = ProductModel.prototype[value];
+    });
 }
 
 Controller.$inject = [
