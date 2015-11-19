@@ -5,8 +5,8 @@
  * @description     ProductController
  */
 productModule
-    .controller('productController', [ '$scope', 'productService', 'gridService', '$state',
-        function($scope, productService, gridService, $state) {
+    .controller('productController', [ '$scope', 'ProductModel', 'gridService', '$state',
+        function($scope, ProductModel, gridService, $state) {
 
             //Page Init
             $scope.currentPage = 1;
@@ -71,14 +71,14 @@ productModule
           }];
 
           $scope.onSaveRow = function(rowEntity) {
-            productService.update(rowEntity.id, rowEntity);
+            ProductModel._service.update(rowEntity.id, rowEntity);
           }
 
           $scope.gridOptions = gridService.gridOptions($scope);
 
           //load collection from remote
           $scope.load = function() {
-            gridService.load($scope, productService, {
+            gridService.load($scope, ProductModel, {
                 page: $scope.currentPage
             });
           }
