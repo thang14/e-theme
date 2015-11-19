@@ -12,6 +12,7 @@ var ProductModel = function() {
  this._sectionService = null;
  this._productService = null;
  this._mediaService = null;
+ this._variantService = null;
 }
 
 /**
