@@ -14,7 +14,9 @@ var ProductModel = function() {
  this._mediaService = null;
 }
 
-
+/**
+ * Init
+ */
 ProductModel.prototype.init = function() {
   this.sections = this._sectionService.get();
   this.item = this._productService.create();
