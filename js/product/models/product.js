@@ -37,6 +37,29 @@ ProductModel.prototype.get= function(id, callback) {
 
 
 /**
+ * Select variant template
+ * @param integer index
+ * @return void(0)
+ */
+ProductModel.prototype.selectVariantTemplate= function(index) {
+  if(!Variant.templateList[id]) {
+    this.item.template = null;
+    this.item.options = [];
+    return;
+  }
+  this.item.options = [];
+  var optionNames = Variant.templateList[id];
+  optionNames.forEach(function(value, index) {
+    this.item.options.push({
+        name: value,
+        label: Variant.optionValues[value],
+        items: []
+    })
+  }, this);
+}
+
+
+/**
  * Upload
  * @param Array files
  * @return void(0)
@@ -52,7 +75,7 @@ ProductModel.prototype.upload= function($files) {
 
 /**
  * Select Media;
- * @param Array files
+ * @param integer index
  * @return void(0)
  */
 ProductModel.prototype.selectMedia= function(index) {
