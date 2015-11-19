@@ -90,7 +90,7 @@ ProductModel.prototype._handleUploaded= function(res) {
  */
 ProductModel.prototype.deleteFile= function(index) {
   var file = this.item.medias[index];
-  this._mediaService.$remove({id: file.id}, function() {
+  file.$remove(function() {
     this._handleFileDeleted(index);
   }.bind(this));
 }
