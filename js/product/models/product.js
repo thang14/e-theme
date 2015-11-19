@@ -9,8 +9,15 @@ var ProductModel = function() {
  this.items = [];
  this.total = 0;
  this.item = null;
- this.sections = sectionService.get();
- this._service = null;
+ this._sectionService = null;
+ this._productService = null;
+ this._mediaService = null;
+}
+
+
+ProductModel.prototype.init = function() {
+  this.sections = this._sectionService.get();
+  this.item = this._productService.create();
 }
  
 /**
@@ -19,7 +26,7 @@ var ProductModel = function() {
  * @return void(0)
  */
 ProductModel.prototype.load= function(params, callback) {
-  this._service.get(params, function(res) {
+  this._productService.get(params, function(res) {
     this.items = res.data;
     this.total = res.total;
     callback ? callback(res) : '';
@@ -32,7 +39,7 @@ ProductModel.prototype.load= function(params, callback) {
  * @return void(0)
  */
 ProductModel.prototype.get= function(id, callback) {
-  this.item = this._service.get({id: id}, callback);
+  this.item = this._productService.get({id: id}, callback);
 }
 
 
@@ -45,7 +52,7 @@ ProductModel.prototype.get= function(id, callback) {
 ProductModel.prototype.upload= function($files) {
   if($files && $files.length > 0) {
     $files.forEach(function(file, index) {
-        mediaService.upload(file)
+        this._mediaService.upload(file)
             .success(this._handleUploaded.bind(this));
     });
   }
@@ -80,7 +87,7 @@ ProductModel.prototype._handleUploaded= function(res) {
  */
 ProductModel.prototype.deleteFile= function(index) {
   var file = this.item.medias[index];
-  mediaService.$remove({id: file.id}, function() {
+  this._mediaService.$remove({id: file.id}, function() {
     this._handleFileDeleted(index);
   }.bind(this));
 }
@@ -106,8 +113,11 @@ var ProductModelProvider = function() {
    * Initialize and configure ProductModel
    * @return ProductModel
    */
-  $get: ['productService', function(productService) {
+  $get: ['productService', 'sectionService', 'mediaService', function(productService, sectionService, mediaService) {
     this.instance._service = productService;
+    this.instance._sectionService = sectionService;
+    this.instance._mediaService = mediaService;
+    this.instance.init();
     return this.instance;
   }]
 }
