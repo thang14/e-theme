@@ -17,4 +17,4 @@ Controller.$inject = [
 ];
 
 productModule
-.controller('productDetailController', Controller);
+    .controller('productDetailController', Controller);
