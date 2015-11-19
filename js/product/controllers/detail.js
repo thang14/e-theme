@@ -13,7 +13,7 @@ var Controller = function($scope, ProductModel) {
 
 Controller.$inject = [
     '$scope',
-    'productModel',
+    'ProductModel',
 ];
 
 productModule
