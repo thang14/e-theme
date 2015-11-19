@@ -8,11 +8,11 @@
 kernelModule.service('gridService', [
     function() {
         return {
-            load: function($scope, service, conditions) {
-                return service
-                .get(conditions, function(data) {
-                    $scope.gridOptions.data = data.data;
-                    $scope.gridOptions.totalItems = data.total;
+            load: function($scope, model, conditions) {
+                return model
+                .load(conditions, function() {
+                    $scope.gridOptions.data = model.data;
+                    $scope.gridOptions.totalItems = model.total;
                 });
             },
 
