@@ -115,10 +115,14 @@ var ProductModelProvider = function() {
    * Initialize and configure ProductModel
    * @return ProductModel
    */
-  $get: ['productService', 'sectionService', 'mediaService', function(productService, sectionService, mediaService) {
+  $get: [
+   'productService', 
+   'sectionService', 
+   'mediaService', 'variantService', function(productService, sectionService, mediaService, variantService) {
     this.instance._service = productService;
     this.instance._sectionService = sectionService;
     this.instance._mediaService = mediaService;
+    this.instance._variantService = variantServive;
     this.instance.init();
     return this.instance;
   }]
