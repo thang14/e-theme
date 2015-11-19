@@ -20,7 +20,6 @@ var ProductModel = function() {
  */
 ProductModel.prototype.init = function() {
   this.sections = this._sectionService.get();
-  this.item = this._productService.create();
 }
  
 /**
@@ -42,7 +41,11 @@ ProductModel.prototype.load= function(params, callback) {
  * @return void(0)
  */
 ProductModel.prototype.get= function(id, callback) {
-  this.item = this._productService.get({id: id}, callback);
+  if(id != undefined) {
+    this.item = this._productService.get({id: id}, callback);
+    return;
+  }
+  this.item = this._productService.create();
 }
 
 
