@@ -12,7 +12,19 @@ var ProductDetailController = function($scope, ProductModel, $stateParams) {
     
     //Gets product detail
     if($stateParams.id != undefined) {
-        $scope.productModel.get($stateParams.id);
+        ProductModel.get($stateParams.id);
+    }
+    
+    $scope.deleteFile = function(index) {
+        ProductModel.deleteFile(index);
+    }
+    
+    $scope.upload = function($file) {
+        ProductModel.upload($file);
+    }
+    
+    $scope.selectMedia = function(index) {
+        ProductModel.selectMedia(index);
     }
 }
 
