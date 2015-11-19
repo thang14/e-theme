@@ -2,14 +2,15 @@
 
 /**
  * @name            OnhanhProduct
- * @description     ProductAddController
+ * @description     ProductDetailController
  */
 
 
-var Controller = function($scope, ProductModel, $stateParams) {
+var ProductDetailController = function($scope, ProductModel, $stateParams) {
     
-    $scope.productModel = ProductModel;
+    $scope.resource = ProductModel.item;
     
+    //Gets product detail
     if($stateParams.id != undefined) {
         $scope.productModel.get($stateParams.id);
     }
@@ -22,4 +23,4 @@ Controller.$inject = [
 ];
 
 productModule
-    .controller('productDetailController', Controller);
+    .controller('productDetailController', ProductDetailController);
