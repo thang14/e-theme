@@ -7,6 +7,7 @@
  
 var ProductModel = function() {
  this.items = [];
+ this.total = 0;
  this.item = null;
  this.sections = sectionService.get();
  this._service = null;
@@ -17,9 +18,11 @@ var ProductModel = function() {
  * @param Object|null params The param builder query
  * @return void(0)
  */
-ProductModel.prototype.load= function(params) {
+ProductModel.prototype.load= function(params, callback) {
   this._service.get(params, function(res) {
     this.items = res.data;
+    this.total = res.total;
+    callback ? callback(res) : '';
   });
 }
  
@@ -28,8 +31,8 @@ ProductModel.prototype.load= function(params) {
  * @param string id The Id of product item
  * @return void(0)
  */
-ProductModel.prototype.get= function(id) {
-  this.item = this._service.get({id: id});
+ProductModel.prototype.get= function(id, callback) {
+  this.item = this._service.get({id: id}, callback);
 }
 
 
@@ -47,6 +50,17 @@ ProductModel.prototype.upload= function($files) {
   }
 }
 
+/**
+ * Select Media;
+ * @param Array files
+ * @return void(0)
+ */
+ProductModel.prototype.selectMedia= function(index) {
+  if(this.item.media_default) {
+    this.item.medias[this.item.media_default].selected = false;
+  }
+  this.item.medias[index].selected = true;
+}
 
 /**
  * Uploaded
