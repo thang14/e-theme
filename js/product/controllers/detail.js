@@ -62,7 +62,6 @@ var Controller = function($scope, $rootScope, $stateParams, $state, productServi
     
     
     $scope.templateValues = variantModel.templateValues;
-    $scope.templateValues = variantModel.templateValues;
     
     // Media
     $scope.setMediaDefault = function(index) {
