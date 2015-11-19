@@ -13,6 +13,8 @@ var ProductModel = function() {
  
 /**
  * Load Product List
+ * @param Object|null params The param builder query
+ * @return void(0)
  */
 ProductModel.prototype.load= function(params) {
   this._service.get(params, function(res) {
@@ -21,13 +23,18 @@ ProductModel.prototype.load= function(params) {
 }
  
 /**
- * Load Product List
+ * Gets product detail
+ * @param string id The Id of product item
+ * @return void(0)
  */
 ProductModel.prototype.get= function(id) {
   this.item = this._service.get({id: id});
 }
 
-
+/**
+ * Product model, provider since all products
+ * in the application use the same model
+ */
 var ProductModelProvider = function() {
   
   instance: new ProductModel(),
