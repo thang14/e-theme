@@ -26,6 +26,14 @@ var ProductDetailController = function($scope, ProductModel, $stateParams) {
     $scope.selectMedia = function(index) {
         ProductModel.selectMedia(index);
     }
+    
+    $scope.remove = function(index) {
+        $scope.resource.$remove();
+    }
+    
+    $scope.save = function(index) {
+        $scope.resource.$save();
+    }
 }
 
 Controller.$inject = [
