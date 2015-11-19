@@ -8,6 +8,7 @@
 var ProductModel = function() {
  this.items = [];
  this.item = null;
+ this.sections = sectionService.get();
  this._service = null;
 }
  
