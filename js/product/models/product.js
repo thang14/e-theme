@@ -41,9 +41,24 @@ ProductModel.prototype.upload= function($files) {
   if($files && $files.length > 0) {
     $files.forEach(function(file, index) {
         mediaService.upload(file)
-            .success(this._handleUploaded,bind(this));
+            .success(this._handleUploaded.bind(this));
     });
   }
+}
+
+
+/**
+ * Uploaded
+ * @param Array files
+ * @return void(0)
+ */
+ProductModel.prototype._handleUploaded= function(res) {
+  if(!this.item.medias) {
+    this.item.media_default = 0;
+    this.item.medias = [res];
+    return;
+  }
+  this.item.medias.push(res);
 }
 
 /**
