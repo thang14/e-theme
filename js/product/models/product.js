@@ -28,4 +28,18 @@ ProductModel.prototype.get= function(id) {
 }
 
 
-productModule.factory('productModel', ProductModel);
+var ProductModelProvider = function() {
+  
+  instance: new ProductModel(),
+  
+  /**
+   * Initialize and configure ProductModel
+   * @return ProductModel
+   */
+  $get: ['productService', function(productService) {
+    this.instance._service = productService;
+    return this.instance;
+  }]
+}
+
+productModule.provider('productModel', ProductModelProvider);
