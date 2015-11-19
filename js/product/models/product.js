@@ -53,12 +53,29 @@ ProductModel.prototype.upload= function($files) {
  * @return void(0)
  */
 ProductModel.prototype._handleUploaded= function(res) {
-  if(!this.item.medias) {
-    this.item.media_default = 0;
-    this.item.medias = [res];
-    return;
-  }
+  this.item.medias = this.item.medias || [];
   this.item.medias.push(res);
+}
+
+/**
+ * deleteFile
+ * @param Array files
+ * @return void(0)
+ */
+ProductModel.prototype.deleteFile= function(index) {
+  var file = this.item.medias[index];
+  mediaService.$remove({id: file.id}, function() {
+    this._handleFileDeleted(index);
+  }.bind(this));
+}
+
+/**
+ * File Deleted
+ * @param Array files
+ * @return void(0)
+ */
+ProductModel.prototype._handleFileDeleted= function(index) {
+  this.item.medias.splice(index, 1);
 }
 
 /**
