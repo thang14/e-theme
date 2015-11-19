@@ -20,7 +20,7 @@ var ProductDetailController = function($scope, ProductModel, $stateParams) {
         'upload',
         'selectMedia',
     ].forEach(function(value) {
-        $scope[value] = ProductModel.prototype[value];
+        $scope[value] = ProductModel[value];
     });
 }
 
