@@ -11,9 +11,7 @@ var ProductDetailController = function($scope, ProductModel, $stateParams) {
     $scope.resource = ProductModel.item;
     
     //Gets product detail
-    if($stateParams.id != undefined) {
-        ProductModel.get($stateParams.id);
-    }
+    ProductModel.get($stateParams.id);
     
     [
         'deleteFile',
