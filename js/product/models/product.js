@@ -87,6 +87,10 @@ ProductModel.prototype.createVariant = function() {
     this.variant.options[index] = id;
   })
   
+  if(this.variant.options.length != this.item.variant_options) {
+    return;
+  }
+  
   this.variant.$save(function() {
     this.item.variants.push(this.variant);
   }.bind(this));
