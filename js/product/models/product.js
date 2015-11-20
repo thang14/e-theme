@@ -63,9 +63,8 @@ Product.prototype.$get= function(id, callback) {
      * @return ProductModel
      */
     $get: [
-     'productService', 'productFactory', function(productService, productFactory) {
-      this.instance._service = productService;
-      this.instance._factory = productFactory;
+     'productService', 'productFactory', function(productResource) {
+      this.instance._resource = productResource;
       return this.instance;
     }]
   }
