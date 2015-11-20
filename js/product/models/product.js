@@ -47,6 +47,8 @@ var ProductModel = function() {
  this.items = [];
  this.total = 0;
  this.item = null;
+ this.variants = [];
+ this.variant = null;
  this._sectionService = null;
  this._productService = null;
  this._mediaService = null;
@@ -136,9 +138,11 @@ ProductModel.prototype.generateVariant = function(key, data) {
  */
 ProductModel.prototype.load= function(params, callback) {
   this._productService.get(params, function(res) {
-    this.items = res.data;
+    res.data.forEach(function(item) {
+      this.items.push(this._productService.create(item));
+    }, this);
     this.total = res.total;
-    callback ? callback(res) : '';
+    callback ? callback(this) : '';
   });
 }
  
@@ -149,11 +153,19 @@ ProductModel.prototype.load= function(params, callback) {
  */
 ProductModel.prototype.get= function(id, callback) {
   if(id != undefined) {
-    this.item = this._productService.get({id: id}, callback);
+    this.item = this._productService.get({id: id}, function() {
+      var variants = this.item.variants;
+      delete this.item.variants;
+      
+      var variants.forEach(function(variant) {
+        this.variants.push(this._variantService.create(variant));
+      }, this);
+    });
     return;
   }
   this.item = this._productService.create();
 }
+
 
 
 
