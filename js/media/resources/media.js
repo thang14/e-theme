@@ -4,7 +4,7 @@
  * @name            OnhanhMedia
  * @description     MediaService
  */
-mediaModule.service('mediaService', [ 'Upload', 'Environment', '$resource',
+mediaModule.factory('mediaResource', [ 'Upload', 'Environment', '$resource',
     function(Upload, Environment, $resource) {
         var api = Environment.settings.domain+'/media';
         
