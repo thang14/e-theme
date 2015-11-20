@@ -65,12 +65,9 @@ ProductModel.prototype.init = function() {
   generateThemeLabels.call(this);
   
   //Create variant
-  this.variant = this._variantService.create({
-    options: [],
-    price: 0,
-    sale: 0,
-    quantity: 1
-  });
+  this.variant = this._variantService.dataDefault;
+  
+  this.themes = this._productTheme;
 }
 
 /**
