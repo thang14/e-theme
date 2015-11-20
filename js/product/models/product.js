@@ -6,11 +6,13 @@
  */
  
 
-var ProductModel = function() {
+var Product = function() {
  this.items = [];
  this.total = 0;
  this.current = null;
+ 
  this._service = null;
+ this._factory = null;
 }
 
 /**
@@ -62,12 +64,13 @@ Product.prototype.$get= function(id, callback) {
      * @return ProductModel
      */
     $get: [
-     'productService', function(productService) {
+     'productService', 'productFactory', function(productService, productFactory) {
       this.instance._service = productService;
+      this.instance._factory = productFactory;
       return this.instance;
     }]
   }
   
-  productModule.provider('Product', ProductProvider);
+  productModule.provider('Product', productProvider, productFactory);
   
 })
