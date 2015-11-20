@@ -12,24 +12,6 @@ var ProductDetailController = function($scope, ProductModel, $stateParams) {
     
     //Gets product detail
     ProductModel.get($stateParams.id);
-    
-    [
-        
-        // Media
-        'deleteFile',
-        'upload',
-        'selectMedia',
-        
-        // Select
-        'sections',
-        
-        //Variant
-        'selectTheme',
-        'themeLabels',
-        'generateVariant',
-    ].forEach(function(value) {
-        $scope[value] = ProductModel[value];
-    });
 }
 
 Controller.$inject = [
