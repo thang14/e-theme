@@ -24,6 +24,13 @@ var themes = [
   
   ['style_name', 'configure_name'],
 ];
+
+var variantOptionLabels = [
+  'size_name': "Kích thước",
+  'color_name': "Màu sắc",
+  'style_name': "Kiểu dáng",
+  'configure': "Cấu hình"
+];
  
 function generateThemeLabels() {
   this.themes.forEach(function(values) {
@@ -65,12 +72,7 @@ ProductModel.prototype.themes = themes;
 /**
  * variantOptionLabels
  */
-ProductModel.prototype.variantOptionLabels = [
-  'size_name': "Kích thước",
-  'color_name': "Màu sắc",
-  'style_name': "Kiểu dáng",
-  'configure': "Cấu hình"
-];
+ProductModel.prototype.variantOptionLabels = variantOptionLabels;
 
 /**
  * Theme labels
