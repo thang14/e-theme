@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @name            OnhanhProduct
- * @description     ProductModule
+ * @name            OnhanhCrud
+ * @description     crudModule
  */
 var crudModule = angular.module("app.crud", []);
