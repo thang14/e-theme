@@ -5,176 +5,23 @@
  * @description     ProductModel
  */
  
-var themes = [
-  ['color_name'],
-  ['size_name'],
-  ['style_name'],
-  ['configure_name'],
-  
-  
-  ['color_name', 'size_name'],
-  ['color_name', 'stype_name'],
-  ['color_name', 'configure_name'],
-  ['color_name', 'size_name', 'style_name'],
-  ['color_name', 'size_name', 'configure_name'],
-  
-  ['size_name', 'style_name'],
-  ['size_name', 'configure_name'],
-  ['size_name', 'style_name', 'configure_name'],
-  
-  ['style_name', 'configure_name'],
-];
 
-var variantOptionLabels = [
-  'size_name': "Kích thước",
-  'color_name': "Màu sắc",
-  'style_name': "Kiểu dáng",
-  'configure': "Cấu hình"
-];
- 
-function generateThemeLabels() {
-  this.themes.forEach(function(values) {
-    var results = [];
-    values.forEach(function(value) {
-      results.push(this.variantOptionLabels[value]);
-    });
-    this.themeLabels.push(results.join(', '));
-  }, this);
-}
- 
- 
 var ProductModel = function() {
  this.items = [];
  this.total = 0;
- this.item = null;
- this.variant = null;
- this._sectionService = null;
- this._productService = null;
- this._mediaService = null;
- this._variantService = null;
+ this.current = null;
+ this._service = null;
 }
 
-
-/**
- * Init
- */
-ProductModel.prototype.init = function() {
-  this.sections = this._sectionService.get();
-  
-  // Generate theme label
-  generateThemeLabels.call(this);
-  
-  //Create variant
-  this.variant = this._variantService.dataDefault;
-  
-  this.themes = this._productTheme;
-}
-
-/**
- * Themes
- */
-ProductModel.prototype.createVariant = function() {
-  if(this.item.id == undefined) {
-    return;
-  };
-  if(this.variant.options.length != this.item.variant_options) {
-    return;
-  }
-  
-  this.variant.product_id = this.item.id;
-  
-  this.variant.options.forEach(function(value, index) {
-    var currentItems = this.item.variant_options[index].items;
-    var id = currentItems.indexOf(value);
-    if(!id) {
-      currentItems.push(value);
-      id = currentItems.length;
-    }
-    
-    this.variant.options[index] = id;
-  })
-  
-  
-  
-  this.variant.$save(function() {
-    this.item.variants.push(this.variant);
-  }.bind(this));
-};
-
-/**
- * Themes
- */
-ProductModel.prototype.themes = themes;
-
-/**
- * variantOptionLabels
- */
-ProductModel.prototype.variantOptionLabels = variantOptionLabels;
-
-/**
- * Theme labels
- */
-ProductModel.prototype.themeLabels = [];
-
-/**
- * Select variant themes
- */
-ProductModel.prototype.selectTheme = function(index) {
-  this.item.variant_options = this.item.variant_options : [];
-  if(this.themes[index] == undefined) {
-    this.item.theme = null;
-    return;
-  }
-  var options = this.themes[index];
-  options.forEach(function(values) {
-    values.forEach(function(value) {
-      this.item.variant_options.push({
-        name: value,
-        label: this.variantOptionLabels[value],
-        items: [],
-      });
-    }, this)
-  }, this);
-}
-
-/**
- * Select variant themes
- */
-ProductModel.prototype.generateVariant = function(key, data) {
-  
-  key = key || 0;
-  if(key === 0) {
-    this.item.variants = [];
-  }
-  
-  var options = this.item.variant_options;
-  data = data || [];
-  options.items.forEach(function(value, index) {
-    var item = angular.copy(data);
-    item.push(index);
-    if(options[index + 1] == undefined) {
-      this.item.variants = this.item.variants || [];
-      this.item.variants.push({
-        options: item,
-        price: 0,
-        sale: 0,
-        quantity: 1
-      });
-      return;
-    }
-    this.generateVariant(key + 1, item);
-  }, this);
-}
- 
 /**
  * Load Product List
  * @param Object|null params The param builder query
  * @return void(0)
  */
-ProductModel.prototype.load= function(params, callback) {
-  this._productService.get(params, function(res) {
+Product.prototype.$load= function(params, callback) {
+  this._service.get(params, function(res) {
     res.data.forEach(function(item) {
-      this.items.push(this._productService.create(item));
+      this.items.push(this._service.create(item));
     }, this);
     this.total = res.total;
     callback ? callback(this) : '';
@@ -188,19 +35,12 @@ ProductModel.prototype.load= function(params, callback) {
  * @param string id The Id of product item
  * @return void(0)
  */
-ProductModel.prototype.get= function(id, callback) {
+Product.prototype.$get= function(id, callback) {
   if(id != undefined) {
-    this.item = this._productService.get({id: id}, function() {
-      var variants = this.item.variants;
-      delete this.item.variants;
-      
-      var variants.forEach(function(variant) {
-        this.variants.push(this._variantService.create(variant));
-      }, this);
-    });
-    return this;
+    this.current = this._service.get({id: id});
+  } else {
+   this.current = this._service.create();
   }
-  this.item = this._productService.create();
   return this;
 }
 
@@ -272,27 +112,21 @@ ProductModel.prototype._handleFileDeleted= function(index) {
    * Product model, provider since all products
    * in the application use the same model
    */
-  var ProductModelProvider = function() {
+  var ProductProvider = function() {
     
-    instance: new ProductModel(),
+    instance: new Product(),
     
     /**
      * Initialize and configure ProductModel
      * @return ProductModel
      */
     $get: [
-     'productService', 
-     'sectionService', 
-     'mediaService', 'variantService', function(productService, sectionService, mediaService, variantService) {
+     'productService', function(productService) {
       this.instance._service = productService;
-      this.instance._sectionService = sectionService;
-      this.instance._mediaService = mediaService;
-      this.instance._variantService = variantServive;
-      this.instance.init();
       return this.instance;
     }]
   }
   
-  productModule.provider('Product', ProductModelProvider);
+  productModule.provider('Product', ProductProvider);
   
 })
