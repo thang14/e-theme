@@ -20,6 +20,9 @@ var ProductDetailController = function($scope, ProductModel, $stateParams) {
         'upload',
         'selectMedia',
         
+        // Select
+        'sections',
+        
         //Variant
         'selectTheme',
         'themeLabels',
