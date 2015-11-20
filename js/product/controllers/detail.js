@@ -5,16 +5,6 @@
  * @description     ProductDetailController
  */
 
-
-var ProductDetailController = function($scope, product) {
-    $scope.resource = product.item;
-}
-
-Controller.$inject = [
-    '$scope',
-    'product',
-];
-
 productModule
 .controller('productDetailController', ['$scope', '$state',  'productItem', 'sections',
     function($scope, $state, productItem) {
