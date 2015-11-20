@@ -22,6 +22,11 @@ sectionModule
               // ui-view within index.html.
               controller: 'sectionController',
               templateUrl: '/web/section/list.html',
+              resolve: {
+                  sections:['Section', function(Section) {
+                    return Section.$query().items;
+                  }]
+              }
             })
 
             .state("section.new", {
@@ -38,6 +43,11 @@ sectionModule
                     // ui-view within index.html.
                     controller: 'sectionDetailController',
                     templateUrl: '/web/section/detail.html',
+                    resolve: {
+                        sectionItem:['Section', function(Section) {
+                            return Section.$get().items;
+                        }]
+                    }
                 }  
               }
             })
@@ -56,6 +66,11 @@ sectionModule
                     // ui-view within index.html.
                     controller: 'sectionDetailController',
                     templateUrl: '/web/section/detail.html',
+                    resolve: {
+                        sectionItem:['Section', '$stateParams', function(Section, $stateParams) {
+                            return Section.$get($stateParams.id).items;
+                        }]
+                    }
                 }  
               }
             });
