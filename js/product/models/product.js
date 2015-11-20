@@ -15,11 +15,63 @@ var ProductModel = function() {
  this._variantService = null;
 }
 
+
 /**
  * Init
  */
 ProductModel.prototype.init = function() {
   this.sections = this._sectionService.get();
+}
+
+
+/**
+ * Select variant themes
+ */
+ProductModel.prototype.selectTheme = function(index) {
+  this.item.variant_options = this.item.variant_options : [];
+  if(this.themes[index] == undefined) {
+    this.item.theme = null;
+    return;
+  }
+  var options = this.themes[index];
+  options.forEach(function(values) {
+    values.forEach(function(value) {
+      this.item.variant_options.push({
+        name: value,
+        label: this.variantOptionLabels[value],
+        items: []
+      });
+    }, this)
+  }, this);
+}
+
+/**
+ * Select variant themes
+ */
+ProductModel.prototype.generateVariant = function(key, data) {
+  
+  key = key || 0;
+  if(key === 0) {
+    this.item.variants = [];
+  }
+  
+  var options = this.item.variant_options;
+  data = data || [];
+  options.items.forEach(function(value, index) {
+    var item = angular.copy(data);
+    item.push(index);
+    if(options[index + 1] == undefined) {
+      this.item.variants = this.item.variants || [];
+      this.item.variants.push({
+        options: item,
+        price: 0,
+        sale: 0,
+        quantity: 0
+      });
+      return;
+    }
+    this.generateVariant(key + 1, item);
+  }, this);
 }
  
 /**
