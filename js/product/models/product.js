@@ -7,7 +7,7 @@
 productModule.provider('Product', ['model', 'productResource',
   function(productResource) {
     return angular.extend(model, {
-      instance:productResource
+      resource:productResource
     })
   }
 ]);
