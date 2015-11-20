@@ -4,9 +4,9 @@
  * @name            OnhanhProduct
  * @description     ProductModel
  */
-productModule.provider('Product', ['productResource',
+productModule.provider('Product', ['model', 'productResource',
   function(productResource) {
-    return angular.extend(BaseModel, {
+    return angular.extend(model, {
       instance:productResource
     })
   }
