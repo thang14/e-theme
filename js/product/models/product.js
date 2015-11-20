@@ -5,6 +5,17 @@
  * @description     ProductModel
  */
  
+function generateThemeLabels() {
+  this.themes.forEach(function(values) {
+    var results = [];
+    values.forEach(function(value) {
+      results.push(this.variantOptionLabels[value]);
+    });
+    this.themeLabels.push(results.join(', '));
+  }, this);
+}
+ 
+ 
 var ProductModel = function() {
  this.items = [];
  this.total = 0;
@@ -21,6 +32,9 @@ var ProductModel = function() {
  */
 ProductModel.prototype.init = function() {
   this.sections = this._sectionService.get();
+  
+  // Generate theme label
+  generateThemeLabels.call(this);
 }
 
 /**
@@ -55,6 +69,11 @@ ProductModel.prototype.variantOptionLabels = [
   'style_name': "Kiểu dáng",
   'configure': "Cấu hình"
 ];
+
+/**
+ * Theme labels
+ */
+ProductModel.prototype.themeLabels = [];
 
 /**
  * Select variant themes
