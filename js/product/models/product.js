@@ -77,7 +77,12 @@ ProductModel.prototype.init = function() {
  * Themes
  */
 ProductModel.prototype.createVariant = function() {
-  if(this.item.id == undefined) return;
+  if(this.item.id == undefined) {
+    return;
+  };
+  if(this.variant.options.length != this.item.variant_options) {
+    return;
+  }
   
   this.variant.product_id = this.item.id;
   
@@ -92,9 +97,7 @@ ProductModel.prototype.createVariant = function() {
     this.variant.options[index] = id;
   })
   
-  if(this.variant.options.length != this.item.variant_options) {
-    return;
-  }
+  
   
   this.variant.$save(function() {
     this.item.variants.push(this.variant);
