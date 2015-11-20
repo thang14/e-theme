@@ -23,6 +23,28 @@ ProductModel.prototype.init = function() {
   this.sections = this._sectionService.get();
 }
 
+/**
+ * Select variant themes
+ */
+ProductModel.prototype.themes = [
+  ['color_name'],
+  ['size_name'],
+  ['style_name'],
+  ['configure_name'],
+  
+  
+  ['color_name', 'size_name'],
+  ['color_name', 'stype_name'],
+  ['color_name', 'configure_name'],
+  ['color_name', 'size_name', 'style_name'],
+  ['color_name', 'size_name', 'configure_name'],
+  
+  ['size_name', 'style_name'],
+  ['size_name', 'configure_name'],
+  ['size_name', 'style_name', 'configure_name'],
+  
+  ['style_name', 'configure_name'],
+];
 
 /**
  * Select variant themes
