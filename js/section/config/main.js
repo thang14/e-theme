@@ -7,6 +7,10 @@
 sectionModule
     .config(['$stateProvider',
         function($stateProvider) {
+            
+            var getCategories = ['Category', function() {
+               return Category.$all().items; 
+            }];
          // Use $stateProvider to configure your states.
           $stateProvider
 
@@ -46,8 +50,12 @@ sectionModule
                     resolve: {
                         sectionItem:['Section', function(Section) {
                             return Section.$get().current;
-                        }]
-                    }
+                        }],
+                        
+                        categories: getCategories(),
+                    },
+                    
+                    
                 }  
               }
             })
@@ -69,7 +77,9 @@ sectionModule
                     resolve: {
                         sectionItem:['Section', '$stateParams', function(Section, $stateParams) {
                             return Section.$get($stateParams.id).current;
-                        }]
+                        }],
+                        
+                        categories: getCategories(),
                     }
                 }  
               }
