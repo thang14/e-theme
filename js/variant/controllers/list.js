@@ -5,8 +5,8 @@
  * @description     VariantListController
  */
 variantModule
-	.controller('variantController', ['$location', '$scope', '$rootScope',
-	    function($location, $scope, $rootScope) {
-	    	
-	    }
-	]);
+.controller('variantController', ['$scope', '$state', 'variants',
+	function($scope, $state, variants) {
+	    $scope.variants = variants;
+	}
+]);
