@@ -46,65 +46,6 @@ Product.prototype.$get= function(id, callback) {
 
 
 
-
-/**
- * Upload
- * @param Array files
- * @return void(0)
- */
-ProductModel.prototype.upload= function($files) {
-  if($files && $files.length > 0) {
-    $files.forEach(function(file, index) {
-        this._mediaService.upload(file)
-            .success(this._handleUploaded.bind(this));
-    });
-  }
-}
-
-/**
- * Select Media;
- * @param integer index
- * @return void(0)
- */
-ProductModel.prototype.selectMedia= function(index) {
-  if(this.item.media_default) {
-    this.item.medias[this.item.media_default].selected = false;
-  }
-  this.item.medias[index].selected = true;
-}
-
-/**
- * Uploaded
- * @param Array files
- * @return void(0)
- */
-ProductModel.prototype._handleUploaded= function(res) {
-  this.item.medias = this.item.medias || [];
-  this.item.medias.push(res);
-}
-
-/**
- * deleteFile
- * @param Array files
- * @return void(0)
- */
-ProductModel.prototype.deleteFile= function(index) {
-  var file = this.item.medias[index];
-  file.$remove(function() {
-    this._handleFileDeleted(index);
-  }.bind(this));
-}
-
-/**
- * File Deleted
- * @param Array files
- * @return void(0)
- */
-ProductModel.prototype._handleFileDeleted= function(index) {
-  this.item.medias.splice(index, 1);
-}
-
-
 (function() {
   
 
