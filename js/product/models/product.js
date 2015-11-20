@@ -290,6 +290,6 @@ ProductModel.prototype._handleFileDeleted= function(index) {
     }]
   }
   
-  productModule.provider('productModel', ProductModelProvider);
+  productModule.provider('Product', ProductModelProvider);
   
 })
