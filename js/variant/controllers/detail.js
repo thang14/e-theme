@@ -1,36 +1,15 @@
 'use strict';
 
-/**
- * @name            OnhanhVariant
- * @description     VariantDetailController
- */
-var VariantAttributes = {
-     product: {
+
+variantModule.controller('variantDetailController', ['$scope', 'productItem', 'variantItem'
+     function($scope, productItem, variantItem) {
           
+          $scope.productItem = productItem;
+          $scope.resource = variantItem;
+          
+          
+          $scope.onSave = function() {
+               $scope.productItem.variants.push($scope.resource);
+          }
      }
-     price: 0,
-     sale: 0,
-     quantity: 0,
-     options: []
-}
-var Controller = function($scope, $rootScope, variantService, $controller){
-    
-    $scope.route = {
-         name: "product"
-    }
-    
-    $scope.itemDefault = VariantAttributes;
-    
-    //Extend
-    angular.extend($controller('baseDetailController', {
-        service: variantService,
-        $scope: $scope
-    }), this);
-}
-
-Controller.$inject = [
-    'variantService',
-    '$controller',
-];
-
-variantModule.controller('variantDetailController', Controller);
+]);
