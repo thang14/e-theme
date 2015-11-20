@@ -1,4 +1,4 @@
-angular.module('app.crud.directives.edit', [])
+angular.module('crud.directives.edit', [])
 
 // Apply this directive to an element at or below a form that will manage CRUD operations on a resource.
 // - The resource must expose the following instance methods: $saveOrUpdate(), $id() and $remove()
