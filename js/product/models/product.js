@@ -5,6 +5,26 @@
  * @description     ProductModel
  */
  
+var themes = [
+  ['color_name'],
+  ['size_name'],
+  ['style_name'],
+  ['configure_name'],
+  
+  
+  ['color_name', 'size_name'],
+  ['color_name', 'stype_name'],
+  ['color_name', 'configure_name'],
+  ['color_name', 'size_name', 'style_name'],
+  ['color_name', 'size_name', 'configure_name'],
+  
+  ['size_name', 'style_name'],
+  ['size_name', 'configure_name'],
+  ['size_name', 'style_name', 'configure_name'],
+  
+  ['style_name', 'configure_name'],
+];
+ 
 function generateThemeLabels() {
   this.themes.forEach(function(values) {
     var results = [];
@@ -40,25 +60,7 @@ ProductModel.prototype.init = function() {
 /**
  * Themes
  */
-ProductModel.prototype.themes = [
-  ['color_name'],
-  ['size_name'],
-  ['style_name'],
-  ['configure_name'],
-  
-  
-  ['color_name', 'size_name'],
-  ['color_name', 'stype_name'],
-  ['color_name', 'configure_name'],
-  ['color_name', 'size_name', 'style_name'],
-  ['color_name', 'size_name', 'configure_name'],
-  
-  ['size_name', 'style_name'],
-  ['size_name', 'configure_name'],
-  ['size_name', 'style_name', 'configure_name'],
-  
-  ['style_name', 'configure_name'],
-];
+ProductModel.prototype.themes = themes;
 
 /**
  * variantOptionLabels
