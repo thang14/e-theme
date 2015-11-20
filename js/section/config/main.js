@@ -45,7 +45,7 @@ sectionModule
                     templateUrl: '/web/section/detail.html',
                     resolve: {
                         sectionItem:['Section', function(Section) {
-                            return Section.$get().items;
+                            return Section.$get().current;
                         }]
                     }
                 }  
@@ -68,7 +68,7 @@ sectionModule
                     templateUrl: '/web/section/detail.html',
                     resolve: {
                         sectionItem:['Section', '$stateParams', function(Section, $stateParams) {
-                            return Section.$get($stateParams.id).items;
+                            return Section.$get($stateParams.id).current;
                         }]
                     }
                 }  
