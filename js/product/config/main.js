@@ -61,7 +61,7 @@ productModule
               },
               
               resolve: {
-                  product:['Product', function() {
+                  productItem:['Product', function() {
                     return Product.$get().current;
                   }],
                   
@@ -87,7 +87,7 @@ productModule
                       controller: 'productDetailController',
                       templateUrl: '/web/product/detail.html',
                       resolve: {
-                          product:['Product', '$stateParam', function($stateParam) {
+                          productItem:['Product', '$stateParam', function($stateParam) {
                             return Product.$get({id:$stateParam.id}).current;
                           }],
                           
