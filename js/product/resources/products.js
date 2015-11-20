@@ -4,8 +4,18 @@
  * @name            OnhanhProduct
  * @description     ProductService
  */
-productModule.factory('Products', ['resourceService',
+productModule.factory('productResource', ['resourceService', 'mediaResource'
     var Products = resourceService('product');
+    
+    Products.prototype.upload = function($files) {
+        if($files && $files.length > 0) {
+            $files.forEach(function(file) {
+                mediaResource.$upload(file, function(data) {
+                    this.medias.push(data);
+                });
+            }, this)
+        }
+    }
     
     return Products;
 ]);
