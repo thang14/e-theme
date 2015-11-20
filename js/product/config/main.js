@@ -57,7 +57,7 @@ productModule
               
               resolve: {
                   product:['Product', function() {
-                    return Product.get();
+                    return Product.$get();
                   }]
               }
             })
@@ -81,7 +81,7 @@ productModule
                       templateUrl: '/web/product/detail.html',
                       resolve: {
                           product:['Product', '$stateParam', function($stateParam) {
-                            return Product.get({id:$stateParam.id});
+                            return Product.$get({id:$stateParam.id});
                           }]
                       }
                   }
