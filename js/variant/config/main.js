@@ -50,6 +50,7 @@ variantModule
               variantItem:['Variant', '$stateParams', 'productItem', function(Variant, $stateParams, productItem) {
                 var item =  Variant.$get($stateParams.variantId).item;
                 item.product_id = productItem.id;
+                return item;
               }],
           }
         })
