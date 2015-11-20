@@ -6,7 +6,7 @@
  */
 (function() {
 
-  function crudRouteProvider($routeProvider) {
+  function crudStateProvider($stateProvider) {
 
     // This $get noop is because at the moment in AngularJS "providers" must provide something
     // via a $get method.
