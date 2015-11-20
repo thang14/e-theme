@@ -11,8 +11,7 @@ var Product = function() {
  this.total = 0;
  this.current = null;
  
- this._service = null;
- this._factory = null;
+ this._resource = null;
 }
 
 /**
@@ -71,6 +70,6 @@ Product.prototype.$get= function(id, callback) {
     }]
   }
   
-  productModule.provider('Product', productProvider, productFactory);
+  productModule.provider('Product', productResource);
   
 })
