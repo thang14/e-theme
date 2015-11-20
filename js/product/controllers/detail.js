@@ -22,7 +22,7 @@ var ProductDetailController = function($scope, ProductModel, $stateParams) {
         
         //Variant
         'selectTheme',
-        'variantThemes',
+        'themeLabels',
         'generateVariant',
     ].forEach(function(value) {
         $scope[value] = ProductModel[value];
