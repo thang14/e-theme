@@ -74,8 +74,7 @@ productModule
             ProductModel._service.update(rowEntity.id, rowEntity);
           }
           
-          gridService.init(product);
-          $scope.gridOptions = gridService.gridOptions($scope);
+          $scope.gridOptions = gridService.gridOptions($scope, product);
 
           //load collection from remote
           $scope.load = function() {
