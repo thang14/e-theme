@@ -36,14 +36,9 @@
     // We use it to create routes for CRUD operations.  We give it some basic information about
     // the resource and the urls then it it returns our own special routeProvider.
     this.routesFor = function(resourceName, urlPrefix, routePrefix) {
-      var baseUrl = resourceName.toLowerCase();
+      var baseUrl = '/web';
       var baseRoute = '/' + resourceName.toLowerCase();
       routePrefix = routePrefix || urlPrefix;
-
-      // Prepend the urlPrefix if available.
-      if ( angular.isString(urlPrefix) && urlPrefix !== '' ) {
-        baseUrl = urlPrefix + '/' + baseUrl;
-      }
 
       // Prepend the routePrefix if it was provided;
       if (routePrefix !== null && routePrefix !== undefined && routePrefix !== '') {
@@ -52,7 +47,7 @@
 
       // Create the templateUrl for a route to our resource that does the specified operation.
       var templateUrl = function(operation) {
-        return baseUrl + '/' + resourceName.toLowerCase() +'-'+operation.toLowerCase()+'.tpl.html';
+        return baseUrl + '/' + resourceName.toLowerCase() +'/'+operation.toLowerCase()+'.html';
       };
       // Create the controller name for a route to our resource that does the specified operation.
       var controllerName = function(operation) {
