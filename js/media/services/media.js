@@ -4,30 +4,24 @@
  * @name            OnhanhMedia
  * @description     MediaService
  */
-mediaModule.service('mediaService', [ 'Upload', 'Environment', '$http',
-    function(Upload, Environment, $http) {
-        return {
+mediaModule.service('mediaService', [ 'Upload', 'Environment', '$resource',
+    function(Upload, Environment, $resource) {
+        var api = Environment.settings.domain+'/media';
+        
+        var mediaService = $resource(api+'/:id', {id: '@id'});
+        mediaService.upload = function($file, callback) {
+            return Upload.upload({
+                url: api,
+                data: {
+                    file: $file,
+                },
+            }).success(function(res) {
+                res = new mediaService(res);
+                callback ? callback(res) : null;
+            });
             
-            /**
-             * Upload file
-             */
-            upload: function($file, callback) {
-                var api = Environment.settings.domain+'/media';
-                return Upload.upload({
-                    url: api,
-                    data: {
-                        file: $file,
-                    },
-                }).success(callback);
-            },
-            
-            // Remove file
-            remove: function($id) {
-                var api = Environment.settings.domain+'/media';
-                $http.delete(api,{
-                    id: $id
-                });
-            },
         }
+        
+        return mediaService;
     }
 ]);
