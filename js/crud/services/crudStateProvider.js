@@ -57,63 +57,63 @@
       // This is the object that our `routesFor()` function returns.  It decorates `$routeProvider`,
       // delegating the `when()` and `otherwise()` functions but also exposing some new functions for
       // creating CRUD routes.  Specifically we have `whenList(), `whenNew()` and `whenEdit()`.
-      var routeBuilder = {
+      var stateBuilder = {
         // Create a route that will handle showing a list of items
         stateList: function(resolveFns) {
-          routeBuilder.when(resourceName.toLowerCase(), {
+          stateBuilder.when(resourceName.toLowerCase(), {
             url: baseRoute,
             templateUrl: templateUrl('List'),
             controller: controllerName('List'),
             resolve: resolveFns
           });
-          return routeBuilder;
+          return stateBuilder;
         },
         // Create a route that will handle creating a new item
         stateNew: function(resolveFns) {
-          routeBuilder.when(resourceName.toLowerCase() +'.new', {
+          stateBuilder.when(resourceName.toLowerCase() +'.new', {
             url: baseRoute+'/new',
             templateUrl: templateUrl('Edit'),
             controller: controllerName('Edit'),
             resolve: resolveFns
           });
-          return routeBuilder;
+          return stateBuilder;
         },
         // Create a route that will handle editing an existing item
         stateEdit: function(resolveFns) {
-          routeBuilder.state( resourceName.toLowerCase()+'.edit', {
+          stateBuilder.state( resourceName.toLowerCase()+'.edit', {
             url: baseRoute+'/:id',
             templateUrl: templateUrl('Edit'),
             controller: controllerName('Edit'),
             resolve: resolveFns
           });
-          return routeBuilder;
+          return stateBuilder;
         },
         // Pass-through to `$routeProvider.when()`
         state: function(path, route) {
           $stateProvider.state(path, route);
-          return routeBuilder;
+          return stateBuilder;
         },
         // Pass-through to `$routeProvider.otherwise()`
         otherwise: function(params) {
           $stateProvider.otherwise(params);
-          return routeBuilder;
+          return stateBuilder;
         },
         // Access to the core $routeProvider.
         $stateProvider: $stateProvider
       };
-      return routeBuilder;
+      return stateBuilder;
     };
   }
   // Currently, v1.0.3, AngularJS does not provide annotation style dependencies in providers so,
   // we add our injection dependencies using the $inject form
-  crudRouteProvider.$inject = ['$stateProvider'];
+  crudStateProvider.$inject = ['$stateProvider'];
 
   // Create our provider - it would be nice to be able to do something like this instead:
   //
   // ```
-  // angular.module('services.crudRouteProvider', [])
-  //   .configHelper('crudRouteProvider', ['$routeProvider, crudRouteProvider]);
+  // angular.module('services.crudStateProvider', [])
+  //   .configHelper('crudStateProvider', ['$stateProvider, crudStateProvider]);
   // ```
   // Then we could dispense with the $get, the $inject and the closure wrapper around all this.
-  crudModule.provider('crudRoute', crudRouteProvider);
+  crudModule.provider('crudRoute', crudStateProvider);
 })();
