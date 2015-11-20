@@ -6,12 +6,8 @@
  */
 
 
-var ProductDetailController = function($scope, ProductModel, $stateParams) {
-    
-    $scope.resource = ProductModel.item;
-    
-    //Gets product detail
-    ProductModel.get($stateParams.id);
+var ProductDetailController = function($scope, product) {
+    $scope.resource = product.item;
 }
 
 Controller.$inject = [
