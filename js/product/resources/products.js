@@ -6,4 +6,6 @@
  */
 productModule.factory('Products', ['resourceService',
     var Products = resourceService('product');
+    
+    return Products;
 ]);
