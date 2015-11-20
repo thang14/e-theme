@@ -21,5 +21,15 @@ productModule.factory('productResource', ['resourceService', 'mediaResource'
         }
     }
     
+    /**
+     * Remove file
+     */
+    Products.prototype.$removeFile = function(index) {
+        this.medias[index].$remove(function() {
+            this.medias.splice(index, 1);
+        }.bind(this));
+        
+    }
+    
     return Products;
 ]);
