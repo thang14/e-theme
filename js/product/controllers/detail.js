@@ -12,8 +12,7 @@ var ProductDetailController = function($scope, product) {
 
 Controller.$inject = [
     '$scope',
-    'ProductModel',
-    '$stateParams'
+    'product',
 ];
 
 productModule
