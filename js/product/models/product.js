@@ -56,14 +56,13 @@ Product.prototype.$get= function(id, callback) {
    */
   var ProductProvider = function() {
     
-    instance: new Product(),
+    instance: new BaseModel(),
     
     /**
      * Initialize and configure ProductModel
      * @return ProductModel
      */
-    $get: [
-     'productService', 'productFactory', function(productResource) {
+    $get: ['productResource', function(productResource) {
       this.instance._resource = productResource;
       return this.instance;
     }]
