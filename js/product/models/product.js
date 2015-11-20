@@ -65,7 +65,12 @@ ProductModel.prototype.init = function() {
   generateThemeLabels.call(this);
   
   //Create variant
-  this.variant = this._variantService.create();
+  this.variant = this._variantService.create({
+    options: [],
+    price: 0,
+    sale: 0,
+    quantity: 1
+  });
 }
 
 /**
@@ -126,7 +131,7 @@ ProductModel.prototype.selectTheme = function(index) {
       this.item.variant_options.push({
         name: value,
         label: this.variantOptionLabels[value],
-        items: []
+        items: [],
       });
     }, this)
   }, this);
@@ -153,7 +158,7 @@ ProductModel.prototype.generateVariant = function(key, data) {
         options: item,
         price: 0,
         sale: 0,
-        quantity: 0
+        quantity: 1
       });
       return;
     }
