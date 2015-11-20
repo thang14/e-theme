@@ -20,9 +20,9 @@ var Product = function() {
  * @return void(0)
  */
 Product.prototype.$query= function(params, callback) {
-  this._service.get(params, function(res) {
+  this._resource.$get(params, function(res) {
     res.data.forEach(function(item) {
-      this.items.push(this._service.create(item));
+      this.items.push(new this._resource(item));
     }, this);
     this.total = res.total;
     callback ? callback(this) : '';
@@ -38,9 +38,9 @@ Product.prototype.$query= function(params, callback) {
  */
 Product.prototype.$get= function(id, callback) {
   if(id != undefined) {
-    this.current = this._service.get({id: id});
+    this.current = this._resource.get({id: id});
   } else {
-   this.current = this._service.create();
+   this.current = new this._resource();
   }
   return this;
 }
