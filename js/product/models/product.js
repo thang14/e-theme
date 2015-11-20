@@ -18,7 +18,7 @@ var ProductModel = function() {
  * @param Object|null params The param builder query
  * @return void(0)
  */
-Product.prototype.$load= function(params, callback) {
+Product.prototype.$query= function(params, callback) {
   this._service.get(params, function(res) {
     res.data.forEach(function(item) {
       this.items.push(this._service.create(item));
