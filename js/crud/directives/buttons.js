@@ -1,5 +1,10 @@
-angular.module('crud.directives.buttons', [])
+'use strict';
 
+/**
+ * @name            OnhanhCrud
+ * @description     crudModule
+ */
+crudModule
 .directive('crudButtons', function () {
   return {
     restrict:'E',
