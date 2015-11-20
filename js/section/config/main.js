@@ -8,7 +8,7 @@ sectionModule
     .config(['$stateProvider',
         function($stateProvider) {
             
-            var getCategories = ['Category', function() {
+            var getCategories = ['Category', function(Category) {
                return Category.$all().items; 
             }];
          // Use $stateProvider to configure your states.
