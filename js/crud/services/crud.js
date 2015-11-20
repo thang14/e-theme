@@ -5,7 +5,7 @@
  * @description     crudModule
  */
 crudModule
-crudModule.factory('crudEditMethods', function () {
+.factory('crudEditMethods', function () {
 
   return function (itemName, item, formName, successcb, errorcb) {
 
@@ -67,9 +67,9 @@ crudModule.factory('crudEditMethods', function () {
 
     return mixin;
   };
-});
+})
 
-crudModule.factory('crudListMethods', ['$location', function ($location) {
+.factory('crudListMethods', ['$location', function ($location) {
 
   return function (pathPrefix) {
 
