@@ -1,4 +1,11 @@
-angular.module('crud.directives.edit', [])
+'use strict';
+
+/**
+ * @name            OnhanhCrud
+ * @description     crudModule
+ */
+ 
+crudModule
 
 // Apply this directive to an element at or below a form that will manage CRUD operations on a resource.
 // - The resource must expose the following instance methods: $saveOrUpdate(), $id() and $remove()
