@@ -26,6 +26,12 @@ productModule
               // ui-view within index.html.
               controller: 'productController',
               templateUrl: '/web/product/list.html',
+              
+              resolve: {
+                  product:['Product', function(Product) {
+                    return Product.load();
+                  }]
+              }
             })
 
 
@@ -48,6 +54,12 @@ productModule
                       templateUrl: '/web/product/detail.html',
                   }
               },
+              
+              resolve: {
+                  product:['Product', function() {
+                    return Product.get();
+                  }]
+              }
             })
 
             //////////////////
@@ -67,6 +79,11 @@ productModule
                       // ui-view within index.html.
                       controller: 'productDetailController',
                       templateUrl: '/web/product/detail.html',
+                      resolve: {
+                          product:['Product', '$stateParam', function($stateParam) {
+                            return Product.get({id:$stateParam.id});
+                          }]
+                      }
                   }
               },
             })
