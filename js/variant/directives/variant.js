@@ -8,3 +8,5 @@
 crudModule
 
 .directive('variantDirective', ['$parse', function($parse) {
+  
+}]);  
