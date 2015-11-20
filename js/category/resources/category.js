@@ -16,7 +16,7 @@ categoryModule.factory('categoryResource', [ 'Upload', 'Environment', '$resource
                     file: $file,
                 },
             }).success(function(res) {
-                res = new mediaService(res);
+                res = new categoryResource(res);
                 callback ? callback(res) : null;
             });
             
