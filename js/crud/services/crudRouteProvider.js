@@ -59,8 +59,9 @@
       // creating CRUD routes.  Specifically we have `whenList(), `whenNew()` and `whenEdit()`.
       var routeBuilder = {
         // Create a route that will handle showing a list of items
-        whenList: function(resolveFns) {
-          routeBuilder.when(baseRoute, {
+        stateList: function(resolveFns) {
+          routeBuilder.when(resourceName.toLowerCase(), {
+            url: baseRoute,
             templateUrl: templateUrl('List'),
             controller: controllerName('List'),
             resolve: resolveFns
@@ -68,8 +69,9 @@
           return routeBuilder;
         },
         // Create a route that will handle creating a new item
-        whenNew: function(resolveFns) {
-          routeBuilder.when(baseRoute +'/new', {
+        stateNew: function(resolveFns) {
+          routeBuilder.when(resourceName.toLowerCase() +'.new', {
+            url: baseRoute+'/new',
             templateUrl: templateUrl('Edit'),
             controller: controllerName('Edit'),
             resolve: resolveFns
@@ -77,8 +79,9 @@
           return routeBuilder;
         },
         // Create a route that will handle editing an existing item
-        whenEdit: function(resolveFns) {
-          routeBuilder.when(baseRoute+'/:itemId', {
+        stateEdit: function(resolveFns) {
+          routeBuilder.state( resourceName.toLowerCase()+'.edit', {
+            url: baseRoute+'/:id',
             templateUrl: templateUrl('Edit'),
             controller: controllerName('Edit'),
             resolve: resolveFns
@@ -86,24 +89,24 @@
           return routeBuilder;
         },
         // Pass-through to `$routeProvider.when()`
-        when: function(path, route) {
-          $routeProvider.when(path, route);
+        state: function(path, route) {
+          $stateProvider.state(path, route);
           return routeBuilder;
         },
         // Pass-through to `$routeProvider.otherwise()`
         otherwise: function(params) {
-          $routeProvider.otherwise(params);
+          $stateProvider.otherwise(params);
           return routeBuilder;
         },
         // Access to the core $routeProvider.
-        $routeProvider: $routeProvider
+        $stateProvider: $stateProvider
       };
       return routeBuilder;
     };
   }
   // Currently, v1.0.3, AngularJS does not provide annotation style dependencies in providers so,
   // we add our injection dependencies using the $inject form
-  crudRouteProvider.$inject = ['$routeProvider'];
+  crudRouteProvider.$inject = ['$stateProvider'];
 
   // Create our provider - it would be nice to be able to do something like this instead:
   //
