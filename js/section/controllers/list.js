@@ -5,8 +5,8 @@
  * @description     SectionController
  */
 sectionModule
-    .controller('sectionController', [ '$scope',
-        function($scope) {
-            
-        }
-    ]);
+.controller('sectionController', [ '$scope', 'sections',
+    function($scope, sections) {
+        $scope.sections = sections;
+    }
+]);
