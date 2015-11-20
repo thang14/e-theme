@@ -117,5 +117,5 @@
   //   .configHelper('crudRouteProvider', ['$routeProvider, crudRouteProvider]);
   // ```
   // Then we could dispense with the $get, the $inject and the closure wrapper around all this.
-  angular.module('services.crudRouteProvider', ['ngRoute']).provider('crudRoute', crudRouteProvider);
+  crudModule.provider('crudRoute', crudRouteProvider);
 })();
