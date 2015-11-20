@@ -24,7 +24,7 @@ ProductModel.prototype.init = function() {
 }
 
 /**
- * Select variant themes
+ * Themes
  */
 ProductModel.prototype.themes = [
   ['color_name'],
@@ -44,6 +44,16 @@ ProductModel.prototype.themes = [
   ['size_name', 'style_name', 'configure_name'],
   
   ['style_name', 'configure_name'],
+];
+
+/**
+ * variantOptionLabels
+ */
+ProductModel.prototype.variantOptionLabels = [
+  'size_name': "Kích thước",
+  'color_name': "Màu sắc",
+  'style_name': "Kiểu dáng",
+  'configure': "Cấu hình"
 ];
 
 /**
