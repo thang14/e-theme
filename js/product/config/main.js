@@ -7,6 +7,11 @@
 productModule
     .config(['$stateProvider',
         function($stateProvider) {
+            
+            var getSections = ['Section', function(Section) {
+               return Section.$all().items; 
+            }];
+            
          // Use $stateProvider to configure your states.
           $stateProvider
 
@@ -28,9 +33,9 @@ productModule
               templateUrl: '/web/product/list.html',
               
               resolve: {
-                  product:['Product', function(Product) {
-                    return Product.load();
-                  }]
+                  products:['Product', function(Product) {
+                    return Product.$query().items;
+                  }],
               }
             })
 
@@ -57,8 +62,10 @@ productModule
               
               resolve: {
                   product:['Product', function() {
-                    return Product.$get();
-                  }]
+                    return Product.$get().current;
+                  }],
+                  
+                  sections: getSections,
               }
             })
 
@@ -81,8 +88,10 @@ productModule
                       templateUrl: '/web/product/detail.html',
                       resolve: {
                           product:['Product', '$stateParam', function($stateParam) {
-                            return Product.$get({id:$stateParam.id});
-                          }]
+                            return Product.$get({id:$stateParam.id}).current;
+                          }],
+                          
+                          sections: getSections,
                       }
                   }
               },
