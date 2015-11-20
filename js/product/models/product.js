@@ -107,29 +107,35 @@ ProductModel.prototype._handleFileDeleted= function(index) {
   this.item.medias.splice(index, 1);
 }
 
-/**
- * Product model, provider since all products
- * in the application use the same model
- */
-var ProductModelProvider = function() {
-  
-  instance: new ProductModel(),
-  
-  /**
-   * Initialize and configure ProductModel
-   * @return ProductModel
-   */
-  $get: [
-   'productService', 
-   'sectionService', 
-   'mediaService', 'variantService', function(productService, sectionService, mediaService, variantService) {
-    this.instance._service = productService;
-    this.instance._sectionService = sectionService;
-    this.instance._mediaService = mediaService;
-    this.instance._variantService = variantServive;
-    this.instance.init();
-    return this.instance;
-  }]
-}
 
-productModule.provider('productModel', ProductModelProvider);
+(function() {
+  
+
+  /**
+   * Product model, provider since all products
+   * in the application use the same model
+   */
+  var ProductModelProvider = function() {
+    
+    instance: new ProductModel(),
+    
+    /**
+     * Initialize and configure ProductModel
+     * @return ProductModel
+     */
+    $get: [
+     'productService', 
+     'sectionService', 
+     'mediaService', 'variantService', function(productService, sectionService, mediaService, variantService) {
+      this.instance._service = productService;
+      this.instance._sectionService = sectionService;
+      this.instance._mediaService = mediaService;
+      this.instance._variantService = variantServive;
+      this.instance.init();
+      return this.instance;
+    }]
+  }
+  
+  productModule.provider('productModel', ProductModelProvider);
+  
+})
