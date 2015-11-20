@@ -47,7 +47,6 @@ var ProductModel = function() {
  this.items = [];
  this.total = 0;
  this.item = null;
- this.variants = [];
  this.variant = null;
  this._sectionService = null;
  this._productService = null;
@@ -64,7 +63,20 @@ ProductModel.prototype.init = function() {
   
   // Generate theme label
   generateThemeLabels.call(this);
+  
+  //Create variant
+  this.variant = this._variantService.create();
 }
+
+/**
+ * Themes
+ */
+ProductModel.prototype.createVariant = function() {
+  this.variant.product_id = this.product.id;
+  this.variant.$save(function() {
+    this.item.variants.push(this.variant);
+  }.bind(this));
+};
 
 /**
  * Themes
