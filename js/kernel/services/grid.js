@@ -8,16 +8,10 @@
 kernelModule.service('gridService', [
     function() {
         return {
-            load: function($scope, model, conditions) {
-                return model
-                .load(conditions, function() {
-                    $scope.gridOptions.data = model.data;
-                    $scope.gridOptions.totalItems = model.total;
-                });
-            },
-
-            gridOptions: function($scope) {
+            gridOptions: function($scope, model) {
                 return {
+                    data: model.items,
+                    totalItems: model.total,
                     showGridFooter: false,
                     enableFiltering: false,
                     enableSorting: true,
