@@ -72,7 +72,21 @@ ProductModel.prototype.init = function() {
  * Themes
  */
 ProductModel.prototype.createVariant = function() {
-  this.variant.product_id = this.product.id;
+  if(this.item.id == undefined) return;
+  
+  this.variant.product_id = this.item.id;
+  
+  this.variant.options.forEach(function(value, index) {
+    var currentItems = this.item.variant_options[index].items;
+    var id = currentItems.indexOf(value);
+    if(!id) {
+      currentItems.push(value);
+      id = currentItems.length;
+    }
+    
+    this.variant.options[index] = id;
+  })
+  
   this.variant.$save(function() {
     this.item.variants.push(this.variant);
   }.bind(this));
