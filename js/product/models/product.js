@@ -179,6 +179,8 @@ ProductModel.prototype.load= function(params, callback) {
     this.total = res.total;
     callback ? callback(this) : '';
   });
+  
+  return this;
 }
  
 /**
@@ -196,9 +198,10 @@ ProductModel.prototype.get= function(id, callback) {
         this.variants.push(this._variantService.create(variant));
       }, this);
     });
-    return;
+    return this;
   }
   this.item = this._productService.create();
+  return this;
 }
 
 
