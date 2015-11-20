@@ -14,9 +14,9 @@ productModule.factory('productResource', ['resourceService', 'mediaResource'
     Products.prototype.$upload = function($files) {
         if($files && $files.length > 0) {
             $files.forEach(function(file) {
-                mediaResource.$upload(file, function(data) {
+                mediaResource.$upload(file).success( function(data) {
                     this.medias.push(data);
-                });
+                }.bind(this));
             }, this)
         }
     }
