@@ -13,15 +13,15 @@ productModule
         
         $scope.sections = sections;
         
+        //Goback
+        var goBack = function() {
+            $state.go('product');
+        }
         
         //Delete
-        $scop.onDelete = function() {
-            $state.go('product');
-        }
+        $scop.onDelete = goBack;
         
         //onSaveAndFinish
-        $scope.onSaveAndFinish = function() {
-            $state.go('product');
-        }
+        $scope.onSaveAndFinish = goBack;
     }
 ]);
