@@ -39,7 +39,9 @@ productModule
     $scope.resource.variants = $scope.resource.variants || [];
     $scope.resource.variant_options = $scope.resource.variant_options || [];
     
-    $scope.themes = VariantOption.themes;
+    $scope.themes = VariantOption.getThemeDropdownList();
+    
+    
     
 }]);
  
