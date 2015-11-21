@@ -77,7 +77,17 @@ productModule
       $scope.resource.variant_options = options;
     };
     
+    var getVariants = function(key, data) {
+      
+    }
     
+    /**
+     * GenerateVariants
+     * @return void;
+     */
+    $scope.generateVariants = function() {
+      $scope.resource.variants = getVariants();
+    };
     
     
   }
