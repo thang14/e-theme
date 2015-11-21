@@ -4,10 +4,13 @@
  * @name            OnhanhProduct
  * @description     ProductModel
  */
-productModule.provider('VariantOptions', [
+productModule.factory('VariantOptions', [
   function() {
     var obj = {};
     
+    /**
+     * Themes
+     */
     object.themes = [
     
       // Only
@@ -19,7 +22,19 @@ productModule.provider('VariantOptions', [
       ['cover_tyle_name'],
       
       
-    ]
+    ];
+    
+    object.labels = {
+      color_name: "Màu sắc",
+      size_name: "Kích thước",
+      style_name: "Kiểu dáng",
+      configure_name: "Cấu hình",
+      weight_name: "Trọng lượng",
+      cover_type_name: "Loại bìa"
+    }
+    
+    
+    
     return obj;
   }
 ]);
