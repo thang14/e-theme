@@ -18,6 +18,7 @@ productModule.factory('Model', [
       this.current = new this.resource();
     }
     this.current = this.resource.$get({id: id});
+    return this;
   }
   
   Model.prototype.$load = function(params) {
@@ -26,6 +27,11 @@ productModule.factory('Model', [
       this.items.push(new this.resource(res.items));
       this.total = res.total;
     }.bind(this));
+    return this;
+  }
+  
+  Model.prototype.$all = function() {
+    return this.$load();
   }
   
   return Model;
