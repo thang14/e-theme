@@ -6,6 +6,10 @@
  */
 
 productModule
+
+/**
+ * Product Detail Controller
+ */
 .controller('productDetailController', ['$scope', '$state',  'productItem', 'sections',
     function($scope, $state, productItem) {
         
@@ -24,4 +28,26 @@ productModule
         //onSaveAndFinish
         $scope.onSaveAndFinish = goBack;
     }
-]);
+])
+
+/**
+ * ProductVariantsController
+ */
+.controller('productVariantsController', [ '$scope', 'VariantOption', function($scope, VariantOption) {
+    
+    // Setting variant
+    $scope.resource.variants = $scope.resource.variants || [];
+    $scope.resource.variant_options = $scope.resource.variant_options || [];
+    
+    $scope.themes = VariantOption.themes;
+    
+}]);
+ 
+ 
+ 
+ 
+ 
+
+
+
+
