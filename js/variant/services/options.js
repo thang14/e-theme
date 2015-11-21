@@ -21,6 +21,23 @@ productModule.service('VariantOptions', [
       ['weight_name'],
       ['cover_tyle_name'],
       
+      // Color map
+      ['color_name', 'size_name'],
+      ['color_name', 'style_name'],
+      ['color_name', 'configure_name'],
+      ['color_name', 'size_name', 'style_name'],
+      ['color_name', 'size_name', 'configure_name'],
+      ['color_name', 'style_name', 'configure_name']
+      ['color_name', 'size_name', 'style_name', 'configure_name'],
+      
+      
+      // Size map
+      ['size_name', 'style_name'],
+      ['size_name', 'configure_name'],
+      ['size_name', 'style_name', 'configure_name'],
+      
+      // Style map
+      ['style_name', 'configure_name'],
       
     ];
     
