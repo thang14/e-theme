@@ -5,6 +5,25 @@
  * @description     ProductDetailController
  */
 
+// ArrayHelper
+var ArrayHelper = {
+    // Index
+    index: function(arr, field, prefix) {
+        prefix = prefix || '_';
+        return arr.map(function(obj) {
+            var rObj = {};
+            var index = obj[field];
+            if(typeof index === Array) {
+                index = index.join(prefix);
+            }
+            rObj[index] = obj;
+            return rObj;
+        });
+    }
+}
+
+
+
 productModule
 
 /**
@@ -41,6 +60,9 @@ productModule
     $scope.resource.variants = Variant.$instances($scope.resource.variants) || [];
     $scope.resource.variant_options = $scope.resource.variant_options || [];
     
+    //mapVariant
+    var mapVariant = ArrayHelper.index($scope.resource.variants, 'options');
+    
     /**
      * Themes
      */
@@ -61,8 +83,15 @@ productModule
     $scope.removeVariant = function(variant) {
         var index = $scope.resource.variants.indexOf(variant);
         if(index != =1) {
-            $scope.resource.variants.splice(index, 1);
+            variant.$remove(function() {
+                $scope.resource.variants.splice(index, 1);
+            });
         }
+    }
+    
+    // Upload for variant
+    $scope.uploadForVariant = function(variant) {
+        uploadMedia.call(this, variant);
     }
     
 }]);
