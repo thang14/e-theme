@@ -36,7 +36,7 @@ productModule
  */
 .controller('productVariantsController', ['$scope', 'VariantOptions', 'ArrayUtil'
   function($scope, $state, productItem) {
-    $scope.variants = [];  
+   
     // Default
     $scope.resource.variants = $scope.resource.variants || [];
     $scope.resource.variant_options = $scope.resource.variant_options : [];
