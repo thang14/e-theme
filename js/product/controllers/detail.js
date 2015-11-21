@@ -33,16 +33,18 @@ productModule
 /**
  * ProductVariantsController
  */
-.controller('productVariantsController', [ '$scope', 'VariantOption', function($scope, VariantOption) {
+.controller('productVariantsController', [ 
+    '$scope', 'VariantOption', 'variantResource', 'Media',
+    function($scope, VariantOption, Variant, Media) {
     
     // Setting variant
-    $scope.resource.variants = $scope.resource.variants || [];
+    $scope.resource.variants = Variant.$instances($scope.resource.variants) || [];
     $scope.resource.variant_options = $scope.resource.variant_options || [];
     
     /**
      * Themes
      */
-    $scope.themeDropdownList = VariantOption.getThemeDropdownList();
+    $scope.themeDropdownList = Variant.getThemeDropdownList();
     
     // Select themes
     $scope.selectTheme = function(theme) {
