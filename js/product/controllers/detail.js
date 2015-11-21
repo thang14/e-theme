@@ -38,15 +38,19 @@ productModule
   function($scope, $state, productItem) {
       
     $scope.resource.variants = $scope.resource.variants || [];
-    
-    
+    $scope.resource.variant_options = $scope.resource.variant_options : [];
+    var variantOptionMap = ArrayUtil.index($scope.resource.variant_options, 'name');
+    var variantMap = ArrayUtil.index($scope.resource.variants, 'options');
     /**
      * Select product theme
      * @param integer| null index key of the themes
      * @return void;
      */
     $scope.selectTheme = function(index) {
-      var options = [];
+      var options = [], 
+          names = VariantOptions.themes[index],
+          maps = variantOptionMap;
+          
       // Reset theme
       if(index === null) {
         $scope.resource.theme = null;
@@ -54,7 +58,7 @@ productModule
       }
       
       
-      var maps = ArrayUtil.index($scope.resource.variant_options, 'name');
+      
       
       // Options
       var names = VariantOptions.themes[index];
