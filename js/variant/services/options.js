@@ -4,14 +4,14 @@
  * @name            OnhanhProduct
  * @description     ProductModel
  */
-productModule.factory('VariantOptions', [
+productModule.service('VariantOptions', [
   function() {
     var obj = {};
     
     /**
      * Themes
      */
-    object.themes = [
+    obj.themes = [
     
       // Only
       ['color_name'],
@@ -24,7 +24,7 @@ productModule.factory('VariantOptions', [
       
     ];
     
-    object.labels = {
+    obj.labels = {
       color_name: "Màu sắc",
       size_name: "Kích thước",
       style_name: "Kiểu dáng",
@@ -33,7 +33,17 @@ productModule.factory('VariantOptions', [
       cover_type_name: "Loại bìa"
     }
     
-    
+    obj.getDropdownList = function() {
+      var results = [];
+      angular.forEach(this.themes, function(values, index) {
+        var result = [];
+        angular.forEach(values, function(value) {
+          result.push(this.labels[value]);
+        }, this);
+        results[index] = result.join(', ');
+      }, this);
+      return results;
+    }
     
     return obj;
   }
