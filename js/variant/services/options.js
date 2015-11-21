@@ -45,6 +45,21 @@ productModule.service('VariantOptions', [
       return results;
     }
     
+    obj.getOptions = function(index) {
+      var names = this.themes[index];
+      if(names == undefined) {
+        return undefined;
+      }
+      var options = [];
+      angular.forEach(names, function(name) {
+        options.push({
+          name: name,
+          label: this.labels[name],
+          items[0],
+        })
+      })
+    }
+    
     return obj;
   }
 ]);
