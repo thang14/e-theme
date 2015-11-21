@@ -39,7 +39,9 @@ productModule
     $scope.resource.variants = $scope.resource.variants || [];
     $scope.resource.variant_options = $scope.resource.variant_options || [];
     
-    // Themes
+    /**
+     * Themes
+     */
     $scope.themes = VariantOption.getThemeDropdownList();
     
     $scope.selectTheme = function(theme) {
