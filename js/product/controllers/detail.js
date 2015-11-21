@@ -74,8 +74,8 @@ productModule
     }
     
     // Select themes
-    $scope.generateVariants = function(key, data) {
-        
+    $scope.generateVariants = function() {
+        $scope.resource.variants = VariantOption.generateVariants();
     }
     
     
