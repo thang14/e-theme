@@ -44,11 +44,15 @@ productModule
      */
     $scope.themes = VariantOption.getThemeDropdownList();
     
+    // Select themes
     $scope.selectTheme = function(theme) {
         $scope.resource.variant_options = VariantOption.getOptions(theme);
     }
     
-    
+    // Select themes
+    $scope.generate = function(key, data) {
+        
+    }
     
 }]);
  
