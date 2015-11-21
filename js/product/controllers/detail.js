@@ -36,11 +36,16 @@ productModule
  */
 .controller('productVariantsController', ['$scope', 'VariantOptions', 'ArrayUtil'
   function($scope, $state, productItem) {
-      
+    $scope.variants = [];  
+    // Default
     $scope.resource.variants = $scope.resource.variants || [];
     $scope.resource.variant_options = $scope.resource.variant_options : [];
-    var variantOptionMap = ArrayUtil.index($scope.resource.variant_options, 'name');
-    var variantMap = ArrayUtil.index($scope.resource.variants, 'options');
+    
+    // Map data
+    var variantOptionMaps = ArrayUtil.index($scope.resource.variant_options, 'name');
+    var variantMaps = ArrayUtil.index($scope.resource.variants, 'options');
+    
+    
     /**
      * Select product theme
      * @param integer| null index key of the themes
@@ -49,7 +54,7 @@ productModule
     $scope.selectTheme = function(index) {
       var options = [], 
           names = VariantOptions.themes[index],
-          maps = variantOptionMap;
+          maps = variantOptionMaps;
           
       // Reset theme
       if(index === null) {
@@ -81,16 +86,37 @@ productModule
       $scope.resource.variant_options = options;
     };
     
-    var getVariants = function(key, data) {
-      
-    }
-    
     /**
      * GenerateVariants
      * @return void;
      */
-    $scope.generateVariants = function() {
-      $scope.resource.variants = getVariants();
+    $scope.generateVariants = function(key, data) {
+      var maps = variantMaps;
+      key = key || 0;
+      if(key === 0) {
+        $scope.resource.variants = [];
+      }
+      
+      var options = $scope.resource.variant_options;
+      data = data || [];
+      (options[key].items).forEach(function(value, index) {
+        var item = angular.copy(data);
+        item.push(index);
+        if(!options[key + 1]) {
+          if(maps[item.join('_')] == undefined) {
+            maps[item.join('_')] = {
+              options: item,
+              price: 0,
+              sale: 0,
+              quantity: 1,
+            }
+          }
+          
+          $scope.resource.variants.push(maps[item.join('_')]);
+          return;
+        }
+        $scope.generateVariants(key + 1, item);
+      });
     };
     
     
