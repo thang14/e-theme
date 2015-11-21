@@ -22,7 +22,20 @@ var ArrayHelper = {
     }
 }
 
+var uploadMedia = function($scope, resource, file, instance) {
+    resource.$upload(file, function(response) {
+        instance.medias.push(response.data);
+        $scope.onUploaded(response);
+    });
+}
 
+var removeMedia = function($scope, resource, file, instance) {
+    file.$remove(function() {
+       var index = instance.medias.indexOf(file); 
+       instance.medias.splice(index, 1);
+       $scope.onRemoveMedia(file);
+    });
+}
 
 productModule
 
@@ -55,44 +68,6 @@ productModule
 .controller('productVariantsController', [ 
     '$scope', 'VariantOption', 'variantResource', 'Media',
     function($scope, VariantOption, Variant, Media) {
-    
-    // Setting variant
-    $scope.resource.variants = Variant.$instances($scope.resource.variants) || [];
-    $scope.resource.variant_options = $scope.resource.variant_options || [];
-    
-    //mapVariant
-    var mapVariant = ArrayHelper.index($scope.resource.variants, 'options');
-    
-    /**
-     * Themes
-     */
-    $scope.themeDropdownList = Variant.getThemeDropdownList();
-    
-    // Select themes
-    $scope.selectTheme = function(theme) {
-        $scope.resource.variant_options = VariantOption.getOptions(theme);
-    }
-    
-    // Select themes
-    $scope.generateVariants = function() {
-        $scope.resource.variants = VariantOption.generateVariants();
-    }
-    
-    
-    // Remove variant
-    $scope.removeVariant = function(variant) {
-        var index = $scope.resource.variants.indexOf(variant);
-        if(index != =1) {
-            variant.$remove(function() {
-                $scope.resource.variants.splice(index, 1);
-            });
-        }
-    }
-    
-    // Upload for variant
-    $scope.uploadForVariant = function(variant) {
-        uploadMedia.call(this, variant);
-    }
     
 }]);
  
