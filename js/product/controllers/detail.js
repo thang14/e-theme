@@ -42,7 +42,7 @@ productModule
     /**
      * Themes
      */
-    $scope.themes = VariantOption.getThemeDropdownList();
+    $scope.themeDropdownList = VariantOption.getThemeDropdownList();
     
     // Select themes
     $scope.selectTheme = function(theme) {
@@ -50,8 +50,17 @@ productModule
     }
     
     // Select themes
-    $scope.generate = function(key, data) {
+    $scope.generateVariants = function(key, data) {
         
+    }
+    
+    
+    // Remove variant
+    $scope.removeVariant = function(variant) {
+        var index = $scope.resource.variants.indexOf(variant);
+        if(index != =1) {
+            $scope.resource.variants.splice(index, 1);
+        }
     }
     
 }]);
