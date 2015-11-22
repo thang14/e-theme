@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         },
       }
     },
-    concat: concatModules(files),
+    concat: concatModules(files['modules']),
     uglify: {
         core: {
             files:{
