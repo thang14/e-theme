@@ -108,6 +108,15 @@ module.exports = function(grunt) {
         }
       }
     },
+    
+    karma: {
+      unit: {
+        files: [
+          { src: ['tests/**/*.js'] }
+        ]
+      }
+    },
+
     copy: {
         bootstrap: {
             files: [{
@@ -173,7 +182,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-angular-templates');
-
+  grunt.loadNpmTasks('grunt-karma');
+  
+  
   grunt.registerTask('js', ['concat', 'uglify:dist']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);
