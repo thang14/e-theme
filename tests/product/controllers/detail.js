@@ -12,6 +12,20 @@ describe('productDetailController', function() {
     it('save', function() {
       var $scope = {};
       var controller = $controller('productDetailController', { $scope: $scope });
+      $scope.name = 'abc';
+      $scope.variant_options = [{
+        name: "size_name", 
+        label : "Size",
+        items: ['Red']
+      }];
+      
+      $scope.variant_variants = [{
+        option: '0',
+        price: 1000,
+        sale: 5,
+        quantity: 1
+      }]
+      
       $scope.save();
       expect($scope.strength).toEqual('strong');
     });
