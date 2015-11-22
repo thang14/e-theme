@@ -9,7 +9,7 @@ describe('productDetailController', function() {
   }));
 
   describe('$scope.save', function() {
-    it('select theme', function() {
+    it('save', function() {
       var $scope = {};
       var controller = $controller('productDetailController', { $scope: $scope });
       $scope.save();
