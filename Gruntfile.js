@@ -13,7 +13,7 @@ var bowerComponents = function(arr) {
   return arr;
 }
 
-var concatModules = function(modules) {
+var getConcatModules = function(modules) {
   var result = {};
   Object.keys(modules).forEach(function(moduleName) {
     result[moduleName] = {
@@ -24,6 +24,14 @@ var concatModules = function(modules) {
   return result;
 }
 
+
+var getModulesUglify = function(modules) {
+  var results = [];
+  Object.keys(modules).forEach(function(moduleName) {
+    results.push('dist/js/'+moduleName+'.js');
+  });
+  return results;
+}
 
 module.exports = function(grunt) {
 
@@ -40,7 +48,7 @@ module.exports = function(grunt) {
         },
       }
     },
-    concat: concatModules(files['modules']),
+    concat: getConcatModules(files['modules']),
     uglify: {
         core: {
             files:{
@@ -61,6 +69,16 @@ module.exports = function(grunt) {
                ]),
            }
        },
+       
+       dist: {
+            options: {
+              sourceMap: true
+            },
+            files:{
+                "dist/js/app.js": getModulesUglify(files['modules']),
+           }
+        }
+       
        dist: {
             options: {
               sourceMap: true
@@ -69,20 +87,8 @@ module.exports = function(grunt) {
                 "dist/js/app.js":[
                     'js/app.js',
                     'js/constant.js',
-                    'js/environment.js',
-                    'dist/js/kernel.js',
-                    'dist/js/product.js',
-                    'dist/js/auth.js',
-                    'dist/js/section.js',
-                    'dist/js/order.js',
-                    'dist/js/shop.js',
-                    'dist/js/variant.js',
-                    'dist/js/reports.js',
-                    'dist/js/dashboard.js',
-                    'dist/js/settings.js',
-                    'dist/js/media.js',
-                    'dist/js/base.js',
-                    'js/bootstrap.js'
+                    'dist/js/modules.js',
+                    'js/bootstrap.js',
               ],
            }
         }
