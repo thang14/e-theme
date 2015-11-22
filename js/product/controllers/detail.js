@@ -70,7 +70,7 @@ productModule
       names.forEach(function(values, index) {
         var result = [];
         values.forEach(function(value) {
-          if(optionMaps[value] == undefined) {
+          if(angular.isUndefined(optionMaps[value])) {
             optionMaps[value] = {
               name: value,
               label: VariantOptions.labels[value],
@@ -101,7 +101,7 @@ productModule
         var item = angular.copy(data);
         item.push(index);
         if(!options[key + 1]) {
-          if(itemMaps[item.join('_')] == undefined) {
+          if(angular.isUndefined(itemMaps[item.join('_')])) {
             itemMaps[item.join('_')] = {
               option: item.join('_'),
               price: 0,
