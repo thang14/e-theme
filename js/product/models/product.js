@@ -24,9 +24,6 @@ function $ProductProvider() {
       resource: resource
     });
     
-    
-    model.remove
-    
     return model;
   }]
   
