@@ -34,7 +34,7 @@ productModule
 /**
  * Product Detail Controller
  */
-.controller('productVariantsController', ['$scope', 'VariantOptions', 'ArrayUtil'
+.controller('productVariantsController', ['$scope', 'VariantOptions',
   function($scope, $state, productItem) {
    
     // Default
@@ -42,8 +42,8 @@ productModule
     $scope.resource.variant_options = $scope.resource.variant_options : [];
     
     // Map data
-    var variantOptionMaps = ArrayUtil.index($scope.resource.variant_options, 'name');
-    var variantMaps = ArrayUtil.index($scope.resource.variants, 'options');
+    var optionMaps = _.indexBy($scope.resource.variant_options, 'name');
+    var itemMaps = _.indexBy($scope.resource.variants, 'option');
     
     
     /**
@@ -53,8 +53,7 @@ productModule
      */
     $scope.selectTheme = function(index) {
       var options = [], 
-          names = VariantOptions.themes[index],
-          maps = variantOptionMaps;
+          names = VariantOptions.themes[index];
           
       // Reset theme
       if(index === null) {
@@ -71,8 +70,8 @@ productModule
       names.forEach(function(values, index) {
         var result = [];
         values.forEach(function(value) {
-          if(maps[value] == undefined) {
-            maps[value] = {
+          if(optionMaps[value] == undefined) {
+            optionMaps[value] = {
               name: value,
               label: VariantOptions.labels[value],
               items: []
@@ -91,7 +90,6 @@ productModule
      * @return void;
      */
     $scope.generateVariants = function(key, data) {
-      var maps = variantMaps;
       key = key || 0;
       if(key === 0) {
         $scope.resource.variants = [];
@@ -103,16 +101,16 @@ productModule
         var item = angular.copy(data);
         item.push(index);
         if(!options[key + 1]) {
-          if(maps[item.join('_')] == undefined) {
-            maps[item.join('_')] = {
-              options: item,
+          if(itemMaps[item.join('_')] == undefined) {
+            itemMaps[item.join('_')] = {
+              option: item.join('_'),
               price: 0,
               sale: 0,
               quantity: 1,
             }
           }
           
-          $scope.resource.variants.push(maps[item.join('_')]);
+          $scope.resource.variants.push(itemMaps[item.join('_')]);
           return;
         }
         $scope.generateVariants(key + 1, item);
