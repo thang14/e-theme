@@ -34,7 +34,7 @@ productModule
 /**
  * Product Detail Controller
  */
-.controller('productVariantsController', ['$scope', 'VariantOptions',
+.controller('productVariantsController', ['$scope', 'VariantOptions', 'variantResource',
   function($scope, $state, productItem) {
    
     // Default
@@ -102,12 +102,12 @@ productModule
         item.push(index);
         if(!options[key + 1]) {
           if(angular.isUndefined(itemMaps[item.join('_')])) {
-            itemMaps[item.join('_')] = {
+            itemMaps[item.join('_')] = new variantResource({
               option: item.join('_'),
               price: 0,
               sale: 0,
               quantity: 1,
-            }
+            });
           }
           
           $scope.resource.variants.push(itemMaps[item.join('_')]);
