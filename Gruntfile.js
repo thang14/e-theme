@@ -70,7 +70,7 @@ module.exports = function(grunt) {
            }
        },
        
-       dist: {
+       modules: {
             options: {
               sourceMap: true
             },
