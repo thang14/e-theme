@@ -75,7 +75,7 @@ module.exports = function(grunt) {
               sourceMap: true
             },
             files:{
-                "dist/js/app.js": getModulesUglify(files['modules']),
+                "dist/js/modules.js": getModulesUglify(files['modules']),
            }
         }
        
