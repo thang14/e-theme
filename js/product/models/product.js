@@ -4,9 +4,8 @@
  * @name            OnhanhProduct
  * @description     ProductModel
  */
-productModule.provider('Product', ['Model', 'productResource',
-  function(Model, productResource) {
-    return new Model(productResource);
-  }
-]);
+productModule.provider('Product', $ProductProvider);
 
+function $ProductProvider() {
+  
+}
