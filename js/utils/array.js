@@ -1,4 +1,4 @@
-use strict';
+"use strict';
 
 /**
  * @name            OnhanhUtil
@@ -12,10 +12,11 @@ utilModule
     joinPrefix = joinPrefix || '_';
     return arr.map(function(obj) {
       var rObj = {};
-      var data = field[field];
-      if(typeof data === Array) {
-        data = data.join(joinPrefix);
+      var index = field[field];
+      if(typeof index === Array) {
+        index = data.join(joinPrefix);
       }
+      rObj[index] = obj;
       return rObj;
     })
   }
