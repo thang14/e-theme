@@ -18,8 +18,8 @@ function $ProductProvider() {
    * @description
    * Provides read/write access to browser's products.`
    */
-  this.$get = ['productResource', function(productResource) {
-    this.resource = productResource;
+  this.$get = ['productResource', function(resource) {
+    this.resource = resource;
   }]
   
   
