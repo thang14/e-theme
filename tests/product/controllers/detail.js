@@ -28,6 +28,7 @@ describe('productDetailController', function() {
       
       $scope.save();
       expect($scope.strength).toEqual('strong');
+      $scope.remove();
     });
   });
 });
