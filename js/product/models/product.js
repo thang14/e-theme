@@ -15,9 +15,17 @@ function $ProductProvider() {
    * Provides read/write access to browser's products.`
    */
   this.$get = ['Model', 'productResource', function(Model, resource) {
+    
+    /**
+     * +items
+     * +current
+     */
     var model =  new Model({
       resource: resource
     });
+    
+    
+    model.remove
     
     return model;
   }]
