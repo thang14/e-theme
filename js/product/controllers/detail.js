@@ -117,7 +117,15 @@ productModule
       });
     };
     
-    
+    $scope.removeVariant = function(variant) {
+      var index = $scope.resource.variants.indexOf(variant);
+      if(index >= 0) {
+        if(variant.$id()) {
+          variant.$remove();
+        }
+        $scope.resource.variants.splice(index, 1);
+      }
+    }
   }
 ])
 
