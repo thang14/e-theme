@@ -1,6 +1,30 @@
 var files = require('./adminFiles').files;
 var util = require('./lib/grunt/utils.js');
 
+// Bower components
+var bowerComponents = function(arr) {
+  var results = [];
+  if(typeof arr === "String") {
+    arr = [arr];
+  }
+  arr.forEach(function(value) {
+    results.push('bower_components/' + value);
+  })
+  return arr;
+}
+
+var concatModules = function(modules) {
+  var result = {};
+  Object.keys(modules).forEach(function(moduleName) {
+    result[moduleName] = {
+      dest: 'dist/js/'+moduleName+'.js',
+      src: util.wrap([modules[moduleName]], 'module'),
+    };
+  });
+  return result;
+}
+
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -16,69 +40,25 @@ module.exports = function(grunt) {
         },
       }
     },
-    concat: {
-      kernel: {
-        dest: 'dist/js/kernel.js',
-        src: util.wrap([files['modules']['kernel']], 'module')
-      },
-      product: {
-        dest: 'dist/js/product.js',
-        src: util.wrap([files['modules']['product']], 'module')
-      },
-      auth: {
-        dest: 'dist/js/auth.js',
-        src: util.wrap([files['modules']['auth']], 'module')
-      },
-      section: {
-        dest: 'dist/js/section.js',
-        src: util.wrap([files['modules']['section']], 'module')
-      },
-      order: {
-        dest: 'dist/js/order.js',
-        src: util.wrap([files['modules']['order']], 'module')
-      },
-      shop: {
-        dest: 'dist/js/shop.js',
-        src: util.wrap([files['modules']['shop']], 'module')
-      },
-      variant: {
-        dest: 'dist/js/variant.js',
-        src: util.wrap([files['modules']['variant']], 'module')
-      },
-      reports: {
-        dest: 'dist/js/reports.js',
-        src: util.wrap([files['modules']['reports']], 'module'),
-      },
-      settings: {
-        dest: 'dist/js/settings.js',
-        src: util.wrap([files['modules']['settings']], 'module'),
-      },
-      media: {
-        dest: 'dist/js/media.js',
-        src: util.wrap([files['modules']['media']], 'module'),
-      },
-      base: {
-        dest: 'dist/js/base.js',
-        src: util.wrap([files['modules']['base']], 'module'),
-      }
-    },
+    concat: concatModules(files),
     uglify: {
         core: {
             files:{
-                "dist/js/core.js":[
-                    'bower_components/jquery/dist/jquery.min.js',
-                    'bower_components/angular/angular.min.js',
-                    'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-                    'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-                    'bower_components/ng-file-upload/ng-file-upload-all.min.js',
-                    'bower_components/angular-input-masks/angular-input-masks-standalone.min.js',
-                    'bower_components/ng-tags-input/ng-tags-input.min.js',
-        		        'bower_components/angular-ui-grid/ui-grid.js',
-        		        'bower_components/angular-loading-bar/build/loading-bar.min.js',
-                    'bower_components/angular-notify/dist/angular-notify.min.js',
-                    'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-                    'bower_components/angular-resource/angular-resource.min.js',
-               ],
+                "dist/js/core.js":bowerComponents([
+                    'jquery/dist/jquery.min.js',
+                    'angular/angular.min.js',
+                    'angular-ui-router/release/angular-ui-router.min.js',
+                    'bootstrap-sass/assets/javascripts/bootstrap.min.js',
+                    'ng-file-upload/ng-file-upload-all.min.js',
+                    'angular-input-masks/angular-input-masks-standalone.min.js',
+                    'ng-tags-input/ng-tags-input.min.js',
+        		        'angular-ui-grid/ui-grid.js',
+        		        'angular-loading-bar/build/loading-bar.min.js',
+                    'angular-notify/dist/angular-notify.min.js',
+                    'angular-bootstrap/ui-bootstrap-tpls.min.js',
+                    'angular-resource/angular-resource.min.js',
+                    'underscore/underscore.min.js',
+               ]),
            }
        },
        dist: {
@@ -125,7 +105,7 @@ module.exports = function(grunt) {
     copy: {
         bootstrap: {
             files: [{
-                src: 'bower_components/bootstrap-sass/assets/fonts/**',
+                src: bowerComponents('bootstrap-sass/assets/fonts/**'),
                 dest: 'dist/fonts/bootstrap/',
                 expand: true,
                 flatten: true
@@ -135,7 +115,7 @@ module.exports = function(grunt) {
 
         awesome: {
             files: [{
-                src: 'bower_components/font-awesome-sass/assets/fonts/**',
+                src: bowerComponents('/font-awesome-sass/assets/fonts/**'),
                 dest: 'dist/fonts/font-awesome/',
                 expand: true,
                 flatten: true
