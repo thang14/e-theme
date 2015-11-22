@@ -15,11 +15,11 @@ function $ProductProvider() {
    * Provides read/write access to browser's products.`
    */
   this.$get = ['Model', 'productResource', function(Model, resource) {
-    var route =  new Model({
+    var model =  new Model({
       resource: resource
     });
     
-    return route;
+    return model;
   }]
   
   
