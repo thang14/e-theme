@@ -17,6 +17,12 @@ productModule
     
     $scope.sections = sections;
     
+    // Action
+    $scope.action = {
+      name: null,
+      item: null,
+    };
+    
     //Goback
     var goBack = function() {
         $state.go('product');
@@ -27,6 +33,12 @@ productModule
     
     //onSaveAndFinish
     $scope.onSaveAndFinish = goBack;
+    
+    // Set action
+    $scope.setAction = function(item, name) {
+      this.action.name = name;
+      this.action.item = item;
+    }
     
     $scope.upload = function($files) {
       $scope.resource.upload($files);
