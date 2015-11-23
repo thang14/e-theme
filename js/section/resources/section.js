@@ -4,7 +4,7 @@
  * @name            OnhanhProduct
  * @description     sectionModule
  */
-sectionModule.factory('sectionResource', ['resourceService'
+sectionModule.factory('Sections', ['resourceService'
     var sectionResource = resourceService('section');
     return sectionResource;
 ]);
