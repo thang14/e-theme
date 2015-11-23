@@ -40,12 +40,8 @@ productModule
       return $scope.resource.current;
     }
     
-    $scope.upload = function($files) {
-      angular.forEach($files, function(file) {
-        Media.upload(file, function(res) {
-          $scope.getCurrentVariant().addMedia(res);
-        });
-      });
+    $scope.defaultUpload = function($files) {
+      $scope.getCurrentVariant().upload($files);
     }
   }
 ])
