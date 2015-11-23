@@ -447,5 +447,5 @@
 
     </div><!--.content-->
     
-    <div ng-include="action.view"></div><!--.media-list-->
+    <div ng-if="action.view" ng-include="action.view"></div><!--.media-list-->
 </form>
