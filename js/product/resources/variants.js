@@ -4,7 +4,7 @@
  * @name            OnhanhProduct
  * @description     variantModule
  */
-variantModule.factory('variantResource', ['resourceService', 'Media'
+variantModule.factory('Variants', ['resourceService', 'Medias'
     function(resourceService) {
         var variantResource = resourceService('variant');
         return variantResource;
