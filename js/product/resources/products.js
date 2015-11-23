@@ -58,10 +58,10 @@ productModule.factory('Products', ['resourceService', 'Medias', 'Variants', 'pro
                 return variants[0];
             }
             
-            if(!this.current instanceof Resource) {
-                this.current = new variantResource();
+            if(!this.variant instanceof Resource) {
+                this.variant = new variantResource(this.variant);
             }
-            return this.current;
+            return this.variant;
         }
         
         
