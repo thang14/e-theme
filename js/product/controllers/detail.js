@@ -11,7 +11,7 @@ productModule
  * Product Detail Controller
  */
 .controller('productDetailController', ['$scope', '$state',  'productItem', 'sections',
-  function($scope, $state, productItem) {
+  function($scope, $state, productItem, sections) {
       
     var resource = $scope.resource = productItem;
     
