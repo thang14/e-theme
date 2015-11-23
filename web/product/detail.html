@@ -447,6 +447,5 @@
 
     </div><!--.content-->
     
-    <div ng-if="canUploadMedia && variant" ng-include="/web/product/media-list.html"></div><!--.media-list-->
-    <div ui-view="variant"></div>
+    <div ng-include="action.view"></div><!--.media-list-->
 </form>
