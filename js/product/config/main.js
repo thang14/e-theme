@@ -61,10 +61,11 @@ productModule
               },
               
               resolve: {
-                  productItem:['Product', function() {
-                    return Product.$get().current;
+                  productItem:['Products', 'Variants', function(Products, Variants) {
+                    var item = new Products();
+                    item.current = new Variants();
+                    return item;
                   }],
-                  
                   sections: getSections,
               }
             })
@@ -87,10 +88,12 @@ productModule
                       controller: 'productDetailController',
                       templateUrl: '/web/product/detail.html',
                       resolve: {
-                          productItem:['Product', 'Variant', '$stateParam', function(Product, Variant, $stateParam) {
-                            var item = Product.$get({id:$stateParam.id}).current;
-                            item.variants = Variant.$get({product_id: item.id});
-                            return item;
+                          productItem:['Variants', '$stateParam', function(Products, $stateParam) {
+                            return Product.$get({id:$stateParam.id});
+                          }],
+                          
+                          variants:['Variants', '$stateParam', function(Variants, $stateParam) {
+                            return Variants.$get({product_id:$stateParam.id});
                           }],
                           
                           sections: getSections,
