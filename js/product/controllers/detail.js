@@ -19,8 +19,8 @@ productModule
     
     // Action
     var action = $scope.action = {
-      name: null,
       item: null,
+      view: null,
     };
     
     //Goback
@@ -36,8 +36,8 @@ productModule
     
     // Set action
     $scope.setAction = function(item, name) {
-      action.name = name;
       action.item = item;
+      action.view = '/web/product/'+name,
     }
     
     $scope.upload = function(file) {
