@@ -11,11 +11,8 @@ productModule
         //Page Init
         $scope.currentPage = 1;
         $scope.maxSize = 5;
-
-        $scope.setPage = function(page) {
-            $scope.currentPage = page;
-        }
         
+        // grid Options
         $scope.gridOptions = productGridService.gridOptions();
         
         
