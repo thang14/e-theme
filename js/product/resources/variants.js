@@ -8,6 +8,11 @@ variantModule.factory('Variants', ['resourceService', 'Medias'
     function(resourceService) {
         var Variant = resourceService('variant');
         
+        
+        /**
+         * Upload media
+         * @param object mefiledia
+         */
         Variant.prototype.upload = function(file) {
             this.medias = this.medias || [];
             this.medias.push(file);
