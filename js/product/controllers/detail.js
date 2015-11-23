@@ -40,16 +40,15 @@ productModule
       action.view = '/web/product/'+name,
     }
     
-    $scope.upload = function(file) {
-      resource.upload(file);
-    }
-    
-    $scope.removeFile = function(file) {
-      resource.removeFile(file)
-      .error(function(data, status, headers, config) {
-        i18nNotifications.error('Tải ảnh thất bại');
-      });
-    }
+    [
+      'selectTemplate',
+      'templateDropdownList',
+      'generateVariants',
+      'removeVariant',
+      'removeFile',
+    ].forEach(function(value) {
+      $scope[value] = resource[value];
+    });
   }
 ]);
 
