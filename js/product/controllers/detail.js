@@ -10,8 +10,8 @@ productModule
 /**
  * Product Detail Controller
  */
-.controller('productDetailController', ['$scope', '$state',  'productItem', 'sections',
-  function($scope, $state, productItem, sections) {
+.controller('productDetailController', ['$scope', '$state',  'productItem', 'sections', 'i18nNotifications',
+  function($scope, $state, productItem, sections, i18nNotifications) {
       
     var resource = $scope.resource = productItem;
     
@@ -40,12 +40,18 @@ productModule
       action.item = item;
     }
     
-    $scope.upload = function($files) {
-      resource.upload($files);
+    $scope.upload = function(file) {
+      file.upload = resource.upload(file);
+      file.upload.progress(function(evt) {
+        file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+      });
     }
     
     $scope.removeFile = function(file) {
-      resource.removeFile(file);
+      resource.removeFile(file)
+      .error(function(data, status, headers, config) {
+        i18nNotifications.error('Tải ảnh thất bại');
+      });
     }
   }
 ]);
