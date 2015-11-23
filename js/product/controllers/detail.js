@@ -65,6 +65,18 @@ productModule
     var resource = $scope.resource = variantItem;
     $scope.resource.product_id = productItem.id;
     $scope.options = variantItem.variant_options;
+    
+    $scope.$watch('option', function(option) {
+      option.forEach(function(value, index) {
+        var idx = $scope.options[index].indexOf(value);
+        if(idx === -1) {
+          $scope.options[index].push(value);
+          idx = $scope.options[index].length - 1;
+          $scope.resource.option[index] = idx;
+        }
+      });
+    });
+    
     $scope.onSave = function() {
       productItem.variants.push(resource);
       productItem.$save();
