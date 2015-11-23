@@ -24,23 +24,19 @@ productModule.factory('productResource', ['resourceService', 'mediaResource', 'v
         }
         
         productResource.prototype.generateVariants = function() {
-            var maps = _.indexBy(this.variants, 'option');
             function generateVariants(key, data) {
                 var options = this.variant_options;
                 angular.forEach(options[key].items, function(value, index) {
                     var item = angular.copy(data);
                     item.push(index);
                     if(angular.isUndefined(options[key + 1])) {
-                        item = item.join('_');
-                        if(angular.isUndefined(maps[item])) {
-                            maps[item] = new variantResource({
-                                price: 0,
-                                sale: 0,
-                                quantity: 0,
-                                option: item
-                            });
-                        }
-                        this.variants.push(maps[item]);
+                        item = new variantResource({
+                            price: 0,
+                            sale: 0,
+                            quantity: 0,
+                            option: item
+                        });
+                        this.variants.push(item);
                     } else {
                         generateVariants(key + 1, data);
                     }
