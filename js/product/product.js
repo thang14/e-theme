@@ -4,4 +4,6 @@
  * @name            OnhanhProduct
  * @description     ProductModule
  */
-var productModule = angular.module("app.product", ['app.variant']);
+var productModule = angular.module("app.product", [
+  'app.variant',
+]);
