@@ -8,8 +8,6 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
     
     function(resourceService, mediaResource, Variants) {
         
-        var caches = {};
-        
         var productResource = resourceService('product');
         
         productResource.prototype.selectTemplate = function(template) {
@@ -25,19 +23,16 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                 return;
             }
             
-            var key = 'template_' + template;
-            if(angular.isUndefined(caches[key])) {
-                caches[key] = [];
-                var names = productTemplates.templates[template];
-                angular.forEach(names, function(name) {
-                    caches[key].push({
-                        name: name,
-                        label: productTemplates.labels[name],
-                        values: []
-                    })
+            var options = [];
+            var names = productTemplates.templates[template];
+            angular.forEach(names, function(name) {
+                options.push({
+                    name: name,
+                    label: productTemplates.labels[name],
+                    values: []
                 })
-            }
-            this.variant_options = caches[key];
+            });
+            this.variant_options = options;
         }
         
         productResource.prototype.templateDropdownList = function() {
@@ -52,16 +47,12 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                     var item = angular.copy(data);
                     item.push(index);
                     if(angular.isUndefined(options[key + 1])) {
-                        cacheKey = 'variant_' + this.template +'_' + item.join('_');
-                        if(angular.isUndefined(caches[cacheKey])) {
-                            caches[cacheKey] = new Variants({
-                                price: 0,
-                                sale: 0,
-                                quantity: 0,
-                                option: item
-                            });
-                        }
-                        this.variants.push(caches[cacheKey]);
+                        this.variants.push(new Variants({
+                            price: 0,
+                            sale: 0,
+                            quantity: 0,
+                            option: item
+                        }));
                     } else {
                         generateVariants(key + 1, data);
                     }
