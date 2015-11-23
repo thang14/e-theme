@@ -86,7 +86,7 @@ productModule
  /**
  * Product Detail Controller
  */
-.controller('productVariantMedias', ['$scope'
+.controller('productVariantDetail', ['$scope'
   function($scope, $state, productItem) {
     var item = $scope.action.item;
     // Upload
