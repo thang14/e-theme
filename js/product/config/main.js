@@ -8,8 +8,8 @@ productModule
     .config(['$stateProvider',
         function($stateProvider) {
             
-            var getSections = ['Sections', function(Section) {
-               return Section.$get(); 
+            var getSections = ['Sections', function(Sections) {
+               return Sections.query(); 
             }];
             
             var getProductId = ['$stateParams', function($stateParams) {
@@ -37,8 +37,8 @@ productModule
               templateUrl: '/web/product/list.html',
               
               resolve: {
-                  products:['Product', function(Product) {
-                    return Product.$query().items;
+                  products:['Products', function(Products) {
+                    return Products.query();
                   }],
               }
             })
@@ -94,11 +94,11 @@ productModule
                       resolve: {
                           productId: getProductId(),
                           productItem:['Products', 'productId', function(Products, productId) {
-                            return Product.$get({id:productId});
+                            return Products.get({id:productId});
                           }],
                           
                           variants:['Variants', 'productId', function(Variants, productId) {
-                            return Variants.$get({product_id:productId});
+                            return Variants.query({product_id:productId});
                           }],
                           
                           sections: getSections,
