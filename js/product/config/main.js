@@ -87,8 +87,10 @@ productModule
                       controller: 'productDetailController',
                       templateUrl: '/web/product/detail.html',
                       resolve: {
-                          productItem:['Product', '$stateParam', function($stateParam) {
-                            return Product.$get({id:$stateParam.id}).current;
+                          productItem:['Product', 'Variant', '$stateParam', function(Product, Variant, $stateParam) {
+                            var item = Product.$get({id:$stateParam.id}).current;
+                            item.variants = Variant.$get({product_id: item.id});
+                            return item;
                           }],
                           
                           sections: getSections,
