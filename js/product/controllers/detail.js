@@ -67,6 +67,33 @@ productModule
 
  
  
+ /**
+ * Product Detail Controller
+ */
+.controller('variantFileList', ['$scope', 'VariantOptions', 'variantResource',
+  function($scope, $state, productItem) {
+   
+    // Default
+    $scope.resource.variants = $scope.resource.variants || [];
+    $scope.resource.variant_options = $scope.resource.variant_options : [];
+    
+    
+    $scope.selectTheme = function(index) {
+      $scope.resource.selectTheme(index);
+    };
+    
+    $scope.generateVariants = function() {
+      $scope.resource.generateVariants(index);
+    };
+    
+    $scope.removeVariant = function(variant) {
+      $scope.resource.removeVariant(variant);
+    }
+  }
+])
+
+
+ 
  
 
 
