@@ -45,6 +45,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         }
         
         productResource.prototype.generateVariants = function() {
+            this.variants = [];
             function generateVariants(key, data) {
                 var options = this.variant_options;
                 angular.forEach(options[key].values, function(value, index) {
