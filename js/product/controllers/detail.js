@@ -40,7 +40,7 @@ productModule
       return $scope.resource.current;
     }
     
-    $scope.defaultUpload = function($files) {
+    $scope.upload = function($files) {
       $scope.getCurrentVariant().upload($files);
     }
   }
