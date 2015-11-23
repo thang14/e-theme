@@ -82,17 +82,17 @@ productModule
  /**
  * Product Detail Controller
  */
-.controller('variantMedias', ['$scope'
+.controller('productVariantMedias', ['$scope'
   function($scope, $state, productItem) {
-    
+    var item = $scope.action.item;
     // Upload
     $scope.upload = function($files) {
-      $scope.fileVariant.upload($files);
+      item.upload($files);
     }
     
     // Remove file
     $scope.removeFile = function(file) {
-      $scope.fileVariant.removeFile(file);
+      item.removeFile(file);
     }
   }
 ])
