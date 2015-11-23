@@ -28,20 +28,12 @@ productModule
     //onSaveAndFinish
     $scope.onSaveAndFinish = goBack;
     
-    /**
-     * Gets variant default
-     * @return VariantResource
-     */
-    $scope.getVariantDefault = function() {
-      var variants = $scope.resource.variants;
-      if(!angular.isUndefined(variants) && variants.length > 0) {
-        return variants[0];
-      }
-      return $scope.resource.current;
+    $scope.upload = function($files) {
+      $scope.resource.upload($files);
     }
     
-    $scope.upload = function($files) {
-      $scope.getCurrentVariant().upload($files);
+    $scope.removeFile = function(file) {
+      $scope.resource.removeFile(file);
     }
   }
 ])
