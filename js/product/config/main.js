@@ -8,8 +8,12 @@ productModule
     .config(['$stateProvider',
         function($stateProvider) {
             
-            var getSections = ['Section', function(Section) {
-               return Section.$all().items; 
+            var getSections = ['Sections', function(Section) {
+               return Section.$get(); 
+            }];
+            
+            var getProductId = ['$stateParams', function($stateParams) {
+               return $stateParams.id; 
             }];
             
          // Use $stateProvider to configure your states.
@@ -88,12 +92,13 @@ productModule
                       controller: 'productDetailController',
                       templateUrl: '/web/product/detail.html',
                       resolve: {
-                          productItem:['Variants', '$stateParam', function(Products, $stateParam) {
-                            return Product.$get({id:$stateParam.id});
+                          productId: getProductId(),
+                          productItem:['Products', 'productId', function(Products, productId) {
+                            return Product.$get({id:productId});
                           }],
                           
-                          variants:['Variants', '$stateParam', function(Variants, $stateParam) {
-                            return Variants.$get({product_id:$stateParam.id});
+                          variants:['Variants', 'productId', function(Variants, productId) {
+                            return Variants.$get({product_id:productId});
                           }],
                           
                           sections: getSections,
