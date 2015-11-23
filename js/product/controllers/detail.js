@@ -81,7 +81,6 @@ productModule
       productItem.variants.push(resource);
       productItem.$save();
     }
-    
 }]);
 
 
