@@ -13,12 +13,12 @@ productModule
 .controller('productDetailController', ['$scope', '$state',  'productItem', 'sections',
   function($scope, $state, productItem) {
       
-    $scope.resource = productItem;
+    var resource = $scope.resource = productItem;
     
     $scope.sections = sections;
     
     // Action
-    $scope.action = {
+    var action = $scope.action = {
       name: null,
       item: null,
     };
@@ -36,16 +36,16 @@ productModule
     
     // Set action
     $scope.setAction = function(item, name) {
-      this.action.name = name;
-      this.action.item = item;
+      action.name = name;
+      action.item = item;
     }
     
     $scope.upload = function($files) {
-      $scope.resource.upload($files);
+      resource.upload($files);
     }
     
     $scope.removeFile = function(file) {
-      $scope.resource.removeFile(file);
+      resource.removeFile(file);
     }
   }
 ])
@@ -56,22 +56,26 @@ productModule
  */
 .controller('productVariantsController', ['$scope', 'VariantOptions', 'variantResource',
   function($scope, $state, productItem) {
-   
-    // Default
-    $scope.resource.variants = $scope.resource.variants || [];
-    $scope.resource.variant_options = $scope.resource.variant_options : [];
+    var resource = $scope.resource;
+    
+    var defaults = {
+      variants: [],
+      variant_options: []
+    }
+    
+    angular.extend(defaults, resource);
     
     
     $scope.selectTheme = function(index) {
-      $scope.resource.selectTheme(index);
+      resource.selectTheme(index);
     };
     
     $scope.generateVariants = function() {
-      $scope.resource.generateVariants(index);
+      resource.generateVariants(index);
     };
     
     $scope.removeVariant = function(variant) {
-      $scope.resource.removeVariant(variant);
+      resource.removeVariant(variant);
     }
   }
 ])
