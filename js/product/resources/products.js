@@ -40,8 +40,8 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             this.variant_options = caches[key];
         }
         
-        productResource.prototype.themeDropdownList = function() {
-            return productThemes.getDropdownList();
+        productResource.prototype.templateDropdownList = function() {
+            return productTemplates.getDropdownList();
         }
         
         productResource.prototype.generateVariants = function() {
