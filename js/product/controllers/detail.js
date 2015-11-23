@@ -49,6 +49,14 @@ productModule
     ].forEach(function(value) {
       $scope[value] = resource[value];
     });
+    
+    $scope.upload = function($files) {
+      if($files && $files.length > 0) {
+        $files.forEach(function(file) {
+          resource.upload(file);
+        });
+      }
+    }
   }
 ]);
 
