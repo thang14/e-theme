@@ -93,8 +93,11 @@ productModule
                       templateUrl: '/web/product/detail.html',
                       resolve: {
                           productId: getProductId(),
-                          productItem:['Products', 'productId', function(Products, productId) {
-                            return Products.get({id:productId});
+                          productItem:['Products', 'productId', function(Products, productId, variants) {
+                            var item = Products.get({id:productId}, function() {
+                                item.variants = variants;
+                            });
+                            return item;
                           }],
                           
                           variants:['Variants', 'productId', function(Variants, productId) {
