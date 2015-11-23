@@ -8,9 +8,9 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
     
     function(resourceService, mediaResource, Variants) {
         
-        var productResource = resourceService('product');
+        var Products = resourceService('product');
         
-        productResource.prototype.selectTemplate = function(template) {
+        Products.prototype.selectTemplate = function(template) {
             if(!this.isNew()) {
                 return false;
             }
@@ -37,11 +37,11 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             this.variant_options = options;
         }
         
-        productResource.prototype.templateDropdownList = function() {
+        Products.prototype.templateDropdownList = function() {
             return productTemplates.getDropdownList();
         }
         
-        productResource.prototype.generateVariants = function() {
+        Products.prototype.generateVariants = function() {
             if(!this.isNew()) {
                 return false;
             }
@@ -66,7 +66,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             generateVariants.call(this, 0, []);
         }
         
-        productResource.prototype.removeVariant = function(variant) {
+        Products.prototype.removeVariant = function(variant) {
             var index = this.variants.indexOf(variant);
             if(variant.id) {
                 variant.$remove();
@@ -74,7 +74,29 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             this.variant.splice(index, 1);
         }
         
-        productResource.prototype.getVariantDefault = function() {
+        
+        
+        Products.prototype.removeVariantOption = function(a1, a2) {
+            this.variants.forEach(function(obj) {
+                if(typeof obj.option === "Array") {
+                    if(angular.isUndefined(a2)) {
+                        obj.option.splice(a1, 1);
+                        if(obj.option.length === 0) {
+                            this.removeVariant(obj);
+                        } else {
+                            obj.$save();
+                        }
+                    }
+                    
+                    if(a1 && a2) {
+                        obj.option[a1].splice(a2, 1);
+                        obj.$save();
+                    }
+                }
+            }, this)
+        }
+        
+        Products.prototype.getVariantDefault = function() {
             var variants = this.variants;
             if(!angular.isUndefined(variants) && variants.length > 0) {
                 return variants[0];
@@ -87,17 +109,17 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         }
         
         
-        productResource.prototype.upload = function(file) {
+        Products.prototype.upload = function(file) {
             return this.getVariantDefault().upload(file);
         }
         
-        productResource.prototype.removeFile = function(file) {
+        Products.prototype.removeFile = function(file) {
             return this.getVariantDefault().removeFile(file);
         }
         
-        productResource.prototype.isNew = function() {
+        Products.prototype.isNew = function() {
             return (this.id ! = undefined);
         }
-        return productResource;
+        return Products;
     }
 ]);
