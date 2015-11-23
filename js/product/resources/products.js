@@ -57,6 +57,10 @@ productModule.factory('productResource', ['resourceService', 'mediaResource', 'v
             if(!angular.isUndefined(variants) && variants.length > 0) {
                 return variants[0];
             }
+            
+            if(!this.current instanceof Resource) {
+                this.current = new variantResource();
+            }
             return this.current;
         }
         
