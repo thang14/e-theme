@@ -7,6 +7,15 @@
 productModule.factory('productResource', ['resourceService', 'mediaResource'
     var productResource = resourceService('product');
     
+    productResource.prototype.getVariantDefault = function() {
+        var variants = this.variants;
+        if(!angular.isUndefined(variants) && variants.length > 0) {
+            return variants[0];
+        }
+        return this.current;
+    }
+    
+    
     productResource.prototype.upload = function(file) {
         var variant = this.getVariantDefault();
         variant.medias = variant.medias || [];
