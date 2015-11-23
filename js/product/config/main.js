@@ -37,11 +37,7 @@ productModule
               templateUrl: '/web/product/list.html',
               
               resolve: {
-                  products:['Products', function(Products) {
-                    return Products.query();
-                  }],
-                  
-                  count:['Products', function(Products) {
+                  product:['Products', function(Products) {
                     return Products.query();
                   }],
               }
