@@ -27,6 +27,26 @@ productModule
     
     //onSaveAndFinish
     $scope.onSaveAndFinish = goBack;
+    
+    /**
+     * Gets variant default
+     * @return VariantResource
+     */
+    $scope.getVariantDefault = function() {
+      var variants = $scope.resource.variants;
+      if(!angular.isUndefined(variants) && variants.length > 0) {
+        return variants[0];
+      }
+      return $scope.resource.current;
+    }
+    
+    $scope.upload = function($files) {
+      angular.forEach($files, function(file) {
+        Media.upload(file, function(res) {
+          $scope.getCurrentVariant().addMedia(res);
+        });
+      });
+    }
   }
 ])
 
