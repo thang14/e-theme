@@ -73,7 +73,9 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         
         productResource.prototype.removeVariant = function(variant) {
             var index = this.variants.indexOf(variant);
-            variant.$remove();
+            if(variant.id) {
+                variant.$remove();
+            }
             this.variant.splice(index, 1);
         }
         
