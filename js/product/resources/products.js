@@ -7,6 +7,33 @@
 productModule.factory('productResource', ['resourceService', 'mediaResource'
     var productResource = resourceService('product');
     
+    productResource.prototype.generateVariants = function() {
+        var maps = _.indexBy(this.variants, 'option');
+        function generateVariants(key, data) {
+            var options = this.variant_options;
+            angular.forEach(options[key].items, function(value, index) {
+                var item = angular.copy(data);
+                item.push(index);
+                if(angular.isUndefined(options[key + 1])) {
+                    item = item.join('_');
+                    if(angular.isUndefined(maps[item])) {
+                        maps[item] = {
+                            price: 0,
+                            sale: 0,
+                            quantity: 0,
+                            option: item
+                        };
+                    }
+                    this.variants.push(maps[item]);
+                } else {
+                    generateVariants(key + 1, data);
+                }
+            })
+        }
+        
+        generateVariants.call(this, 0, []);
+    }
+    
     productResource.prototype.getVariantDefault = function() {
         var variants = this.variants;
         if(!angular.isUndefined(variants) && variants.length > 0) {
