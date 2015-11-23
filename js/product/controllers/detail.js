@@ -58,6 +58,18 @@ productModule
       }
     }
   }
-]);
+])
+
+
+.controller('VariantDetailController', ['$scope', 'variantItem', 'productItem', function($scope, variantItem, productItem) {
+    var resource = $scope.resource = variantItem;
+    $scope.resource.product_id = productItem.id;
+    $scope.options = variantItem.variant_options;
+    $scope.onSave = function() {
+      productItem.variants.push(resource);
+      productItem.$save();
+    }
+    
+}]);
 
 
