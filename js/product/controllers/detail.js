@@ -48,63 +48,6 @@ productModule
       resource.removeFile(file);
     }
   }
-])
-
-
-/**
- * Product Detail Controller
- */
-.controller('productVariantsController', ['$scope', 'VariantOptions', 'variantResource',
-  function($scope, $state, productItem) {
-    var resource = $scope.resource;
-    
-    var defaults = {
-      variants: [],
-      variant_options: []
-    }
-    
-    angular.extend(defaults, resource);
-    
-    
-    $scope.selectTheme = function(index) {
-      resource.selectTheme(index);
-    };
-    
-    $scope.generateVariants = function() {
-      resource.generateVariants(index);
-    };
-    
-    $scope.removeVariant = function(variant) {
-      resource.removeVariant(variant);
-    }
-  }
-])
-
-
- 
- 
- /**
- * Product Detail Controller
- */
-.controller('productVariantDetail', ['$scope'
-  function($scope, $state, productItem) {
-    var item = $scope.action.item;
-    // Upload
-    $scope.upload = function($files) {
-      item.upload($files);
-    }
-    
-    // Remove file
-    $scope.removeFile = function(file) {
-      item.removeFile(file);
-    }
-  }
-])
-
-
- 
- 
-
-
+]);
 
 
