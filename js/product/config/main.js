@@ -40,6 +40,10 @@ productModule
                   products:['Products', function(Products) {
                     return Products.query();
                   }],
+                  
+                  count:['Products', function(Products) {
+                    return Products.query();
+                  }],
               }
             })
 
