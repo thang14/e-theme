@@ -52,7 +52,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                     var item = angular.copy(data);
                     item.push(index);
                     if(angular.isUndefined(options[key + 1])) {
-                        cacheKey = 'variant_' + item.join('_');
+                        cacheKey = 'variant_' + this.template +'_' + item.join('_');
                         if(angular.isUndefined(caches[cacheKey])) {
                             caches[cacheKey] = new variantResource({
                                 price: 0,
@@ -65,7 +65,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                     } else {
                         generateVariants(key + 1, data);
                     }
-                })
+                }, this)
             }
             
             generateVariants.call(this, 0, []);
