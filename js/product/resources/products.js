@@ -79,7 +79,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         Products.prototype.removeVariantOption = function(a1, a2) {
             this.variants.forEach(function(obj) {
                 if(typeof obj.option === "Array") {
-                    if(angular.isUndefined(a2)) {
+                    if(a1 && angular.isUndefined(a2)) {
                         obj.option.splice(a1, 1);
                         if(obj.option.length === 0) {
                             this.removeVariant(obj);
