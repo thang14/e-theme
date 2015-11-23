@@ -20,7 +20,10 @@ variantModule.factory('Variants', ['resourceService', 'Medias'
             // Success
             file.upload.success(function(data, status, headers, config) {
                 file = data;
-            });
+                if(this.id) {
+                    this.$save();
+                }
+            }.bind(this));
             // Progress
             file.upload.progress(function (evt) {
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
@@ -35,6 +38,9 @@ variantModule.factory('Variants', ['resourceService', 'Medias'
             var idx = this.medias.splice(media);
             if(idx >= 0) {
                 media.$remove();
+                if(this.id) {
+                    this.$save();
+                }
                 this.medias.splice(idx, 1);
             }
         }
