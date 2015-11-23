@@ -11,7 +11,9 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         var productResource = resourceService('product');
         
         productResource.prototype.selectTemplate = function(template) {
-            
+            if(!this.isNew()) {
+                return false;
+            }
             
             if(template === this.template) {
                 return;
@@ -40,6 +42,9 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         }
         
         productResource.prototype.generateVariants = function() {
+            if(!this.isNew()) {
+                return false;
+            }
             function generateVariants(key, data) {
                 var options = this.variant_options;
                 angular.forEach(options[key].values, function(value, index) {
@@ -88,6 +93,10 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         
         productResource.prototype.removeFile = function(file) {
             return this.getVariantDefault().removeFile(file);
+        }
+        
+        productResource.prototype.isNew = function() {
+            return (this.id ! = undefined);
         }
         return productResource;
     }
