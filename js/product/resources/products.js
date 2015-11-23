@@ -6,7 +6,7 @@
  */
 productModule.factory('Products', ['resourceService', 'Variants', 'productTemplates',
     
-    function(resourceService, mediaResource, variantResource) {
+    function(resourceService, mediaResource, Variants) {
         
         var caches = {};
         
@@ -54,7 +54,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                     if(angular.isUndefined(options[key + 1])) {
                         cacheKey = 'variant_' + this.template +'_' + item.join('_');
                         if(angular.isUndefined(caches[cacheKey])) {
-                            caches[cacheKey] = new variantResource({
+                            caches[cacheKey] = new Variants({
                                 price: 0,
                                 sale: 0,
                                 quantity: 0,
@@ -86,7 +86,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             }
             
             if(!this.variant instanceof Resource) {
-                this.variant = new variantResource(this.variant);
+                this.variant = new Variants(this.variant);
             }
             return this.variant;
         }
