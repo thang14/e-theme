@@ -4,19 +4,40 @@
  * @name            OnhanhProduct
  * @description     ProductService
  */
-productModule.factory('Products', ['resourceService', 'Medias', 'Variants', 'productThemes',
+productModule.factory('Products', ['resourceService', 'Variants', 'productTemplates',
     
     function(resourceService, mediaResource, variantResource) {
+        
+        var caches = {};
+        
         var productResource = resourceService('product');
         
-        productResource.prototype.selectTheme = function(theme) {
-            this.theme = theme;
-            if(this.themes === null) {
+        productResource.prototype.selectTemplate = function(template) {
+            
+            
+            if(template === this.template) {
+                return;
+            }
+            
+            if(template === null) {
                 this.variants = [];
                 this.variant_options = [];
-            } else {
-                this.variant_options = productThemes.getOptions(theme);
+                return;
             }
+            
+            var key = 'template_' + template;
+            if(angular.isUndefined(caches[key])) {
+                caches[key] = [];
+                var names = productTemplates.templates[template];
+                angular.forEach(names, function(name) {
+                    caches[key].push({
+                        name: name,
+                        label: productTemplates.labels[name],
+                        values: []
+                    })
+                })
+            }
+            this.variant_options = caches[key];
         }
         
         productResource.prototype.themeDropdownList = function() {
@@ -26,7 +47,7 @@ productModule.factory('Products', ['resourceService', 'Medias', 'Variants', 'pro
         productResource.prototype.generateVariants = function() {
             function generateVariants(key, data) {
                 var options = this.variant_options;
-                angular.forEach(options[key].items, function(value, index) {
+                angular.forEach(options[key].values, function(value, index) {
                     var item = angular.copy(data);
                     item.push(index);
                     if(angular.isUndefined(options[key + 1])) {
