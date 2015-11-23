@@ -41,10 +41,7 @@ productModule
     }
     
     $scope.upload = function(file) {
-      file.upload = resource.upload(file);
-      file.upload.progress(function(evt) {
-        file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-      });
+      resource.upload(file);
     }
     
     $scope.removeFile = function(file) {
