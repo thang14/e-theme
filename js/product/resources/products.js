@@ -4,7 +4,7 @@
  * @name            OnhanhProduct
  * @description     ProductService
  */
-productModule.factory('productResource', ['resourceService', 'mediaResource', 'variantResource', 'productThemes',
+productModule.factory('Products', ['resourceService', 'mediaResource', 'variantResource', 'productThemes',
     
     function(resourceService, mediaResource, variantResource) {
         var productResource = resourceService('product');
