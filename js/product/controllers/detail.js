@@ -5,6 +5,16 @@
  * @description     ProductDetailController
  */
  
+ var uploadMedias = function($files, resource) {
+   if($files && $files.length > 0) {
+     angular.forEach($files, function(file) {
+       resource.upload($files);
+     });
+   }
+   return resource.upload($files);
+ }
+ 
+ 
 productModule
 
 /**
@@ -51,11 +61,7 @@ productModule
     });
     
     $scope.upload = function($files) {
-      if($files && $files.length > 0) {
-        $files.forEach(function(file) {
-          resource.upload(file);
-        });
-      }
+      uploadMedias($files, resource);
     }
     
     $scope.newVariant = function() {
