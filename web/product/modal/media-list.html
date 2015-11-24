@@ -1,25 +1,40 @@
-<div ng-controller="ModalDemoCtrl">
-    <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title">I'm a modal!</h3>
-        </div>
-        <div class="modal-body">
-            <ul>
-                <li ng-repeat="item in items">
-                    <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-                </li>
-            </ul>
-            Selected: <b>{{ selected.item }}</b>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-
-    <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
-    <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
-    <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
-    <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
-    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+<div class="modal-header">
+    <h3 class="modal-title">Ảnh</h3>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <ul class="media-list">
+            <li class="item" ng-repeat="item in items">
+                <div class="action">
+                    <div class="dropdown">
+                        <a href="javascript:void(0)"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)" ng-click="variant.removeMedia(item)">
+                                <i class="fa fa-times"></i>Xóa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <img ng-src="{{media.path}}"/>
+            </li>
+            <li class="file-upload">
+                <a
+                    ngf-multiple="true"
+                    accept="image/*"
+                    ngf-select="variant.upload($files)"
+                    ngf-drop="variant.upload($files)"
+                    ng-model="files"
+                    href="javascript:void(0)">
+                    <i class="fa fa-upload fa-4"></i>
+                    <div class="text-hint">Tải ảnh lên</div>
+                </a>
+            </li>
+        </ul>
+    </div><!--.form-group-->
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Đóng</button>
 </div>
