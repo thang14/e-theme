@@ -2,8 +2,8 @@
     <div class="page-header">
         <div class="page-header-content">
             <div class="page-title">
-                <h4 ng-if="!resource.id">Sản phẩm mới</h4>
-                <h4 ng-if="resource.id">{{resource.name}}</h4>
+                <h4 ng-if="!product.id">Sản phẩm mới</h4>
+                <h4 ng-if="product.id">{{product.name}}</h4>
             </div>
         </div><!--.page-header-content-->
         <div class="page-header-right">
@@ -21,7 +21,7 @@
                 <input
                     name="name"
                     type="text"
-                    ng-model="resource.name"
+                    ng-model="product.name"
                     class="form-control"
                     id="productName"
                     required
@@ -31,7 +31,7 @@
             
             <div class="form-group">
                 <label for="productBranh">Thành phần</label>
-                <ui-select ng-model="resource.section" theme="bootstrap">
+                <ui-select ng-model="product.section" theme="bootstrap">
                     <ui-select-match placeholder="Chọn hoặc tìm kiếm">{{$select.selected.name}}</ui-select-match>
                         <ui-select-choices repeat="section in sections | filter: $select.search">
                             <div ng-bind-html="section.name | highlight: $select.search"></div>
@@ -43,7 +43,7 @@
                 <label for="productBranh">Nhà cung cấp</label>
                 <input
                     name="branh"
-                    ng-model="resource.branh"
+                    ng-model="product.branh"
                     type="text"
                     class="form-control"
                     id="productBranh"
@@ -55,17 +55,17 @@
                 <label for="productBranh">Giao diện</label>
                 <select
                     class="form-control"
-                    ng-model="resource.theme"
-                    ng-change="selectTheme(resource.theme)">
+                    ng-model="product.template"
+                    ng-change="product.selectTemplate(product.theme)">
 
                       <option value="">--Không chọn--</option>
-                      <option ng-repeat="(index, value) in templateValues" value="{{index}}">{{value}}</option>
+                      <option ng-repeat="(index, value) in product.getTemplateDropdownList()" value="{{index}}">{{value}}</option>
                  </select>
             </div><!--.form-group-->
         </div>
-        <div ng-if="resource.template != null" >
+        <div ng-if="product.template != null" >
             <div class="form-group" style="max-width:440px">
-                    <div class="form-group" ng-repeat="option in resource.variant_options">
+                    <div class="form-group" ng-repeat="option in product.variant_options">
                         <label>{{option.label}}</label>
                         <tags-input
                             min-length="1"
@@ -81,7 +81,7 @@
                 </button>
             </div><!--.form-group-->
 
-            <div class="form-group"  ng-if="resource.variants.length > 0"  style="max-width:800px">
+            <div class="form-group"  ng-if="product.variants.length > 0"  style="max-width:800px">
                 <div class="variant-list">
                       <table>
                           <thead>
@@ -96,15 +96,15 @@
                               </tr>
                           </thead>
                           <tbody>
-                              <tr ng-repeat="(index, variant) in resource.variants">
-                                  <td style="text-center" ng-if="!resource.id">
-                                      <a href="javascript:void(0)" ng-click="resource.variants.splice(index, 1)">
+                              <tr ng-repeat="(index, variant) in product.variants">
+                                  <td style="text-center" ng-if="!product.id">
+                                      <a href="javascript:void(0)" ng-click="product.variants.splice(index, 1)">
                                           <i class="fa fa-times"></i>
                                           Hủy
                                       </a>
                                   </td>
 
-                                  <td ng-if="resource.id">
+                                  <td ng-if="product.id">
                                     <div class="dropdown">
                                         <a href="javascript:void(0)"
                                             data-toggle="dropdown"
@@ -193,7 +193,7 @@
 
         <div class="form-group">
             <ul class="media-list">
-                <li class="item" ng-repeat="(index, media) in resource.medias">
+                <li class="item" ng-repeat="(index, media) in product.getVariantDefault()">
                     <div class="action">
                         <div class="dropdown">
                             <a href="javascript:void(0)"
@@ -201,8 +201,7 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0)" ng-click="deleteFile(index)"><i class="fa fa-times"></i>Xóa</a></li>
-                                <li ng-if="!media.display"><a  href="javascript:void(0)" ng-click="setMediaDefault(index)"><i class="fa fa-file-image-o"></i>Đặt ảnh hiển thị</a></li>
+                                <li><a href="javascript:void(0)" ng-click="product.removeMedia(media)"><i class="fa fa-times"></i>Xóa</a></li>
                             </ul>
                         </div>
                     </div>
@@ -212,8 +211,8 @@
                     <a
                         ngf-multiple="true"
                         accept="image/*"
-                        ngf-select="upload($files)"
-                        ngf-drop="upload($files)"
+                        ngf-select="product.upload($files)"
+                        ngf-drop="product.upload($files)"
                         ng-model="files"
                         href="javascript:void(0)">
                         <i class="fa fa-upload fa-4"></i>
@@ -223,13 +222,13 @@
             </ul>
         </div><!--.form-group-->
 
-        <div ng-if="resource.theme == null" style="max-width:440px;">
+        <div ng-if="product.template == null" style="max-width:440px;">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="productSku">Mã Sku</label>
                         <input
-                            ng-model="resource.current.sku"
+                            ng-model="product.variant.sku"
                             type="text"
                             class="form-control"
                             id="productSku"
@@ -240,7 +239,7 @@
                     <div class="form-group">
                         <label for="productBarcode">Mã Barcode</label>
                         <input
-                            ng-model="resource.current.barcode"
+                            ng-model="product.current.barcode"
                             type="text"
                             class="form-control"
                             id="productBarcode"
@@ -257,7 +256,7 @@
                             <div style="display:table-cell">
                                 <input
                                     ui-number-mask="0"
-                                    ng-model="resource.current.price"
+                                    ng-model="product.variant.price"
                                     type="text"
                                     class="form-control text-right"
                                     id="productPrice"
@@ -275,7 +274,7 @@
                         <div style="display:table-row">
                             <div style="display:table-cell">
                                 <input
-                                    ng-model="resource.current.sale"
+                                    ng-model="product.variant.sale"
                                     type="number"
                                     min="0" max="99"
                                     class="form-control"
@@ -295,7 +294,7 @@
                     <div class="form-group">
                         <label for="productSalePrice">Đơn vị tính</label>
                         <input
-                            ng-model="resource.current.unit"
+                            ng-model="product.variant.unit"
                             type="text"
                             class="form-control"
                             id="productUnit"
@@ -306,7 +305,7 @@
                     <div class="form-group">
                         <label for="productSalePrice">Số lượng</label>
                         <input
-                            ng-model="resource.current.quantity"
+                            ng-model="product.current.quantity"
                             type="number"
                             min="0" max="999"
                             class="form-control"
@@ -336,10 +335,10 @@
             <div class="tab-content" style="padding:10px; border: 1px solid #ddd; border-top:none; background:#fff">
 
                 <div role="tabpanel" class="tab-pane active"
-                    ng-init="resource.attrs = [{}]"
+                    ng-init="product.attrs = [{}]"
                     id="attributes">
 
-                    <div class="form-group" ng-repeat="(index, attr) in resource.attrs">
+                    <div class="form-group" ng-repeat="(index, attr) in product.attrs">
                         <div class="row">
                             <div class="col-md-4">
                                 <input
@@ -358,12 +357,12 @@
                             <div class="col-md-1">
                                 <a href="javascript:void(0)"
                                     style="margin-top: 5px;display: block;font-size: 15px;color: #999;"
-                                    ng-click="resource.attrs.splice(index, 1)"><i class="fa fa-times"></i></a>
+                                    ng-click="product.attrs.splice(index, 1)"><i class="fa fa-times"></i></a>
                             </div>
                         </div>
                     </div><!--.row-->
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-sm" ng-click="resource.attrs.push({})">+ Thêm</button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="product.attrs.push({})">+ Thêm</button>
                     </div><!--.row-->
                 </div><!--#attributes-->
 
@@ -372,7 +371,7 @@
                         <label for="productKeywords">Từ khóa</label>
                         <textarea
                             rows="5"
-                            ng-model="resource.keywords"
+                            ng-model="product.keywords"
                             type="text"
                             class="form-control"
                             id="productKeywords"
@@ -386,7 +385,7 @@
                         <label for="productDescriptionList">Chính</label>
                         <div class="form-group">
                             <input
-                                ng-model="resource.description_list[0]"
+                                ng-model="product.description_list[0]"
                                 type="text"
                                 class="form-control"
                                 placeholder="Mô tả số 1">
@@ -394,7 +393,7 @@
 
                         <div class="form-group">
                           <input
-                                ng-model="resource.description_list[1]"
+                                ng-model="product.description_list[1]"
                                 type="text"
                                 class="form-control"
                                 placeholder="Mô tả số 2">
@@ -402,7 +401,7 @@
 
                         <div class="form-group">
                           <input
-                                ng-model="resource.description_list[2]"
+                                ng-model="product.description_list[2]"
                                 type="text"
                                 class="form-control"
                                 placeholder="Mô tả số 3">
@@ -410,7 +409,7 @@
 
                         <div class="form-group">
                           <input
-                                ng-model="resource.description_list[3]"
+                                ng-model="product.description_list[3]"
                                 type="text"
                                 class="form-control"
                                 placeholder="Mô tả số 4">
@@ -421,7 +420,7 @@
                         <label for="productDescription">Mô tả thêm</label>
                         <textarea
                             rows="5"
-                            ng-model="resource.description"
+                            ng-model="product.description"
                             type="text"
                             class="form-control"
                             id="productDescription"
@@ -435,7 +434,7 @@
         </div><!--Tab-->
 
         <div class="checkbox checkbox-primary">
-            <input ng-model="resource.status" id="productStatus" value="1" type="checkbox">
+            <input ng-model="product.status" id="productStatus" value="1" type="checkbox">
             <label for="productStatus">
                 Cho phép tìm kiếm sản phẩm
             </label>
