@@ -49,9 +49,6 @@ productModule
             controller: 'MediaListCtrl',
             size: size,
             resolve: {
-              items: function () {
-                return variant.medias;
-              },
               variant: function () {
                 return variant;
               }
@@ -105,9 +102,9 @@ productModule
     $scope.onCancel = goBack;
 }])
 
-.controller('MediaListCtrl', ['$scope', 'variant', 'items', function($scope, variant, items) {
-  $scope.items = items;
+.controller('MediaListCtrl', ['$scope', 'variant', function($scope, variant) {
   $scope.variant = variant;
+  $scope.items = variant.items;
 }]);
 
 
