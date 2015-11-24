@@ -3,8 +3,8 @@
     <div class="page-header">
         <div class="page-header-content">
             <div class="page-title">
-                <h4 ng-if="!resource.id">Sản phẩm mới</h4>
-                <h4 ng-if="resource.id">{{resource.name}}</h4>
+                <h4 ng-if="!variant.id">Biển thể mới</h4>
+                <h4 ng-if="variant.id">Chỉnh sửa</h4>
             </div>
         </div><!--.page-header-content-->
         <div class="page-header-right">
@@ -15,29 +15,45 @@
 
     <div class="content">
         <div style="max-width:440px">
-            <div class="form-group">
+            <div class="form-group" ng-repeat="(index, opt) in options">
                 <label for="productName">
-                    Tên <strong class="color-red">*</strong>
+                    {{opt.label}}
                 </label>
                 <input
-                    name="name"
                     type="text"
-                    ng-model="resource.name"
+                    ng-model="option[index]"
                     class="form-control"
-                    id="productName"
-                    required
-                    maxlength="255"
-                    placeholder="Name">
+                    placeholder="{{opt.label}}">
             </div><!--.form-group-->
             
             <div class="form-group">
-                <label for="productBranh">Thành phần</label>
-                <ui-select ng-model="resource.section" theme="bootstrap">
-                    <ui-select-match placeholder="Chọn hoặc tìm kiếm">{{$select.selected.name}}</ui-select-match>
-                        <ui-select-choices repeat="section in sections | filter: $select.search">
-                            <div ng-bind-html="section.name | highlight: $select.search"></div>
-                        </ui-select-choices>
-                </ui-select>
+                <label for="productBranh">Giá tiền</label>
+                <input
+                    name="price"
+                    type="text"
+                    ng-model="variant.price"
+                    class="form-control"
+                    placeholder="Tiền ">
+            </div><!--.form-group-->
+            
+            <div class="form-group">
+                <label for="productBranh">Khuyến mãi</label>
+                <input
+                    name="sale"
+                    type="text"
+                    ng-model="variant.sale"
+                    class="form-control"
+                    placeholder="Khuyến mãi ">
+            </div><!--.form-group-->
+            
+            <div class="form-group">
+                <label for="productBranh">Số lượng</label>
+                <input
+                    name="quantity"
+                    type="text"
+                    ng-model="variant.quantity"
+                    class="form-control"
+                    placeholder="Số lượng ">
             </div><!--.form-group-->
         </div>
     </div>
