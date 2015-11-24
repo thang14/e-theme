@@ -5,16 +5,6 @@
  * @description     ProductDetailController
  */
  
- var uploadMedias = function($files, resource) {
-   if($files && $files.length > 0) {
-     angular.forEach($files, function(file) {
-       resource.upload($files);
-     });
-   }
-   return resource.upload($files);
- }
- 
- 
 productModule
 
 /**
@@ -56,13 +46,11 @@ productModule
       'generateVariants',
       'removeVariant',
       'removeFile',
+      'upload',
     ].forEach(function(value) {
       $scope[value] = resource[value];
     });
     
-    $scope.upload = function($files) {
-      uploadMedias($files, resource);
-    }
     
     $scope.newVariant = function() {
       $state.go('product.detail.variant.new');
