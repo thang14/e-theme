@@ -104,7 +104,7 @@ productModule
 
 .controller('MediaListCtrl', ['$scope', 'variant', function($scope, variant) {
   $scope.variant = variant;
-  $scope.items = variant.items;
+  $scope.items = variant.medias;
 }]);
 
 
