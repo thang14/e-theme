@@ -28,16 +28,6 @@ productModule
     //onSaveAndFinish
     $scope.onSaveAndFinish = goBack;
     
-    [
-      'selectTemplate',
-      'templateDropdownList',
-      'generateVariants',
-      'removeVariant',
-      'removeFile',
-      'upload',
-    ].forEach(function(value) {
-      $scope[value] = resource[value];
-    });
     
     
     $scope.newVariant = function() {
