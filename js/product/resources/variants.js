@@ -4,8 +4,8 @@
  * @name            OnhanhProduct
  * @description     productModule
  */
-productModule.factory('Variants', ['resourceService', 'Medias'
-    function(resourceService) {
+productModule.factory('Variants', ['resourceService', 'Medias', '$q'
+    function(resourceService, $q) {
         var Variant = resourceService('variant');
         
         Variant.forProduct = function(id, successcb, errorcb) {
@@ -17,21 +17,34 @@ productModule.factory('Variants', ['resourceService', 'Medias'
          */
         Variant.prototype.upload = function($files) {
             if($files && $files.length > 0) {
+                var promises = []
                 this.medias = this.medias || [];
                 $files.forEach(function(file) {
+                    var deffered  = $q.defer();
                     this.medias.push(file);
                     file.upload = Medias.upload(file);
                     // Success
                     file.upload.success(function(data, status, headers, config) {
                         file = data;
-                        if(this.id) {
-                            this.$save();
-                        }
+                        deffered.resolve(data);
                     }.bind(this));
+                    // Error
+                    file.upload.error(function(error){
+                        deffered.reject();
+                    });
                     // Progress
                     file.upload.progress(function (evt) {
                         file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                     });
+                    
+                    promises.push(deffered.promise);
+                }, this);
+                
+                $q.all(promises)
+                .then(function() {
+                    if(this.id) {
+                        this.$save();
+                    }
                 });
             }
         }
