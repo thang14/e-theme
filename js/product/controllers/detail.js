@@ -91,6 +91,8 @@ productModule
       product.$save(fn);
     }
     
+    $scope.onDelete = goBack;
+    
     $scope.onSaveAndFinish = function() {
       scope.onSave(goBack);
     }
