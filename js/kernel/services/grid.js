@@ -7,27 +7,24 @@
  */
 kernelModule.service('gridService', [
     function() {
+        
+        var defaults = this.defaults  = {
+            data: [],
+            totalItems: 0,
+            showGridFooter: false,
+            enableFiltering: false,
+            enableSorting: true,
+            //Enables cell editing.
+            enableCellEdit: false,
+            enableHorizontalScrollbar : 0,
+            enableVerticalScrollbar   : 0,
+            columnDefs: columns
+            
+        }
+        
         return {
-            gridOptions: function($scope, model) {
-                return {
-                    data: model.items,
-                    totalItems: model.total,
-                    showGridFooter: false,
-                    enableFiltering: false,
-                    enableSorting: true,
-                    //Enables cell editing.
-                    enableCellEdit: false,
-                    enableHorizontalScrollbar : 0,
-                    enableVerticalScrollbar   : 0,
-                    columnDefs: $scope.columns,
-                    onRegisteApi: function(gridApi) {
-                        //register save row
-                        gridApi.rowEdit.on.afterCellEdit($scope,function(rowEntity, colDef, newValue, oldValue){
-                            $scope.onSaveRow(rowEntity);
-                        });
-                    }
-                };
-
+            gridOptions: function(options) {
+                angular.extend(angular.copy(defaults), options);
             },
 
             actionTemplate: function () {
