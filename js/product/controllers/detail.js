@@ -10,8 +10,8 @@ productModule
 /**
  * Product Detail Controller
  */
-.controller('productDetailController', ['$scope', '$state',  'productItem', 'sections', 'i18nNotifications',
-  function($scope, $state, productItem, sections, i18nNotifications) {
+.controller('productDetailController', ['$scope', '$state',  'productItem', 'sections', 'i18nNotifications', '$uibModal',
+  function($scope, $state, productItem, sections, i18nNotifications, $uibModal) {
       
     var product = $scope.product = productItem;
     
@@ -40,11 +40,33 @@ productModule
       });
     }
     
+    $scope.variantMediasModal = function(variant) {
+      return {
+        open: function() {
+          return $uibModal.open({
+            animation: true,
+            templateUrl: '/web/product/media-list',
+            controller: 'MediaListCtrl',
+            size: size,
+            resolve: {
+              items: function () {
+                return variant.medias;
+              },
+              variant: function () {
+                return variant;
+              }
+            }
+          });
+
+        }
+      }
+    }
+    
   }
 ])
 
 
-.controller('VariantDetailController', ['$scope', 'variantItem', 'productItem', function($scope, variantItem, productItem) {
+.controller('VariantDetailCtrl', ['$scope', 'variantItem', 'productItem', function($scope, variantItem, productItem) {
     var variant = $scope.variant = variantItem;
     var product = $scope.product = productItem;
     
@@ -82,6 +104,11 @@ productModule
     
     $scope.onCancel = goBack;
 }])
+
+.controller('MediaListCtrl', ['$scope', 'variant', 'items', function($scope, variant, items) {
+  $scope.items = items;
+  $scope.variant = variant;
+}]);
 
 
 
