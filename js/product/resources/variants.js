@@ -45,7 +45,7 @@ productModule.factory('Variants', ['resourceService', 'Medias', '$q'
                     if(this.id) {
                         this.$save();
                     }
-                });
+                }.bind(this));
             }
         }
         
