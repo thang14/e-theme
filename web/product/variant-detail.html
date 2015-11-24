@@ -15,6 +15,37 @@
 
     <div class="content">
         <div style="max-width:440px">
+            
+            <div class="form-group">
+                <label for="productBranh">Mã SKU</label>
+                <input
+                    name="sku"
+                    type="text"
+                    ng-model="variant.sku"
+                    class="form-control"
+                    placeholder="Mã SKU">
+            </div><!--.form-group-->
+            
+            <div class="form-group">
+                <label for="productBranh">Mã Barcode</label>
+                <input
+                    name="barcode"
+                    type="text"
+                    ng-model="variant.barcode"
+                    class="form-control"
+                    placeholder="Mã Barcode">
+            </div><!--.form-group-->
+            
+            <div class="form-group">
+                <label for="productBranh">Số lượng</label>
+                <input
+                    name="quantity"
+                    type="text"
+                    ng-model="variant.quantity"
+                    class="form-control"
+                    placeholder="Số lượng ">
+            </div><!--.form-group-->
+            
             <div class="form-group" ng-repeat="(index, opt) in options">
                 <label for="productName">
                     {{opt.label}}
@@ -55,6 +86,10 @@
                     class="form-control"
                     placeholder="Số lượng ">
             </div><!--.form-group-->
+        </div>
+        
+        <div style="padding-top:50px;">
+            <div ng-include="'/web/product/buttons.html'"></div>
         </div>
     </div>
 </form>
