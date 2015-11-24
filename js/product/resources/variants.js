@@ -13,21 +13,25 @@ productModule.factory('Variants', ['resourceService', 'Medias'
          * Upload media
          * @param object mefiledia
          */
-        Variant.prototype.upload = function(file) {
-            this.medias = this.medias || [];
-            this.medias.push(file);
-            file.upload = Medias.upload(file);
-            // Success
-            file.upload.success(function(data, status, headers, config) {
-                file = data;
-                if(this.id) {
-                    this.$save();
-                }
-            }.bind(this));
-            // Progress
-            file.upload.progress(function (evt) {
-                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-            });
+        Variant.prototype.upload = function($files) {
+            if($files && $files.length > 0) {
+                this.medias = this.medias || [];
+                $files.forEach(function(file) {
+                    this.medias.push(file);
+                    file.upload = Medias.upload(file);
+                    // Success
+                    file.upload.success(function(data, status, headers, config) {
+                        file = data;
+                        if(this.id) {
+                            this.$save();
+                        }
+                    }.bind(this));
+                    // Progress
+                    file.upload.progress(function (evt) {
+                        file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                    });
+                });
+            }
         }
         
         /**
