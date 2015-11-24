@@ -102,9 +102,17 @@ productModule
     $scope.onCancel = goBack;
 }])
 
-.controller('MediaListCtrl', ['$scope', 'variant', function($scope, variant) {
+.controller('MediaListCtrl', ['$scope', 'variant', '$uibModalInstance', function($scope, variant, $uibModalInstance) {
   $scope.variant = variant;
   $scope.items = variant.medias;
+  
+   $scope.ok = function () {
+     $uibModalInstance.close();
+   };
+ 
+   $scope.cancel = function () {
+     $uibModalInstance.dismiss('cancel');
+   };
 }]);
 
 
