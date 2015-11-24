@@ -8,7 +8,9 @@ productModule.factory('Variants', ['resourceService', 'Medias'
     function(resourceService) {
         var Variant = resourceService('variant');
         
-        
+        Variant.forProduct = function(id, successcb, errorcb) {
+            return Variant.query({product_id: id}, successcb, errorcb);
+        }
         /**
          * Upload media
          * @param object mefiledia
