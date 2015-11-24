@@ -101,8 +101,4 @@ productModule
 }])
 
 
-.controller('VariantMediasController', ['$scope', function($scope) {
-    
-}]);
-
 
