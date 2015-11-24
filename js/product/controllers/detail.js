@@ -13,7 +13,7 @@ productModule
 .controller('productDetailController', ['$scope', '$state',  'productItem', 'sections', 'i18nNotifications',
   function($scope, $state, productItem, sections, i18nNotifications) {
       
-    var resource = $scope.resource = productItem;
+    var product = $scope.product = productItem;
     
     $scope.sections = sections;
     
@@ -62,9 +62,11 @@ productModule
 
 
 .controller('VariantDetailController', ['$scope', 'variantItem', 'productItem', function($scope, variantItem, productItem) {
-    var resource = $scope.resource = variantItem;
-    $scope.resource.product_id = productItem.id;
-    $scope.options = variantItem.variant_options;
+    var variant = $scope.variant = variantItem;
+    var product = $scope.product = productItem;
+    
+    variant.product_id = product.id;
+    $scope.options = product.variant_options;
     
     $scope.$watch('option', function(option) {
       option.forEach(function(value, index) {
@@ -77,10 +79,23 @@ productModule
       });
     });
     
-    $scope.onSave = function() {
-      productItem.variants.push(resource);
-      productItem.$save();
+     //Goback
+    var goBack = function() {
+        $state.go('product', {
+          id: product.id,
+        });
     }
+    
+    $scope.onSave = function(fn) {
+      product.variants.push(resource);
+      product.$save(fn);
+    }
+    
+    $scope.onSaveAndFinish = function() {
+      scope.onSave(goBack);
+    }
+    
+    $scope.onCancel = goBack;
 }]);
 
 
