@@ -57,6 +57,18 @@ productModule
         });
       }
     }
+    
+    $scope.newVariant = function() {
+      $state.go('product.detail.variant.new');
+    }
+    
+    $scope.viewVariant = function(id) {
+      $state.go('product.detail.variant.detail', {
+        variantId: id
+      });
+    }
+    
+    
   }
 ])
 
