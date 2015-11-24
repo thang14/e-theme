@@ -17,12 +17,6 @@ productModule
     
     $scope.sections = sections;
     
-    // Action
-    var action = $scope.action = {
-      item: null,
-      view: null,
-    };
-    
     //Goback
     var goBack = function() {
         $state.go('product');
@@ -33,12 +27,6 @@ productModule
     
     //onSaveAndFinish
     $scope.onSaveAndFinish = goBack;
-    
-    // Set action
-    $scope.setAction = function(item, name) {
-      action.item = item;
-      action.view = '/web/product/'+name,
-    }
     
     [
       'selectTemplate',
@@ -61,7 +49,6 @@ productModule
         variantId: id
       });
     }
-    
     
   }
 ])
