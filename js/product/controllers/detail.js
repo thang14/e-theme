@@ -96,6 +96,11 @@ productModule
     }
     
     $scope.onCancel = goBack;
+}])
+
+
+.controller('VariantMediasController', ['$scope', function($scope) {
+    
 }]);
 
 
