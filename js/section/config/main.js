@@ -8,8 +8,8 @@ sectionModule
     .config(['$stateProvider',
         function($stateProvider) {
             
-            var getCategories = ['Category', function(Category) {
-               return Category.$all().items; 
+            var getCategories = ['Categories', function(Categories) {
+               return Category.all(); 
             }];
          // Use $stateProvider to configure your states.
           $stateProvider
@@ -27,8 +27,8 @@ sectionModule
               controller: 'sectionController',
               templateUrl: '/web/section/list.html',
               resolve: {
-                  sections:['Section', function(Section) {
-                    return Section.$query().items;
+                  sections:['Sections', function(Sections) {
+                    return Sections.all();
                   }]
               }
             })
@@ -48,8 +48,8 @@ sectionModule
                     controller: 'sectionDetailController',
                     templateUrl: '/web/section/detail.html',
                     resolve: {
-                        sectionItem:['Section', function(Section) {
-                            return Section.$get().current;
+                        sectionItem:['Sections', function(Sections) {
+                            return new Sections();
                         }],
                         
                         categories: getCategories(),
@@ -75,8 +75,11 @@ sectionModule
                     controller: 'sectionDetailController',
                     templateUrl: '/web/section/detail.html',
                     resolve: {
-                        sectionItem:['Section', '$stateParams', function(Section, $stateParams) {
-                            return Section.$get($stateParams.id).current;
+                        sectionId: getSectionId(),
+                        sectionItem:['Sections', 'sections', function(sections, sectionId) {
+                            return _.find(sections, function(obj) {
+                                return (obj.id == sectionId);
+                            });
                         }],
                         
                         categories: getCategories(),
