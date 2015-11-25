@@ -118,7 +118,7 @@ productModule
  'variant', 
  '$uibModalInstance',
   function($scope, variant, $uibModalInstance) {
-   $scope.variant = variant;
+   $scope.resource = variant;
    $scope.items = variant.medias;
    
     $scope.cancel = function () {
