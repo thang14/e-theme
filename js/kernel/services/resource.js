@@ -9,7 +9,7 @@ angular.module('app.kernel')
     function(Environment, $resource) {
         var resourceService = function(name) {
             var api = this.api =  Environment.settings.api + '/' + name + Environment.settings.prefix;
-            return $resource(api+'/:id',{
+            var Resource =  $resource(api+'/:id',{
                 id:'@id'
             }, {
               charge: {
@@ -19,6 +19,12 @@ angular.module('app.kernel')
                       
                   }}
             });
+            
+            Resource.all = function() {
+                return this.query({});
+            }
+            
+            return Resource;
         };
         
         return resourceService;
