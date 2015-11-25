@@ -8,20 +8,10 @@ window.angular.module('app', [
 
     //Core module
     'ui.router',
-    'ui.utils.masks',
-    
-    //Bootstrap
-    'ui.bootstrap',
-
-    //UI.grid
-    'ui.grid',
-    'ui.grid.edit',
     
     //Angular Modules
     'ngFileUpload',
-    'ngTagsInput',
     'angular-loading-bar',
-    'cgNotify',
     'ngResource',
 
     //App modules
