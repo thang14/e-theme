@@ -23,19 +23,19 @@ productModule
     
     $scope.sections = sections;
     
-    //Goback
+    //onSaveAndFinish
+    $scope.onSaveAndFinish = goBack;
     var goBack = function() {
         $state.go('product');
     }
-    
-    //Delete
     $scop.onDelete = goBack;
-    
-    //onSaveAndFinish
     $scope.onSaveAndFinish = goBack;
     
     
-    
+    /**
+     * ACTIONS
+     * -----------------------------------------------
+     */
     $scope.newVariant = function() {
       $state.go('product.detail.variant.new');
     }
@@ -97,23 +97,18 @@ productModule
      * EVENTS
      * -----------------------------------------------
      */
-     
-     //Goback
     var goBack = function() {
         $state.go('product', {
           id: product.id,
         });
     }
-    
     $scope.onSave = function(fn) {
       product.variants.push(resource);
       product.$save(fn);
     }
-    
     $scope.onSaveAndFinish = function() {
       scope.onSave(goBack);
     }
-    
     $scope.onDelete = goBack;
     $scope.onCancel = goBack;
 }])
