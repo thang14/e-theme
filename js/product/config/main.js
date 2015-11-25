@@ -66,9 +66,9 @@ productModule
               
               resolve: {
                   productItem:['Products', 'Variants', function(Products, Variants) {
-                    var item = new Products();
-                    item.current = new Variants();
-                    return item;
+                    return new Products({
+                        variant: new Variants()
+                    });
                   }],
                   sections: getSections,
               }
