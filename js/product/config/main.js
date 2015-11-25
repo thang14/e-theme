@@ -125,7 +125,7 @@ productModule
                       // For top level states, like this one, the parent template is
                       // the index.html file. So this template will be inserted into the
                       // ui-view within index.html.
-                      controller: 'VariantDetailCtrl',
+                      controller: 'variantDetailController',
                       templateUrl: '/web/product/variant-detail.html',
                       resolve: {
                           variantItem:['Variants', function(Variants, productItem) {
@@ -153,12 +153,12 @@ productModule
                       // For top level states, like this one, the parent template is
                       // the index.html file. So this template will be inserted into the
                       // ui-view within index.html.
-                      controller: 'VariantDetailCtrl',
+                      controller: 'variantDetailController',
                       templateUrl: '/web/product/variant-detail.html',
                       resolve: {
                           variantItem:['variants', '$stateParams', function(variants, productItem, $stateParams) {
                             return _.find(variants, function(obj) {
-                                return obj.id = $stateParams.variantId;
+                                return obj.id == $stateParams.variantId;
                             });
                           }],
                       }
