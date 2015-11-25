@@ -51,7 +51,7 @@ productModule
         open: function(size) {
           return $uibModal.open({
             animation: true,
-            templateUrl: '/web/product/media-list.html',
+            templateUrl: '/web/product/modal/media-list.html',
             controller: 'mediaListController',
             size: size,
             resolve: {
