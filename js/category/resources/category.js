@@ -4,11 +4,9 @@
  * @name            OnhanhCategory
  * @description     categoryModule
  */
-categoryModule.factory('categoryResource', [ 'Upload', 'Environment', '$resource',
+categoryModule.factory('Category', [ 'resourceService',
     function(Upload, Environment, $resource) {
-        var api = Environment.settings.domain+'/media';
-        
-        var categoryResource = $resource(api+'/:id', {id: '@id'});
-        return categoryResource;
+        var Category = resourceService('category');
+        return Category;
     }
 ]);
