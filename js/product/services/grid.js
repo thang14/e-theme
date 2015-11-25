@@ -24,9 +24,22 @@ productModule
       displayName: "Số lượng",
     }],
     
-    gridOptions: function() {
-      return {
-        
+    gridOptions: function(resource, options) {
+      var defaults = {
+        selectionRowHeaderWidth: 35,
+        rowHeight: 35,
+        showGridFooter: false,
+        enableFiltering: false,
+        enableSorting: false,
+        useExternalFiltering: true,
+        columnDefs: this.columns,
+        load: function(params, fn) {
+          var res = resource.query(params, function() {
+            this.data= res.items;
+            this.totalItems = res.total;
+            fn ? fn : "";
+          }.bind(this));
+        }
       }
     }
   }
