@@ -109,5 +109,61 @@ productModule
                   }
               },
             })
+            
+            //////////////////
+            // Product Detail //
+            ////////////////
+            .state("product.detail.variant.new", {
+              title: "Thên biến thể",
+              // Use a url of "/" to set a states as the "index".
+              url: "/new",
+
+              views: {
+                  "@" : {
+                      // Example of an inline template string. By default, templates
+                      // will populate the ui-view within the parent state's template.
+                      // For top level states, like this one, the parent template is
+                      // the index.html file. So this template will be inserted into the
+                      // ui-view within index.html.
+                      controller: 'VariantDetailCtrl',
+                      templateUrl: '/web/product/variant-detail.html',
+                      resolve: {
+                          variantItem:['Variants', function(Variants, productItem) {
+                            var item =  new Variants();
+                            item.product_id = productItem;
+                            return item;
+                          }],
+                      }
+                  }
+              },
+            })
+            
+            //////////////////
+            // Product Detail //
+            ////////////////
+            .state("product.detail.variant.detail", {
+              title: "Thên biến thể",
+              // Use a url of "/" to set a states as the "index".
+              url: "/:variantId",
+
+              views: {
+                  "@" : {
+                      // Example of an inline template string. By default, templates
+                      // will populate the ui-view within the parent state's template.
+                      // For top level states, like this one, the parent template is
+                      // the index.html file. So this template will be inserted into the
+                      // ui-view within index.html.
+                      controller: 'VariantDetailCtrl',
+                      templateUrl: '/web/product/variant-detail.html',
+                      resolve: {
+                          variantItem:['variants', '$stateParams', function(variants, productItem, $stateParams) {
+                            return _.find(variants, function(obj) {
+                                return obj.id = $stateParams.variantId;
+                            });
+                          }],
+                      }
+                  }
+              },
+            })
         }
     ]);
