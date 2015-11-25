@@ -130,7 +130,7 @@ productModule
                       // the index.html file. So this template will be inserted into the
                       // ui-view within index.html.
                       controller: 'variantDetailController',
-                      templateUrl: '/web/product/variant-detail.html',
+                      templateUrl: '/web/product/variant/detail.html',
                       resolve: {
                           variantItem:['Variants', function(Variants, productItem) {
                             return new Variants({
@@ -158,7 +158,7 @@ productModule
                       // the index.html file. So this template will be inserted into the
                       // ui-view within index.html.
                       controller: 'variantDetailController',
-                      templateUrl: '/web/product/variant-detail.html',
+                      templateUrl: '/web/product/variant/detail.html',
                       resolve: {
                           variantId: getVariantId(),
                           variantItem:['variants', 'variantId', function(variants, productItem, variantId) {
