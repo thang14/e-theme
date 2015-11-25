@@ -41,8 +41,8 @@ productModule
               templateUrl: '/web/product/list.html',
               
               resolve: {
-                  product:['Products', function(Products) {
-                    return Products.query();
+                  gridOptions:['productGrid', function(productGrid) {
+                    return productGrid.gridOptions();
                   }],
               }
             })
