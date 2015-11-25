@@ -13,8 +13,6 @@ window.angular.module('app', [
     'angular-loading-bar',
 
     //App modules
-    'app.base',
-    //'app.locale',
     'app.environment',
     'app.kernel',
     //'app.auth',
