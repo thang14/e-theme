@@ -12,7 +12,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0)" ng-click="variant.removeMedia(item)">
+                            <li><a href="javascript:void(0)" ng-click="resource.removeMedia(item)">
                                 <i class="fa fa-times"></i>Xóa</a>
                             </li>
                         </ul>
@@ -24,8 +24,8 @@
                 <a
                     ngf-multiple="true"
                     accept="image/*"
-                    ngf-select="variant.upload($files)"
-                    ngf-drop="variant.upload($files)"
+                    ngf-select="resource.upload($files)"
+                    ngf-drop="resource.upload($files)"
                     ng-model="files"
                     href="javascript:void(0)">
                     <i class="fa fa-upload fa-4"></i>
