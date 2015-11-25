@@ -5,20 +5,20 @@
  * @description     ProductController
  */
 productModule
-.controller('productController', [ '$scope', '$state', 'productGridService',
-    function($scope, $state, productGridService) {
+.controller('productController', [ '$scope', '$state', 'gridOptions',
+    function($scope, $state, productGrid) {
 
         //Page Init
         $scope.currentPage = 1;
         $scope.maxSize = 5;
         
         // grid Options
-        $scope.gridOptions = productGridService.gridOptions();
+        $scope.gridOptions = gridOptions;
         
         
         // Load Items
         $scope.load = function() {
-            productGridService.load({
+            $scope.gridOptions.load({
                 page: $scope.currentPage
             });
         }
