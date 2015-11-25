@@ -5,5 +5,5 @@
  * @description     KernelModule
  */
  
-var kernelModule = angular.module('app.kernel', []);
+var kernelModule = angular.module('app.kernel', ['ngResource']);
 
