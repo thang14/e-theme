@@ -16,6 +16,10 @@ productModule
                return $stateParams.id; 
             }];
             
+            var getVariantId = ['$stateParams', function($stateParams) {
+               return $stateParams.variantId; 
+            }];
+            
          // Use $stateProvider to configure your states.
           $stateProvider
 
@@ -156,9 +160,10 @@ productModule
                       controller: 'variantDetailController',
                       templateUrl: '/web/product/variant-detail.html',
                       resolve: {
-                          variantItem:['variants', '$stateParams', function(variants, productItem, $stateParams) {
+                          variantId: getVariantId(),
+                          variantItem:['variants', 'variantId', function(variants, productItem, variantId) {
                             return _.find(variants, function(obj) {
-                                return (obj.id == $stateParams.variantId);
+                                return (obj.id == variantId);
                             });
                           }],
                       }
