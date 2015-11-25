@@ -78,20 +78,26 @@ productModule
     var variant = $scope.variant = variantItem;
     var product = $scope.product = productItem;
     
-    variant.product_id = product.id;
-    $scope.options = product.variant_options;
+    var options = $scope.options = product.variant_options;
     
     $scope.$watch('option', function(option) {
       option.forEach(function(value, index) {
-        var idx = $scope.options[index].indexOf(value);
+        var idx = options[index].indexOf(value);
         if(idx === -1) {
-          $scope.options[index].push(value);
-          idx = $scope.options[index].length - 1;
-          $scope.resource.option[index] = idx;
+          options[index].push(value);
+          idx = options[index].length - 1;
+          variant.option[index] = idx;
         }
       });
     });
     
+    
+    
+    /**
+     * EVENTS
+     * -----------------------------------------------
+     */
+     
      //Goback
     var goBack = function() {
         $state.go('product', {
@@ -104,12 +110,11 @@ productModule
       product.$save(fn);
     }
     
-    $scope.onDelete = goBack;
-    
     $scope.onSaveAndFinish = function() {
       scope.onSave(goBack);
     }
     
+    $scope.onDelete = goBack;
     $scope.onCancel = goBack;
 }])
 
@@ -121,10 +126,6 @@ productModule
    $scope.variant = variant;
    $scope.items = variant.medias;
    
-    $scope.ok = function () {
-      $uibModalInstance.close();
-    };
-  
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
