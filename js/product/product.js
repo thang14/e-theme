@@ -15,11 +15,4 @@ var productModule = angular.module("app.product", [
   'ui.utils.masks',
   'ngTagsInput',
   'cgNotify',
-  
-  //Bootstrap
-  'ui.bootstrap',
-
-  //UI.grid
-  'ui.grid',
-  'ui.grid.edit',
 ]);
