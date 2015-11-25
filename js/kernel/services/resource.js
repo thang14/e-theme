@@ -24,6 +24,13 @@ angular.module('app.kernel')
                 return this.query({}, a1, a2);
             }
             
+            Resource.prototype.$id = function() {
+                if(!angular.isUndefined(this.id)) {
+                    return this.id;
+                }
+                return false;
+            }
+            
             return Resource;
         };
         
