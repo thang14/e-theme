@@ -129,9 +129,9 @@ productModule
                       templateUrl: '/web/product/variant-detail.html',
                       resolve: {
                           variantItem:['Variants', function(Variants, productItem) {
-                            var item =  new Variants();
-                            item.product_id = productItem;
-                            return item;
+                            return new Variants({
+                                product_id: productItem.id
+                            })
                           }],
                       }
                   }
@@ -158,7 +158,7 @@ productModule
                       resolve: {
                           variantItem:['variants', '$stateParams', function(variants, productItem, $stateParams) {
                             return _.find(variants, function(obj) {
-                                return obj.id == $stateParams.variantId;
+                                return (obj.id == $stateParams.variantId);
                             });
                           }],
                       }
