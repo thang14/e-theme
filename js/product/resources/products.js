@@ -10,10 +10,6 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         
         var Products = resourceService('product');
         
-        Products.forShop = function(id) {
-            return Products.query({shop_id: id});
-        }
-        
         Products.prototype.selectTemplate = function(template) {
             if(!this.isNew()) {
                 return false;
