@@ -51,8 +51,8 @@ productModule
         open: function(size) {
           return $uibModal.open({
             animation: true,
-            templateUrl: '/web/product/media-list',
-            controller: 'MediaListCtrl',
+            templateUrl: '/web/product/media-list.html',
+            controller: 'mediaListController',
             size: size,
             resolve: {
               variant: function () {
@@ -69,7 +69,7 @@ productModule
 ])
 
 
-.controller('VariantDetailCtrl', [
+.controller('variantDetailController', [
    '$scope', 
    '$state',
    'variantItem', 
@@ -113,7 +113,7 @@ productModule
     $scope.onCancel = goBack;
 }])
 
-.controller('MediaListCtrl', [
+.controller('mediaListController', [
  '$scope', 
  'variant', 
  '$uibModalInstance',
