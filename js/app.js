@@ -10,9 +10,7 @@ window.angular.module('app', [
     'ui.router',
     
     //Angular Modules
-    'ngFileUpload',
     'angular-loading-bar',
-    'ngResource',
 
     //App modules
     'app.base',
