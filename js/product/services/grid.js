@@ -5,7 +5,7 @@
  * @description     productModule
  */
 productModule
-.service("productGrid", function() {
+.service("productGrid", ['Products', function(Products) {
   return {
     columns: [{
       name: "action",
@@ -28,7 +28,7 @@ productModule
       displayName: "Số lượng",
     }],
     
-    gridOptions: function(resource, options) {
+    gridOptions: function(options) {
       var defaults = {
         selectionRowHeaderWidth: 35,
         rowHeight: 35,
@@ -45,6 +45,7 @@ productModule
           }.bind(this));
         }
       }
+      return angular.extend(defaults, options);
     }
   }
-});
+}]);
