@@ -1,5 +1,5 @@
 
-<form name="productForm">
+<form name="productForm" crud-edit="variant">
     <div class="page-header">
         <div class="page-header-content">
             <div class="page-title">
@@ -8,7 +8,7 @@
             </div>
         </div><!--.page-header-content-->
         <div class="page-header-right">
-            <div ng-include="'/web/product/buttons.html'"></div>
+            <crud-buttons></crud-buttons>
         </div>
     </div><!--.page-header-->
 
@@ -89,7 +89,7 @@
         </div>
         
         <div style="padding-top:50px;">
-            <div ng-include="'/web/product/buttons.html'"></div>
+            <crud-buttons></crud-buttons>
         </div>
     </div>
 </form>
