@@ -10,7 +10,13 @@ productModule
 /**
  * Product Detail Controller
  */
-.controller('productDetailController', ['$scope', '$state',  'productItem', 'sections', 'i18nNotifications', '$uibModal',
+.controller('productDetailController', [
+ '$scope', 
+ '$state',  
+ 'productItem', 
+ 'sections', 
+ 'i18nNotifications', 
+ '$uibModal',
   function($scope, $state, productItem, sections, i18nNotifications, $uibModal) {
       
     var product = $scope.product = productItem;
@@ -63,7 +69,12 @@ productModule
 ])
 
 
-.controller('VariantDetailCtrl', ['$scope', 'variantItem', 'productItem', function($scope, variantItem, productItem) {
+.controller('VariantDetailCtrl', [
+   '$scope', 
+   '$state',
+   'variantItem', 
+   'productItem', 
+   function($scope, $state, variantItem, productItem) {
     var variant = $scope.variant = variantItem;
     var product = $scope.product = productItem;
     
@@ -102,17 +113,21 @@ productModule
     $scope.onCancel = goBack;
 }])
 
-.controller('MediaListCtrl', ['$scope', 'variant', '$uibModalInstance', function($scope, variant, $uibModalInstance) {
-  $scope.variant = variant;
-  $scope.items = variant.medias;
+.controller('MediaListCtrl', [
+ '$scope', 
+ 'variant', 
+ '$uibModalInstance',
+  function($scope, variant, $uibModalInstance) {
+   $scope.variant = variant;
+   $scope.items = variant.medias;
+   
+    $scope.ok = function () {
+      $uibModalInstance.close();
+    };
   
-   $scope.ok = function () {
-     $uibModalInstance.close();
-   };
- 
-   $scope.cancel = function () {
-     $uibModalInstance.dismiss('cancel');
-   };
+    $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
 }]);
 
 
