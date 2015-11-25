@@ -48,7 +48,7 @@ productModule
     
     $scope.variantMediasModal = function(variant) {
       return {
-        open: function() {
+        open: function(size) {
           return $uibModal.open({
             animation: true,
             templateUrl: '/web/product/media-list',
