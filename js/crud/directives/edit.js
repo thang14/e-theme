@@ -33,7 +33,7 @@ crudModule
           throw new Error('crudEdit directive: The resource must expose the ' + methodName + '() instance method');
         }
       };
-      checkResourceMethod('$saveOrUpdate');
+      checkResourceMethod('$save');
       checkResourceMethod('$id');
       checkResourceMethod('$remove');
 
@@ -48,6 +48,7 @@ crudModule
       // Set up callbacks with fallback
       // onSave attribute -> onSave scope -> noop
       var userOnSave = attrs.onSave ? makeFn('onSave') : ( scope.onSave || angular.noop );
+      var userOnSaveAndFinish = attrs.onSaveAndFinish ? makeFn('onSaveAndFinish') : ( scope.onSave || angular.noop );
       var onSave = function(result, status, headers, config) {
         // Reset the original to help with reverting and pristine checks
         original = result;
@@ -61,8 +62,11 @@ crudModule
       // The following functions should be triggered by elements on the form
       // - e.g. ng-click="save()"
       scope.save = function() {
-        resource.$saveOrUpdate(onSave, onSave, onError, onError);
+        resource.$save(onSave, onError);
       };
+      scope.saveAndFinish = function() {
+        resource.$save(userOnSaveAndFinish, onError);
+      }
       scope.revertChanges = function() {
         resource = angular.copy(original);
         resourceSetter(scope, resource);
