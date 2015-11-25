@@ -20,8 +20,8 @@ angular.module('app.kernel')
                   }}
             });
             
-            Resource.all = function() {
-                return this.query({});
+            Resource.all = function(a1, a2) {
+                return this.query({}, a1, a2);
             }
             
             return Resource;
