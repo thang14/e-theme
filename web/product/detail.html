@@ -278,36 +278,12 @@
 
                     <div class="form-group">
                         <label for="productDescriptionList">Chính</label>
-                        <div class="form-group">
+                        <div class="form-group" ng-repeat="desc in [0, 1, 2, 3, 4]">
                             <input
-                                ng-model="product.description_list[0]"
+                                ng-model="product.description_list[desc]"
                                 type="text"
                                 class="form-control"
-                                placeholder="Mô tả số 1">
-                        </div><!--.form-group-->
-
-                        <div class="form-group">
-                          <input
-                                ng-model="product.description_list[1]"
-                                type="text"
-                                class="form-control"
-                                placeholder="Mô tả số 2">
-                        </div><!--.form-group-->
-
-                        <div class="form-group">
-                          <input
-                                ng-model="product.description_list[2]"
-                                type="text"
-                                class="form-control"
-                                placeholder="Mô tả số 3">
-                        </div><!--.form-group-->
-
-                        <div class="form-group">
-                          <input
-                                ng-model="product.description_list[3]"
-                                type="text"
-                                class="form-control"
-                                placeholder="Mô tả số 4">
+                                placeholder="Nhập mô tả">
                         </div><!--.form-group-->
                     </div><!--.form-group-->
 
