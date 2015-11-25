@@ -4,4 +4,6 @@
  * @name            OnhanhMedia
  * @description     MediaModule
  */
-var mediaModule = angular.module("app.media", []);
+var mediaModule = angular.module("app.media", [
+  'ngFileUpload',
+]);
