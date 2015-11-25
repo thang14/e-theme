@@ -4,9 +4,9 @@
  * @name            OnhanhCategory
  * @description     categoryModule
  */
-categoryModule.factory('Category', [ 'resourceService',
+categoryModule.factory('Categories', [ 'resourceService',
     function(Upload, Environment, $resource) {
-        var Category = resourceService('category');
-        return Category;
+        var Categories = resourceService('category');
+        return Categories;
     }
 ]);
