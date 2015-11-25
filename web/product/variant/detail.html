@@ -14,7 +14,40 @@
 
 
     <div class="content">
-        <div style="max-width:440px">
+        <div class="form-group">
+            <ul class="media-list">
+                <li class="item" ng-repeat="item in variant.medias">
+                    <div class="action">
+                        <div class="dropdown">
+                            <a href="javascript:void(0)"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0)" ng-click="variant.removeMedia(item)">
+                                    <i class="fa fa-times"></i>Xóa</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img ng-src="{{media.path}}"/>
+                </li>
+                <li class="file-upload">
+                    <a
+                        ngf-multiple="true"
+                        accept="image/*"
+                        ngf-select="variant.upload($files)"
+                        ngf-drop="variant.upload($files)"
+                        ng-model="files"
+                        href="javascript:void(0)">
+                        <i class="fa fa-upload fa-4"></i>
+                        <div class="text-hint">Tải ảnh lên</div>
+                    </a>
+                </li>
+            </ul>
+        </div><!--.form-group-->
+        
+        <div style="max-width:300px">
             
             <div class="form-group">
                 <label for="productBranh">Mã SKU</label>
