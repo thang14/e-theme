@@ -8,6 +8,10 @@ productModule
 .service("productGrid", function() {
   return {
     columns: [{
+      name: "action",
+      displayName: "",
+      cellTemplate: "/web/grid/action/html",
+    },{
       name: "name",
       displayName: "Tên",
       cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP"> '+
