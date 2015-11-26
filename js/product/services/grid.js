@@ -14,9 +14,11 @@ productModule
     },{
       name: "name",
       displayName: "Tên",
-      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP"> '+
-            '<a ui-sref="product.detail({id:row.entity.id})">{{COL_FIELD}}</a>'+
-          '</div>'
+      cellTemplate: [
+        '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
+            '<a ui-sref="product.detail({id:row.entity.id})">{{COL_FIELD}}</a>',
+        '</div>'
+      ].join('')
     }, {
       name: "price",
       displayName: "Giá tiền",
@@ -28,7 +30,8 @@ productModule
       displayName: "Số lượng",
     }],
     
-    gridOptions: function(options) {
+    gridOptions: function($scope) {
+      var options = $scope.options || {};
       var defaults = {
         selectionRowHeaderWidth: 35,
         rowHeight: 35,
@@ -43,6 +46,14 @@ productModule
             this.totalItems = res.total;
             fn ? fn : "";
           }.bind(this));
+        },
+        
+        onRegisterApi: function(gridApi) {
+          this.api = gridApi;
+          
+          if($scope.saveRow) {
+            gridApi.rowEdit.on.saveRow($scope, $scope.saveRow);
+          }
         }
       }
       return angular.extend(defaults, options);
