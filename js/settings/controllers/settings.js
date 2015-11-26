@@ -5,8 +5,8 @@
  * @description     SettingsController
  */
 settingsModule
-    .controller('settingsController', [ '$scope',
-        function($scope) {
-            
-        }
-    ]);
+.controller('settingsController', [ '$scope',
+    function($scope) {
+        
+    }
+]);
