@@ -5,7 +5,7 @@
  * @description     branhModule
  */
 branhModule.factory('Branh', [ 'resourceService',
-  function(branhResource) {
+  function(resourceService) {
     var Branh = resourceService('branh');
     return Branh;
   }
