@@ -41,8 +41,8 @@ productModule
               templateUrl: '/web/product/list.html',
               
               resolve: {
-                  gridOptions:['productGrid', function(productGrid) {
-                    return productGrid.gridOptions();
+                  gridOptions:['productGrid', '$scope', function(productGrid, $scope) {
+                    return productGrid.gridOptions($scope);
                   }],
               }
             })
