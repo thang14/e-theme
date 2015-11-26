@@ -7,5 +7,6 @@
 shopModule.factory("Shop", [ 'resourceService',
   function(resourceService) {
     var Shop = resourceService("");
+    return Shop;
   }
 ]);
