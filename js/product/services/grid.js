@@ -10,7 +10,6 @@ productModule
     columns: [{
       name: "action",
       displayName: "",
-      cellTemplate: "/web/grid/action/html",
     },{
       name: "name",
       displayName: "Tên",
