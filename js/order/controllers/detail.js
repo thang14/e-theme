@@ -5,8 +5,8 @@
  * @description     OrderDetailController
  */
 orderModule
-    .controller('orderDetailController', [ '$scope', 'orderItem',
-        function($scope, orderItem) {
-            this.resource = orderItem;
-        }
-    ]);
+.controller('orderDetailController', [ '$scope', 'orderItem',
+    function($scope, orderItem) {
+        this.resource = orderItem;
+    }
+]);
