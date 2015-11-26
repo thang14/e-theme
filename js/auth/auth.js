@@ -9,7 +9,7 @@ var authModule = angular.module('app.auth', [])
 .run(['$http', '$state', '$rootScope', 'Auth', 'Environment',
   function($http, $state, $rootScope, Auth, Environment) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-      if ($rootScope.user === undefined) {
+      if ($rootScope.auth === undefined) {
         $rootScope.auth = Auth.get({}, function() {
           if(!$rootScope.auth) {
             $rootScope.auth = false;
@@ -18,7 +18,7 @@ var authModule = angular.module('app.auth', [])
           }
         });
         
-      } else if($rootScope.user == false) {
+      } else if($rootScope.auth == false) {
         event.preventDefault();
         $state.transitionTo('userLogin');
       }
