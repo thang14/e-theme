@@ -9,7 +9,12 @@ var shopModule = angular.module("app.shop", [])
   function($http, $state, $rootScope, Shop, Environment) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       if ($rootScope.shop === undefined) {
-        $rootScope.shop = Shop.get({slug: Environment.settings.namespace});
+        $rootScope.shop = Shop.get({slug: Environment.settings.namespace}, function() {
+          if(!$rootScope.shop) {
+              event.preventDefault();
+              $state.transitionTo('404');
+          }
+        });
       } else if($rootScope.shop == false) {
         event.preventDefault();
         $state.transitionTo('404');
