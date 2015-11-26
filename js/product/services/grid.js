@@ -15,8 +15,8 @@ productModule
       name: "name",
       displayName: "Tên",
       cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP"> '+
-          '<a href="#" ng-click="grid.appScope.viewDetail(row.entity.id)">{{COL_FIELD}}'+
-          '</a></div>'
+            '<a ui-sref="product.detail({id:row.entity.id})">{{COL_FIELD}}</a>'+
+          '</div>'
     }, {
       name: "price",
       displayName: "Giá tiền",
