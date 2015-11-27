@@ -18,9 +18,13 @@ var sectionModule = angular.module("app.section", []);
 sectionModule
     .config(['$stateProvider',
         function($stateProvider) {
-            
+
             var getCategories = ['Categories', function(Categories) {
-               return Category.all(); 
+               return Category.all();
+            }];
+
+            var getSectionId = ['$stateParams', function($stateParams) {
+               return $stateParams.id;
             }];
          // Use $stateProvider to configure your states.
           $stateProvider
@@ -62,12 +66,12 @@ sectionModule
                         sectionItem:['Sections', function(Sections) {
                             return new Sections();
                         }],
-                        
-                        categories: getCategories(),
+
+                        categories: getCategories,
                     },
-                    
-                    
-                }  
+
+
+                }
               }
             })
 
@@ -86,16 +90,16 @@ sectionModule
                     controller: 'sectionDetailController',
                     templateUrl: '/web/section/detail.html',
                     resolve: {
-                        sectionId: getSectionId(),
+                        sectionId: getSectionId,
                         sectionItem:['Sections', 'sections', function(sections, sectionId) {
                             return _.find(sections, function(obj) {
                                 return (obj.id == sectionId);
                             });
                         }],
-                        
-                        categories: getCategories(),
+
+                        categories: getCategories,
                     }
-                }  
+                }
               }
             });
         }
