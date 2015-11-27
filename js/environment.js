@@ -7,19 +7,18 @@
 
 window.angular.module('app.environment', [])
     .service('Environment', function() {
-        var api_domain = document.domain.replace("admin", "api");
         
         function getNamespace() {
-            return './data';
+            return 'data';
             return window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
         }
         
         return {
             settings: {
                 namespace: getNamespace(),
-                api: 'http://' + api_domain + '/'+getNamespace(),
+                api: 'https://raw.githubusercontent.com/onhanh/admin-theme/master/examples/' + getNamespace(),
                 prefix: ".json",
-                domain: 'http://' + api_domain,
+                domain: 'http://',
                 pageTitle: 'Onhanh - open source project | Admin Dasboard'
             },
         }

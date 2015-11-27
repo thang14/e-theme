@@ -5,7 +5,7 @@
  */
 
 window.angular.module('app', [
-
+    'ngResource',
     //Core module
     'ui.router',
     
@@ -18,8 +18,8 @@ window.angular.module('app', [
     //'app.auth',
     //'app.shop',
     //'app.media',
-    //'app.dashboard',
-    //'app.product',
+    'app.dashboard',
+    'app.product',
     //'app.section',
     //'app.order',
     //'app.reports',
