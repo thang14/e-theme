@@ -7,7 +7,7 @@
 productModule.factory('Variants', ['resourceService', 'Medias', '$q'
     function(resourceService, $q) {
         var Variant = resourceService('variant');
-        
+
         Variant.forProduct = function(id, successcb, errorcb) {
             return Variant.query({product_id: id}, successcb, errorcb);
         }
@@ -36,10 +36,10 @@ productModule.factory('Variants', ['resourceService', 'Medias', '$q'
                     file.upload.progress(function (evt) {
                         file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                     });
-                    
+
                     promises.push(deffered.promise);
                 }, this);
-                
+
                 $q.all(promises)
                 .then(function() {
                     if(this.id) {
@@ -48,7 +48,7 @@ productModule.factory('Variants', ['resourceService', 'Medias', '$q'
                 }.bind(this));
             }
         }
-        
+
         /**
          * Remove media
          * @param object media

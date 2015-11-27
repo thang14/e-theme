@@ -5,7 +5,7 @@
  * @description     SectionDetailController
  */
 sectionModule
-.controller('sectionDetailController', [ '$scope', '$state', 'sectionItem', 'categories'
+.controller('sectionDetailController', [ '$scope', '$state', 'sectionItem', 'categories',
     function($scope, $state, sectionItem) {
         
         $scope.resource = sectionItem;

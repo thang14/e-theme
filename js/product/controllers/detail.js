@@ -4,33 +4,33 @@
  * @name            OnhanhProduct
  * @description     ProductDetailController
  */
- 
+
 productModule
 
 /**
  * Product Detail Controller
  */
 .controller('productDetailController', [
- '$scope', 
- '$state',  
- 'productItem', 
- 'sections', 
- 'i18nNotifications', 
+ '$scope',
+ '$state',
+ 'productItem',
+ 'sections',
+ 'i18nNotifications',
  '$uibModal',
   function($scope, $state, productItem, sections, i18nNotifications, $uibModal) {
-      
+
     var product = $scope.product = productItem;
-    
+
     $scope.sections = sections;
-    
+
     //onSaveAndFinish
     var goBack = function() {
         $state.go('product');
     }
     $scop.onDelete = goBack;
     $scope.onSaveAndFinish = goBack;
-    
-    
+
+
     /**
      * ACTIONS
      * -----------------------------------------------
@@ -38,13 +38,13 @@ productModule
     $scope.newVariant = function() {
       $state.go('product.detail.variant.new');
     }
-    
+
     $scope.viewVariant = function(id) {
       $state.go('product.detail.variant.detail', {
         variantId: id
       });
     }
-    
+
     $scope.variantMedias = function(variant) {
       return modal({
         templateUrl: '/web/product/modal/media-list.html',
@@ -56,7 +56,7 @@ productModule
         }
       })
     }
-    
+
     $scope.variantDetail = function(variant) {
       return modal({
         templateUrl: '/web/product/modal/variant-detail.html',
@@ -65,14 +65,14 @@ productModule
           variant: function () {
             return variant;
           },
-          
+
           product: function () {
             return product;
           }
         }
       })
     }
-    
+
     $scope.variantNew = function() {
       return modal({
         templateUrl: '/web/product/modal/variant-detail.html',
@@ -83,14 +83,14 @@ productModule
               product_id: product.$id(),
             });
           }],
-          
+
           product: function () {
             return product;
           }
         }
       })
     }
-    
+
     var modal = function(options) {
       options = options || {};
       return {
@@ -104,22 +104,22 @@ productModule
         }
       }
     }
-    
+
   }
 ])
 
 
 .controller('variantDetailController', [
-   '$scope', 
+   '$scope',
    '$state',
-   'variant', 
-   'product', 
+   'variant',
+   'product',
    function($scope, $state, variant, product) {
     $scope.variant = variant;
     $scope.product = product;
-    
+
     var options = $scope.options = product.variant_options;
-    
+
     $scope.$watch('option', function(option) {
       option.forEach(function(value, index) {
         var idx = options[index].indexOf(value);
@@ -130,9 +130,9 @@ productModule
         }
       });
     });
-    
-    
-    
+
+
+
     /**
      * EVENTS
      * -----------------------------------------------
@@ -154,17 +154,14 @@ productModule
 }])
 
 .controller('mediaListController', [
- '$scope', 
- 'variant', 
+ '$scope',
+ 'variant',
  '$uibModalInstance',
   function($scope, variant, $uibModalInstance) {
    $scope.resource = variant;
    $scope.items = variant.medias;
-   
+
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
 }]);
-
-
-

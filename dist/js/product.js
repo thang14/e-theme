@@ -8,13 +8,7 @@
  * @description     ProductModule
  */
 var productModule = angular.module("app.product", [
-  
-  // App Module
   'app.media',
-  'app.section',
-  'app.kernel',
-  
-  
   'ui.utils.masks',
   'ngTagsInput',
   'cgNotify',
@@ -118,7 +112,7 @@ productModule
                       controller: 'productDetailController',
                       templateUrl: '/web/product/detail.html',
                       resolve: {
-                          productId: getProductId(),
+                          productId: getProductId,
                           productItem:['Products', 'productId', function(Products, productId, variants) {
                             var item = Products.get({id:productId}, function() {
                                 item.variants = variants;
@@ -182,7 +176,7 @@ productModule
                       controller: 'variantDetailController',
                       templateUrl: '/web/product/variant/detail.html',
                       resolve: {
-                          variantId: getVariantId(),
+                          variantId: getVariantId,
                           variantItem:['variants', 'variantId', function(variants, productItem, variantId) {
                             return _.find(variants, function(obj) {
                                 return (obj.id == variantId);
@@ -201,33 +195,33 @@ productModule
  * @name            OnhanhProduct
  * @description     ProductDetailController
  */
- 
+
 productModule
 
 /**
  * Product Detail Controller
  */
 .controller('productDetailController', [
- '$scope', 
- '$state',  
- 'productItem', 
- 'sections', 
- 'i18nNotifications', 
+ '$scope',
+ '$state',
+ 'productItem',
+ 'sections',
+ 'i18nNotifications',
  '$uibModal',
   function($scope, $state, productItem, sections, i18nNotifications, $uibModal) {
-      
+
     var product = $scope.product = productItem;
-    
+
     $scope.sections = sections;
-    
+
     //onSaveAndFinish
     var goBack = function() {
         $state.go('product');
     }
     $scop.onDelete = goBack;
     $scope.onSaveAndFinish = goBack;
-    
-    
+
+
     /**
      * ACTIONS
      * -----------------------------------------------
@@ -235,13 +229,13 @@ productModule
     $scope.newVariant = function() {
       $state.go('product.detail.variant.new');
     }
-    
+
     $scope.viewVariant = function(id) {
       $state.go('product.detail.variant.detail', {
         variantId: id
       });
     }
-    
+
     $scope.variantMedias = function(variant) {
       return modal({
         templateUrl: '/web/product/modal/media-list.html',
@@ -253,7 +247,7 @@ productModule
         }
       })
     }
-    
+
     $scope.variantDetail = function(variant) {
       return modal({
         templateUrl: '/web/product/modal/variant-detail.html',
@@ -262,14 +256,14 @@ productModule
           variant: function () {
             return variant;
           },
-          
+
           product: function () {
             return product;
           }
         }
       })
     }
-    
+
     $scope.variantNew = function() {
       return modal({
         templateUrl: '/web/product/modal/variant-detail.html',
@@ -280,14 +274,14 @@ productModule
               product_id: product.$id(),
             });
           }],
-          
+
           product: function () {
             return product;
           }
         }
       })
     }
-    
+
     var modal = function(options) {
       options = options || {};
       return {
@@ -301,22 +295,22 @@ productModule
         }
       }
     }
-    
+
   }
 ])
 
 
 .controller('variantDetailController', [
-   '$scope', 
+   '$scope',
    '$state',
-   'variant', 
-   'product', 
+   'variant',
+   'product',
    function($scope, $state, variant, product) {
     $scope.variant = variant;
     $scope.product = product;
-    
+
     var options = $scope.options = product.variant_options;
-    
+
     $scope.$watch('option', function(option) {
       option.forEach(function(value, index) {
         var idx = options[index].indexOf(value);
@@ -327,9 +321,9 @@ productModule
         }
       });
     });
-    
-    
-    
+
+
+
     /**
      * EVENTS
      * -----------------------------------------------
@@ -351,20 +345,17 @@ productModule
 }])
 
 .controller('mediaListController', [
- '$scope', 
- 'variant', 
+ '$scope',
+ 'variant',
  '$uibModalInstance',
   function($scope, variant, $uibModalInstance) {
    $scope.resource = variant;
    $scope.items = variant.medias;
-   
+
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
 }]);
-
-
-
 
 'use strict';
 
@@ -374,56 +365,28 @@ productModule
  */
 productModule
 .controller('productController', [ '$scope', '$state', 'gridOptions',
+
+
+
     function($scope, $state, productGrid) {
 
         //Page Init
         $scope.currentPage = 1;
         $scope.maxSize = 5;
-        
+
         // grid Options
         $scope.gridOptions = gridOptions;
-        
-        
-        // Load Items
-        $scope.load = function() {
-            $scope.gridOptions.load({
-                page: $scope.currentPage
-            });
-        }
-        $scope.load();
-        
-        
         $scope.viewDetail = function(row) {
             $state.transitionTo('product.detail',{
               id:row.entity.id
             })
         }
-        
+
         $scope.newProduct = function(id) {
             $state.transitionTo('product.new');
         }
     }
 ]);
-
-'use strict';
-
-/**
- * @name            OnhanhProduct
- * @description     ProductModel
- */
-
-
-productModule.factory('Product', ['$resource' , function($resource) {
-    function Product(data) {
-        this.id = data.id;
-        this.name = data.name;
-    }
-
-    Product.prototype.save = function() {
-        $http.post('/dasdsad', this);
-    }
-    return Product;
-}]);
 
 'use strict';
 

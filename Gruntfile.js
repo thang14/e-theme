@@ -68,7 +68,7 @@ module.exports = function(grunt) {
                     'angular-notify/dist/angular-notify.min.js',
                     'angular-bootstrap/ui-bootstrap-tpls.min.js',
                     'angular-resource/angular-resource.min.js',
-                    'underscore/underscore.min.js',
+                    'underscore/underscore-min.js',
                     'angular-ui-select/dist/select.min.js',
                ]),
            }
@@ -89,11 +89,11 @@ module.exports = function(grunt) {
             },
             files:{
                 "dist/js/app.js":[
-                    'js/app.js',
-                    'js/constant.js',
-                    'js/environment.js',
-                    'dist/js/modules.js',
-                    'js/bootstrap.js',
+                'js/app.js',
+                'js/constant.js',
+                'js/environment.js',
+                'dist/js/modules.js',
+                'js/bootstrap.js',
               ],
            }
         }
@@ -190,7 +190,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
 
-  grunt.registerTask('js', ['concat', 'uglify:dist']);
+  grunt.registerTask('js', ['concat', 'uglify:modules', 'uglify:dist']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);
   grunt.registerTask('examples', ['copy:examples']);

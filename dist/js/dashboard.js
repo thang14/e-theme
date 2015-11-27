@@ -61,7 +61,7 @@ dashboardModule
  * @description     ...
  */
 dashboardModule
-    .service('dashboardService',["$http", "Environment"
+    .service('dashboardService',["$http", "Environment",
         function($http, Environment) {
           return {
               getRole: function() {

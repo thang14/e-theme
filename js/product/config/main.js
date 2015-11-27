@@ -96,7 +96,7 @@ productModule
                       controller: 'productDetailController',
                       templateUrl: '/web/product/detail.html',
                       resolve: {
-                          productId: getProductId(),
+                          productId: getProductId,
                           productItem:['Products', 'productId', function(Products, productId, variants) {
                             var item = Products.get({id:productId}, function() {
                                 item.variants = variants;
@@ -160,7 +160,7 @@ productModule
                       controller: 'variantDetailController',
                       templateUrl: '/web/product/variant/detail.html',
                       resolve: {
-                          variantId: getVariantId(),
+                          variantId: getVariantId,
                           variantItem:['variants', 'variantId', function(variants, productItem, variantId) {
                             return _.find(variants, function(obj) {
                                 return (obj.id == variantId);
