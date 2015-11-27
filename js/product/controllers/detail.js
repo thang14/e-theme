@@ -63,11 +63,11 @@ productModule
         templateUrl: '/web/product/modal/variant-detail.html',
         controller: 'variantDetailController',
         resolve: {
-          variantItem: function () {
+          variant: function () {
             return variant;
           },
           
-          productItem: function () {
+          product: function () {
             return product;
           }
         }
@@ -79,13 +79,13 @@ productModule
         templateUrl: '/web/product/modal/variant-detail.html',
         controller: 'variantDetailController',
         resolve: {
-          variantItem: ['productItem', 'Variants', function (productItem, Variants) {
+          variant: ['product', 'Variants', function (product, Variants) {
             return new Variants({
-              product_id: ProductItem.$id(),
+              product_id: product.$id(),
             });
           }],
           
-          productItem: function () {
+          product: function () {
             return product;
           }
         }
@@ -113,11 +113,11 @@ productModule
 .controller('variantDetailController', [
    '$scope', 
    '$state',
-   'variantItem', 
-   'productItem', 
-   function($scope, $state, variantItem, productItem) {
-    var variant = $scope.variant = variantItem;
-    var product = $scope.product = productItem;
+   'variant', 
+   'product', 
+   function($scope, $state, variant, product) {
+    $scope.variant = variant;
+    $scope.product = product;
     
     var options = $scope.options = product.variant_options;
     
