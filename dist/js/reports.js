@@ -1,5 +1,5 @@
 
-(function(window, angular, undefined) {
+(function(window, _, angular, undefined) {
 
 'use strict';
 
@@ -54,20 +54,5 @@ reportsModule
         }
     ]);
 
-'use strict';
 
-/**
- * @name            OnhanhReports
- * @description     ReportsServiceController
- */
-reportsModule
-    .service('reportsService', [ 'baseService',
-        function(baseService) {
-          return angular.extend(baseService, {
-            collectionName: "reports"
-          });
-        }
-    ]);
-
-
-})(window, window.angular);
+})(window, _, window.angular);

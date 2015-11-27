@@ -1,5 +1,5 @@
 
-(function(window, angular, undefined) {
+(function(window, _, angular, undefined) {
 
 'use strict';
 
@@ -54,5 +54,23 @@ dashboardModule
 	    	
 	    }
 	]);
+'use strict';
 
-})(window, window.angular);
+/**
+ * @name            OnhanhDashboard
+ * @description     ...
+ */
+dashboardModule
+    .service('dashboardService',["$http", "Environment"
+        function($http, Environment) {
+          return {
+              getRole: function() {
+                  var url = Environment.settings.api + '/role';
+                  return $http.get(url);
+              }
+          }
+        }
+    ]);
+
+
+})(window, _, window.angular);

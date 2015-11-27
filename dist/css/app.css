@@ -206,9 +206,14 @@ label {
     vertical-align: top;
     width: 260px;
   }
+  /* line 21, ../../sass/onhanh/_sidebar.scss */
+  .sidebar .sidebar-content {
+    width: 260px;
+    position: fixed;
+  }
 }
 
-/* line 24, ../../sass/onhanh/_sidebar.scss */
+/* line 32, ../../sass/onhanh/_sidebar.scss */
 .category-content {
   position: relative;
   padding: 20px;

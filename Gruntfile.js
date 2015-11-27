@@ -4,13 +4,13 @@ var util = require('./lib/grunt/utils.js');
 // Bower components
 var bowerComponents = function(arr) {
   var results = [];
-  if(typeof arr === "String") {
+  if(typeof arr === "string") {
     arr = [arr];
   }
   arr.forEach(function(value) {
     results.push('bower_components/' + value);
   })
-  return arr;
+  return results;
 }
 
 var getConcatModules = function(modules) {
@@ -51,6 +51,9 @@ module.exports = function(grunt) {
     concat: getConcatModules(files['modules']),
     uglify: {
         core: {
+            options: {
+              sourceMap: true
+            },
             files:{
                 "dist/js/core.js":bowerComponents([
                     'jquery/dist/jquery.min.js',
@@ -60,16 +63,17 @@ module.exports = function(grunt) {
                     'ng-file-upload/ng-file-upload-all.min.js',
                     'angular-input-masks/angular-input-masks-standalone.min.js',
                     'ng-tags-input/ng-tags-input.min.js',
-        		        'angular-ui-grid/ui-grid.js',
-        		        'angular-loading-bar/build/loading-bar.min.js',
+    		            'angular-ui-grid/ui-grid.js',
+    		            'angular-loading-bar/build/loading-bar.min.js',
                     'angular-notify/dist/angular-notify.min.js',
                     'angular-bootstrap/ui-bootstrap-tpls.min.js',
                     'angular-resource/angular-resource.min.js',
                     'underscore/underscore.min.js',
+                    'angular-ui-select/dist/select.min.js',
                ]),
            }
        },
-       
+
        modules: {
             options: {
               sourceMap: true
@@ -77,8 +81,8 @@ module.exports = function(grunt) {
             files:{
                 "dist/js/modules.js": getModulesUglify(files['modules']),
            }
-        }
-       
+       },
+
        dist: {
             options: {
               sourceMap: true
@@ -87,6 +91,7 @@ module.exports = function(grunt) {
                 "dist/js/app.js":[
                     'js/app.js',
                     'js/constant.js',
+                    'js/environment.js',
                     'dist/js/modules.js',
                     'js/bootstrap.js',
               ],
@@ -108,7 +113,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     karma: {
       unit: {
         files: [
@@ -147,13 +152,13 @@ module.exports = function(grunt) {
 
             }]
         },
-        
+
         examples: {
             files: [{
                 src: 'dist/**/*',
-                dest: 'examples/dist/',
+                dest: 'examples/',
                 expand: true,
-                flatten: true
+                flatten: false
 
             }]
         }
@@ -183,8 +188,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-karma');
-  
-  
+
+
   grunt.registerTask('js', ['concat', 'uglify:dist']);
   grunt.registerTask('css', ['cssmin']);
   grunt.registerTask('temp', ['ngtemplates']);

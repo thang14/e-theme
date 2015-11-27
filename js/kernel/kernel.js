@@ -6,12 +6,12 @@
  */
  
 var kernelModule = angular.module('app.kernel', [
- 'ngResource',
+ //'ngResource',
  //Bootstrap
- 'ui.bootstrap',
+ //'ui.bootstrap',
 
  //UI.grid
- 'ui.grid',
- 'ui.grid.edit',
+ //'ui.grid',
+ //'ui.grid.edit',
 ]);
 

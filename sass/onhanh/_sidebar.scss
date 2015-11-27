@@ -12,12 +12,20 @@
     position: relative;
     width: 100%;
     display: none;
-    
+
     @media (min-width: $screen-sm) {
         display: table-cell;
         vertical-align: top;
         width: 260px;
+
+        .sidebar-content {
+            width: 260px;
+            position:fixed;
+        }
+
     }
+
+
 }
 
 

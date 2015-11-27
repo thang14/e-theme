@@ -1,5 +1,5 @@
 
-(function(window, angular, undefined) {
+(function(window, _, angular, undefined) {
 
 'use strict';
 
@@ -18,11 +18,15 @@ var sectionModule = angular.module("app.section", []);
 sectionModule
     .config(['$stateProvider',
         function($stateProvider) {
+            
+            var getCategories = ['Categories', function(Categories) {
+               return Category.all(); 
+            }];
          // Use $stateProvider to configure your states.
           $stateProvider
 
             .state("section", {
-              title: "Section",
+              title: "Mục",
               // Use a url of "/" to set a states as the "index".
               url: "/section",
 
@@ -33,10 +37,15 @@ sectionModule
               // ui-view within index.html.
               controller: 'sectionController',
               templateUrl: '/web/section/list.html',
+              resolve: {
+                  sections:['Sections', function(Sections) {
+                    return Sections.all();
+                  }]
+              }
             })
 
             .state("section.new", {
-              title: "Section",
+              title: "Thêm mục mới",
               // Use a url of "/" to set a states as the "index".
               url: "/new",
 
@@ -47,16 +56,25 @@ sectionModule
                     // For top level states, like this one, the parent template is
                     // the index.html file. So this template will be inserted into the
                     // ui-view within index.html.
-                    controller: 'sectionAddController',
-                    templateUrl: '/web/section/add.html',
+                    controller: 'sectionDetailController',
+                    templateUrl: '/web/section/detail.html',
+                    resolve: {
+                        sectionItem:['Sections', function(Sections) {
+                            return new Sections();
+                        }],
+                        
+                        categories: getCategories(),
+                    },
+                    
+                    
                 }  
               }
             })
 
             .state("section.detail", {
-              title: "Section detail",
+              title: "Chi tiết mục",
               // Use a url of "/" to set a states as the "index".
-              url: "/:sectionId",
+              url: "/:id",
 
               views: {
                 '@': {
@@ -67,6 +85,16 @@ sectionModule
                     // ui-view within index.html.
                     controller: 'sectionDetailController',
                     templateUrl: '/web/section/detail.html',
+                    resolve: {
+                        sectionId: getSectionId(),
+                        sectionItem:['Sections', 'sections', function(sections, sectionId) {
+                            return _.find(sections, function(obj) {
+                                return (obj.id == sectionId);
+                            });
+                        }],
+                        
+                        categories: getCategories(),
+                    }
                 }  
               }
             });
@@ -77,27 +105,26 @@ sectionModule
 
 /**
  * @name            OnhanhSection
- * @description     SectionAddController
- */
-sectionModule
-    .controller('sectionAddController', [ '$scope',
-        function($scope) {
-            
-        }
-    ]);
-
-'use strict';
-
-/**
- * @name            OnhanhSection
  * @description     SectionDetailController
  */
 sectionModule
-    .controller('sectionDetailController', [ '$scope',
-        function($scope) {
-            
+.controller('sectionDetailController', [ '$scope', '$state', 'sectionItem', 'categories'
+    function($scope, $state, sectionItem) {
+        
+        $scope.resource = sectionItem;
+        $scope.categories = categories;
+        
+        // Delete
+        $scope.onDelete = function() {
+            $state.go('section');
         }
-    ]);
+        
+        // Save and Finish
+        $scope.onSaveAndFinish = function() {
+            $state.go('section');
+        }
+    }
+]);
 
 'use strict';
 
@@ -106,26 +133,15 @@ sectionModule
  * @description     SectionController
  */
 sectionModule
-    .controller('sectionController', [ '$scope',
-        function($scope) {
-            
+.controller('sectionController', [ '$scope', '$state', 'sections',
+    function($scope, $state, sections) {
+        
+        $scope.sections = sections;
+        $scope.view = function(id) {
+            $state.go('section', {id: id});
         }
-    ]);
-
-'use strict';
-
-/**
- * @name            OnhanhSection
- * @description     SectionService
- */
-sectionModule
-    .service('sectionService', [ 'baseService',
-        function(baseService) {
-          return angular.extend(baseService, {
-            collectionName: "section"
-          });
-        }
-    ]);
+    }
+]);
 
 
-})(window, window.angular);
+})(window, _, window.angular);

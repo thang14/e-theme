@@ -1,5 +1,5 @@
 
-(function(window, angular, undefined) {
+(function(window, _, angular, undefined) {
 
 'use strict';
 
@@ -59,27 +59,14 @@ orderModule
 
 /**
  * @name            OnhanhOrder
- * @description     OrderAddController
- */
-orderModule
-    .controller('orderAddController', [ '$scope', 'orderService',
-        function($scope, orderService) {
-
-        }
-    ]);
-
-'use strict';
-
-/**
- * @name            OnhanhOrder
  * @description     OrderDetailController
  */
 orderModule
-    .controller('orderDetailController', [ '$scope', 'orderService',
-        function($scope, orderService) {
-
-        }
-    ]);
+.controller('orderDetailController', [ '$scope', 'orderItem',
+    function($scope, orderItem) {
+        this.resource = orderItem;
+    }
+]);
 
 'use strict';
 
@@ -88,52 +75,9 @@ orderModule
  * @description     OrderController
  */
 orderModule
-    .controller('orderController', [ '$scope', 'orderService',
-        function($scope, orderService) {
-            $scope.columns = [{
-                name: "id",
-                displayName: "Order code",
-                enableColumnMenu: false,
-                enableSorting: false,
-                enableFiltering: false,
-                width: '75',
-            },{
-                name:"fullname",
-                enableColumnMenu: false,
-                enableSorting: false,
-                enableFiltering: false,
-                width: '200',
-            },{
-                name:"phone",
-                enableColumnMenu: false,
-                enableSorting: false,
-                enableFiltering: false,
-                width: '200',
-            },{
-                name: "price",
-                enableColumnMenu: false,
-                enableSorting: false,
-                enableFiltering: false,
-                width: '200',
-            },{
-                name: "payments",
-                enableColumnMenu: false,
-                enableSorting: false,
-                enableFiltering: false,
-                width: '200',
-            },{
-                name: "created_at",
-                enableColumnMenu: false,
-                enableSorting: false,
-                enableFiltering: false,
-                width: '80',
-            },{
-                name: "status",
-                enableColumnMenu: false,
-                enableSorting: false,
-                enableFiltering: false,
-                width: '80',
-            }];
+    .controller('orderController', [ '$scope', 'gridOptions',
+        function($scope, gridOptions) {
+            $scope.gridOptions = gridOptions;
         }
     ]);
 
@@ -153,4 +97,4 @@ orderModule
     ]);
 
 
-})(window, window.angular);
+})(window, _, window.angular);

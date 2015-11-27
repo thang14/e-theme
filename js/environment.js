@@ -10,7 +10,7 @@ window.angular.module('app.environment', [])
         var api_domain = document.domain.replace("admin", "api");
         
         function getNamespace() {
-            return 'admin-theme/examples/data';
+            return './data';
             return window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
         }
         

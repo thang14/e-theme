@@ -1,5 +1,5 @@
 
-(function(window, angular, undefined) {
+(function(window, _, angular, undefined) {
 
 'use strict';
 
@@ -46,14 +46,53 @@ settingsModule
 
 /**
  * @name            OnhanhSettings
+ * @description     settingInfoController
+ */
+settingsModule.controller('settingInfoController', [ '$scope',
+    function($scope) {
+        
+    }
+]);
+
+'use strict';
+
+/**
+ * @name            OnhanhSettings
+ * @description     settingsModule
+ */
+settingsModule
+.controller('settingManagerController', [ '$scope',
+    function($scope) {
+        
+    }
+]);
+
+
+'use strict';
+
+/**
+ * @name            OnhanhSettings
  * @description     SettingsController
  */
 settingsModule
-    .controller('settingsController', [ '$scope',
-        function($scope) {
-            
-        }
-    ]);
+.controller('settingPaymentsController', [ '$scope',
+    function($scope) {
+        
+    }
+]);
+
+'use strict';
+
+/**
+ * @name            OnhanhSettings
+ * @description     SettingsController
+ */
+settingsModule
+.controller('settingsController', [ '$scope',
+    function($scope) {
+        
+    }
+]);
 
 'use strict';
 
@@ -71,4 +110,4 @@ settingsModule
     ]);
 
 
-})(window, window.angular);
+})(window, _, window.angular);
