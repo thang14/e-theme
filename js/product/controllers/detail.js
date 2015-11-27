@@ -24,7 +24,6 @@ productModule
     $scope.sections = sections;
     
     //onSaveAndFinish
-    $scope.onSaveAndFinish = goBack;
     var goBack = function() {
         $state.go('product');
     }
