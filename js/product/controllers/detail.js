@@ -46,20 +46,61 @@ productModule
       });
     }
     
-    $scope.variantMediasModal = function(variant) {
+    $scope.variantMedias = function(variant) {
+      return modal({
+        templateUrl: '/web/product/modal/media-list.html',
+        controller: 'mediaListController',
+        resolve: {
+          variant: function () {
+            return variant;
+          }
+        }
+      })
+    }
+    
+    $scope.variantDetail = function(variant) {
+      return modal({
+        templateUrl: '/web/product/modal/variant-detail.html',
+        controller: 'variantDetailController',
+        resolve: {
+          variantItem: function () {
+            return variant;
+          },
+          
+          productItem: function () {
+            return product;
+          }
+        }
+      })
+    }
+    
+    $scope.variantNew = function() {
+      return modal({
+        templateUrl: '/web/product/modal/variant-detail.html',
+        controller: 'variantDetailController',
+        resolve: {
+          variantItem: ['productItem', 'Variants', function (productItem, Variants) {
+            return new Variants({
+              product_id: ProductItem.$id(),
+            });
+          }],
+          
+          productItem: function () {
+            return product;
+          }
+        }
+      })
+    }
+    
+    var modal = function(options) {
+      options = options || {};
       return {
         open: function(size) {
-          return $uibModal.open({
+          var defaults = {
             animation: true,
-            templateUrl: '/web/product/modal/media-list.html',
-            controller: 'mediaListController',
             size: size,
-            resolve: {
-              variant: function () {
-                return variant;
-              }
-            }
-          });
+          }
+          return $uibModal.open(angular.extend(defaults, options));
 
         }
       }
