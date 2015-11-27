@@ -5,7 +5,7 @@
  * @description     ProductController
  */
 productModule
-.controller('productController', [ '$scope', '$state', 'gridOptions',
+.controller('productController', [ '$scope', '$state', 'productGrid',
 
 
 
@@ -16,7 +16,16 @@ productModule
         $scope.maxSize = 5;
 
         // grid Options
-        $scope.gridOptions = gridOptions;
+        $scope.gridOptions = productGrid.gridOptions($scope);
+
+        $scope.load = function() {
+            $scope.gridOptions.load({
+                page: $scope.currentPage
+            });
+        }
+
+        $scope.load();
+
         $scope.viewDetail = function(row) {
             $state.transitionTo('product.detail',{
               id:row.entity.id

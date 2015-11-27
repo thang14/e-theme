@@ -122,7 +122,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         }
 
         Products.prototype.isNew = function() {
-            return (this.id ! = undefined);
+            return (this.id != undefined);
         }
         return Products;
     }

@@ -4,10 +4,10 @@
  * @name            OnhanhMedia
  * @description     MediaService
  */
-mediaModule.factory('mediaResource', [ 'Upload', 'Environment', '$resource',
+mediaModule.factory('Medias', [ 'Upload', 'Environment', '$resource',
     function(Upload, Environment, $resource) {
         var api = Environment.settings.domain+'/media';
-        
+
         var mediaService = $resource(api+'/:id', {id: '@id'});
         mediaService.upload = function($file, callback) {
             return Upload.upload({
@@ -19,9 +19,9 @@ mediaModule.factory('mediaResource', [ 'Upload', 'Environment', '$resource',
                 res = new mediaService(res);
                 callback ? callback(res) : null;
             });
-            
+
         }
-        
+
         return mediaService;
     }
 ]);

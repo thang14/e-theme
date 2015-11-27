@@ -25,169 +25,29 @@ var productModule = angular.module("app.product", [
 productModule
     .config(['$stateProvider',
         function($stateProvider) {
-            
+
             var getSections = ['Sections', function(Sections) {
-               return Sections.query(); 
+               return Sections.query();
             }];
-            
+
             var getProductId = ['$stateParams', function($stateParams) {
-               return $stateParams.id; 
+               return $stateParams.id;
             }];
-            
+
             var getVariantId = ['$stateParams', function($stateParams) {
-               return $stateParams.variantId; 
+               return $stateParams.variantId;
             }];
-            
-         // Use $stateProvider to configure your states.
-          $stateProvider
 
-            /////////////
-            // Product //
-            ////////////
+            // Use $stateProvider to configure your states.
+            $stateProvider
+                .state("product", {
+                    title: "Danh sách sản phẩm",
+                    url: "/product",
+                    controller: 'productController',
+                    templateUrl: '/web/product/list.html',
+                }
+            );
 
-            .state("product", {
-              title: "Danh sách sản phẩm",
-              // Use a url of "/" to set a states as the "index".
-              url: "/product",
-
-              // Example of an inline template string. By default, templates
-              // will populate the ui-view within the parent state's template.
-              // For top level states, like this one, the parent template is
-              // the index.html file. So this template will be inserted into the
-              // ui-view within index.html.
-              controller: 'productController',
-              templateUrl: '/web/product/list.html',
-              
-              resolve: {
-                  gridOptions:['productGrid', '$scope', function(productGrid, $scope) {
-                    return productGrid.gridOptions($scope);
-                  }],
-              }
-            })
-
-
-            //////////////////
-            // Product New //
-            ////////////////
-            .state("product.new", {
-              title: "Sản phẩm mới",
-              // Use a url of "/" to set a states as the "index".
-              url: "/new",
-
-              views: {
-                  "@" : {
-                      // Example of an inline template string. By default, templates
-                      // will populate the ui-view within the parent state's template.
-                      // For top level states, like this one, the parent template is
-                      // the index.html file. So this template will be inserted into the
-                      // ui-view within index.html.
-                      controller: 'productDetailController',
-                      templateUrl: '/web/product/detail.html',
-                  }
-              },
-              
-              resolve: {
-                  productItem:['Products', 'Variants', function(Products, Variants) {
-                    return new Products({
-                        variant: new Variants()
-                    });
-                  }],
-                  sections: getSections,
-              }
-            })
-
-            //////////////////
-            // Product Detail //
-            ////////////////
-            .state("product.detail", {
-              title: "Chi tiết sản phẩm",
-              // Use a url of "/" to set a states as the "index".
-              url: "/:id",
-
-              views: {
-                  "@" : {
-                      // Example of an inline template string. By default, templates
-                      // will populate the ui-view within the parent state's template.
-                      // For top level states, like this one, the parent template is
-                      // the index.html file. So this template will be inserted into the
-                      // ui-view within index.html.
-                      controller: 'productDetailController',
-                      templateUrl: '/web/product/detail.html',
-                      resolve: {
-                          productId: getProductId,
-                          productItem:['Products', 'productId', function(Products, productId, variants) {
-                            var item = Products.get({id:productId}, function() {
-                                item.variants = variants;
-                            });
-                            return item;
-                          }],
-                          
-                          variants:['Variants', 'productId', function(Variants, productId) {
-                            return Variants.query({product_id:productId});
-                          }],
-                          
-                          sections: getSections,
-                      }
-                  }
-              },
-            })
-            
-            //////////////////
-            // Product Detail //
-            ////////////////
-            .state("product.detail.variant.new", {
-              title: "Thên biến thể",
-              // Use a url of "/" to set a states as the "index".
-              url: "/new",
-
-              views: {
-                  "@" : {
-                      // Example of an inline template string. By default, templates
-                      // will populate the ui-view within the parent state's template.
-                      // For top level states, like this one, the parent template is
-                      // the index.html file. So this template will be inserted into the
-                      // ui-view within index.html.
-                      controller: 'variantDetailController',
-                      templateUrl: '/web/product/variant/detail.html',
-                      resolve: {
-                          variantItem:['Variants', function(Variants, productItem) {
-                            return new Variants({
-                                product_id: productItem.id
-                            })
-                          }],
-                      }
-                  }
-              },
-            })
-            
-            //////////////////
-            // Product Detail //
-            ////////////////
-            .state("product.detail.variant.detail", {
-              title: "Thên biến thể",
-              // Use a url of "/" to set a states as the "index".
-              url: "/:variantId",
-
-              views: {
-                  "@" : {
-                      // Example of an inline template string. By default, templates
-                      // will populate the ui-view within the parent state's template.
-                      // For top level states, like this one, the parent template is
-                      // the index.html file. So this template will be inserted into the
-                      // ui-view within index.html.
-                      controller: 'variantDetailController',
-                      templateUrl: '/web/product/variant/detail.html',
-                      resolve: {
-                          variantId: getVariantId,
-                          variantItem:['variants', 'variantId', function(variants, productItem, variantId) {
-                            return _.find(variants, function(obj) {
-                                return (obj.id == variantId);
-                            });
-                          }],
-                      }
-                  }
-              },
-            })
         }
     ]);
 
@@ -366,7 +226,7 @@ productModule
  * @description     ProductController
  */
 productModule
-.controller('productController', [ '$scope', '$state', 'gridOptions',
+.controller('productController', [ '$scope', '$state', 'productGrid',
 
 
 
@@ -377,7 +237,16 @@ productModule
         $scope.maxSize = 5;
 
         // grid Options
-        $scope.gridOptions = gridOptions;
+        $scope.gridOptions = productGrid.gridOptions($scope);
+
+        $scope.load = function() {
+            $scope.gridOptions.load({
+                page: $scope.currentPage
+            });
+        }
+
+        $scope.load();
+
         $scope.viewDetail = function(row) {
             $state.transitionTo('product.detail',{
               id:row.entity.id
@@ -387,6 +256,205 @@ productModule
         $scope.newProduct = function(id) {
             $state.transitionTo('product.new');
         }
+    }
+]);
+
+'use strict';
+
+/**
+ * @name            OnhanhProduct
+ * @description     ProductService
+ */
+productModule.factory('Products', ['resourceService', 'Variants', 'productTemplates',
+
+    function(resourceService, mediaResource, Variants) {
+
+        var Products = resourceService('product');
+
+        Products.forSection = function(id) {
+            return this.query({section_id: id});
+        }
+
+        Products.prototype.selectTemplate = function(template) {
+            if(!this.isNew()) {
+                return false;
+            }
+
+            if(template === this.template) {
+                return;
+            }
+
+            if(template === null) {
+                this.variants = [];
+                this.variant_options = [];
+                return;
+            }
+
+            var options = [];
+            var names = productTemplates.templates[template];
+            angular.forEach(names, function(name) {
+                options.push({
+                    name: name,
+                    label: productTemplates.labels[name],
+                    values: []
+                })
+            });
+            this.variant_options = options;
+        }
+
+        Products.prototype.templateDropdownList = function() {
+            return productTemplates.getDropdownList();
+        }
+
+        Products.prototype.generateVariants = function() {
+            if(!this.isNew()) {
+                return false;
+            }
+            function generateVariants(key, data) {
+                var options = this.variant_options;
+                angular.forEach(options[key].values, function(value, index) {
+                    var item = angular.copy(data);
+                    item.push(index);
+                    if(angular.isUndefined(options[key + 1])) {
+                        this.variants.push(new Variants({
+                            price: 0,
+                            sale: 0,
+                            quantity: 0,
+                            option: item
+                        }));
+                    } else {
+                        generateVariants(key + 1, data);
+                    }
+                }, this)
+            }
+
+            generateVariants.call(this, 0, []);
+        }
+
+        Products.prototype.removeVariant = function(variant) {
+            var index = this.variants.indexOf(variant);
+            if(variant.id) {
+                variant.$remove();
+            }
+            this.variant.splice(index, 1);
+        }
+
+
+
+        Products.prototype.removeVariantOption = function(a1, a2) {
+            this.variants.forEach(function(obj) {
+                if(typeof obj.option === "Array") {
+                    if(a1 && angular.isUndefined(a2)) {
+                        obj.option.splice(a1, 1);
+                        if(obj.option.length === 0) {
+                            this.removeVariant(obj);
+                        } else {
+                            obj.$save();
+                        }
+                    }
+
+                    if(a1 && a2) {
+                        obj.option[a1].splice(a2, 1);
+                        obj.$save();
+                    }
+                }
+            }, this)
+        }
+
+        Products.prototype.getVariantDefault = function() {
+            var variants = this.variants;
+            if(!angular.isUndefined(variants) && variants.length > 0) {
+                return variants[0];
+            }
+
+            if(!this.variant instanceof Resource) {
+                this.variant = new Variants(this.variant);
+            }
+            return this.variant;
+        }
+
+
+        Products.prototype.upload = function(file) {
+            return this.getVariantDefault().upload(file);
+        }
+
+        Products.prototype.removeFile = function(file) {
+            return this.getVariantDefault().removeFile(file);
+        }
+
+        Products.prototype.isNew = function() {
+            return (this.id != undefined);
+        }
+        return Products;
+    }
+]);
+
+'use strict';
+
+/**
+ * @name            OnhanhProduct
+ * @description     productModule
+ */
+productModule.factory('Variants', ['resourceService', 'Medias', '$q',
+    function(resourceService, $q) {
+        var Variant = resourceService('variant');
+
+        Variant.forProduct = function(id, successcb, errorcb) {
+            return Variant.query({product_id: id}, successcb, errorcb);
+        }
+        /**
+         * Upload media
+         * @param object mefiledia
+         */
+        Variant.prototype.upload = function($files) {
+            if($files && $files.length > 0) {
+                var promises = []
+                this.medias = this.medias || [];
+                $files.forEach(function(file) {
+                    var deffered  = $q.defer();
+                    this.medias.push(file);
+                    file.upload = Medias.upload(file);
+                    // Success
+                    file.upload.success(function(data, status, headers, config) {
+                        file = data;
+                        deffered.resolve(data);
+                    }.bind(this));
+                    // Error
+                    file.upload.error(function(error){
+                        deffered.reject();
+                    });
+                    // Progress
+                    file.upload.progress(function (evt) {
+                        file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                    });
+
+                    promises.push(deffered.promise);
+                }, this);
+
+                $q.all(promises)
+                .then(function() {
+                    if(this.id) {
+                        this.$save();
+                    }
+                }.bind(this));
+            }
+        }
+
+        /**
+         * Remove media
+         * @param object media
+         */
+        Variant.prototype.removeMedia = function(media) {
+            var idx = this.medias.splice(media);
+            if(idx >= 0) {
+                media.$remove();
+                if(this.id) {
+                    this.$save();
+                }
+                this.medias.splice(idx, 1);
+            }
+        }
+        return Variant;
     }
 ]);
 
@@ -432,7 +500,7 @@ productModule
         useExternalFiltering: true,
         columnDefs: this.columns,
         load: function(params, fn) {
-          var res = resource.query(params, function() {
+          var res = Products.query(params, function() {
             this.data= res.items;
             this.totalItems = res.total;
             fn ? fn : "";
