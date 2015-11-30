@@ -5,6 +5,13 @@
  * @description     ProductDetailController
  */
 
+// html filter (render text as html)
+productModule.filter('html', ['$sce', function ($sce) { 
+    return function (text) {
+        return $sce.trustAsHtml(text);
+    };    
+}])
+
 productModule
 
 /**
@@ -13,22 +20,19 @@ productModule
 .controller('productDetailController', [
  '$scope',
  '$state',
- 'productItem',
+ 'product',
  'sections',
- 'i18nNotifications',
  '$uibModal',
-  function($scope, $state, product, sections, i18nNotifications, $uibModal) {
+  function($scope, $state, product, sections, $uibModal) {
 
     $scope.product = product;
-
     $scope.sections = sections;
-
 
     //onSaveAndFinish
     var goBack = function() {
         $state.go('product');
     }
-    $scop.onDelete = goBack;
+    $scope.onDelete = goBack;
     $scope.onSaveAndFinish = goBack;
 
 

@@ -76,6 +76,13 @@ productModule
  * @description     ProductDetailController
  */
 
+// html filter (render text as html)
+productModule.filter('html', ['$sce', function ($sce) { 
+    return function (text) {
+        return $sce.trustAsHtml(text);
+    };    
+}])
+
 productModule
 
 /**
@@ -84,22 +91,19 @@ productModule
 .controller('productDetailController', [
  '$scope',
  '$state',
- 'productItem',
+ 'product',
  'sections',
- 'i18nNotifications',
  '$uibModal',
-  function($scope, $state, product, sections, i18nNotifications, $uibModal) {
+  function($scope, $state, product, sections, $uibModal) {
 
     $scope.product = product;
-
     $scope.sections = sections;
-
 
     //onSaveAndFinish
     var goBack = function() {
         $state.go('product');
     }
-    $scop.onDelete = goBack;
+    $scope.onDelete = goBack;
     $scope.onSaveAndFinish = goBack;
 
 
@@ -286,7 +290,7 @@ productModule
  */
 productModule.factory('Products', ['resourceService', 'Variants', 'productTemplates',
 
-    function(resourceService, mediaResource, Variants) {
+    function(resourceService, Variants, productTemplates) {
 
         var Products = resourceService('product');
 
@@ -321,7 +325,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             this.variant_options = options;
         }
 
-        Products.prototype.templateDropdownList = function() {
+        Products.prototype.getTemplateDropdownList = function() {
             return productTemplates.getDropdownList();
         }
 
@@ -384,10 +388,6 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             var variants = this.variants;
             if(!angular.isUndefined(variants) && variants.length > 0) {
                 return variants[0];
-            }
-
-            if(!this.variant instanceof Resource) {
-                this.variant = new Variants(this.variant);
             }
             return this.variant;
         }

@@ -36,7 +36,7 @@ sectionModule
 
               resolve: {
                   sections:['Sections', function(Sections) {
-                    return Sections.get();
+                    return Sections.query();
                   }]
               },
 

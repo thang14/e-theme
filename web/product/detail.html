@@ -34,7 +34,8 @@
                 <ui-select ng-model="product.section" theme="bootstrap">
                     <ui-select-match placeholder="Chọn hoặc tìm kiếm">{{$select.selected.name}}</ui-select-match>
                         <ui-select-choices repeat="section in sections | filter: $select.search">
-                            <div ng-bind-html="section.name | highlight: $select.search"></div>
+                            <span ng-bind-html="section.name | highlight: $select.search | html"></span>
+                            <small ng-bind-html="section.code | highlight: $select.search | html"></small>
                         </ui-select-choices>
                 </ui-select>
             </div><!--.form-group-->

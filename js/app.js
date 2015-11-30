@@ -8,7 +8,7 @@ window.angular.module('app', [
     'ngResource',
     //Core module
     'ui.router',
-    
+    'ui.select',
     //Angular Modules
     'angular-loading-bar',
 
