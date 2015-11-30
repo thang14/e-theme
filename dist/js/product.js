@@ -27,7 +27,7 @@ productModule
         function($stateProvider) {
 
             var getSections = ['Sections', function(Sections) {
-               return Sections.query();
+               return Sections.all();
             }];
 
             var getProductId = ['$stateParams', function($stateParams) {
@@ -40,11 +40,29 @@ productModule
 
             // Use $stateProvider to configure your states.
             $stateProvider
-                .state("product", {
-                    title: "Danh sách sản phẩm",
+            .state("product", {
+                    title: "List Product",
                     url: "/product",
                     controller: 'productController',
                     templateUrl: '/web/product/list.html',
+                }
+            )
+
+            .state("product.new", {
+                    title: "Add Product",
+                    url: "/new",
+                    views: {
+                        "@": {
+                            resolve: {
+                                sections: getSections,
+                                product: ['Products', function(Products) {
+                                    return new Products();
+                                }],
+                            },
+                            controller: 'productDetailController',
+                            templateUrl: '/web/product/detail.html',
+                        }
+                    }
                 }
             );
 
@@ -70,11 +88,12 @@ productModule
  'sections',
  'i18nNotifications',
  '$uibModal',
-  function($scope, $state, productItem, sections, i18nNotifications, $uibModal) {
+  function($scope, $state, product, sections, i18nNotifications, $uibModal) {
 
-    var product = $scope.product = productItem;
+    $scope.product = product;
 
     $scope.sections = sections;
+
 
     //onSaveAndFinish
     var goBack = function() {
@@ -469,24 +488,31 @@ productModule
   return {
     columns: [{
       name: "action",
+      width: '100',
       displayName: "",
+      enableCellEdit: false,
+      enableSorting: false,
+      cellTemplate: [
+        '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
+            '<a href="#"><i class="fa-pencil-square-o"></i> {{Constants.EDIT}}</a>',
+        '</div>'
+      ].join('')
     },{
       name: "name",
       displayName: "Tên",
-      cellTemplate: [
-        '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
-            '<a ui-sref="product.detail({id:row.entity.id})">{{COL_FIELD}}</a>',
-        '</div>'
-      ].join('')
     }, {
       name: "price",
       displayName: "Giá tiền",
+      width: '120',
+      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD | currency:"đ "}} </div>'
     }, {
       name: "sale",
       displayName: "Khuyến mãi",
+      width: '80',
     }, {
       name: "quantity",
       displayName: "Số lượng",
+      width: '80',
     }],
     
     gridOptions: function($scope) {
@@ -496,12 +522,14 @@ productModule
         rowHeight: 35,
         showGridFooter: false,
         enableFiltering: false,
-        enableSorting: false,
-        useExternalFiltering: true,
+        enableSorting: true,
+        exporterMenuCsv: false,
+        enableGridMenu: false,
+        useExternalFiltering: false,
         columnDefs: this.columns,
         load: function(params, fn) {
-          var res = Products.query(params, function() {
-            this.data= res.items;
+          var res = Products.get(params, function() {
+            this.data= res.data;
             this.totalItems = res.total;
             fn ? fn : "";
           }.bind(this));

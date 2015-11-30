@@ -17,11 +17,12 @@ productModule
  'sections',
  'i18nNotifications',
  '$uibModal',
-  function($scope, $state, productItem, sections, i18nNotifications, $uibModal) {
+  function($scope, $state, product, sections, i18nNotifications, $uibModal) {
 
-    var product = $scope.product = productItem;
+    $scope.product = product;
 
     $scope.sections = sections;
+
 
     //onSaveAndFinish
     var goBack = function() {

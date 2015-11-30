@@ -9,24 +9,31 @@ productModule
   return {
     columns: [{
       name: "action",
+      width: '100',
       displayName: "",
+      enableCellEdit: false,
+      enableSorting: false,
+      cellTemplate: [
+        '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
+            '<a href="#"><i class="fa-pencil-square-o"></i> {{Constants.EDIT}}</a>',
+        '</div>'
+      ].join('')
     },{
       name: "name",
       displayName: "Tên",
-      cellTemplate: [
-        '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
-            '<a ui-sref="product.detail({id:row.entity.id})">{{COL_FIELD}}</a>',
-        '</div>'
-      ].join('')
     }, {
       name: "price",
       displayName: "Giá tiền",
+      width: '120',
+      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD | currency:"đ "}} </div>'
     }, {
       name: "sale",
       displayName: "Khuyến mãi",
+      width: '80',
     }, {
       name: "quantity",
       displayName: "Số lượng",
+      width: '80',
     }],
     
     gridOptions: function($scope) {
@@ -36,12 +43,14 @@ productModule
         rowHeight: 35,
         showGridFooter: false,
         enableFiltering: false,
-        enableSorting: false,
-        useExternalFiltering: true,
+        enableSorting: true,
+        exporterMenuCsv: false,
+        enableGridMenu: false,
+        useExternalFiltering: false,
         columnDefs: this.columns,
         load: function(params, fn) {
-          var res = Products.query(params, function() {
-            this.data= res.items;
+          var res = Products.get(params, function() {
+            this.data= res.data;
             this.totalItems = res.total;
             fn ? fn : "";
           }.bind(this));

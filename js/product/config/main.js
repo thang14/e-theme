@@ -9,7 +9,7 @@ productModule
         function($stateProvider) {
 
             var getSections = ['Sections', function(Sections) {
-               return Sections.query();
+               return Sections.all();
             }];
 
             var getProductId = ['$stateParams', function($stateParams) {
@@ -22,11 +22,29 @@ productModule
 
             // Use $stateProvider to configure your states.
             $stateProvider
-                .state("product", {
-                    title: "Danh sách sản phẩm",
+            .state("product", {
+                    title: "List Product",
                     url: "/product",
                     controller: 'productController',
                     templateUrl: '/web/product/list.html',
+                }
+            )
+
+            .state("product.new", {
+                    title: "Add Product",
+                    url: "/new",
+                    views: {
+                        "@": {
+                            resolve: {
+                                sections: getSections,
+                                product: ['Products', function(Products) {
+                                    return new Products();
+                                }],
+                            },
+                            controller: 'productDetailController',
+                            templateUrl: '/web/product/detail.html',
+                        }
+                    }
                 }
             );
 

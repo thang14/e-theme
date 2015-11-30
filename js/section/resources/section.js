@@ -5,7 +5,7 @@
  * @description     sectionModule
  */
 sectionModule.factory('Sections', ['resourceService',
-    function() {
+    function(resourceService) {
     	var sectionResource = resourceService('section');
     	return sectionResource;
     }

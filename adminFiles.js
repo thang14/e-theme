@@ -33,8 +33,8 @@ var adminFiles = {
     ],
     'section': [
       'js/section/section.js',
-      'js/section/resources/**/*.js',
       'js/section/config/**/*.js',
+      'js/section/resources/**/*.js',
       'js/section/controllers/**/*.js',
       'js/section/services/**/*.js',
     ],
