@@ -5,9 +5,9 @@
  * @description     AuthModule
  */
 
-authModule.factory('Auth', [ '$resource', 'Environment'
+authModule.service('Auth', [ '$resource', 'Environment', '$http',
 	function($resource) {
-		return $resource(Environment.settings.domain+"/auth");
+		
 	}
 
 ]);
