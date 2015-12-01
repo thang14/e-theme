@@ -14,7 +14,7 @@ productModule
       ['style_name'],
       ['configure_name'],
       ['weight_name'],
-      ['cover_tyle_name'],
+      ['cover_type_name'],
       
       // Color map
       ['color_name', 'size_name'],
@@ -22,7 +22,7 @@ productModule
       ['color_name', 'configure_name'],
       ['color_name', 'size_name', 'style_name'],
       ['color_name', 'size_name', 'configure_name'],
-      ['color_name', 'style_name', 'configure_name']
+      ['color_name', 'style_name', 'configure_name'],
       ['color_name', 'size_name', 'style_name', 'configure_name'],
       
       
@@ -46,7 +46,7 @@ productModule
     
     getDropdownList: function() {
       var results = [];
-      angular.forEach(this.themes, function(values, index) {
+      angular.forEach(this.templates, function(values, index) {
         var result = [];
         angular.forEach(values, function(value) {
           result.push(this.labels[value]);

@@ -27,6 +27,8 @@ productModule
 
     $scope.product = product;
     $scope.sections = sections;
+    $scope.templates  = product.getTemplateDropdownList();
+    $scope.variant = product.getVariant();
 
     //onSaveAndFinish
     var goBack = function() {

@@ -98,6 +98,8 @@ productModule
 
     $scope.product = product;
     $scope.sections = sections;
+    $scope.templates  = product.getTemplateDropdownList();
+    $scope.variant = product.getVariant();
 
     //onSaveAndFinish
     var goBack = function() {
@@ -299,22 +301,14 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         }
 
         Products.prototype.selectTemplate = function(template) {
-            if(!this.isNew()) {
-                return false;
-            }
-
-            if(template === this.template) {
-                return;
-            }
-
-            if(template === null) {
-                this.variants = [];
-                this.variant_options = [];
-                return;
-            }
-
-            var options = [];
             var names = productTemplates.templates[template];
+
+            if(angular.isUndefined(names) || !this.isNew()) {
+                return;
+            }
+
+            this.variants = [];
+            var options = [];
             angular.forEach(names, function(name) {
                 options.push({
                     name: name,
@@ -333,6 +327,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             if(!this.isNew()) {
                 return false;
             }
+            this.variants = [];
             function generateVariants(key, data) {
                 var options = this.variant_options;
                 angular.forEach(options[key].values, function(value, index) {
@@ -346,11 +341,10 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                             option: item
                         }));
                     } else {
-                        generateVariants(key + 1, data);
+                        generateVariants.call(this, key + 1, item);
                     }
                 }, this)
             }
-
             generateVariants.call(this, 0, []);
         }
 
@@ -360,6 +354,11 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                 variant.$remove();
             }
             this.variant.splice(index, 1);
+        }
+
+
+        Products.prototype.getVariantLabel = function(variant) {
+            return variant.getOptionLabel(this);
         }
 
 
@@ -384,7 +383,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             }, this)
         }
 
-        Products.prototype.getVariantDefault = function() {
+        Products.prototype.getVariant = function() {
             var variants = this.variants;
             if(!angular.isUndefined(variants) && variants.length > 0) {
                 return variants[0];
@@ -394,15 +393,15 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
 
 
         Products.prototype.upload = function(file) {
-            return this.getVariantDefault().upload(file);
+            return this.getVariant().upload(file);
         }
 
         Products.prototype.removeFile = function(file) {
-            return this.getVariantDefault().removeFile(file);
+            return this.getVariant().removeFile(file);
         }
 
         Products.prototype.isNew = function() {
-            return (this.id != undefined);
+            return (this.id == undefined);
         }
         return Products;
     }
@@ -414,13 +413,22 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
  * @name            OnhanhProduct
  * @description     productModule
  */
-productModule.factory('Variants', ['resourceService', 'Medias', '$q',
-    function(resourceService, $q) {
+productModule.factory('Variants', ['resourceService', 'Medias', '$q', 'productTemplates',
+    function(resourceService, $q, productTemplates) {
         var Variant = resourceService('variant');
 
         Variant.forProduct = function(id, successcb, errorcb) {
             return Variant.query({product_id: id}, successcb, errorcb);
         }
+
+        Variant.prototype.getOptionLabel = function(instance) {
+            var text = [];
+            angular.forEach(this.option, function(value, index) {
+                text.push(instance.variant_options[index].values[value].text);
+            });
+            return text.join(" >> ");
+        }
+
         /**
          * Upload media
          * @param object mefiledia
@@ -564,7 +572,7 @@ productModule
       ['style_name'],
       ['configure_name'],
       ['weight_name'],
-      ['cover_tyle_name'],
+      ['cover_type_name'],
       
       // Color map
       ['color_name', 'size_name'],
@@ -572,7 +580,7 @@ productModule
       ['color_name', 'configure_name'],
       ['color_name', 'size_name', 'style_name'],
       ['color_name', 'size_name', 'configure_name'],
-      ['color_name', 'style_name', 'configure_name']
+      ['color_name', 'style_name', 'configure_name'],
       ['color_name', 'size_name', 'style_name', 'configure_name'],
       
       
@@ -596,7 +604,7 @@ productModule
     
     getDropdownList: function() {
       var results = [];
-      angular.forEach(this.themes, function(values, index) {
+      angular.forEach(this.templates, function(values, index) {
         var result = [];
         angular.forEach(values, function(value) {
           result.push(this.labels[value]);

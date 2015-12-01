@@ -4,13 +4,22 @@
  * @name            OnhanhProduct
  * @description     productModule
  */
-productModule.factory('Variants', ['resourceService', 'Medias', '$q',
-    function(resourceService, $q) {
+productModule.factory('Variants', ['resourceService', 'Medias', '$q', 'productTemplates',
+    function(resourceService, $q, productTemplates) {
         var Variant = resourceService('variant');
 
         Variant.forProduct = function(id, successcb, errorcb) {
             return Variant.query({product_id: id}, successcb, errorcb);
         }
+
+        Variant.prototype.getOptionLabel = function(instance) {
+            var text = [];
+            angular.forEach(this.option, function(value, index) {
+                text.push(instance.variant_options[index].values[value].text);
+            });
+            return text.join(" >> ");
+        }
+
         /**
          * Upload media
          * @param object mefiledia

@@ -57,10 +57,10 @@
                 <select
                     class="form-control"
                     ng-model="product.template"
-                    ng-change="product.selectTemplate(product.theme)">
+                    ng-change="product.selectTemplate(product.template)">
 
                       <option value="">--Không chọn--</option>
-                      <option ng-repeat="(index, value) in product.getTemplateDropdownList()" value="{{index}}">{{value}}</option>
+                      <option ng-repeat="(index, value) in templates" value="{{index}}">{{value}}</option>
                  </select>
             </div><!--.form-group-->
         </div>
@@ -72,12 +72,12 @@
                             min-length="1"
                             max-length="20"
                             placeholder="{{option.label}}"
-                            ng-model="option.items"></tags-input>
+                            ng-model="option.values"></tags-input>
                 </div>
             </div><!--.form-group-->
 
             <div class="form-group">
-                <button type="button" class="btn btn-primary btn-sm" ng-click="generateVariant()">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="product.generateVariants()">
                     Cập nhật biến thể
                 </button>
             </div><!--.form-group-->
@@ -89,7 +89,7 @@
 
         <div class="form-group">
             <ul class="media-list">
-                <li class="item" ng-repeat="(index, media) in product.getVariantDefault()">
+                <li class="item" ng-repeat="(index, media) in variant.medias">
                     <div class="action">
                         <div class="dropdown">
                             <a href="javascript:void(0)"

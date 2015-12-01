@@ -15,22 +15,14 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
         }
 
         Products.prototype.selectTemplate = function(template) {
-            if(!this.isNew()) {
-                return false;
-            }
-
-            if(template === this.template) {
-                return;
-            }
-
-            if(template === null) {
-                this.variants = [];
-                this.variant_options = [];
-                return;
-            }
-
-            var options = [];
             var names = productTemplates.templates[template];
+
+            if(angular.isUndefined(names) || !this.isNew()) {
+                return;
+            }
+
+            this.variants = [];
+            var options = [];
             angular.forEach(names, function(name) {
                 options.push({
                     name: name,
@@ -49,6 +41,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             if(!this.isNew()) {
                 return false;
             }
+            this.variants = [];
             function generateVariants(key, data) {
                 var options = this.variant_options;
                 angular.forEach(options[key].values, function(value, index) {
@@ -62,11 +55,10 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                             option: item
                         }));
                     } else {
-                        generateVariants(key + 1, data);
+                        generateVariants.call(this, key + 1, item);
                     }
                 }, this)
             }
-
             generateVariants.call(this, 0, []);
         }
 
@@ -76,6 +68,11 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
                 variant.$remove();
             }
             this.variant.splice(index, 1);
+        }
+
+
+        Products.prototype.getVariantLabel = function(variant) {
+            return variant.getOptionLabel(this);
         }
 
 
@@ -100,7 +97,7 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             }, this)
         }
 
-        Products.prototype.getVariantDefault = function() {
+        Products.prototype.getVariant = function() {
             var variants = this.variants;
             if(!angular.isUndefined(variants) && variants.length > 0) {
                 return variants[0];
@@ -110,15 +107,15 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
 
 
         Products.prototype.upload = function(file) {
-            return this.getVariantDefault().upload(file);
+            return this.getVariant().upload(file);
         }
 
         Products.prototype.removeFile = function(file) {
-            return this.getVariantDefault().removeFile(file);
+            return this.getVariant().removeFile(file);
         }
 
         Products.prototype.isNew = function() {
-            return (this.id != undefined);
+            return (this.id == undefined);
         }
         return Products;
     }
