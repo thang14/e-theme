@@ -1,13 +1,13 @@
 [{
-  id: 'C1',
-  name: "Thuc pham"
+  "id": "C1",
+  "name": "Thuc pham"
 },{
-  id: 'C1',
+  "id": "C2",
   name: "Thoi trang"
 },{
-  id: 'C1',
-  name: "Cong nghe"
+  "id": "C3",
+  "name": "Cong nghe"
 },{
-  id: 'C1',
-  name: "Dich vu"
+  "id": "C4",
+  "name": "Dich vu"
 }]
