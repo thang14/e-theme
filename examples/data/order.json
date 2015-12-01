@@ -1,19 +1,32 @@
-[{
-  "id": "OR0001",
-  "name": "Tranh gom bat trang",
-  "user": {
-    "id": "U0001",
-    "name": "Thang",
-    "url": "/thangn"
-  },
-  "status": "pedding",
-},{
-  "id": "OR0002",
-  "name": "Tranh gom bat trang",
-  "user": {
-    "id": "U0002",
-    "name": "Thang",
-    "url": "/thangn2"
-  },
-  "status": "pedding",
-}]
+{
+  "total": 50,
+  "data": [{
+    "id": "OR0001",
+    "product": {
+      "count" : 10
+    },
+    "user": {
+      "id": "U0001",
+      "name": "Thang",
+      "email": "test1@gmail.com",
+      "phone": "0977465849",
+      "url": "/thangn"
+    },
+    "price" : 500000,
+    "status": "pedding"
+  },{
+    "id": "OR0002",
+    "product": {
+      "count" : 10
+    },
+    "user": {
+      "id": "U0002",
+      "email": "test1@gmail.com",
+      "phone": "0977465849",
+      "name": "Thang",
+      "url": "/thangn2"
+    },
+    "price" : 500000,
+    "status": "pedding"
+  }]
+}
