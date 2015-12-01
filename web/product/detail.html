@@ -2,7 +2,7 @@
     <div class="page-header">
         <div class="page-header-content">
             <div class="page-title">
-                <h4 ng-if="!product.id">Sản phẩm mới</h4>
+                <h4 ng-if="!product.id">New Product</h4>
                 <h4 ng-if="product.id">{{product.name}}</h4>
             </div>
         </div><!--.page-header-content-->
@@ -16,7 +16,7 @@
         <div style="max-width:440px">
             <div class="form-group">
                 <label for="productName">
-                    Tên <strong class="color-red">*</strong>
+                    Name <strong class="color-red">*</strong>
                 </label>
                 <input
                     name="name"
@@ -28,20 +28,20 @@
                     maxlength="255"
                     placeholder="Name">
             </div><!--.form-group-->
-            
+
             <div class="form-group">
-                <label for="productBranh">Thành phần</label>
+                <label for="productBranh">Sections</label>
                 <ui-select ng-model="product.section" theme="bootstrap">
-                    <ui-select-match placeholder="Chọn hoặc tìm kiếm">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-match placeholder="Selection or search">{{$select.selected.name}}</ui-select-match>
                         <ui-select-choices repeat="section in sections | filter: $select.search">
                             <span ng-bind-html="section.name | highlight: $select.search | html"></span>
                             <small ng-bind-html="section.code | highlight: $select.search | html"></small>
                         </ui-select-choices>
                 </ui-select>
             </div><!--.form-group-->
-            
+
             <div class="form-group">
-                <label for="productBranh">Nhà cung cấp</label>
+                <label for="productBranh">Branh</label>
                 <input
                     name="branh"
                     ng-model="product.branh"
@@ -53,13 +53,13 @@
             </div><!--.form-group-->
 
             <div class="form-group">
-                <label for="productBranh">Giao diện</label>
+                <label for="productBranh">Templates</label>
                 <select
                     class="form-control"
                     ng-model="product.template"
                     ng-change="product.selectTemplate(product.template)">
 
-                      <option value="">--Không chọn--</option>
+                      <option value="">--Select option--</option>
                       <option ng-repeat="(index, value) in templates" value="{{index}}">{{value}}</option>
                  </select>
             </div><!--.form-group-->
@@ -78,7 +78,7 @@
 
             <div class="form-group">
                 <button type="button" class="btn btn-primary btn-sm" ng-click="product.generateVariants()">
-                    Cập nhật biến thể
+                    Update Variant
                 </button>
             </div><!--.form-group-->
 
@@ -97,7 +97,7 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0)" ng-click="product.removeMedia(media)"><i class="fa fa-times"></i>Xóa</a></li>
+                                <li><a href="javascript:void(0)" ng-click="product.removeMedia(media)"><i class="fa fa-times"></i>Delete</a></li>
                             </ul>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                         ng-model="files"
                         href="javascript:void(0)">
                         <i class="fa fa-upload fa-4"></i>
-                        <div class="text-hint">Tải ảnh lên</div>
+                        <div class="text-hint">Upload file</div>
                     </a>
                 </li>
             </ul>
@@ -122,24 +122,24 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="productSku">Mã Sku</label>
+                        <label for="productSku">Sku</label>
                         <input
                             ng-model="product.variant.sku"
                             type="text"
                             class="form-control"
                             id="productSku"
-                            placeholder="Mã Sku">
+                            placeholder="Sku">
                     </div><!--.form-group-->
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="productBarcode">Mã Barcode</label>
+                        <label for="productBarcode">Barcode</label>
                         <input
                             ng-model="product.current.barcode"
                             type="text"
                             class="form-control"
                             id="productBarcode"
-                            placeholder="Mã Barcode">
+                            placeholder="Barcode">
                     </div><!--.form-group-->
                 </div>
             </div>
@@ -147,7 +147,7 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="form-group">
-                        <label for="productPrice">Giá tiền</label>
+                        <label for="productPrice">Price</label>
                         <div style="display:table-row">
                             <div style="display:table-cell">
                                 <input
@@ -156,7 +156,7 @@
                                     type="text"
                                     class="form-control text-right"
                                     id="productPrice"
-                                    placeholder="Giá tiền">
+                                    placeholder="Price">
                             </div>
                             <div style="display:table-cell; padding-left: 5px;">
                                 <strong>đ</strong>
@@ -166,7 +166,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="productSalePrice">Khuyến mãi </label>
+                        <label for="productSalePrice">Sale</label>
                         <div style="display:table-row">
                             <div style="display:table-cell">
                                 <input
@@ -175,7 +175,7 @@
                                     min="0" max="99"
                                     class="form-control"
                                     id="productSalePrice"
-                                    placeholder="Giá khuyến mãi">
+                                    placeholder="Sale">
                             </div>
                             <div style="display:table-cell; padding-left: 5px;">
                                 <strong>%</strong>
@@ -188,25 +188,25 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="productSalePrice">Đơn vị tính</label>
+                        <label for="productSalePrice">Unit</label>
                         <input
                             ng-model="product.variant.unit"
                             type="text"
                             class="form-control"
                             id="productUnit"
-                            placeholder="Đơn vị tính: kg, chiếc, đôi...">
+                            placeholder="Unit: kg, chiếc, đôi...">
                     </div><!--.form-group-->
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="productSalePrice">Số lượng</label>
+                        <label for="productSalePrice">Quantity</label>
                         <input
                             ng-model="product.current.quantity"
                             type="number"
                             min="0" max="999"
                             class="form-control"
                             id="productQuantity"
-                            placeholder="Số lượng">
+                            placeholder="Quantity">
                     </div><!--.form-group-->
                 </div>
             </div>
@@ -216,13 +216,13 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation"  class="active">
-                    <a class="text-semibold" href="#attributes" aria-controls="attributes" role="tab" data-toggle="tab">Thuộc tính</a>
+                    <a class="text-semibold" href="#attributes" aria-controls="attributes" role="tab" data-toggle="tab">Attributes</a>
                 </li>
                 <li role="presentation">
-                    <a class="text-semibold" href="#keywords" aria-controls="keywords" role="tab" data-toggle="tab">Từ khóa</a>
+                    <a class="text-semibold" href="#keywords" aria-controls="keywords" role="tab" data-toggle="tab">Keywords</a>
                 </li>
                 <li role="presentation">
-                    <a class="text-semibold" href="#description" aria-controls="keywords" role="tab" data-toggle="tab">Mô tả</a>
+                    <a class="text-semibold" href="#description" aria-controls="keywords" role="tab" data-toggle="tab">Description</a>
                 </li>
             </ul>
 
@@ -258,13 +258,13 @@
                         </div>
                     </div><!--.row-->
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-sm" ng-click="product.attrs.push({})">+ Thêm</button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="product.attrs.push({})">+ Add</button>
                     </div><!--.row-->
                 </div><!--#attributes-->
 
                 <div role="tabpanel" class="tab-pane" id="keywords">
                     <div class="form-group">
-                        <label for="productKeywords">Từ khóa</label>
+                        <label for="productKeywords">Keyword</label>
                         <textarea
                             rows="5"
                             ng-model="product.keywords"
@@ -278,7 +278,7 @@
                 <div role="tabpanel" class="tab-pane" id="description">
 
                     <div class="form-group">
-                        <label for="productDescriptionList">Chính</label>
+                        <label for="productDescriptionList">Description</label>
                         <div class="form-group" ng-repeat="desc in [0, 1, 2, 3, 4]">
                             <input
                                 ng-model="product.description_list[desc]"
@@ -289,7 +289,7 @@
                     </div><!--.form-group-->
 
                     <div class="form-group">
-                        <label for="productDescription">Mô tả thêm</label>
+                        <label for="productDescription">Description more</label>
                         <textarea
                             rows="5"
                             ng-model="product.description"
@@ -308,7 +308,7 @@
         <div class="checkbox checkbox-primary">
             <input ng-model="product.status" id="productStatus" value="1" type="checkbox">
             <label for="productStatus">
-                Cho phép tìm kiếm sản phẩm
+                Enable searching on website
             </label>
         </div>
 

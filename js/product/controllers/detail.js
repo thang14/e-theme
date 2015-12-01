@@ -34,24 +34,13 @@ productModule
     var goBack = function() {
         $state.go('product');
     }
-    $scope.onDelete = goBack;
-    $scope.onSaveAndFinish = goBack;
+    $scope.onDelete =  $scope.onSaveAndFinish = $scope.onCancel = goBack;
 
 
     /**
      * ACTIONS
      * -----------------------------------------------
      */
-    $scope.newVariant = function() {
-      $state.go('product.detail.variant.new');
-    }
-
-    $scope.viewVariant = function(id) {
-      $state.go('product.detail.variant.detail', {
-        variantId: id
-      });
-    }
-
     $scope.variantMedias = function(variant) {
       return modal({
         templateUrl: '/web/product/modal/media-list.html',

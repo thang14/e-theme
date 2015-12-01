@@ -9,18 +9,18 @@ sectionModule
   return {
     columns: [{
       name: "action",
-      width: '100',
+      width: '23',
       displayName: "",
       enableCellEdit: false,
       enableSorting: false,
       cellTemplate: [
         '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
-            '<a href="#"><i class="fa-pencil-square-o"></i> {{Constants.EDIT}}</a>',
+            '<a href="#"><i class="fa fa-pencil-square-o"></i></a>',
         '</div>'
       ].join('')
     },{
       name: "name",
-      displayName: "Tên",
+      displayName: "Name",
     }],
     
     gridOptions: function($scope) {

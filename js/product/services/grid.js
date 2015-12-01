@@ -9,33 +9,33 @@ productModule
   return {
     columns: [{
       name: "action",
-      width: '100',
+      width: '23',
       displayName: "",
       enableCellEdit: false,
       enableSorting: false,
       cellTemplate: [
         '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
-            '<a href="#"><i class="fa-pencil-square-o"></i> {{Constants.EDIT}}</a>',
+            '<a href="#"><i class="fa fa-pencil-square-o"></i></a>',
         '</div>'
       ].join('')
     },{
       name: "name",
-      displayName: "Tên",
+      displayName: "Name",
     }, {
       name: "price",
-      displayName: "Giá tiền",
+      displayName: "Price",
       width: '120',
       cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD | currency:"đ "}} </div>'
     }, {
       name: "sale",
-      displayName: "Khuyến mãi",
+      displayName: "Sale",
       width: '80',
     }, {
       name: "quantity",
-      displayName: "Số lượng",
+      displayName: "Quantity",
       width: '80',
     }],
-    
+
     gridOptions: function($scope) {
       var options = $scope.options || {};
       var defaults = {
@@ -55,10 +55,10 @@ productModule
             fn ? fn : "";
           }.bind(this));
         },
-        
+
         onRegisterApi: function(gridApi) {
           this.api = gridApi;
-          
+
           if($scope.saveRow) {
             gridApi.rowEdit.on.saveRow($scope, $scope.saveRow);
           }

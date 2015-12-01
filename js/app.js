@@ -9,6 +9,7 @@ window.angular.module('app', [
     //Core module
     'ui.router',
     'ui.select',
+    'app.crud',
     //Angular Modules
     'angular-loading-bar',
 

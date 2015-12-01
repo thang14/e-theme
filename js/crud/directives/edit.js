@@ -59,6 +59,8 @@ crudModule
       // onError attribute -> onError scope -> noop
       var onError = attrs.onError ? makeFn('onError') : ( scope.onError || angular.noop );
 
+      var onCancel = attrs.onCancel ? makeFn('onCancel') : ( scope.onCancel || angular.noop );
+
       // The following functions should be triggered by elements on the form
       // - e.g. ng-click="save()"
       scope.save = function() {
@@ -67,6 +69,10 @@ crudModule
       scope.saveAndFinish = function() {
         resource.$save(userOnSaveAndFinish, onError);
       }
+      scope.cancel = function() {
+        scope.revertChanges();
+        onCancel();
+      };
       scope.revertChanges = function() {
         resource = angular.copy(original);
         resourceSetter(scope, resource);

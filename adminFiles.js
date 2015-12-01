@@ -77,6 +77,12 @@ var adminFiles = {
     'base': [
       'js/base/base.js'
     ],
+
+    'crud': [
+      'js/crud/crud.js',
+      'js/crud/directives/**/*.js',
+      'js/crud/services/**/*.js',
+    ],
   },
 };
 
