@@ -1,30 +1,30 @@
 {
-  "total": "50",
+  "total": 50,
   "data": [{
     "id": "OR0001",
     "name": "Tranh gom bat trang",
     "product": {
-      "count" : 10,
+      "count" : 10
     },
     "user": {
       "id": "U0001",
       "name": "Thang",
       "url": "/thangn"
     },
-    "price" : "500000",
+    "price" : 500000,
     "status": "pedding"
   },{
     "id": "OR0002",
     "name": "Tranh gom bat trang",
     "product": {
-      "count" : 10,
+      "count" : 10
     },
     "user": {
       "id": "U0002",
       "name": "Thang",
       "url": "/thangn2"
     },
-    "price" : "500000",
+    "price" : 500000,
     "status": "pedding"
   }]
 }
