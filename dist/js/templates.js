@@ -82,7 +82,7 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/web/section/list.html',
-    ""
+    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4>Danh sách sản phẩm</h4></div></div><!--.page-header-content--><div class=\"page-header-right\"><div class=\"row\"><div class=\"col-md-12 nav-buttons\"><div class=\"pull-right\"><button type=\"submit\" class=\"btn btn-primary btn-sm\" ng-click=\"new()\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> New</button></div></div></div></div></div><!--.page-header--><div class=\"content\"><div class=\"col-md-12\"><div class=\"row\"><div class=\"grid\" style=\"max-height:500px\" ui-grid=\"gridOptions\" ui-grid-edit></div></div></div><!-- Pagination & collection details --><div class=\"row\"><div class=\"col-md-12\"><uib-pagination total-items=\"gridOptions.totalItems\" ng-model=\"currentPage\" ng-change=\"load()\" max-size=\"maxSize\" class=\"pagination-sm\" boundary-links=\"true\" rotate=\"false\" num-pages=\"numPages\"></uib-pagination></div></div></div><!--.content-->"
   );
 
 

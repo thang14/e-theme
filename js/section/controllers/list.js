@@ -5,12 +5,15 @@
  * @description     SectionController
  */
 sectionModule
-.controller('sectionController', [ '$scope', '$state', 'sections',
-    function($scope, $state, sections) {
+.controller('sectionController', [ '$scope', 'sectionGrid',
+    function($scope, sectionGrid) {
         
-        $scope.sections = sections;
-        $scope.view = function(id) {
-            $state.go('section', {id: id});
+        $scope.gridOptions = sectionGrid.gridOptions($scope);
+        $scope.new = function() {
+            $state.go('section.new');
         }
+
+        $scope.gridOptions.load();
+
     }
 ]);
