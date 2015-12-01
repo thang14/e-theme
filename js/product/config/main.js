@@ -22,6 +22,8 @@ productModule
 
             // Use $stateProvider to configure your states.
             $stateProvider
+
+            
             .state("product", {
                     title: "List Product",
                     url: "/product",
@@ -39,6 +41,25 @@ productModule
                                 sections: getSections,
                                 product: ['Products', function(Products) {
                                     return new Products();
+                                }],
+                            },
+                            controller: 'productDetailController',
+                            templateUrl: '/web/product/detail.html',
+                        }
+                    }
+                }
+            )
+
+            .state("product.detail", {
+                    title: "Detail",
+                    url: "/:id",
+                    views: {
+                        "@": {
+                            resolve: {
+                                sections: getSections,
+                                productId: getProductId,
+                                product: ['Products', 'productId', function(Products, productId) {
+                                    return Products.get({id: productId});
                                 }],
                             },
                             controller: 'productDetailController',

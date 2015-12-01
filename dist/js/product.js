@@ -40,6 +40,8 @@ productModule
 
             // Use $stateProvider to configure your states.
             $stateProvider
+
+            
             .state("product", {
                     title: "List Product",
                     url: "/product",
@@ -57,6 +59,25 @@ productModule
                                 sections: getSections,
                                 product: ['Products', function(Products) {
                                     return new Products();
+                                }],
+                            },
+                            controller: 'productDetailController',
+                            templateUrl: '/web/product/detail.html',
+                        }
+                    }
+                }
+            )
+
+            .state("product.detail", {
+                    title: "Detail",
+                    url: "/:id",
+                    views: {
+                        "@": {
+                            resolve: {
+                                sections: getSections,
+                                productId: getProductId,
+                                product: ['Products', 'productId', function(Products, productId) {
+                                    return Products.get({id: productId});
                                 }],
                             },
                             controller: 'productDetailController',
@@ -491,7 +512,7 @@ productModule
       enableSorting: false,
       cellTemplate: [
         '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
-            '<a href="#"><i class="fa fa-pencil-square-o"></i></a>',
+            '<a ui-sref="product.detail({id: row.entity.id})"><i class="fa fa-pencil-square-o"></i></a>',
         '</div>'
       ].join('')
     },{

@@ -9,7 +9,7 @@ sectionModule
         function($stateProvider) {
 
           var getCategories = ['Categories', function(Categories) {
-             return Category.all();
+             return Categories.query();
           }];
 
           var getSectionId = ['$stateParams', function($stateParams) {
@@ -18,25 +18,52 @@ sectionModule
          // Use $stateProvider to configure your states.
           $stateProvider
 
-            .state("section", {
-              title: "Mục",
-              // Use a url of "/" to set a states as the "index".
-              url: "/section",
+          .state("section", {
+            title: "Mục",
+            url: "/section",
+            controller: 'sectionController',
+            templateUrl: '/web/section/list.html',
 
-              resolve: {
-                  sections:['Sections', function(Sections) {
-                    return Sections.query();
+          })
+
+          .state("section.new", {
+            title: "New Section",
+            url: "/new",
+
+            views: {
+              "@": {
+                resolve: {
+                  categories: getCategories,
+                  sectionId: getSectionId,
+                  section:['Sections', function(Sections) {
+                    return new Sections();
                   }]
-              },
+                },
+                controller: 'sectionDetailController',
+                templateUrl: '/web/section/detail.html',
+              }
+            }
 
-              // Example of an inline template string. By default, templates
-              // will populate the ui-view within the parent state's template.
-              // For top level states, like this one, the parent template is
-              // the index.html file. So this template will be inserted into the
-              // ui-view within index.html.
-              controller: 'sectionController',
-              templateUrl: '/web/section/list.html',
-              
-            });
+          })
+
+          .state("section.detail", {
+            title: "Detail",
+            url: "/:id",
+
+            views: {
+              "@": {
+                resolve: {
+                  categories: getCategories,
+                  sectionId: getSectionId,
+                  section:['Sections', 'sectionId', function(Sections, sectionId) {
+                    return Sections.get({id: sectionId});
+                  }]
+                },
+                controller: 'sectionDetailController',
+                templateUrl: '/web/section/detail.html',
+              }
+            }
+
+          });
         }
     ]);

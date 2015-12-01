@@ -27,7 +27,7 @@ orderModule
             .state("order.detail", {
               title: "Order Detail",
               // Use a url of "/" to set a states as the "index".
-              url: "/:orderId",
+              url: "/:id",
 
               // Example of an inline template string. By default, templates
               // will populate the ui-view within the parent state's template.

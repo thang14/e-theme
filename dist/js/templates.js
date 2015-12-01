@@ -37,7 +37,7 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/web/order/list.html',
-    "Order list"
+    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4>Orders</h4></div></div><!--.page-header-content--><div class=\"page-header-right\"><div class=\"row\"><div class=\"col-md-12 nav-buttons\"><div class=\"pull-right\"><button type=\"submit\" class=\"btn btn-primary btn-sm\" ng-click=\"newRow()\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> New</button></div></div></div></div></div><!--.page-header--><div class=\"content\"><div class=\"col-md-12\"><div class=\"row\"><div class=\"grid\" style=\"max-height:500px\" ui-grid=\"gridOptions\" ui-grid-edit></div></div></div><!-- Pagination & collection details --><div class=\"row\"><div class=\"col-md-12\"><uib-pagination total-items=\"gridOptions.totalItems\" ng-model=\"currentPage\" ng-change=\"load()\" max-size=\"maxSize\" class=\"pagination-sm\" boundary-links=\"true\" rotate=\"false\" num-pages=\"numPages\"></uib-pagination></div></div></div><!--.content-->"
   );
 
 
@@ -71,18 +71,13 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
   );
 
 
-  $templateCache.put('/web/section/add.html',
-    ""
-  );
-
-
   $templateCache.put('/web/section/detail.html',
-    ""
+    "<form name=\"sectionForm\" crud-edit=\"resource\"><div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4 ng-if=\"!resource.id\">New Section</h4><h4 ng-if=\"resource.id\">Chỉnh sửa</h4></div></div><!--.page-header-content--><div class=\"page-header-right\"><crud-buttons></crud-buttons></div></div><!--.page-header--><div class=\"content\"><div style=\"max-width:300px\"><div class=\"form-group\"><label for=\"sectionName\">Name <strong class=\"color-red\">*</strong></label><input name=\"sku\" type=\"text\" ng-model=\"resource.name\" class=\"form-control\" required placeholder=\"Name\"></div><!--.form-group--><div class=\"form-group\"><label for=\"productBranh\">Category</label><ui-select ng-model=\"resource.category\" theme=\"bootstrap\"><ui-select-match placeholder=\"Selection or search\">{{$select.selected.name}}</ui-select-match><ui-select-choices repeat=\"category in categories | filter: $select.search\"><span ng-bind-html=\"category.name | highlight: $select.search | html\"></span> <small ng-bind-html=\"category.code | highlight: $select.search | html\"></small></ui-select-choices></ui-select></div><!--.form-group--><div class=\"form-group\"><label for=\"resourceKeyword\">Keyword</label><textarea rows=\"5\" ng-model=\"resource.keywords\" type=\"text\" class=\"form-control\" id=\"resourceKeyword\" placeholder=\"Keyword\"></textarea></div><!--.form-group--><div class=\"form-group\"><label for=\"resourceDescription\">Description</label><textarea rows=\"5\" ng-model=\"resource.description\" type=\"text\" class=\"form-control\" id=\"resourceDescription\" placeholder=\"Description\"></textarea></div><!--.form-group--></div><div style=\"padding-top:50px\"><crud-buttons></crud-buttons></div></div></form>"
   );
 
 
   $templateCache.put('/web/section/list.html',
-    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4>Danh sách sản phẩm</h4></div></div><!--.page-header-content--><div class=\"page-header-right\"><div class=\"row\"><div class=\"col-md-12 nav-buttons\"><div class=\"pull-right\"><button type=\"submit\" class=\"btn btn-primary btn-sm\" ng-click=\"new()\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> New</button></div></div></div></div></div><!--.page-header--><div class=\"content\"><div class=\"col-md-12\"><div class=\"row\"><div class=\"grid\" style=\"max-height:500px\" ui-grid=\"gridOptions\" ui-grid-edit></div></div></div><!-- Pagination & collection details --><div class=\"row\"><div class=\"col-md-12\"><uib-pagination total-items=\"gridOptions.totalItems\" ng-model=\"currentPage\" ng-change=\"load()\" max-size=\"maxSize\" class=\"pagination-sm\" boundary-links=\"true\" rotate=\"false\" num-pages=\"numPages\"></uib-pagination></div></div></div><!--.content-->"
+    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4>Sections</h4></div></div><!--.page-header-content--><div class=\"page-header-right\"><div class=\"row\"><div class=\"col-md-12 nav-buttons\"><div class=\"pull-right\"><button type=\"submit\" class=\"btn btn-primary btn-sm\" ng-click=\"newRow()\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> New</button></div></div></div></div></div><!--.page-header--><div class=\"content\"><div class=\"col-md-12\"><div class=\"row\"><div class=\"grid\" style=\"max-height:500px\" ui-grid=\"gridOptions\" ui-grid-edit></div></div></div><!-- Pagination & collection details --><div class=\"row\"><div class=\"col-md-12\"><uib-pagination total-items=\"gridOptions.totalItems\" ng-model=\"currentPage\" ng-change=\"load()\" max-size=\"maxSize\" class=\"pagination-sm\" boundary-links=\"true\" rotate=\"false\" num-pages=\"numPages\"></uib-pagination></div></div></div><!--.content-->"
   );
 
 

@@ -15,7 +15,7 @@ productModule
       enableSorting: false,
       cellTemplate: [
         '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
-            '<a href="#"><i class="fa fa-pencil-square-o"></i></a>',
+            '<a ui-sref="product.detail({id: row.entity.id})"><i class="fa fa-pencil-square-o"></i></a>',
         '</div>'
       ].join('')
     },{

@@ -38,7 +38,7 @@ orderModule
             .state("order.detail", {
               title: "Order Detail",
               // Use a url of "/" to set a states as the "index".
-              url: "/:orderId",
+              url: "/:id",
 
               // Example of an inline template string. By default, templates
               // will populate the ui-view within the parent state's template.
@@ -62,9 +62,9 @@ orderModule
  * @description     OrderDetailController
  */
 orderModule
-.controller('orderDetailController', [ '$scope', 'orderItem',
+.controller('orderDetailController', [ '$scope', 'order',
     function($scope, orderItem) {
-        this.resource = orderItem;
+        $scope.resource = order;
     }
 ]);
 

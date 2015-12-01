@@ -83,6 +83,12 @@ var adminFiles = {
       'js/crud/directives/**/*.js',
       'js/crud/services/**/*.js',
     ],
+
+    'category': [
+      'js/category/category.js',
+      'js/category/config/**/*.js',
+      'js/category/resources/**/*.js',
+    ],
   },
 };
 

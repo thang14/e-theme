@@ -7,7 +7,10 @@
  * @name            OnhanhSection
  * @description     Sectionmodule
  */
-var sectionModule = angular.module("app.section", []);
+var sectionModule = angular.module("app.section", [
+	'ui.router',
+	'app.category'
+]);
 
 'use strict';
 
@@ -20,7 +23,7 @@ sectionModule
         function($stateProvider) {
 
           var getCategories = ['Categories', function(Categories) {
-             return Category.all();
+             return Categories.query();
           }];
 
           var getSectionId = ['$stateParams', function($stateParams) {
@@ -29,26 +32,53 @@ sectionModule
          // Use $stateProvider to configure your states.
           $stateProvider
 
-            .state("section", {
-              title: "Mục",
-              // Use a url of "/" to set a states as the "index".
-              url: "/section",
+          .state("section", {
+            title: "Mục",
+            url: "/section",
+            controller: 'sectionController',
+            templateUrl: '/web/section/list.html',
 
-              resolve: {
-                  sections:['Sections', function(Sections) {
-                    return Sections.query();
+          })
+
+          .state("section.new", {
+            title: "New Section",
+            url: "/new",
+
+            views: {
+              "@": {
+                resolve: {
+                  categories: getCategories,
+                  sectionId: getSectionId,
+                  section:['Sections', function(Sections) {
+                    return new Sections();
                   }]
-              },
+                },
+                controller: 'sectionDetailController',
+                templateUrl: '/web/section/detail.html',
+              }
+            }
 
-              // Example of an inline template string. By default, templates
-              // will populate the ui-view within the parent state's template.
-              // For top level states, like this one, the parent template is
-              // the index.html file. So this template will be inserted into the
-              // ui-view within index.html.
-              controller: 'sectionController',
-              templateUrl: '/web/section/list.html',
-              
-            });
+          })
+
+          .state("section.detail", {
+            title: "Detail",
+            url: "/:id",
+
+            views: {
+              "@": {
+                resolve: {
+                  categories: getCategories,
+                  sectionId: getSectionId,
+                  section:['Sections', 'sectionId', function(Sections, sectionId) {
+                    return Sections.get({id: sectionId});
+                  }]
+                },
+                controller: 'sectionDetailController',
+                templateUrl: '/web/section/detail.html',
+              }
+            }
+
+          });
         }
     ]);
 
@@ -72,21 +102,18 @@ sectionModule.factory('Sections', ['resourceService',
  * @description     SectionDetailController
  */
 sectionModule
-.controller('sectionDetailController', [ '$scope', '$state', 'sectionItem', 'categories',
-    function($scope, $state, sectionItem) {
-        
-        $scope.resource = sectionItem;
+.controller('sectionDetailController', [ '$scope', '$state', 'section', 'categories',
+    function($scope, $state, section, categories) {
+
+        $scope.resource = section;
         $scope.categories = categories;
-        
+
+        var goBack = function() {
+            $state.go('section');
+        }
+
         // Delete
-        $scope.onDelete = function() {
-            $state.go('section');
-        }
-        
-        // Save and Finish
-        $scope.onSaveAndFinish = function() {
-            $state.go('section');
-        }
+        $scope.onDelete = $scope.onSaveAndFinish = $scope.onCancel = goBack;
     }
 ]);
 
@@ -97,15 +124,26 @@ sectionModule
  * @description     SectionController
  */
 sectionModule
-.controller('sectionController', [ '$scope', 'sectionGrid',
-    function($scope, sectionGrid) {
+.controller('sectionController', [ '$scope', '$state', 'sectionGrid',
+    function($scope, $state, sectionGrid) {
         
         $scope.gridOptions = sectionGrid.gridOptions($scope);
-        $scope.new = function() {
-            $state.go('section.new');
+
+
+        $scope.viewDetail = function(entity) {
+            $state.transitionTo('section.detail',{
+              id:entity.id
+            })
         }
 
+        $scope.newRow = function() {
+            $state.transitionTo('section.new');
+        }
+
+
         $scope.gridOptions.load();
+
+
 
     }
 ]);
@@ -126,8 +164,8 @@ sectionModule
       enableCellEdit: false,
       enableSorting: false,
       cellTemplate: [
-        '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
-            '<a href="#"><i class="fa fa-pencil-square-o"></i></a>',
+        '<div class="ngCellText ui-grid-cell-contents" title="TOOLTIP"> ',
+            '<a href="javascript:void(0)"  ng-click="grid.appScope.viewDetail(row.entity)"><i class="fa fa-pencil-square-o"></i></a>',
         '</div>'
       ].join('')
     },{

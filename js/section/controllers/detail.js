@@ -5,20 +5,17 @@
  * @description     SectionDetailController
  */
 sectionModule
-.controller('sectionDetailController', [ '$scope', '$state', 'sectionItem', 'categories',
-    function($scope, $state, sectionItem) {
-        
-        $scope.resource = sectionItem;
+.controller('sectionDetailController', [ '$scope', '$state', 'section', 'categories',
+    function($scope, $state, section, categories) {
+
+        $scope.resource = section;
         $scope.categories = categories;
-        
+
+        var goBack = function() {
+            $state.go('section');
+        }
+
         // Delete
-        $scope.onDelete = function() {
-            $state.go('section');
-        }
-        
-        // Save and Finish
-        $scope.onSaveAndFinish = function() {
-            $state.go('section');
-        }
+        $scope.onDelete = $scope.onSaveAndFinish = $scope.onCancel = goBack;
     }
 ]);

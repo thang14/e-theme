@@ -14,8 +14,8 @@ sectionModule
       enableCellEdit: false,
       enableSorting: false,
       cellTemplate: [
-        '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
-            '<a href="#"><i class="fa fa-pencil-square-o"></i></a>',
+        '<div class="ngCellText ui-grid-cell-contents" title="TOOLTIP"> ',
+            '<a href="javascript:void(0)"  ng-click="grid.appScope.viewDetail(row.entity)"><i class="fa fa-pencil-square-o"></i></a>',
         '</div>'
       ].join('')
     },{

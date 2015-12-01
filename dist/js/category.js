@@ -1,3 +1,14 @@
+
+(function(window, _, angular, undefined) {
+
+'use strict';
+
+/**
+ * @name            OnhanhCategory
+ * @description     categoryModule
+ */
+var categoryModule = angular.module("app.category", []);
+
 'use strict';
 
 /**
@@ -10,3 +21,6 @@ categoryModule.factory('Categories', [ 'resourceService',
         return Categories;
     }
 ]);
+
+
+})(window, _, window.angular);
