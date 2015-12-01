@@ -329,6 +329,11 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             this.variant_options = options;
         }
 
+        Products.prototype.getPriceSale = function() {
+            return this.price -( this.price * (this.sale/100) );
+        }
+
+
         Products.prototype.getTemplateDropdownList = function() {
             return productTemplates.getDropdownList();
         }
@@ -526,7 +531,8 @@ productModule
     }, {
       name: "sale",
       displayName: "Sale",
-      width: '80',
+      width: '150',
+      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">{{row.entity.getPriceSale() | currency:"đ "}} ({{COL_FIELD}}%)</div>'
     }, {
       name: "quantity",
       displayName: "Quantity",
@@ -547,7 +553,10 @@ productModule
         columnDefs: this.columns,
         load: function(params, fn) {
           var res = Products.get(params, function() {
-            this.data= res.data;
+            this.data = [];
+            angular.forEach(res.data, function(data) {
+              this.data.push(new Products(data));
+            }, this);
             this.totalItems = res.total;
             fn ? fn : "";
           }.bind(this));

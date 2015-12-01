@@ -1,1 +1,19 @@
-Report Page
+<div class="page-header">
+    <div class="page-header-content">
+        <div class="page-title">
+            <h4><i class="glyphicon glyphicon-tags"></i> Reports</h4>
+        </div>
+    </div><!--.page-header-content-->
+</div><!--.page-header-->
+
+<div class="content">
+    <div class="panel panel-default" style="max-width:700px">
+	    <div class="panel-heading">Views</div>
+	    <div class="panel-body">
+	      	<canvas id="line" class="chart chart-line" chart-data="views.data"
+			  chart-labels="views.labels" chart-legend="true" chart-series="views.series"
+			  chart-click="views.onClick" >
+			</canvas> 
+	    </div>
+	</div>
+</div><!--.content-->

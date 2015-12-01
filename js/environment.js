@@ -12,13 +12,13 @@ window.angular.module('app.environment', [])
             return 'data';
             return window.location.pathname.replace(/^\/([^\/]*).*$/, '$1');
         }
-        
+        var domain = 'https://raw.githubusercontent.com/onhanh/admin-theme/master/examples/';
         return {
             settings: {
                 namespace: getNamespace(),
-                api: 'https://raw.githubusercontent.com/onhanh/admin-theme/master/examples/' + getNamespace(),
+                api: domain + getNamespace(),
                 prefix: ".json",
-                domain: 'http://',
+                domain: domain,
                 pageTitle: 'Onhanh - open source project | Admin Dasboard'
             },
         }

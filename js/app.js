@@ -10,6 +10,7 @@ window.angular.module('app', [
     'ui.router',
     'ui.select',
     'app.crud',
+    'chart.js',
     //Angular Modules
     'angular-loading-bar',
 
@@ -22,9 +23,9 @@ window.angular.module('app', [
     'app.dashboard',
     'app.product',
     'app.section',
-    //'app.order',
-    //'app.reports',
-    //'app.settings'
+    'app.order',
+    'app.reports',
+    'app.settings'
 ]).run(['$rootScope', '$state', '$stateParams', 'initService',
     function ($rootScope,   $state,   $stateParams, initService) {
 

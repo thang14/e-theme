@@ -5,8 +5,15 @@
  * @description     OrderController
  */
 orderModule
-    .controller('orderController', [ '$scope', 'gridOptions',
-        function($scope, gridOptions) {
-            $scope.gridOptions = gridOptions;
+    .controller('orderController', [ '$scope', 'orderGrid',
+        function($scope, orderGrid) {
+            $scope.gridOptions = orderGrid.gridOptions($scope);
+
+
+            $scope.load = function() {
+            	$scope.gridOptions.load();
+            }
+
+            $scope.load();
         }
     ]);

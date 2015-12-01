@@ -1,17 +1,16 @@
 'use strict';
 
 /**
- * @name            OnhanhProduct
- * @description     productModule
+ * @name            OnhanhOrder
+ * @description     OrderServiceController
  */
-productModule
-.service("productGrid", ['Products', function(Products) {
+orderModule
+.service("orderGrid", ['Orders', function(Orders) {
   return {
     columns: [{
       name: "action",
       width: '23',
       displayName: "",
-      enableCellEdit: false,
       enableSorting: false,
       cellTemplate: [
         '<div class="ui-grid-cell-contents" title="TOOLTIP"> ',
@@ -19,22 +18,29 @@ productModule
         '</div>'
       ].join('')
     },{
-      name: "name",
-      displayName: "Name",
-    }, {
-      name: "price",
-      displayName: "Price",
-      width: '120',
-      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD | currency:"đ "}} </div>'
-    }, {
-      name: "sale",
-      displayName: "Sale",
+      name: "id",
       width: '150',
-      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">{{row.entity.getPriceSale() | currency:"đ "}} ({{COL_FIELD}}%)</div>'
-    }, {
-      name: "quantity",
-      displayName: "Quantity",
-      width: '80',
+      displayName: "ID",
+    },{
+      name: "user.email",
+      width: '200',
+      displayName: "Email",
+    },{
+      name: "user.name",
+      width: '200',
+      displayName: "Username",
+    },{
+      name: "user.phone",
+      width: '200',
+      displayName: "Phone",
+    },{
+      name: "price",
+      width: '200',
+      displayName: "Price",
+    },{
+      name: "product.count",
+      width: '150',
+      displayName: "Product Count",
     }],
 
     gridOptions: function($scope) {
@@ -49,12 +55,10 @@ productModule
         enableGridMenu: false,
         useExternalFiltering: false,
         columnDefs: this.columns,
+        enableCellEdit: false,
         load: function(params, fn) {
-          var res = Products.get(params, function() {
-            this.data = [];
-            angular.forEach(res.data, function(data) {
-              this.data.push(new Products(data));
-            }, this);
+          var res = Orders.get(params, function() {
+            this.data= res.data;
             this.totalItems = res.total;
             fn ? fn : "";
           }.bind(this));

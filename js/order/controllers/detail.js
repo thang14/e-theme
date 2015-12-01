@@ -6,7 +6,7 @@
  */
 orderModule
 .controller('orderDetailController', [ '$scope', 'order',
-    function($scope, orderItem) {
+    function($scope, order) {
         $scope.resource = order;
     }
 ]);

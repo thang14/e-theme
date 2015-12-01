@@ -57,6 +57,7 @@ module.exports = function(grunt) {
             files:{
                 "dist/js/core.js":bowerComponents([
                     'jquery/dist/jquery.min.js',
+                    'Chart.js/Chart.min.js',
                     'angular/angular.min.js',
                     'angular-ui-router/release/angular-ui-router.min.js',
                     'bootstrap-sass/assets/javascripts/bootstrap.min.js',
@@ -70,6 +71,7 @@ module.exports = function(grunt) {
                     'angular-resource/angular-resource.min.js',
                     'underscore/underscore-min.js',
                     'angular-ui-select/dist/select.min.js',
+                    'angular-chart.js/dist/angular-chart.min.js',
                ]),
            }
        },

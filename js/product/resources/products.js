@@ -33,6 +33,11 @@ productModule.factory('Products', ['resourceService', 'Variants', 'productTempla
             this.variant_options = options;
         }
 
+        Products.prototype.getPriceSale = function() {
+            return this.price -( this.price * (this.sale/100) );
+        }
+
+
         Products.prototype.getTemplateDropdownList = function() {
             return productTemplates.getDropdownList();
         }
