@@ -1,7 +1,7 @@
 {
     "data": [{
         "id": "ON00001",
-        "photo": "/admin-theme/examples/images/1.jpg",
+        "photo": "images/1.jpg",
         "section": {
             "id": "section1",
             "name": "Gốm sứ gia đình",
@@ -14,7 +14,7 @@
         "status":"public"
     },{
         "id": "ON00002",
-        "photo": "/admin-theme/examples/images/2.jpg",
+        "photo": "images/2.jpg",
         "section": {
             "id": "section1",
             "name": "Gốm sứ gia đình",
@@ -27,7 +27,7 @@
         "status":"public"
     },{
         "id": "ON00003",
-        "photo": "/admin-theme/examples/images/4.jpg",
+        "photo": "images/4.jpg",
         "section": {
             "id": "section1",
             "name": "Gốm sứ gia đình",
@@ -40,7 +40,7 @@
         "status":"public"
     },{
         "id": "ON00004",
-        "photo": "/admin-theme/examples/images/3.jpg",
+        "photo": "images/3.jpg",
         "section": {
             "id": "section1",
             "name": "Gốm sứ gia đình",
@@ -53,7 +53,7 @@
         "status":"public"
     },{
         "id": "ON00005",
-        "photo": "/admin-theme/examples/images/2.jpg",
+        "photo": "images/2.jpg",
         "section": {
             "id": "section1",
             "name": "Gốm sứ gia đình",
