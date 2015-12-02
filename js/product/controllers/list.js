@@ -13,15 +13,16 @@ productModule
 
         //Page Init
         $scope.currentPage = 1;
-        $scope.maxSize = 5;
-
+        $scope.maxSize = 10;
+        $scope.search = {
+            page: $scope.currentPage,
+            maxSize: $scope.maxSize
+        }
         // grid Options
         $scope.gridOptions = productGrid.gridOptions($scope);
 
         $scope.load = function() {
-            $scope.gridOptions.load({
-                page: $scope.currentPage
-            });
+            $scope.gridOptions.load($scope.search);
         }
 
         $scope.load();

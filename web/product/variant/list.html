@@ -2,12 +2,12 @@
   <table>
   <thead>
       <tr>
-          <th width="90">&nbsp;</th>
+          <th width="33">&nbsp;</th>
           <th>Biến thể</th>
           <th width="140">Mã Sku</th>
           <th width="140">Mã Barcode</th>
           <th width="140">Giá tiền</th>
-          <th width="80">Khuyến mãi</th>
+          <th width="100">Khuyến mãi</th>
           <th width="80">Số lượng</th>
       </tr>
   </thead>
@@ -16,7 +16,6 @@
           <td style="text-center" ng-if="!product.id">
               <a href="javascript:void(0)" ng-click="product.variants.splice(index, 1)">
                   <i class="fa fa-times"></i>
-                  Hủy
               </a>
           </td>
   
@@ -52,7 +51,7 @@
           <td>{{product.getVariantLabel(variant)}}</td>
           <td style="padding:2px">
               <input
-                placeholder="Mã Sku"
+                placeholder="Sku"
                 class="form-control"
                 type="text"
                 ng-model="variant.sku">
@@ -61,36 +60,29 @@
               <input
                 class="form-control"
                 type="text"
-                placeholder="Mã Barcode"
+                placeholder="Barcode"
                 ng-model="variant.barcode">
           </td>
           <td style="padding:2px">
-                <div style="display:table-row">
-                    <div style="display:table-cell">
-                        <input
-                            ui-number-mask="0"
-                            class="form-control text-right"
-                            type="text"
-                            ng-model="variant.price">
-                    </div>
-                    <div style="display:table-cell; padding-left:5px;">
-                        <strong>đ</strong>
-                    </div>
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input
+                        ui-number-mask="0"
+                        ng-model="variant.price"
+                        type="text"
+                        class="form-control"
+                        placeholder="Price">
                 </div>
   
           </td>
           <td style="padding:2px">
-                <div style="display:table-row">
-                    <div style="display:table-cell">
-                        <input
-                            class="form-control"
-                            type="number"
-                            min="0" max="99"
-                            ng-model="variant.sale">
-                    </div>
-                    <div style="display:table-cell; padding-left:5px;">
-                        <strong>%</strong>
-                    </div>
+              <div class="input-group">
+                  <input
+                      class="form-control"
+                      type="number"
+                      min="0" max="99"
+                      ng-model="variant.sale">
+                  <span class="input-group-addon">%</span>
                 </div>
           </td>
           <td style="padding:2px">

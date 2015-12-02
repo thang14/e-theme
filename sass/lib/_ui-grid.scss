@@ -1049,30 +1049,6 @@ fieldset[disabled] .ui-grid-menu .ui-grid-menu-inner .ui-grid-menu-close-button.
 * @section font library path
 */
 /*-- END VARIABLES (DO NOT REMOVE THESE COMMENTS) --*/
-div.ui-grid-cell input {
-  border-radius: inherit;
-  padding: 0;
-  width: 100%;
-  color: inherit;
-  height: auto;
-  font: inherit;
-  outline: none;
-}
-div.ui-grid-cell input:focus {
-  color: inherit;
-  outline: none;
-}
-div.ui-grid-cell input[type="checkbox"] {
-  margin: 9px 0 0 6px;
-  width: auto;
-}
-div.ui-grid-cell input.ng-invalid {
-  border: 1px solid #fc8f8f;
-}
-div.ui-grid-cell input.ng-valid {
-  border: 1px solid #d4d4d4;
-}
-
 /* This file contains variable declarations (do not remove this line) */
 /*-- VARIABLES (DO NOT REMOVE THESE COMMENTS) --*/
 /**

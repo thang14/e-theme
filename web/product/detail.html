@@ -145,48 +145,41 @@
             </div>
 
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-8">
                     <div class="form-group">
-                        <label for="productPrice">Price</label>
-                        <div style="display:table-row">
-                            <div style="display:table-cell">
-                                <input
-                                    ui-number-mask="0"
-                                    ng-model="product.variant.price"
-                                    type="text"
-                                    class="form-control text-right"
-                                    id="productPrice"
-                                    placeholder="Price">
-                            </div>
-                            <div style="display:table-cell; padding-left: 5px;">
-                                <strong>đ</strong>
-                            </div>
+                        <label for="variantPrice">Price</label>
+
+                        <div class="input-group">
+                          <span class="input-group-addon">$</span>
+                          <input
+                                ui-number-mask="0"
+                                ng-model="product.variant.price"
+                                type="text"
+                                class="form-control"
+                                id="variantPrice"
+                                placeholder="Price">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label for="productSalePrice">Sale</label>
-                        <div style="display:table-row">
-                            <div style="display:table-cell">
-                                <input
-                                    ng-model="product.variant.sale"
-                                    type="number"
-                                    min="0" max="99"
-                                    class="form-control"
-                                    id="productSalePrice"
-                                    placeholder="Sale">
-                            </div>
-                            <div style="display:table-cell; padding-left: 5px;">
-                                <strong>%</strong>
-                            </div>
+                        <label for="variantSalePrice">Sale</label>
+                        <div class="input-group">
+                          <input
+                                ng-model="product.variant.sale"
+                                type="number"
+                                min="0" max="99"
+                                class="form-control"
+                                id="variantSalePrice"
+                                placeholder="Sale">
+                          <span class="input-group-addon">%</span>
                         </div>
                     </div><!--.form-group-->
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="form-group">
                         <label for="productSalePrice">Unit</label>
                         <input
@@ -197,7 +190,7 @@
                             placeholder="Unit: kg, chiếc, đôi...">
                     </div><!--.form-group-->
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="productSalePrice">Quantity</label>
                         <input
