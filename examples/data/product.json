@@ -11,6 +11,7 @@
         "price": 100000,
         "sale": 5,
         "quantity": 10,
+        "branh": "Bat trang",
         "status":"public"
     },{
         "id": "ON00002",
@@ -24,6 +25,7 @@
         "price": 100000,
         "sale": 6,
         "quantity": 10,
+        "branh": "Bat trang",
         "status":"public"
     },{
         "id": "ON00003",
@@ -37,6 +39,7 @@
         "price": 100000,
         "sale": 7,
         "quantity": 10,
+        "branh": "Bat trang",
         "status":"public"
     },{
         "id": "ON00004",
@@ -47,6 +50,7 @@
             "url": "/gomsubattrang/gomsugiadinh"
         },
         "name": "Tranh su",
+        "branh": "Bat trang",
         "price": 100000,
         "sale": 8,
         "quantity": 10,
@@ -63,6 +67,147 @@
         "price": 100000,
         "sale": 9,
         "quantity": 10,
+        "branh": "Bat trang",
+        "status":"public"
+    },{
+        "id": "ON00001",
+        "photo": "images/1.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Gach su",
+        "price": 100000,
+        "sale": 5,
+        "quantity": 10,
+        "branh": "Bat trang",
+        "status":"public"
+    },{
+        "id": "ON00002",
+        "photo": "images/2.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Chén sứ bát tràng",
+        "price": 100000,
+        "sale": 6,
+        "quantity": 10,
+        "branh": "Bat trang",
+        "status":"public"
+    },{
+        "id": "ON00003",
+        "photo": "images/4.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Tuong gom",
+        "price": 100000,
+        "sale": 7,
+        "quantity": 10,
+        "branh": "Bat trang",
+        "status":"public"
+    },{
+        "id": "ON00004",
+        "photo": "images/3.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Tranh su",
+        "branh": "Bat trang",
+        "price": 100000,
+        "sale": 8,
+        "quantity": 10,
+        "status":"public"
+    },{
+        "id": "ON00005",
+        "photo": "images/2.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Binh su",
+        "price": 100000,
+        "sale": 9,
+        "quantity": 10,
+        "branh": "Bat trang",
+        "status":"public"
+    },{
+        "id": "ON00001",
+        "photo": "images/1.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Gach su",
+        "price": 100000,
+        "sale": 5,
+        "quantity": 10,
+        "branh": "Bat trang",
+        "status":"public"
+    },{
+        "id": "ON00002",
+        "photo": "images/2.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Chén sứ bát tràng",
+        "price": 100000,
+        "sale": 6,
+        "quantity": 10,
+        "branh": "Bat trang",
+        "status":"public"
+    },{
+        "id": "ON00003",
+        "photo": "images/4.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Tuong gom",
+        "price": 100000,
+        "sale": 7,
+        "quantity": 10,
+        "branh": "Bat trang",
+        "status":"public"
+    },{
+        "id": "ON00004",
+        "photo": "images/3.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Tranh su",
+        "branh": "Bat trang",
+        "price": 100000,
+        "sale": 8,
+        "quantity": 10,
+        "status":"public"
+    },{
+        "id": "ON00005",
+        "photo": "images/2.jpg",
+        "section": {
+            "id": "section1",
+            "name": "Gốm sứ gia đình",
+            "url": "/gomsubattrang/gomsugiadinh"
+        },
+        "name": "Binh su",
+        "price": 100000,
+        "sale": 9,
+        "quantity": 10,
+        "branh": "Bat trang",
         "status":"public"
     }],
     "total": 50
