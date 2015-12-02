@@ -1,26 +1,24 @@
-// Sidebar
-// --------------------------------------------------
-
-.sidebar-main {
-    z-index: 99;
-}
-
-
 .sidebar {
     background-color: #263238;
     color: #fff;
     position: relative;
     width: 100%;
-    display: none;
 
     @media (min-width: $screen-sm) {
-        display: table-cell;
-        vertical-align: top;
         width: 260px;
-
+        position:fixed;
+        top:40px;
+        left: 0px;
+        bottom: 0px;
+        z-index: 10;
         .sidebar-content {
-            width: 260px;
-            position:fixed;
+            position:absolute;
+            top:0px;
+            left: 0px;
+            right:0px;
+            bottom: 0px;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
     }

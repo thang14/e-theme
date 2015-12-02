@@ -186,34 +186,36 @@ label {
   background-color: #222D33;
 }
 
-/* line 4, ../../sass/onhanh/_sidebar.scss */
-.sidebar-main {
-  z-index: 99;
-}
-
-/* line 9, ../../sass/onhanh/_sidebar.scss */
+/* line 1, ../../sass/onhanh/_sidebar.scss */
 .sidebar {
   background-color: #263238;
   color: #fff;
   position: relative;
   width: 100%;
-  display: none;
 }
 @media (min-width: 768px) {
-  /* line 9, ../../sass/onhanh/_sidebar.scss */
+  /* line 1, ../../sass/onhanh/_sidebar.scss */
   .sidebar {
-    display: table-cell;
-    vertical-align: top;
-    width: 260px;
-  }
-  /* line 21, ../../sass/onhanh/_sidebar.scss */
-  .sidebar .sidebar-content {
     width: 260px;
     position: fixed;
+    top: 40px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 10;
+  }
+  /* line 14, ../../sass/onhanh/_sidebar.scss */
+  .sidebar .sidebar-content {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 
-/* line 32, ../../sass/onhanh/_sidebar.scss */
+/* line 30, ../../sass/onhanh/_sidebar.scss */
 .category-content {
   position: relative;
   padding: 20px;
@@ -353,17 +355,17 @@ tags-input .tags.focused {
 @media (min-width: 768px) {
   /* line 7, ../../sass/onhanh/_wrapper.scss */
   .content-wrapper {
-    display: table-cell;
-    vertical-align: top;
+    padding-left: 260px;
   }
 }
 
-/* line 16, ../../sass/onhanh/_wrapper.scss */
+/* line 15, ../../sass/onhanh/_wrapper.scss */
 .page-header {
   margin: 0 0 20px 0;
   padding-bottom: 0;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
+  position: relative;
 }
 
 /* line 23, ../../sass/onhanh/_wrapper.scss */
