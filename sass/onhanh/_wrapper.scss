@@ -17,7 +17,15 @@
     padding-bottom: 0;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
-    position :relative;
+    position: relative;
+    @media (min-width: $screen-sm) {
+        top:0px;
+        right:0px;
+        left:260px;
+        position: fixed;
+        z-index: 99;
+    }
+    
 }
 
 .page-header-content {

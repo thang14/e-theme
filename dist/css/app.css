@@ -75,19 +75,19 @@ a {
 /* line 72, ../../sass/onhanh/_base.scss */
 .page-container {
   position: relative;
-  margin-top: 45px;
 }
 @media (min-width: 768px) {
   /* line 72, ../../sass/onhanh/_base.scss */
   .page-container {
     width: 100%;
     display: table;
+    padding-top: 88px;
     table-layout: fixed;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 83, ../../sass/onhanh/_base.scss */
+  /* line 82, ../../sass/onhanh/_base.scss */
   .page-content {
     display: table-row;
   }
@@ -198,7 +198,7 @@ label {
   .sidebar {
     width: 260px;
     position: fixed;
-    top: 40px;
+    top: 0px;
     left: 0px;
     bottom: 0px;
     z-index: 10;
@@ -367,64 +367,74 @@ tags-input .tags.focused {
   border-bottom: 1px solid #ddd;
   position: relative;
 }
+@media (min-width: 768px) {
+  /* line 15, ../../sass/onhanh/_wrapper.scss */
+  .page-header {
+    top: 0px;
+    right: 0px;
+    left: 260px;
+    position: fixed;
+    z-index: 99;
+  }
+}
 
-/* line 23, ../../sass/onhanh/_wrapper.scss */
+/* line 31, ../../sass/onhanh/_wrapper.scss */
 .page-header-content {
   position: relative;
   background-color: inherit;
   padding: 0 20px;
 }
-/* line 28, ../../sass/onhanh/_wrapper.scss */
+/* line 36, ../../sass/onhanh/_wrapper.scss */
 .page-header-content + .breadcrumb-line {
   border-bottom-width: 0;
   border-top: 1px solid #ddd;
 }
 
-/* line 34, ../../sass/onhanh/_wrapper.scss */
+/* line 42, ../../sass/onhanh/_wrapper.scss */
 .page-header-right {
   position: absolute;
   right: 20px;
   top: 20px;
 }
 
-/* line 42, ../../sass/onhanh/_wrapper.scss */
+/* line 50, ../../sass/onhanh/_wrapper.scss */
 .page-title {
   padding: 10px 36px 10px 0;
   display: block;
   position: relative;
 }
 
-/* line 49, ../../sass/onhanh/_wrapper.scss */
+/* line 57, ../../sass/onhanh/_wrapper.scss */
 .breadcrumb-line {
   background-color: #fcfcfc;
   border-bottom: 1px solid #ddd;
   position: relative;
 }
-/* line 54, ../../sass/onhanh/_wrapper.scss */
+/* line 62, ../../sass/onhanh/_wrapper.scss */
 .breadcrumb-line:after {
   content: '';
   display: table;
   clear: both;
 }
-/* line 60, ../../sass/onhanh/_wrapper.scss */
+/* line 68, ../../sass/onhanh/_wrapper.scss */
 .breadcrumb-line .breadcrumb {
   margin-left: 20px;
   margin-right: 56px;
 }
 @media (min-width: 768px) {
-  /* line 60, ../../sass/onhanh/_wrapper.scss */
+  /* line 68, ../../sass/onhanh/_wrapper.scss */
   .breadcrumb-line .breadcrumb {
     float: left;
     margin-right: 0;
   }
 }
 
-/* line 71, ../../sass/onhanh/_wrapper.scss */
+/* line 79, ../../sass/onhanh/_wrapper.scss */
 .page-header + .content {
   padding-top: 0;
 }
 
-/* line 74, ../../sass/onhanh/_wrapper.scss */
+/* line 82, ../../sass/onhanh/_wrapper.scss */
 .content {
   padding: 20px 20px;
 }
@@ -432,16 +442,16 @@ tags-input .tags.focused {
 /******************
  * MEDIA LIST
  *******************/
-/* line 85, ../../sass/onhanh/_wrapper.scss */
+/* line 93, ../../sass/onhanh/_wrapper.scss */
 ul.media-list:before, ul.media-list:after {
   content: " ";
   display: table;
 }
-/* line 90, ../../sass/onhanh/_wrapper.scss */
+/* line 98, ../../sass/onhanh/_wrapper.scss */
 ul.media-list:after {
   clear: both;
 }
-/* line 94, ../../sass/onhanh/_wrapper.scss */
+/* line 102, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li {
   width: 150px;
   height: 150px;
@@ -449,7 +459,7 @@ ul.media-list > li {
   position: relative;
   margin-right: 10px;
 }
-/* line 100, ../../sass/onhanh/_wrapper.scss */
+/* line 108, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li img {
   width: 100%;
   height: 100%;
@@ -457,18 +467,18 @@ ul.media-list > li img {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 108, ../../sass/onhanh/_wrapper.scss */
+/* line 116, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li.item {
   border: 1px solid #ddd;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 112, ../../sass/onhanh/_wrapper.scss */
+/* line 120, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li.item:hover {
   border: 1px solid #ccc;
 }
-/* line 117, ../../sass/onhanh/_wrapper.scss */
+/* line 125, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li > a {
   display: block;
   border: 1px dashed #ccc;
@@ -480,27 +490,27 @@ ul.media-list > li > a {
   overflow: hidden;
   color: #BFBDBD;
 }
-/* line 125, ../../sass/onhanh/_wrapper.scss */
+/* line 133, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li > a i {
   padding-top: 25px;
   color: #BFBDBD;
 }
-/* line 129, ../../sass/onhanh/_wrapper.scss */
+/* line 137, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li > a:hover, ul.media-list > li > a.dragover {
   color: #666;
   border-color: #666;
 }
-/* line 136, ../../sass/onhanh/_wrapper.scss */
+/* line 144, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li .action {
   position: absolute;
   top: 5px;
   right: 10px;
 }
-/* line 141, ../../sass/onhanh/_wrapper.scss */
+/* line 149, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li .action .caret {
   font-size: 16px;
 }
-/* line 145, ../../sass/onhanh/_wrapper.scss */
+/* line 153, ../../sass/onhanh/_wrapper.scss */
 ul.media-list > li .action a {
   color: #666;
 }
@@ -508,7 +518,7 @@ ul.media-list > li .action a {
 /******************
  * GRID
  *******************/
-/* line 159, ../../sass/onhanh/_wrapper.scss */
+/* line 167, ../../sass/onhanh/_wrapper.scss */
 .grid .ui-grid-cell input {
   width: 100%;
   height: 35px;
@@ -517,7 +527,7 @@ ul.media-list > li .action a {
   border-left: none;
 }
 
-/* line 171, ../../sass/onhanh/_wrapper.scss */
+/* line 179, ../../sass/onhanh/_wrapper.scss */
 .ui-grid, .ui-grid-viewport {
   height: auto !important;
 }

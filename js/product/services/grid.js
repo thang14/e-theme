@@ -11,6 +11,10 @@ productModule
       name: "name",
       displayName: "Name",
       cellTemplate:'<div class="ui-grid-cell-contents text-semibold" title="TOOLTIP">{{COL_FIELD}}</div>'
+    },{
+      name: "branh",
+      displayName: "Branh",
+      width: '120',
     }, {
       name: "price",
       displayName: "Price",

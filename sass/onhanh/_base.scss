@@ -71,11 +71,10 @@ a{
 
 .page-container {
     position: relative;
-    margin-top: 45px;
-    
     @media (min-width: $screen-sm) {
         width: 100%;
         display: table;
+        padding-top:88px;
         table-layout: fixed;
     }
 }
@@ -86,4 +85,6 @@ a{
     }
     
 }
+
+
 
