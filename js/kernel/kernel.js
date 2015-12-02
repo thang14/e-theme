@@ -10,5 +10,6 @@ var kernelModule = angular.module('app.kernel', [
 	'ui.bootstrap',
 	'ui.grid',
 	'ui.grid.edit',
+	'ui.grid.selection'
 ]);
 

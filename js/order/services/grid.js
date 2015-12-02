@@ -56,6 +56,10 @@ orderModule
         useExternalFiltering: false,
         columnDefs: this.columns,
         enableCellEdit: false,
+        enableColumnMenus: false,
+        enableScrollbars: false,
+        enableHorizontalScrollbar: 0, 
+        enableVerticalScrollbar: 0,
         load: function(params, fn) {
           var res = Orders.get(params, function() {
             this.data= res.data;

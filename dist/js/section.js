@@ -185,6 +185,10 @@ sectionModule
         enableGridMenu: false,
         useExternalFiltering: false,
         columnDefs: this.columns,
+        enableColumnMenus: false,
+        enableScrollbars: false,
+        enableHorizontalScrollbar: 0, 
+        enableVerticalScrollbar: 0,
         load: function(params, fn) {
           var res = Sections.query(function() {
             this.data= res;

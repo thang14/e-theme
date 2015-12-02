@@ -511,17 +511,6 @@ productModule
 .service("productGrid", ['Products', function(Products) {
   return {
     columns: [{
-      name: "checked",
-      width: '40',
-      displayName: "",
-      enableCellEdit: false,
-      enableSorting: false,
-      enableColumnMenu: false,
-      cellTemplate:'<div style="margin-left: 10px;"class="checkbox checkbox-primary">'+
-            '<input name="checkbox" id="productStatus_{{row.entity.id}}" value="1" type="checkbox">'+
-            '<label for="productStatus_{{row.entity.id}}"></label>'+
-        '</div>'
-    }, {
       name: "name",
       displayName: "Name",
       cellTemplate:'<div class="ui-grid-cell-contents text-semibold" title="TOOLTIP">{{COL_FIELD}}</div>'
@@ -565,6 +554,9 @@ productModule
         useExternalFiltering: false,
         columnDefs: this.columns,
         enableColumnMenus: false,
+        enableScrollbars: false,
+        enableHorizontalScrollbar: 0, 
+        enableVerticalScrollbar: 0,
         load: function(params, fn) {
           var res = Products.get(params, function() {
             this.data = [];
@@ -572,6 +564,7 @@ productModule
               this.data.push(new Products(data));
             }, this);
             this.totalItems = res.total;
+            this.minRowsToShow = this.data.length;
             fn ? fn : "";
           }.bind(this));
         },

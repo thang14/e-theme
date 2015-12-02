@@ -10,12 +10,6 @@
                 <div class="pull-right">
                     <button type="submit"
                             class="btn btn-primary btn-sm"
-                            ng-click="remove()">
-                        <span class="glyphicon glyphicon-danger" aria-hidden="true"></span> Remove
-                    </button>
-
-                    <button type="submit"
-                            class="btn btn-primary btn-sm"
                             ng-click="newProduct()">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
                     </button>
@@ -43,33 +37,34 @@
         >
 
         <div class="input-group-btn">
-            <button type="button" class="btn btn-default" >Search</button>
+            <button type="button" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
         </div>
     </div><!-- /input-group --><br/>
 
-    <div class="btn-group" style="margin-bottom:20px;" role="group" aria-label="...">
-      <button type="button" class="btn btn-default">
-        <div style="margin: 0px" class="checkbox checkbox-primary ">
-            <input name="checkbox" id="checkAll" value="1" type="checkbox"><label for="checkAll"></label>
-        </div>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Bulk actions
+        <span class="caret"></span>
       </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i> Publish selected products</a></li>
+        <li><a href="#"><i class="glyphicon glyphicon-eye-close"></i> Hidden selected products</a></li>
+        <li><a href="#"><i class="glyphicon glyphicon-remove"></i> Delete selected products</a></li>
 
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a href="#">Dropdown link</a></li>
-          <li><a href="#">Dropdown link</a></li>
-        </ul>
-      </div>
+        <li role="separator" class="divider"></li>
+
+        <li><a href="#"><i class=" glyphicon glyphicon-tags"></i> Add Tags</a></li>
+        <li><a href="#"><i class=" glyphicon glyphicon-tags"></i> Remove Tags</a></li>
+      </ul>
     </div>
+    <br/>
+
     <div
         class="grid"
         style="max-height:500px"
         ui-grid="gridOptions"
         ui-grid-edit
+        ui-grid-selection
         ></div>
 
     <!-- Pagination & collection details -->

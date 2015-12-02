@@ -515,4 +515,9 @@ ul.media-list > li .action a {
   border-left: none;
 }
 
+/* line 171, ../../sass/onhanh/_wrapper.scss */
+.ui-grid, .ui-grid-viewport {
+  height: auto !important;
+}
+
 /*# sourceMappingURL=app.css.map */
