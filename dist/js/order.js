@@ -123,44 +123,29 @@ orderModule
     },{
       name: "id",
       width: '150',
-      displayName: "ID",
+      displayName: "Order ID",
       cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP"><a ui-sref="order.detail({id: row.entity.id})">{{COL_FIELD}}</a> </div>'
-    },{
-      name: "info",
-      width: '200',
-      displayName: "User info",
-      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">'+
-      		'<div><span class="text-semibold">Name</span>: {{row.entity.user.name}}</div>'+
-      		'<div><span class="text-semibold">Email</span>: {{row.entity.user.email}}</div>'+
-      		'<div><span class="text-semibold">Phone</span>: {{row.entity.user.phone}}</div>'+
-      	'</div>'
-    }, {
-      name: "price",
-      displayName: "Price",
-      width: '180',
-      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">'+
-      		'<div><span class="text-semibold">Total</span>: {{COL_FIELD | currency:"đ ":0}}</div>'+
-      		'<div><span class="text-semibold">Paid</span>: {{row.entity.paid | currency:"đ ":0}}</div>'+
-      		'<div><span class="text-semibold">Must return</span>: {{ COL_FIELD - row.entity.paid  | currency:"đ ":0}}</div>'+
-      	'</div>'
-    }, {
-      name: "note",
-      displayName: "Note",
-    },{
+    },,{
       name: "created_at",
-      width: '150',
-      displayName: "Created at",
+      displayName: "Date",
+      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP"><span date-interval="{{COL_FIELD}}"></span></div>'
     },{
-      name: "status",
-      width: '150',
-      displayName: "Status",
+      name: "payment_status",
+      displayName: "Payment status",
+    },{
+      name: "fulfillment_status",
+      displayName: "Fulfillment status",
+    },{
+      name: "price",
+      displayName: "Total",
+      cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">{{COL_FIELD | currency:"đ ":0}}</div>'
     }],
 
     gridOptions: function($scope) {
       var options = $scope.options || {};
       var defaults = {
-        selectionRowHeaderWidth: 80,
-        rowHeight: 80,
+        selectionRowHeaderWidth: 35,
+        rowHeight: 35,
         showGridFooter: false,
         enableFiltering: false,
         enableSorting: true,

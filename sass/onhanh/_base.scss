@@ -38,6 +38,15 @@ a{
     color:red;
 }
 
+
+
+.linkWrap {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .sidebar:not(.sidebar-default) {
     .media .text-muted,
     .sidebar:not(.sidebar-default),

@@ -5,6 +5,7 @@ var adminFiles = {
 
     'kernel': [
       'js/kernel/kernel.js',
+      'js/kernel/directives/**/*.js',
       'js/kernel/config/**/*.js',
       'js/kernel/controllers/**/*.js',
       'js/kernel/services/**/*.js',
