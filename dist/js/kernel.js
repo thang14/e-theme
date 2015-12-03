@@ -25,7 +25,7 @@ var kernelModule = angular.module('app.kernel', [
  */
  
 kernelModule.directive('dateInterval', ["$interval", "$filter", function ($interval, $filter) {
-
+	var intervalNumber = 60000;
 	var getCurrentTime = function() {
 		var time = new Date().getTime();
         return Math.round(time / 1000);
@@ -37,7 +37,7 @@ kernelModule.directive('dateInterval', ["$interval", "$filter", function ($inter
 	var canIterval = function(seconds) {
 		return (seconds*60 > 30);
 	}
-	var changeTime(element, time) {
+	var changeTime = function(element, time) {
 		var seconds = getSeconds();
 		var text;
 		if(seconds < 60) {
@@ -58,7 +58,7 @@ kernelModule.directive('dateInterval', ["$interval", "$filter", function ($inter
             if(canIterval(getSeconds(value))) {
             	timeoutId = $interval(function () {
 	            	changeTime(element, value);
-	            }, 60000);
+	            }, intervalNumber);
             }
         });
 
