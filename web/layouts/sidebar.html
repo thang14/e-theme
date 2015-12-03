@@ -1,4 +1,4 @@
-<div class="sidebar-content" onscroll="">
+<div class="sidebar-content" siderbar>
     <div class="sidebar-shop">
         <div class="category-content">
             <div class="media">
@@ -18,12 +18,23 @@
     <div class="sidebar-category sidebar-category-visible">
         <div class="category-content no-padding">
             <ul class="navigation navigation-main navigation-accordion">
-                <li ui-sref-active="active"><a ui-sref="home" class="linkWrap"><i class="glyphicon glyphicon-home"></i>Home</a></li>
-                <li ui-sref-active="active"><a ui-sref="product" class="linkWrap"><i class="glyphicon glyphicon-tag"></i>Products</a></li>
-                <li ui-sref-active="active"><a ui-sref="order" class="linkWrap"><i class="fa fa-shopping-cart"></i>Orders</a></li>
-                <li ui-sref-active="active"><a ui-sref="section" class="linkWrap"><i class="glyphicon glyphicon-check"></i>Sections</a></li>
-                <li ui-sref-active="active"><a ui-sref="reports" class="linkWrap"><i class="fa fa-bar-chart"></i>Reports</a></li>
-                <li ui-sref-active="active"><a ui-sref="settings" class="linkWrap"><i class="glyphicon glyphicon-cog"></i>Settings</a></li>
+                <li class="item" ui-sref-active="active"><a ui-sref="home" class="linkWrap"><i class="glyphicon glyphicon-home"></i>Home</a></li>
+                <li class="item" ui-sref-active="active"><a ui-sref="product" class="linkWrap"><i class="glyphicon glyphicon-tag"></i>Products</a></li>
+                <li class="item" ui-sref-active="active"><a ui-sref="order" class="linkWrap"><i class="fa fa-shopping-cart"></i>Orders</a></li>
+                <li class="item" ui-sref-active="active"><a ui-sref="section" class="linkWrap"><i class="glyphicon glyphicon-check"></i>Sections</a></li>
+                <li class="item" ui-sref-active="active"><a ui-sref="reports" class="linkWrap"><i class="fa fa-bar-chart"></i>Reports</a></li>
+                <li class="item" ui-sref-active="active">
+                    <a ui-sref="settings" class="linkWrap"><i class="glyphicon glyphicon-cog"></i>Settings</a>
+                    <ul>
+                        <li class="navigation-header">Settings</li>
+                        <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="settings.page">Page info</a></li>
+                        <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="settings.manager">Manager</a></li>
+                        <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="settings.payment">Payment</a></li>
+                        <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="settings.shipping">Shipping</a></li>
+                        <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="settings.notifications">Notification</a></li>
+                        <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="settings.social">Social netword</a></li>
+                    <ul>
+                </li>
             </ul><!--.navigation-->
         </div><!--.category-content-->
     </div><!--.sidebar-category-->

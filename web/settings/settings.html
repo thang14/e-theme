@@ -7,21 +7,5 @@
 </div><!--.page-header-->
 
 <div class="content">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="setting-menu">
-            <div class="list-group">
-              <a class="list-group-item" ui-sref-active="active" ui-sref="settings.page"><i class="glyphicon glyphicon-home"></i>  Page</a>
-              <a class="list-group-item" ui-sref-active="active" ui-sref="settings.manager"><i class="fa fa-users"></i> Manager</a>
-              <a class="list-group-item" ui-sref-active="active" ui-sref="settings.payment"><i class="fa fa-credit-card"></i>  Payment</a>
-              <a class="list-group-item" ui-sref-active="active"  ui-sref="settings.shipping"><i class="glyphicon glyphicon-plane"></i> Shipping</a>
-              <a class="list-group-item" ui-sref-active="active" ui-sref="settings.notifications"><i class="glyphicon glyphicon-bell"></i> Notifications</a>
-              <a class="list-group-item" ui-sref-active="active"  ui-sref="settings.social"><i class="fa fa-facebook-official"></i> Social networds</a>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-10">
-        <div ui-view="setting"></div>
-      </div>
-    </div>
+    <div ui-view="setting"></div>
 </div><!--.content-->

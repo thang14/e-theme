@@ -161,16 +161,6 @@ label {
   padding: 12px 20px;
   min-height: 44px;
   font-weight: 500;
-}
-/* line 33, ../../sass/onhanh/_navbar.scss */
-.navigation > li.active > a,
-.navigation > li.active a:hover,
-.navigation > li.active a:focus {
-  background-color: #26a69a;
-  color: #fff;
-}
-/* line 43, ../../sass/onhanh/_navbar.scss */
-.navigation li a {
   color: rgba(255, 255, 255, 0.75);
   display: block;
   webkit-transition: background .15s linear,color .15s linear;
@@ -178,8 +168,8 @@ label {
   transition: background .15s linear,color .15s linear;
   text-decoration: none;
 }
-/* line 50, ../../sass/onhanh/_navbar.scss */
-.navigation li a > i {
+/* line 36, ../../sass/onhanh/_navbar.scss */
+.navigation > li > a > i {
   float: left;
   top: 0;
   margin-top: 2px;
@@ -189,10 +179,61 @@ label {
   transition: opacity .2s ease-in-out;
   font-size: 16px;
 }
-/* line 63, ../../sass/onhanh/_navbar.scss */
-.navigation li a:hover {
+/* line 49, ../../sass/onhanh/_navbar.scss */
+.navigation > li a:hover {
   color: #fff;
   background-color: #222D33;
+}
+/* line 55, ../../sass/onhanh/_navbar.scss */
+.navigation > li.active > a,
+.navigation > li.active a:hover,
+.navigation > li.active a:focus {
+  background-color: #26a69a;
+  color: #fff;
+}
+/* line 64, ../../sass/onhanh/_navbar.scss */
+.navigation > li > ul {
+  display: none;
+  position: fixed;
+  left: 55px;
+  width: 205px;
+  bottom: 0px;
+  top: 0px;
+  background: #344148;
+  list-style: none;
+  padding: 0px;
+}
+/* line 75, ../../sass/onhanh/_navbar.scss */
+.navigation > li > ul > li.navigation-item > a {
+  padding: 12px 20px;
+  min-height: 44px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  webkit-transition: background .15s linear,color .15s linear;
+  -o-transition: background .15s linear,color .15s linear;
+  transition: background .15s linear,color .15s linear;
+  text-decoration: none;
+}
+/* line 85, ../../sass/onhanh/_navbar.scss */
+.navigation > li > ul > li.navigation-item > a > i {
+  float: left;
+  top: 0;
+  margin-top: 2px;
+  margin-right: 15px;
+  -webkit-transition: opacity .2s ease-in-out;
+  -o-transition: opacity .2s ease-in-out;
+  transition: opacity .2s ease-in-out;
+  font-size: 16px;
+}
+/* line 99, ../../sass/onhanh/_navbar.scss */
+.navigation > li > ul .navigation-header {
+  color: rgba(255, 255, 255, 0.75);
+  padding: 12px 20px;
+  min-height: 44px;
+  font-weight: 500;
+  border-bottom: 1px solid #49565F;
+  text-transform: uppercase;
 }
 
 /* line 1, ../../sass/onhanh/_sidebar.scss */
@@ -227,7 +268,7 @@ label {
 /* line 30, ../../sass/onhanh/_sidebar.scss */
 .category-content {
   position: relative;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* line 4, ../../sass/onhanh/_icons.scss */
