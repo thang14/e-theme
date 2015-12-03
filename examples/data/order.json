@@ -15,7 +15,7 @@
     "price" : 500000,
     "status": "pedding",
     "created_at": "1449103445",
-    "payment_status": "pedding",
+    "payment_status": "pedding"
   },{
     "id": "OR0002",
     "product": {
