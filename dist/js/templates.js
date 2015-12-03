@@ -81,8 +81,38 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
   );
 
 
+  $templateCache.put('/web/settings/manager.html',
+    "manager.html"
+  );
+
+
+  $templateCache.put('/web/settings/notifications.html',
+    "Notifications.html"
+  );
+
+
+  $templateCache.put('/web/settings/page.html',
+    "page.html"
+  );
+
+
+  $templateCache.put('/web/settings/payment.html',
+    "payment.html"
+  );
+
+
   $templateCache.put('/web/settings/settings.html',
-    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4><i class=\"glyphicon glyphicon-tags\"></i> Settings</h4></div></div><!--.page-header-content--></div><!--.page-header--><div class=\"content\"><div class=\"setting-menu\" style=\"width:200px\"><ul class=\"list-group\"><li class=\"list-group-item\"><i class=\"glyphicon glyphicon-home\"></i> Page</li><li class=\"list-group-item\"><i class=\"fa fa-users\"></i> Managers</li><li class=\"list-group-item\"><i class=\"fa fa-credit-card\"></i> Payment</li><li class=\"list-group-item\"><i class=\"glyphicon glyphicon-plane\"></i> Shipping</li><li class=\"list-group-item\"><i class=\"glyphicon glyphicon-bell\"></i> Notification</li><li class=\"list-group-item\"><i class=\"fa fa-facebook-official\"></i> Social networds</li></ul></div></div><!--.content-->"
+    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4><i class=\"glyphicon glyphicon-tags\"></i> Settings</h4></div></div><!--.page-header-content--></div><!--.page-header--><div class=\"content\"><div class=\"row\"><div class=\"col-md-2\"><div class=\"setting-menu\"><div class=\"list-group\"><a class=\"list-group-item\" ui-sref-active=\"active\" ui-sref=\"settings.page\"><i class=\"glyphicon glyphicon-home\"></i> Page</a> <a class=\"list-group-item\" ui-sref-active=\"active\" ui-sref=\"settings.manager\"><i class=\"fa fa-users\"></i> Manager</a> <a class=\"list-group-item\" ui-sref-active=\"active\" ui-sref=\"settings.payment\"><i class=\"fa fa-credit-card\"></i> Payment</a> <a class=\"list-group-item\" ui-sref-active=\"active\" ui-sref=\"settings.shipping\"><i class=\"glyphicon glyphicon-plane\"></i> Shipping</a> <a class=\"list-group-item\" ui-sref-active=\"active\" ui-sref=\"settings.notifications\"><i class=\"glyphicon glyphicon-bell\"></i> Notifications</a> <a class=\"list-group-item\" ui-sref-active=\"active\" ui-sref=\"settings.social\"><i class=\"fa fa-facebook-official\"></i> Social networds</a></div></div></div><div class=\"col-md-10\"><div ui-view=\"setting\"></div></div></div></div><!--.content-->"
+  );
+
+
+  $templateCache.put('/web/settings/shipping.html',
+    "shipping.html"
+  );
+
+
+  $templateCache.put('/web/settings/social.html',
+    "social.html"
   );
 
 
