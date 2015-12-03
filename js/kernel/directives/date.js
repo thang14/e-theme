@@ -7,16 +7,19 @@
  
 kernelModule.directive('dateInterval', ["$interval", "$filter", function ($interval, $filter) {
 
-	// Gets current time
-	function getCurrentTime() {
+	var getCurrentTime = function() {
 		var time = new Date().getTime();
         return Math.round(time / 1000);
 	}
-
-	// Change time
-	function changeTime(element, time) {
+	var getSeconds = function(time) {
 		var currentTime = getCurrentTime();
-		var seconds = currentTime - time;
+		return currentTime - time;
+	}
+	var canIterval = function(seconds) {
+		return (seconds*60 > 30);
+	}
+	var changeTime(element, time) {
+		var seconds = getSeconds();
 		var text;
 		if(seconds < 60) {
 			text = 'The few seconds ago';
@@ -29,19 +32,21 @@ kernelModule.directive('dateInterval', ["$interval", "$filter", function ($inter
 		}
 		element.text(text);
 	}
-
-
-    function link(scope, element, attrs) {
+	var link = function(scope, element, attrs) {
     	var timeoutId = null;
         scope.$watch(attrs.dateInterval, function (value) {
             changeTime(element, value);
-            timeoutId = $interval(function () {
-            	changeTime(element, value);
-            }, 60000);
+            if(canIterval(getSeconds(value))) {
+            	timeoutId = $interval(function () {
+	            	changeTime(element, value);
+	            }, 60000);
+            }
         });
 
         element.on('$destroy', function () {
-            $interval.cancel(timeoutId);
+        	if(timeoutId != null) {
+        		$interval.cancel(timeoutId);
+        	}
         });
 
     }
