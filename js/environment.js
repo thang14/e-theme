@@ -19,7 +19,9 @@ window.angular.module('app.environment', [])
                 api: domain + getNamespace(),
                 prefix: ".json",
                 domain: domain,
-                pageTitle: 'Onhanh - open source project | Admin Dasboard'
+                pageTitle: 'Onhanh - open source project | Admin Dasboard',
+                locale: "vi",
+                currency: "$"
             },
         }
     });

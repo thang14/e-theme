@@ -11,6 +11,8 @@ kernelModule
           return {
               launch: function () {
                   $rootScope.domain = Environment.settings.domain;
+                  $rootScope.locale = Environment.settings.locale;
+                  $rootScope.currency = Environment.settings.currency;
               }
           }
       }

@@ -17,7 +17,7 @@ productModule.factory('Variants', ['resourceService', 'Medias', '$q', 'productTe
             angular.forEach(this.option, function(value, index) {
                 text.push(instance.variant_options[index].values[value].text);
             });
-            return text.join(" >> ");
+            return text.join(", ");
         }
 
         /**

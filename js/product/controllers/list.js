@@ -22,7 +22,7 @@ productModule
         $scope.gridOptions = productGrid.gridOptions($scope);
 
         $scope.load = function() {
-            $scope.gridOptions.load($scope.search);
+            productGrid.load($scope.search);
         }
 
         $scope.load();
