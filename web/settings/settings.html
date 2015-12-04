@@ -1,11 +1,163 @@
-<div class="page-header">
-    <div class="page-header-content">
-        <div class="page-title">
-            <h4><i class="glyphicon glyphicon-tags"></i> Settings</h4>
-        </div>
-    </div><!--.page-header-content-->
-</div><!--.page-header-->
+<form name="settingForm" crud-edit="resource">
+    
 
-<div class="content">
-    <div ui-view="setting"></div>
-</div><!--.content-->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h4><i class="glyphicon glyphicon-tags"></i> Settings</h4>
+            </div>
+        </div><!--.page-header-content-->
+        <div class="page-header-right">
+            <crud-buttons></crud-buttons>
+        </div>
+    </div><!--.page-header-->
+
+    <div class="content">
+    	<h4>Store detail</h4>
+    	<p class="help-block">
+        	Your customers will use this information to contact you.
+        </p>
+         <div style="max-width:440px">
+            <div class="form-group">
+                <label for="itemName">
+                    Store name <strong class="color-red">*</strong>
+                </label>
+                <input
+                    name="name"
+                    type="text"
+                    ng-model="resource.name"
+                    class="form-control"
+                    id="itemName"
+                    maxlength="255"
+                    placeholder="Name">
+            </div><!--.form-group-->
+
+            <div class="form-group">
+                <label for="itemEmail">
+                    Email <strong class="color-red">*</strong>
+                </label>
+                <input
+                    name="name"
+                    type="text"
+                    ng-model="resource.email"
+                    class="form-control"
+                    id="itemEmail"
+                    maxlength="255"
+                    placeholder="Email">
+            </div><!--.form-group-->
+
+            <div class="form-group">
+                <label for="itemPhone">
+                    Phone
+                </label>
+                <input
+                    name="name"
+                    type="text"
+                    ng-model="resource.phone"
+                    class="form-control"
+                    id="itemEmail"
+                    maxlength="255"
+                    placeholder="Phone">
+            </div><!--.form-group-->
+        </div>
+        <h4>Store address</h4>
+        <p class="help-block">
+        	This address will appear on your invoices. You can edit the address used to calculate shipping rates in your shipping settings.
+        </p>
+        <div style="max-width:440px">
+            <div class="form-group">
+                <label for="itemStreet">
+                    Street
+                </label>
+                <input
+                    name="name"
+                    type="text"
+                    ng-model="resource.address.street"
+                    class="form-control"
+                    id="itemStreet"
+                    maxlength="255"
+                    placeholder="Street">
+            </div><!--.form-group-->
+
+            <div class="row">
+            	<div class="col-md-8">
+            		<div class="form-group">
+    		            <label for="itemCity">
+    		                City 
+    		            </label>
+    		            <input
+    		                name="name"
+    		                type="text"
+    		                ng-model="resource.address.city"
+    		                class="form-control"
+    		                id="itemCity"
+    		                maxlength="255"
+    		                placeholder="City">
+    		        </div><!--.form-group-->
+            	</div>
+            	<div class="col-md-4">
+            		<div class="form-group">
+    		            <label for="itemZip">
+    		                Zip 
+    		            </label>
+    		            <input
+    		                name="name"
+    		                type="text"
+    		                ng-model="resource.address.zip"
+    		                class="form-control"
+    		                id="itemZip"
+    		                maxlength="255"
+    		                placeholder="Zip">
+    		        </div><!--.form-group-->
+            	</div>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="itemCountry">
+                    Country
+                </label>
+                <input
+                    name="name"
+                    type="text"
+                    ng-model="resource.address.country"
+                    class="form-control"
+                    id="itemCountry"
+                    maxlength="255"
+                    placeholder="Country">
+            </div><!--.form-group-->
+        </div>
+
+        <h4>Standards and formats</h4>
+        <p class="help-block">Standards and formats are used to calculate product prices, shipping weights, order times, and more.</p>
+        <div style="max-width:440px">
+            <div class="form-group">
+                <label for="timezone">
+                    Timezone
+                </label>
+                <input
+                    name="timezone"
+                    type="text"
+                    ng-model="resource.price_format"
+                    class="form-control"
+                    id="timezone"
+                    maxlength="255"
+                    placeholder="Timezone">
+            </div><!--.form-group-->
+
+            <div class="form-group">
+                <label for="currencyFormat">
+                    Currency
+                </label>
+                <input
+                    name="currencyFormat"
+                    type="text"
+                    ng-model="resource.currency"
+                    class="form-control"
+                    id="priceFormat"
+                    maxlength="255"
+                    placeholder="Currency">
+            </div><!--.form-group-->
+        </div>
+    </div><!--.content-->
+</form>

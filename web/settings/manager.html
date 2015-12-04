@@ -1,1 +1,66 @@
-manager.html
+<form class="access-form" name="settingForm">
+    
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h4><i class="glyphicon glyphicon-tags"></i> Setting Access management</h4>
+            </div>
+        </div><!--.page-header-content-->
+    </div><!--.page-header-->
+
+    <div class="content">
+    	<h4>Users</h4>
+         <div style="max-width:460px">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>
+							<div class="form-group">
+							    <input type="email" ng-model="resource.email" class="form-control" id="exampleInputEmail1" placeholder="Username or email address">
+							</div>
+						</td>
+						<td style="width:200px;">
+							<div class="form-group">
+							    <select name="resource.level" class="form-control">
+							    	<option value="read">Read</option>
+							    	<option value="write">Write</option>
+							    	<option value="admin">Admin</option>
+							    </select>
+							</div>
+						</td>
+						<td class="text-right">
+							<div class="form-group">
+							    <button class="btn btn-default" type="submit">Save</button>
+							</div>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="n in [0, 1]">
+						<td>
+							<div class="media">
+								<a class="media-left">
+									<img src="images/face11.jpg" class="img-circle img-sm" alt="">
+								</a>
+								<div class="media-body">
+									<a href="#">Thangn</a>
+								</div>
+							</div>
+						</td>
+						<td>
+							<ul class="access">
+						        <li ng-click="user.setLevel('read')">read</li>
+						        <li ng-click="user.setLevel('write')">write</li>
+						        <li ng-click="user.setLevel('admin')" class="active">admin</li>
+						    </ul>
+						</td>
+						<td class="text-right">
+							<a href="#"><i class="fa fa-times"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</form>

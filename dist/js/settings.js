@@ -44,7 +44,7 @@ settingsModule
               title: "Setting manager",
               url: "/managers",
               views: {
-                'setting' : {
+                '@' : {
                   controller: 'settingManagerController',
                   templateUrl: '/web/settings/manager.html',
                 }
@@ -55,7 +55,7 @@ settingsModule
               title: "Setting Payment",
               url: "/payment",
               views: {
-                'setting' : {
+                '@' : {
                   controller: 'settingPaymentController',
                   templateUrl: '/web/settings/payment.html',
                 }
@@ -66,7 +66,7 @@ settingsModule
               title: "Setting shipping",
               url: "/shipping",
               views: {
-                'setting' : {
+                '@' : {
                   controller: 'settingShippingController',
                   templateUrl: '/web/settings/shipping.html',
                 }
@@ -77,7 +77,7 @@ settingsModule
               title: "Setting social",
               url: "/social",
               views: {
-                'setting' : {
+                '@' : {
                   controller: 'settingSocialController',
                   templateUrl: '/web/settings/social.html',
                 }
@@ -88,7 +88,7 @@ settingsModule
               title: "Setting notifications",
               url: "/notifications",
               views: {
-                'setting' : {
+                '@' : {
                   controller: 'settingNotificationsController',
                   templateUrl: '/web/settings/notifications.html',
                 }

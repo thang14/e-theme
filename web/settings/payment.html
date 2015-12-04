@@ -1,1 +1,59 @@
-payment.html
+<div class="page-header">
+    <div class="page-header-content">
+        <div class="page-title">
+            <h4><i class="glyphicon glyphicon-tags"></i> Setting Payment</h4>
+        </div>
+    </div><!--.page-header-content-->
+</div><!--.page-header-->
+
+<div class="content">
+	<div style="max-width:440px">
+        <div class="form-group">
+            <label for="itemStreet">
+                Card code
+            </label>
+            <input
+                name="name"
+                type="text"
+                ng-model="resource.address.street"
+                class="form-control"
+                id="itemStreet"
+                maxlength="255"
+                placeholder="Street">
+        </div><!--.form-group-->
+
+        <div class="row">
+        	<div class="col-md-8">
+        		<div class="form-group">
+		            <label for="itemCity">
+		                Card name 
+		            </label>
+		            <input
+		                name="name"
+		                type="text"
+		                ng-model="resource.address.city"
+		                class="form-control"
+		                id="itemCity"
+		                maxlength="255"
+		                placeholder="City">
+		        </div><!--.form-group-->
+        	</div>
+        	<div class="col-md-4">
+        		<div class="form-group">
+		            <label for="itemZip">
+		                Zip 
+		            </label>
+		            <input
+		                name="name"
+		                type="text"
+		                ng-model="resource.address.zip"
+		                class="form-control"
+		                id="itemZip"
+		                maxlength="255"
+		                placeholder="Zip">
+		        </div><!--.form-group-->
+        	</div>
+        </div>
+    </div>
+            
+</div><!--.content-->

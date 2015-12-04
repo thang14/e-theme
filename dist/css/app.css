@@ -136,6 +136,40 @@ label {
   max-width: 1200px;
 }
 
+/**
+ *
+ */
+/* line 44, ../../sass/onhanh/_forms.scss */
+.access-form .access {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 49, ../../sass/onhanh/_forms.scss */
+.access-form .access li {
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #a5b3c2;
+  color: #4a6785;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 99%;
+  margin: 0;
+  padding: 2px 5px;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 5px;
+}
+/* line 67, ../../sass/onhanh/_forms.scss */
+.access-form .access .active {
+  background-color: #4a6785;
+  border-color: #4a6785;
+  color: #fff;
+}
+
 /* line 5, ../../sass/onhanh/_navbar.scss */
 .navbar-nav > .dropdown-user img {
   max-height: 28px;
@@ -346,7 +380,7 @@ label {
 }
 
 /* line 6, ../../sass/onhanh/_tables.scss */
-.table .form-control {
+.table-form .form-control {
   cursor: pointer;
   border: 1px solid #fff;
   -moz-box-shadow: none;
@@ -354,7 +388,7 @@ label {
   box-shadow: none;
 }
 /* line 13, ../../sass/onhanh/_tables.scss */
-.table tr:hover .form-control {
+.table-form tr:hover .form-control {
   border: 1px solid #ccc;
 }
 

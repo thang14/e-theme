@@ -32,3 +32,42 @@ label {
     max-width:1200px;
 }
 
+
+
+
+
+/**
+ *
+ */
+
+.access-form {
+    .access {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            text-transform: uppercase;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #a5b3c2;
+            color: #4a6785;
+            border-radius: 3px;
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 99%;
+            margin: 0;
+            padding: 2px 5px;
+            text-align: center;
+            text-decoration: none;
+            margin-right: 5px;
+        }
+
+        .active {
+            background-color: #4a6785;
+            border-color: #4a6785;
+            color: #fff;
+        }
+    }
+}
