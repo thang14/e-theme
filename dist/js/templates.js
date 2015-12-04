@@ -87,7 +87,7 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/web/settings/notifications.html',
-    "Notifications.html"
+    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4><i class=\"glyphicon glyphicon-tags\"></i> Setting notification</h4></div></div><!--.page-header-content--></div><!--.page-header--><div class=\"content\"><div style=\"max-width:440px\"></div></div><!--.content-->"
   );
 
 
@@ -107,12 +107,12 @@ angular.module('app.kernel').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('/web/settings/shipping.html',
-    "shipping.html"
+    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4><i class=\"glyphicon glyphicon-tags\"></i> Setting Shipping</h4></div></div><!--.page-header-content--></div><!--.page-header--><div class=\"content\"><div style=\"max-width:440px\"></div></div><!--.content-->"
   );
 
 
   $templateCache.put('/web/settings/social.html',
-    "social.html"
+    "<div class=\"page-header\"><div class=\"page-header-content\"><div class=\"page-title\"><h4><i class=\"glyphicon glyphicon-tags\"></i> Setting social</h4></div></div><!--.page-header-content--></div><!--.page-header--><div class=\"content\"><div style=\"max-width:440px\"></div></div><!--.content-->"
   );
 
 
