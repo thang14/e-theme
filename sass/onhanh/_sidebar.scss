@@ -1,16 +1,17 @@
 .sidebar {
     background-color: #263238;
     color: #fff;
-    position: relative;
-    width: 100%;
-
+    position: fixed;
+    top:0px;
+    left: 0px;
+    bottom: 0px;
+    width: 260px;
+    z-index: 10;
     @media (min-width: $screen-sm) {
-        width: 260px;
         position:fixed;
         top:0px;
         left: 0px;
         bottom: 0px;
-        z-index: 10;
         .sidebar-content {
             position:absolute;
             top:0px;

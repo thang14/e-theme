@@ -2,10 +2,10 @@
 
 /**
  * @name            OnhanhSettings
- * @description     settingsModule
+ * @description     SettingsController
  */
 settingsModule
-.controller('settingNotificationsController', [ '$scope',
+.controller('settingSocialController', [ '$scope',
     function($scope) {
         
     }

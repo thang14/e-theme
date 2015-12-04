@@ -4,7 +4,7 @@
             <div class="media">
                 <a href="#" class="media-left"><img src="images/face11.jpg" class="img-circle img-sm" alt=""></a>
                 <div class="media-body">
-                    <span class="media-heading text-semibold">
+                    <span class="media-heading text-semibold text">
                         Thực phẩm sạch
                     </span><!--.media-heading-->
                     <div class="text-size-mini text-muted">
@@ -18,13 +18,37 @@
     <div class="sidebar-category sidebar-category-visible">
         <div class="category-content no-padding">
             <ul class="navigation navigation-main navigation-accordion">
-                <li class="item" ui-sref-active="active"><a ui-sref="home" class="linkWrap"><i class="glyphicon glyphicon-home"></i>Home</a></li>
-                <li class="item" ui-sref-active="active"><a ui-sref="product" class="linkWrap"><i class="glyphicon glyphicon-tag"></i>Products</a></li>
-                <li class="item" ui-sref-active="active"><a ui-sref="order" class="linkWrap"><i class="fa fa-shopping-cart"></i>Orders</a></li>
-                <li class="item" ui-sref-active="active"><a ui-sref="section" class="linkWrap"><i class="glyphicon glyphicon-check"></i>Sections</a></li>
-                <li class="item" ui-sref-active="active"><a ui-sref="reports" class="linkWrap"><i class="fa fa-bar-chart"></i>Reports</a></li>
+                <li class="item" ui-sref-active="active"><a ui-sref="home" class="linkWrap">
+                        <i class="glyphicon glyphicon-home"></i><span  class="text">Home<span></a>
+                </li>
+
+                <li class="item" ui-sref-active="active"><a ui-sref="product" class="linkWrap">
+                    <i class="glyphicon glyphicon-tag"></i><span  class="text">Products</a></a>
+                </li>
+
+
+                <li class="item" ui-sref-active="active"><a ui-sref="order" class="linkWrap">
+                    <i class="fa fa-shopping-cart"></i><span  class="text">Orders</a>
+                    <ul>
+                        <li class="navigation-header">Orders</li>
+                        <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="order">Orders</a></li>
+                        <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="order.drafts">Drafts</a></li>
+                    <ul>
+
+                </li>
+
+                <li class="item" ui-sref-active="active"><a ui-sref="section" class="linkWrap">
+                    <i class="glyphicon glyphicon-check"></i><span  class="text">Sections</a>
+                </li>
+
+                <li class="item" ui-sref-active="active"><a ui-sref="reports" class="linkWrap">
+                    <i class="fa fa-bar-chart"></i><span  class="text">Reports</a>
+                </li>
+
                 <li class="item" ui-sref-active="active">
-                    <a ui-sref="settings" class="linkWrap"><i class="glyphicon glyphicon-cog"></i>Settings</a>
+                    <a ui-sref="settings" class="linkWrap">
+                        <i class="glyphicon glyphicon-cog"></i><span class="text">Settings</a>
+                    </a>
                     <ul>
                         <li class="navigation-header">Settings</li>
                         <li class="navigation-item"  ui-sref-active="active"> <a ui-sref="settings.page">Page info</a></li>

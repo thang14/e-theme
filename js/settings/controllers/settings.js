@@ -5,8 +5,9 @@
  * @description     SettingsController
  */
 settingsModule
-.controller('settingsController', [ '$scope',
-    function($scope) {
-        
+.controller('settingsController', [ '$scope', '$state',
+    function($scope, $state) {
+
+        $state.transitionTo('settings.page');
     }
 ]);

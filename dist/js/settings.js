@@ -102,18 +102,6 @@ settingsModule
 
 /**
  * @name            OnhanhSettings
- * @description     settingInfoController
- */
-settingsModule.controller('settingInfoController', [ '$scope',
-    function($scope) {
-        
-    }
-]);
-
-'use strict';
-
-/**
- * @name            OnhanhSettings
  * @description     settingsModule
  */
 settingsModule
@@ -130,7 +118,7 @@ settingsModule
  * @description     settingsModule
  */
 settingsModule
-.controller('settingNotificationController', [ '$scope',
+.controller('settingNotificationsController', [ '$scope',
     function($scope) {
         
     }
@@ -157,7 +145,7 @@ settingsModule
  * @description     SettingsController
  */
 settingsModule
-.controller('settingPaymentsController', [ '$scope',
+.controller('settingPaymentController', [ '$scope',
     function($scope) {
         
     }
@@ -170,7 +158,34 @@ settingsModule
  * @description     SettingsController
  */
 settingsModule
-.controller('settingsController', [ '$scope',
+.controller('settingsController', [ '$scope', '$state',
+    function($scope, $state) {
+
+        $state.transitionTo('settings.page');
+    }
+]);
+
+'use strict';
+
+/**
+ * @name            OnhanhSettings
+ * @description     SettingsController
+ */
+settingsModule
+.controller('settingShippingController', [ '$scope',
+    function($scope) {
+        
+    }
+]);
+
+'use strict';
+
+/**
+ * @name            OnhanhSettings
+ * @description     SettingsController
+ */
+settingsModule
+.controller('settingSocialController', [ '$scope',
     function($scope) {
         
     }

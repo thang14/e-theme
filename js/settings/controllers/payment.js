@@ -1,11 +1,12 @@
+
 'use strict';
 
 /**
  * @name            OnhanhSettings
- * @description     settingsModule
+ * @description     SettingsController
  */
 settingsModule
-.controller('settingNotificationsController', [ '$scope',
+.controller('settingPaymentController', [ '$scope',
     function($scope) {
         
     }
